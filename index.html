@@ -170,11 +170,11 @@ return html
 }
 function beginMission(id){currentId=id;page='play';answerResult=null;guideReturn='play';render();window.scrollTo({top:0,behavior:'smooth'})}
 function evaluateChoice(i){const m=mFor(currentId);if(!m||answerResult)return;state.attempts[m.id]=(state.attempts[m.id]||0)+1;const correct=i===m.a;
-if(correct){let earned=0;if(!state.done[m.id]){earned=(state.misses[m.id]||0)===0?100:60;state.done[m.id]={score:earned,misses:state.misses[m.id]||0,when:new Date().toISOString()};state.xp=missionScore()+earned;}answerResult={id:m.id,correct:true,choice:i,earned:earned}}
+if(correct){let earned=0;if(!state.done[m.id]){earned=(state.misses[m.id]||0)===0?100:60;state.done[m.id]={score:earned,misses:state.misses[m.id]||0,when:new Date().toISOString()};state.xp=missionScore();}answerResult={id:m.id,correct:true,choice:i,earned:earned}}
 else{state.misses[m.id]=(state.misses[m.id]||0)+1;answerResult={id:m.id,correct:false,choice:i,reason:m.opts[i].w||'La opción no coincide con la decisión o el cálculo requerido.'}}
 save();render()}
 function evaluateNumber(value){const m=mFor(currentId);if(!m||answerResult)return;state.attempts[m.id]=(state.attempts[m.id]||0)+1;const n=Number(value),correct=Number.isFinite(n)&&Math.abs(n-m.answer)<=m.tolerance;
-if(correct){let earned=0;if(!state.done[m.id]){earned=(state.misses[m.id]||0)===0?100:60;state.done[m.id]={score:earned,misses:state.misses[m.id]||0,when:new Date().toISOString()};state.xp=missionScore()+earned;}answerResult={id:m.id,correct:true,earned:earned}}
+if(correct){let earned=0;if(!state.done[m.id]){earned=(state.misses[m.id]||0)===0?100:60;state.done[m.id]={score:earned,misses:state.misses[m.id]||0,when:new Date().toISOString()};state.xp=missionScore();}answerResult={id:m.id,correct:true,earned:earned}}
 else{state.misses[m.id]=(state.misses[m.id]||0)+1;answerResult={id:m.id,correct:false,entered:value,reason:'Tu resultado fue '+value+'; no coincide con el valor esperado. Revisa la fórmula, el orden de las operaciones y las unidades. La explicación de abajo muestra el procedimiento.'}}
 save();render()}
 function bindPage(){
