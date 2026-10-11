@@ -150,10 +150,10 @@ m.opts.forEach((o,i)=>{let cls='option';if(answerResult&&answerResult.id===m.id)
 html+='<form id="numericForm" class="numericform"><input aria-label="Tu respuesta numérica" type="number" name="value" step="any" inputmode="decimal" placeholder="Escribe tu resultado" '+(answerResult&&answerResult.id===m.id?'disabled':'')+' required><button class="btn primary" type="submit" '+(answerResult&&answerResult.id===m.id?'disabled':'')+'>Comprobar respuesta</button></form><p class="smallmuted">Ingresa solo el número. La unidad se indica debajo del reto: <b>'+m.unit+'</b>.</p>'
 }
 if(answerResult&&answerResult.id===m.id){
-html+='<div class="feedback '+(answerResult.correct?'':'bad')+'" role="status" aria-live="polite"><h3>'+(answerResult.correct?'✓ '+(done?'Misión ya completada':'¡Correcto!'):'✕ Todavía no. Vamos a revisar el razonamiento.')+'</h3>';
+html+='<div class="feedback '+(answerResult.correct?'':'bad')+'" role="status" aria-live="polite"><h3>'+(answerResult.correct?'✓ '+(answerResult.earned===0?'Misión ya completada':'¡Correcto!'):'✕ Todavía no. Vamos a revisar el razonamiento.')+'</h3>';
 if(!answerResult.correct)html+='<p><b>Qué estuvo mal:</b> '+esc(answerResult.reason)+'</p>';
 html+='<p><b>Explicación:</b> '+m.explain+'</p><div class="formula">Clave: '+m.tip+'</div>';
-if(answerResult.correct)html+='<p><b>XP de esta misión:</b> '+(done?'Ya estaba registrada; no se sumó XP adicional.':(state.done[m.id]?state.done[m.id].score:answerResult.earned))+'</p><div class="row" style="margin-top:15px"><button class="btn primary" data-action="next">Siguiente misión →</button><button class="btn ghost" data-action="home">Ver mapa</button></div>';
+if(answerResult.correct)html+='<p><b>XP de esta misión:</b> '+(answerResult.earned===0?'Ya estaba registrada; no se sumó XP adicional.':answerResult.earned)+'</p><div class="row" style="margin-top:15px"><button class="btn primary" data-action="next">Siguiente misión →</button><button class="btn ghost" data-action="home">Ver mapa</button></div>';
 else html+='<div class="row" style="margin-top:15px"><button class="btn primary" data-action="retry">Intentar de nuevo</button><button class="btn ghost" data-action="guide">Consultar guía del tema</button></div>';
 html+='</div>'
 }
