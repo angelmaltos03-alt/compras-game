@@ -16,7 +16,7 @@
   <div class="shell">
     <nav class="nav">
       <div class="brand"><span class="brand-mark">↗</span><span>MISIÓN<br>ABASTECIMIENTO</span></div>
-      <div class="navlinks"><a href="#laboratorio">Laboratorio</a><a href="#evaluacion">Evaluación</a><a href="#simuladores">Simuladores</a></div>
+      <div class="navlinks"><a href="#laboratorio">Laboratorio</a><a href="#panel-quiz" onclick="showPanel(\u0027quiz\u0027)">Evaluación</a><a href="https://angelmaltos03-alt.github.io/compras-game/guia-3-2-3-5/">Librillo de estudio ↗</a></div>
     </nav>
     <div class="hero">
       <div>
@@ -61,7 +61,7 @@
     <section class="content">
       <div class="panel active" id="panel-overview">
         <div class="card"><h3>¿Cómo se gana este laboratorio?</h3><p class="muted">No es solo contestar bien. Debes demostrar que sabes identificar el dato confiable, entender quién debe decidir, documentar una necesidad y anticipar el abastecimiento.</p>
-          <div class="topic-grid">
+          <div class="notice"><span style="font-size:22px">📘</span><div><strong>Continúa con el librillo de estudio</strong>Lee la explicación, realiza el ejercicio indicado y regresa a este laboratorio para practicar.<br><a href="https://angelmaltos03-alt.github.io/compras-game/guia-3-2-3-5/" style="display:inline-block;margin-top:6px;font-weight:850;color:#176da2">Abrir guía complementaria ↗</a></div></div><div class="topic-grid">
             <article class="topic"><div class="topic-top"><span class="topic-num">TEMA 3.2</span><span class="topic-icon">⌘</span></div><h3>Proceso electrónico de datos</h3><p>Identifica errores en flujos digitales, validaciones, aprobaciones y trazabilidad.</p></article>
             <article class="topic"><div class="topic-top"><span class="topic-num">TEMA 3.3</span><span class="topic-icon">⇄</span></div><h3>Relación organizacional</h3><p>Conecta Compras con solicitantes, Almacén, Finanzas y áreas técnicas.</p></article>
             <article class="topic"><div class="topic-top"><span class="topic-num">TEMA 3.4</span><span class="topic-icon">▤</span></div><h3>Requisición de compras</h3><p>Redacta una solicitud clara, justificable y lista para revisión.</p></article>
@@ -192,7 +192,7 @@ function calculateNeed(){const d=num("demand"),s=num("safety"),st=num("stock"),r
 function addBusinessDays(date,days){const d=new Date(date.getFullYear(),date.getMonth(),date.getDate());let remaining=days;while(remaining>0){d.setDate(d.getDate()-1);const day=d.getDay();if(day!==0&&day!==6)remaining--}return d}
 function fmtDate(date){return new Intl.DateTimeFormat("es-MX",{day:"2-digit",month:"long",year:"numeric"}).format(date)}
 function calculateSchedule(){const raw=val("needed-date");if(!raw){document.getElementById("start-date").textContent="Selecciona una fecha";return}const needed=new Date(raw+"T12:00:00");const vals=[["Aprobación interna",num("approval-days")],["Gestión / cotización",num("buyer-days")],["Preparación proveedor",num("supplier-days")],["Transporte",num("ship-days")],["Recepción e inspección",num("receive-days")]];const total=vals.reduce(function(a,v){return a+v[1]},0);const start=addBusinessDays(needed,total);document.getElementById("start-date").textContent=fmtDate(start);document.getElementById("schedule-total").textContent="Tiempo total estimado: "+total+" días hábiles, sin contar festivos.";document.getElementById("schedule-caveat").textContent="La fecha final de disponibilidad es "+fmtDate(needed)+". Valida plazos reales y agrega margen si hay incertidumbre.";document.getElementById("schedule-timeline").innerHTML=vals.map(function(v){const percent=total?Math.max(4,v[1]/total*100):0;return '<div class="timeline-row"><b>'+v[0]+'</b><div class="timeline-track"><div class="timeline-fill" style="width:'+percent+'%"></div></div><span>'+v[1]+' día(s)</span></div>'}).join("")}
-function init(){startQuiz();calculateNeed();const d=new Date();d.setDate(d.getDate()+21);document.getElementById("needed-date").value=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");calculateSchedule();updatePreview()}
+function init(){const params=new URLSearchParams(window.location.search);const topic=params.get("topic");const module=params.get("module");if(topic&&["3.2","3.3","3.4","3.5"].includes(topic))document.getElementById("topic-filter").value=topic;startQuiz();calculateNeed();const d=new Date();d.setDate(d.getDate()+21);document.getElementById("needed-date").value=d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");calculateSchedule();updatePreview();if(["quiz","requisition","planning","schedule"].includes(module))showPanel(module)}
 init();
 </script>
 </body>
