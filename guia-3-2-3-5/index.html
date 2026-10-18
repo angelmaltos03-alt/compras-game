@@ -43,6 +43,64 @@
    <h3>Qué hace realmente el proceso digital</h3>
    <p>Un proceso electrónico de datos captura, valida, almacena, procesa y comparte información para decidir qué comprar, cuánto, para cuándo y bajo qué controles. Una hoja de cálculo puede apoyar el análisis; un ERP integra transacciones de compras, inventario, recepción y finanzas; un sistema MRP calcula necesidades de materiales; un portal de proveedores recibe confirmaciones; un tablero BI resume tendencias e indicadores.</p>
    <div class="diagram"><div class="step"><b>1 · Capturar</b><span>Requisición</span></div><div class="step"><b>2 · Validar</b><span>Datos, inventario, presupuesto</span></div><div class="step"><b>3 · Aprobar</b><span>Flujo por rol</span></div><div class="step"><b>4 · Procesar</b><span>Cotización y orden</span></div><div class="step"><b>5 · Controlar</b><span>Estado, recepción, métricas</span></div></div>
+
+   <h3>ERP y MRP: no son lo mismo</h3>
+   <p><strong>ERP</strong> (Enterprise Resource Planning, planificación de recursos empresariales) integra los registros de diferentes áreas. <strong>MRP</strong> (Material Requirements Planning, planificación de requerimientos de materiales) calcula qué componentes hacen falta y cuándo, con base en el plan de producción, la lista de materiales, el inventario y los plazos. En muchas organizaciones el MRP es una función o módulo dentro del ERP.</p>
+   <div class="grid2">
+    <div class="formula"><strong>ERP = registro integrado</strong>¿Qué se solicitó? ¿Quién lo autorizó? ¿Qué orden se emitió? ¿Qué llegó y qué se pagó?</div>
+    <div class="formula"><strong>MRP = cálculo de necesidades</strong>¿Qué materiales hacen falta? ¿Cuánto falta? ¿Qué debe pedirse o producirse y para cuándo?</div>
+   </div>
+   <div class="tablewrap"><table><thead><tr><th>Sistema</th><th>Piensa que es…</th><th>Ejemplo sencillo</th></tr></thead><tbody>
+    <tr><td><strong>ERP</strong></td><td>La libreta compartida de la empresa.</td><td>Conecta requisición, autorización, orden de compra, recepción e información financiera.</td></tr>
+    <tr><td><strong>MRP</strong></td><td>La lista de ingredientes y el calendario de una receta.</td><td>Calcula tornillos, rodamientos y tapas para cumplir un plan de producción.</td></tr>
+    <tr><td><strong>WMS</strong></td><td>El mapa del almacén.</td><td>Identifica ubicación, existencias, reservas, bloqueos y movimientos.</td></tr>
+    <tr><td><strong>Portal SRM / proveedores</strong></td><td>La ventanilla digital con el proveedor.</td><td>Permite consultar cotizaciones, confirmar fechas y dar seguimiento a entregas.</td></tr>
+    <tr><td><strong>BI / tablero</strong></td><td>El tablero de indicadores.</td><td>Resume órdenes atrasadas, gasto, nivel de servicio y entregas a tiempo.</td></tr>
+    <tr><td><strong>EDI / API</strong></td><td>Un mensajero automático entre sistemas.</td><td>Transmite confirmaciones o avisos sin volver a capturar cada dato.</td></tr>
+    <tr><td><strong>E-procurement</strong></td><td>El canal digital para tramitar compras.</td><td>Centraliza requisiciones, cotizaciones, aprobaciones u órdenes conforme a la configuración.</td></tr>
+   </tbody></table></div>
+   <div class="callout"><strong>Analogía para recordar</strong>El MRP te dice qué ingredientes necesitas para preparar 100 comidas y cuándo deben llegar. El ERP registra quién pidió los ingredientes, quién autorizó el gasto, a quién se compraron, qué se recibió y cómo se pagó.</div>
+
+   <h3>Ejemplo guiado: una requisición dentro del ERP</h3>
+   <p>Mantenimiento solicita <strong>20 filtros</strong> para un equipo. La especificación autorizada es “modelo F-220, compatible con el equipo MX-4”. La fecha de uso es el 12 de noviembre y el centro de costo es MTTO-04. Almacén confirma que hay 6 filtros utilizables y que no existen otras recepciones que lleguen a tiempo.</p>
+   <div class="tablewrap"><table><thead><tr><th>Paso</th><th>Acción</th><th>Responsable / dato</th><th>Resultado</th></tr></thead><tbody>
+    <tr><td>1. Capturar</td><td>Registrar descripción, cantidad, unidad, fecha y motivo.</td><td>Mantenimiento</td><td>Se crea el folio REQ-104 en borrador.</td></tr>
+    <tr><td>2. Validar</td><td>Confirmar código y compatibilidad.</td><td>Ingeniería o responsable técnico</td><td>La especificación puede cotizarse.</td></tr>
+    <tr><td>3. Revisar inventario</td><td>Separar stock utilizable, reservas y bloqueos.</td><td>Almacén</td><td>Necesidad bruta 20 − 6 utilizables = faltante preliminar 14.</td></tr>
+    <tr><td>4. Autorizar</td><td>Revisar justificación, presupuesto y prioridad.</td><td>Jefe autorizado / Finanzas, según política</td><td>La solicitud avanza o regresa con motivo.</td></tr>
+    <tr><td>5. Comprar</td><td>Comparar proveedor, compatibilidad, costo total y plazo; emitir la OC autorizada.</td><td>Compras</td><td>La orden se vincula con REQ-104.</td></tr>
+    <tr><td>6. Recibir y cerrar</td><td>Contar, inspeccionar, registrar entrada y conciliar factura.</td><td>Almacén + Calidad si aplica + Finanzas</td><td>Se actualizan inventario e historial.</td></tr>
+   </tbody></table></div>
+   <div class="callout"><strong>Importante</strong>La necesidad inicial puede ser de 20 filtros; el faltante preliminar es de 14 si los otros 6 son utilizables. La cantidad final a comprar también depende del lote mínimo, las unidades de empaque, pedidos abiertos, presupuesto, reservas y autorizaciones. El ERP no debe convertir la necesidad en una orden sin los controles de la empresa.</div>
+
+   <h3>Ejemplo paso a paso de un MRP</h3>
+   <p>Una planta planea fabricar <strong>100 bombas de agua</strong>. Cada bomba necesita 2 rodamientos, 4 tornillos y 1 tapa. El MRP multiplica la lista de materiales por el programa: 200 rodamientos, 400 tornillos y 100 tapas de demanda bruta.</p>
+   <div class="diagram"><div class="step"><b>1 · Plan</b><span>Fabricar 100 bombas</span></div><div class="step"><b>2 · BOM</b><span>2 rodamientos + 4 tornillos + 1 tapa</span></div><div class="step"><b>3 · Inventario</b><span>Usable + recepciones oportunas</span></div><div class="step"><b>4 · Cálculo</b><span>Demanda + reserva − existencias − recepciones</span></div><div class="step"><b>5 · Salida</b><span>Sugerencias de compra y fecha</span></div></div>
+   <div class="tablewrap"><table><thead><tr><th>Material</th><th>Demanda bruta</th><th>Stock utilizable</th><th>Recepción a tiempo</th><th>Seguridad</th><th>Cálculo del neto</th></tr></thead><tbody>
+    <tr><td>Rodamientos</td><td>200</td><td>40</td><td>20</td><td>10</td><td>200 + 10 − 40 − 20 = <strong>150</strong></td></tr>
+    <tr><td>Tornillos</td><td>400</td><td>100</td><td>0</td><td>40</td><td>400 + 40 − 100 − 0 = <strong>340</strong></td></tr>
+    <tr><td>Tapas</td><td>100</td><td>30</td><td>10</td><td>10</td><td>100 + 10 − 30 − 10 = <strong>70</strong></td></tr>
+   </tbody></table></div>
+   <div class="formula"><strong>Fórmula didáctica</strong>Requerimiento neto = demanda bruta + stock de seguridad − inventario utilizable − recepciones confirmadas que llegarán antes de la necesidad.</div>
+   <p><strong>Interpretación:</strong> faltan 150 rodamientos, 340 tornillos y 70 tapas bajo los datos del ejemplo. Si los tornillos solo se venden en paquetes de 100, comprar 300 no alcanza: el siguiente múltiplo que cubre 340 es 400, sujeto a revisar el excedente y autorizar el costo. Si las tapas se venden en cajas de 20, 70 requeridas podrían implicar 80; no redondees sin revisar la regla real del proveedor.</p>
+   <div class="callout"><strong>¿Qué puede salir mal?</strong>Una lista de materiales desactualizada, existencias bloqueadas tratadas como disponibles, una recepción posterior a la fecha necesaria, unidades mezcladas o plazos vencidos hacen que la recomendación del MRP sea engañosa. El sistema calcula con los datos recibidos; las áreas deben mantenerlos y validarlos.</div>
+   <h3>Qué puede sugerir el MRP</h3>
+   <div class="tablewrap"><table><thead><tr><th>Salida</th><th>Qué significa</th><th>Qué revisar antes de actuar</th></tr></thead><tbody>
+    <tr><td>Orden planeada de compra</td><td>Hace falta adquirir cierto material para una fecha.</td><td>Proveedor, lote mínimo, presupuesto, aprobación y plazo.</td></tr>
+    <tr><td>Orden planeada de producción</td><td>Debe fabricarse internamente un componente.</td><td>Capacidad, materiales, ruta y calendario.</td></tr>
+    <tr><td>Reprogramar una orden</td><td>La fecha ya no coincide con la necesidad.</td><td>Confirmación del proveedor, impacto y autorización del cambio.</td></tr>
+    <tr><td>Cancelar o reducir una sugerencia</td><td>Cambió la demanda o existe suministro suficiente.</td><td>Que no haya reservas o pedidos abiertos omitidos.</td></tr>
+   </tbody></table></div>
+
+   <h3>Errores que debes aprender a detectar</h3>
+   <div class="grid2">
+    <div class="formula"><strong>Inventario mal interpretado</strong>Si hay 30 piezas físicas y 8 están reservadas, no puedes contar 30 como libres. Debes revisar si las otras 22 son utilizables.</div>
+    <div class="formula"><strong>Recepción sin confirmar</strong>Un pedido esperado el jueves no cubre automáticamente la necesidad. Valida fecha, estatus y evidencia del proveedor.</div>
+    <div class="formula"><strong>Unidades incompatibles</strong>Una caja puede traer 20 piezas. Antes de comparar cantidades o precios, confirma la conversión autorizada.</div>
+    <div class="formula"><strong>Fecha de proveedor obsoleta</strong>Conservar una promesa antigua sin actualizar el sistema puede ocultar el riesgo de paro.</div>
+   </div>
+   <div class="callout"><strong>Regla clave</strong>El MRP propone; las reglas del sistema y la revisión humana determinan qué se autoriza y cuándo. La salida es una recomendación planeada, no una orden de compra aprobada.</div>
+
    <h3>Datos maestros y transacciones</h3>
    <p>Un dato maestro se reutiliza en muchas operaciones: código de artículo, proveedor, unidad de medida o centro de costo. Una transacción registra un evento: requisición REQ-026, orden OC-0418, recepción de 750 unidades o una factura. Si las áreas usan códigos y unidades incompatibles, el reporte deja de ser confiable aunque el tablero se vea profesional.</p>
    <div class="grid2">
