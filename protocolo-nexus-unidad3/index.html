@@ -142,6 +142,22 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 @media(max-width:440px){.progression-next{align-items:stretch;flex-direction:column}.progression-action{width:100%}.stage-name{font-size:9px}.stage-orb{width:36px;height:36px}.stage-track:before{top:17px}.stage-state{font-size:8px}.progression-percent{font-size:32px}}
 @media(prefers-reduced-motion:reduce){.nexus-progression:before,.nexus-cube{animation:none!important}*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
 
+
+/* VISIBLE CAMPAIGN PREVIEW ON LOGIN */
+.login-campaign-preview{position:relative;margin:22px 0 16px;padding:16px;border:1px solid rgba(121,247,232,.32);border-radius:15px;background:linear-gradient(125deg,rgba(8,26,42,.95),rgba(26,24,57,.92));box-shadow:0 12px 35px rgba(0,0,0,.25);overflow:hidden}
+.login-campaign-preview:after{content:"";position:absolute;width:120px;height:120px;right:-40px;top:-50px;border:1px solid rgba(121,247,232,.3);border-radius:50%;box-shadow:0 0 0 16px rgba(121,247,232,.035),0 0 0 34px rgba(121,247,232,.025)}
+.login-campaign-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;z-index:1}
+.login-campaign-heading b{font-size:12px;letter-spacing:.09em;color:#eafaff}
+.login-campaign-heading span{font-size:9px;font-weight:900;color:#79f7e8;letter-spacing:.12em}
+.login-campaign-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:15px 0 12px;position:relative;z-index:1}
+.login-campaign-step{min-width:0;text-align:center}
+.login-campaign-icon{display:grid;place-items:center;width:30px;height:30px;margin:0 auto 6px;border:1px solid rgba(121,247,232,.5);border-radius:10px;background:rgba(121,247,232,.08);color:#79f7e8;font-weight:900;font-size:12px}
+.login-campaign-step b{display:block;font-size:9px;color:#dce9f6;line-height:1.25}
+.login-campaign-step small{display:block;font-size:8px;color:#8ca2bb;margin-top:3px}
+.login-campaign-bottom{display:flex;justify-content:space-between;gap:8px;align-items:center;border-top:1px solid rgba(121,247,232,.15);padding-top:10px;color:#a5b6ca;font-size:10px;position:relative;z-index:1}
+.login-campaign-bottom strong{color:#c7f36b;letter-spacing:.06em}
+@media(max-width:760px){.login-campaign-preview{margin:15px 0}.login-campaign-step b{font-size:8px}}
+
 </style>
 </head>
 <body>
@@ -151,6 +167,17 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
   <div class="login-orbit orbit-one"></div><div class="login-orbit orbit-two"></div>
   <div class="login-copy"><div class="login-eyebrow"><span class="live-dot"></span> SUPPLY CHAIN INTELLIGENCE · TRAINING ENVIRONMENT</div><h1>La operación<br>no se detiene.<br><em>Tu decisión cuenta.</em></h1><p>Entra al centro de control de AquaMotion Industrial. Analiza datos, coordina áreas, construye requisiciones y programa materiales antes de que la producción se vea comprometida.</p>
    <div class="login-capabilities"><span>DATA INTELLIGENCE</span><span>PROCUREMENT</span><span>SUPPLY PLANNING</span><span>RISK CONTROL</span></div>
+  <div class="login-campaign-preview">
+   <div class="login-campaign-heading"><b>CAMPAÑA DE PROGRESIÓN</b><span>30 RETOS · 5 NIVELES</span></div>
+   <div class="login-campaign-steps">
+    <div class="login-campaign-step"><span class="login-campaign-icon">⌁</span><b>Inteligencia</b><small>01–06</small></div>
+    <div class="login-campaign-step"><span class="login-campaign-icon">⌘</span><b>Coordinación</b><small>07–12</small></div>
+    <div class="login-campaign-step"><span class="login-campaign-icon">▤</span><b>Requisición</b><small>13–18</small></div>
+    <div class="login-campaign-step"><span class="login-campaign-icon">◷</span><b>Programa</b><small>19–24</small></div>
+    <div class="login-campaign-step"><span class="login-campaign-icon">⬡</span><b>Control Tower</b><small>25–30</small></div>
+   </div>
+   <div class="login-campaign-bottom"><span>Desbloquea etapas y mejora tu rango operativo.</span><strong>LEVEL UP ↗</strong></div>
+  </div>
   </div>
   <div class="login-footer"><span>NEXUS PROCUREMENT / UNIDAD 3</span><span>SIMULACIÓN ACADÉMICA · V 1.0</span></div>
  </section>
