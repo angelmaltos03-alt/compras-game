@@ -246,3 +246,38 @@ body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;bac
 @keyframes sparkPulse{from{opacity:.45;transform:scale(.96)}to{opacity:1;transform:scale(1.04)}}
 @media(max-width:480px){.rank-up-card{padding:25px 18px 20px}.rank-up-medal{width:84px;height:92px}.visual-hotspot:after{left:0;right:0;font-size:10px}}
 @media(prefers-reduced-motion:reduce){.rank-up-card,.rank-up-medal,.rank-up-spark,.rank-up-overlay{animation:none;transition:none}}
+
+
+/* NEXUS 2.0 · retroalimentación, reporte y panel operativo */
+.rank-up-scoreline{padding:10px 12px;border:1px solid #405a79;border-radius:10px;background:#081725;color:#b9d0e3;font-size:11px;margin:12px 0 15px}
+.rank-up-scoreline strong{color:#e5ff86}
+.report-medal-summary{display:flex;align-items:center;gap:16px;margin:18px 0;padding:18px;border:1px solid #68e8e8;border-radius:17px;background:radial-gradient(circle at 8% 15%,#36517b88,transparent 40%),linear-gradient(125deg,#102d40,#242044 68%,#10383a);box-shadow:0 12px 35px #0004}
+.report-medal-icon{flex:0 0 62px;height:68px;display:grid;place-items:center;clip-path:polygon(50% 0,92% 18%,84% 74%,50% 100%,16% 74%,8% 18%);background:linear-gradient(145deg,#efffa2,#72eee5 48%,#a99aff);color:#081525;font-size:30px;font-weight:1000;filter:drop-shadow(0 0 15px #79f7e866)}
+.report-medal-summary h3{margin:5px 0;color:#f5f8ff}.report-medal-summary p{margin:4px 0 8px;color:#d0dfed;font-size:13px;line-height:1.6}.report-medal-summary small{color:#a7f4e7;font-size:11px}
+.command-kpi,.home-module,.incident-card,.ops-metrics-card{transition:transform .22s,border-color .22s,box-shadow .22s}
+.command-kpi:hover,.home-module:hover{transform:translateY(-4px);border-color:#73e8ed;box-shadow:0 15px 38px #0005,0 0 24px #6de9ef12}
+.nexus-live-ops{position:relative;overflow:hidden;border-color:#4c6388;background:radial-gradient(ellipse at 5% 0%,#24637a44,transparent 40%),radial-gradient(ellipse at 100% 100%,#6b3b8a33,transparent 42%),linear-gradient(130deg,#0b1b2d,#171b35 65%,#0c3035)}
+.nexus-live-ops:before{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 35px,#9beef00a 36px),repeating-linear-gradient(90deg,transparent 0 35px,#9beef00a 36px);mask-image:linear-gradient(90deg,#000,transparent)}
+.live-ops-head,.ops-live-grid{position:relative;z-index:1}
+.live-ops-head h3{font-size:clamp(22px,3vw,31px);letter-spacing:-.03em}
+.live-ops-head p{max-width:760px;line-height:1.65}
+.ops-metrics-card{background:linear-gradient(145deg,#111f35,#20213c 70%,#0d3439);border-color:#465b7e}
+.ops-metric{padding:12px 0;border-bottom:1px solid #ffffff13}
+.ops-metric span{color:#c5d9ed}
+.ops-meter{height:10px;background:#081626;border:1px solid #314963;border-radius:99px;overflow:hidden;margin-top:8px}
+.ops-meter i{border-radius:99px;background:linear-gradient(90deg,#ff8b9b,#b39aff,#6df2d7);box-shadow:0 0 14px #70f0df66;transition:width .65s cubic-bezier(.2,.8,.2,1)}
+.incident-card{background:linear-gradient(145deg,#142b40,#1e1e3c);border-color:#4a6488}
+.incident-card h4{font-size:20px}.incident-card>p{line-height:1.7;color:#c3d9ea}
+.incident-actions button{transition:transform .18s,filter .18s,border-color .18s}
+.incident-actions button:hover{transform:translateX(3px);filter:brightness(1.15);border-color:#77eee7}
+.ops-log{border:1px solid #3b5270;border-radius:12px;background:#071522;padding:12px}
+.ops-log-title{color:#7ef0e8;font-weight:950;letter-spacing:1.4px}
+.ops-log-line{padding:8px 0;border-bottom:1px solid #ffffff12;line-height:1.5}
+.mission-head{padding:16px;border-radius:14px;background:linear-gradient(110deg,#112c40,#222344 72%,#153a3b);border:1px solid #3b5b78;margin-bottom:12px}
+.mission-head h3{font-size:clamp(21px,2.8vw,29px)}
+.mission-head .muted{line-height:1.7;color:#c5d9eb}
+.mission-visual{border-color:#4d628c;background:radial-gradient(circle at 90% 0%,#8b69ff25,transparent 40%),radial-gradient(circle at 0% 100%,#56e7df1a,transparent 40%),linear-gradient(130deg,#0c2437,#191a38 68%,#10383a)}
+.learning-method{box-shadow:inset 4px 0 #a89aff,0 10px 26px #0002}
+.learning-method h4{color:#c8c0ff}
+.nexus-question-guide{background:linear-gradient(120deg,#102f42,#242049 55%,#173f3b);border-color:#63dfe5}
+@media(max-width:600px){.report-medal-summary{align-items:flex-start;padding:13px;gap:12px}.report-medal-icon{flex-basis:48px;height:54px;font-size:24px}.rank-up-scoreline{font-size:10px}}
