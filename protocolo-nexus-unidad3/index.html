@@ -94,6 +94,54 @@ body{font-family:'DM Sans',Inter,system-ui,sans-serif;background:#050b15}.shell{
 .login-role-select{width:100%;padding:13px 14px;border-radius:10px;border:1px solid rgba(128,165,194,.25);background:#0b1928;color:#eaf3fb;font:inherit;margin:8px 0 16px;outline:none}.login-role-select:focus{border-color:#55c8ff}
 
 .instructor-link{display:block;margin:12px auto 0;background:none;border:0;color:#8acfff;text-decoration:underline;cursor:pointer;font-size:12px}.scenario-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:18px}.scenario-card{border:1px solid rgba(105,174,220,.2);border-radius:14px;padding:18px;background:rgba(10,27,43,.7)}.scenario-card h3{margin:7px 0;font-size:17px}.scenario-card p,.scenario-card li{font-size:12px;line-height:1.6;color:#b7c6d4}.scenario-card .case-id{font-size:10px;letter-spacing:.15em;color:#65d7ff}.scenario-card button{margin-top:10px}.instructor-console{padding:26px;max-width:1400px;margin:30px auto;background:rgba(7,17,29,.98);border:1px solid rgba(100,185,239,.2);border-radius:20px;color:#edf5fc}.instructor-notice,.instructor-key{margin-top:16px;padding:16px;border-radius:12px;background:rgba(87,177,233,.08);border:1px solid rgba(87,177,233,.2);font-size:12px;line-height:1.65;color:#bfd0df}.instructor-key h3{margin-top:0}.instructor-key li{margin:7px 0}.student-code-select{width:100%;padding:13px 14px;border-radius:10px;border:1px solid rgba(128,165,194,.25);background:#0b1928;color:#eaf3fb;font:inherit;margin:8px 0 16px}.scenario-chip{display:inline-block;padding:5px 8px;border-radius:7px;background:rgba(82,202,255,.1);color:#86dcff;font-size:10px;letter-spacing:.08em}@media(max-width:750px){.scenario-cards{grid-template-columns:1fr}.instructor-console{padding:16px;margin:12px}}
+
+/* NEXUS IMMERSIVE PROGRESSION UPGRADE */
+:root{--neon:#79f7e8;--violet:#8f7bff;--glass:rgba(10,24,42,.76)}
+body{background-color:#050b15;background-image:radial-gradient(ellipse at 15% 5%,rgba(28,93,136,.34),transparent 35%),radial-gradient(ellipse at 88% 20%,rgba(82,57,158,.22),transparent 30%),linear-gradient(rgba(83,145,184,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(83,145,184,.055) 1px,transparent 1px);background-size:auto,auto,42px 42px,42px 42px;background-attachment:fixed}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(circle at 50% 40%,transparent 0,rgba(2,6,13,.36) 75%)}
+.panel,.side,.command-kpi,.home-side-card,.home-feature{box-shadow:0 18px 55px rgba(0,0,0,.2)}
+.command-head h2{letter-spacing:-.035em;font-size:clamp(26px,3vw,38px);text-shadow:0 0 24px rgba(112,220,228,.16)}
+.nexus-progression{position:relative;overflow:hidden;margin:22px 0 26px;padding:clamp(18px,3vw,30px);border:1px solid rgba(121,247,232,.28);border-radius:22px;background:linear-gradient(125deg,rgba(12,32,52,.96),rgba(13,18,42,.92) 55%,rgba(35,25,68,.85));box-shadow:0 20px 70px rgba(0,0,0,.3),inset 0 1px rgba(255,255,255,.06)}
+.nexus-progression:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 0 35%,rgba(121,247,232,.05) 48%,transparent 62%);transform:translateX(-100%);animation:nexusScan 8s linear infinite;pointer-events:none}
+@keyframes nexusScan{to{transform:translateX(100%)}}
+.progression-top{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap;position:relative;z-index:1}
+.progression-title{font-size:clamp(21px,2.6vw,30px);margin:4px 0 6px;letter-spacing:-.035em}
+.progression-sub{color:var(--muted);max-width:620px;margin:0}
+.rank-chip{border:1px solid rgba(121,247,232,.38);background:rgba(121,247,232,.08);color:var(--neon);border-radius:12px;padding:10px 13px;font-size:11px;font-weight:900;letter-spacing:.11em;white-space:nowrap}
+.progression-body{display:grid;grid-template-columns:minmax(0,1fr) 180px;gap:24px;align-items:center;margin-top:24px;position:relative;z-index:1}
+.stage-track{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:9px;position:relative}
+.stage-track:before{content:"";height:2px;position:absolute;left:7%;right:7%;top:25px;background:linear-gradient(90deg,var(--neon),var(--violet),#31425b);opacity:.7}
+.stage-node{position:relative;z-index:1;text-align:center;min-width:0}
+.stage-orb{margin:0 auto 12px;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;border:1px solid #354d68;background:linear-gradient(145deg,#172a42,#091523);color:#7891ad;font-size:18px;font-weight:900;box-shadow:0 0 0 5px rgba(6,14,26,.85);transition:transform .25s,border-color .25s,box-shadow .25s}
+.stage-node.unlocked .stage-orb{color:var(--neon);border-color:rgba(121,247,232,.8);box-shadow:0 0 0 5px rgba(6,14,26,.85),0 0 25px rgba(121,247,232,.15)}
+.stage-node.complete .stage-orb{color:#07111e;background:linear-gradient(145deg,#d7ff8a,#79f7e8);border-color:transparent}
+.stage-node.next .stage-orb{transform:translateY(-4px);box-shadow:0 0 0 5px rgba(6,14,26,.85),0 0 30px rgba(143,123,255,.38);border-color:#a89aff}
+.stage-name{display:block;color:#dce8f6;font-size:12px;font-weight:850;line-height:1.35}
+.stage-range{display:block;color:#7f96b1;font-size:10px;margin-top:4px}
+.stage-state{display:inline-block;margin-top:7px;font-size:9px;letter-spacing:.1em;font-weight:900;color:#8196af}
+.stage-node.complete .stage-state{color:var(--neon)}.stage-node.next .stage-state{color:#b5aaff}
+.progression-side{border-left:1px solid rgba(121,247,232,.2);padding-left:22px}
+.progression-percent{font-size:40px;line-height:1;font-weight:950;letter-spacing:-.06em;background:linear-gradient(100deg,#f4faff,var(--neon));-webkit-background-clip:text;background-clip:text;color:transparent}
+.progression-side p{font-size:11px;color:var(--muted);margin:7px 0 13px}
+.progression-bar{height:7px;border-radius:99px;background:#25364d;overflow:hidden}.progression-bar span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--violet),var(--neon));box-shadow:0 0 18px rgba(121,247,232,.4);transition:width .5s}
+.progression-next{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;padding-top:17px;border-top:1px solid rgba(121,247,232,.15);position:relative;z-index:1}
+.progression-next-copy b{display:block;font-size:13px}.progression-next-copy span{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.progression-action{border:0;border-radius:11px;padding:12px 15px;background:linear-gradient(100deg,#c7f36b,#79f7e8);color:#07111e;font-size:11px;font-weight:950;letter-spacing:.045em;box-shadow:0 8px 25px rgba(121,247,232,.13);transition:transform .2s,filter .2s}
+.progression-action:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.nexus-hero-visual{position:absolute;right:6%;top:15%;width:120px;height:120px;perspective:500px;opacity:.22;pointer-events:none}
+.nexus-cube{position:absolute;inset:20px;transform-style:preserve-3d;animation:nexusCubeSpin 18s linear infinite}
+.nexus-cube i{position:absolute;inset:0;border:1px solid #79f7e8;background:linear-gradient(135deg,rgba(121,247,232,.12),rgba(143,123,255,.04));box-shadow:inset 0 0 25px rgba(121,247,232,.12)}
+.nexus-cube i:nth-child(1){transform:translateZ(28px)}.nexus-cube i:nth-child(2){transform:rotateY(90deg) translateZ(28px)}.nexus-cube i:nth-child(3){transform:rotateY(180deg) translateZ(28px)}.nexus-cube i:nth-child(4){transform:rotateY(-90deg) translateZ(28px)}.nexus-cube i:nth-child(5){transform:rotateX(90deg) translateZ(28px)}.nexus-cube i:nth-child(6){transform:rotateX(-90deg) translateZ(28px)}
+@keyframes nexusCubeSpin{from{transform:rotateX(-20deg) rotateY(0)}to{transform:rotateX(340deg) rotateY(360deg)}}
+.home-feature-main{border-color:rgba(112,220,228,.25);background:linear-gradient(120deg,rgba(15,35,55,.96),rgba(12,23,41,.95))}
+.home-feature-image{background:radial-gradient(circle at 50% 45%,rgba(121,247,232,.18),transparent 45%),linear-gradient(140deg,#0b2236,#11172d 60%,#261d45)!important}
+.factory-glyph{box-shadow:0 0 60px rgba(121,247,232,.16);transform:translate(-50%,-50%) rotateX(12deg);border:1px solid rgba(121,247,232,.5)!important}
+.btn,.nav button,.nexus-primary-nav button{transition:transform .18s,border-color .18s,background .18s}
+.btn:hover{transform:translateY(-2px)}
+@media(max-width:780px){.progression-body{grid-template-columns:1fr}.progression-side{border-left:0;border-top:1px solid rgba(121,247,232,.2);padding:15px 0 0;display:grid;grid-template-columns:auto 1fr;column-gap:15px;align-items:center}.progression-side p{margin:0}.progression-side .progression-bar{grid-column:1/-1}.stage-track{gap:4px}.stage-orb{width:42px;height:42px;border-radius:13px;font-size:15px}.stage-track:before{top:20px}.stage-name{font-size:10px}.stage-range{font-size:9px}.nexus-hero-visual{right:1%;top:4%;transform:scale(.75)}}
+@media(max-width:440px){.progression-next{align-items:stretch;flex-direction:column}.progression-action{width:100%}.stage-name{font-size:9px}.stage-orb{width:36px;height:36px}.stage-track:before{top:17px}.stage-state{font-size:8px}.progression-percent{font-size:32px}}
+@media(prefers-reduced-motion:reduce){.nexus-progression:before,.nexus-cube{animation:none!important}*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+
 </style>
 </head>
 <body>
@@ -154,6 +202,13 @@ body{font-family:'DM Sans',Inter,system-ui,sans-serif;background:#050b15}.shell{
   <article class="command-kpi"><span class="kpi-label">EJES DE OPERACIÓN</span><strong>04</strong><span>Datos · Organización · Requisición · Programa</span><div class="kpi-track"><i style="width:100%"></i></div></article>
   <article class="command-kpi risk-kpi"><span class="kpi-label">ESTADO DE LA PLANTA</span><strong id="dashPlantStatus">EN ALERTA</strong><span>Materiales y fecha de producción bajo análisis</span><div class="risk-pulse"><i></i><i></i><i></i><i></i><i></i></div></article>
  </div>
+
+ <section class="nexus-progression" id="nexusProgression">
+  <div class="nexus-hero-visual" aria-hidden="true"><div class="nexus-cube"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+  <div class="progression-top"><div><div class="eyebrow">CAMPAÑA OPERATIVA · SISTEMA DE NIVELES</div><h3 class="progression-title">Tu ruta hacia Procurement Specialist</h3><p class="progression-sub">No solo contestes: desbloquea sectores, resuelve incidencias y demuestra que puedes mantener la cadena de suministro en movimiento.</p></div><div class="rank-chip" id="progressionRank">RANGO 01 · CADETE</div></div>
+  <div class="progression-body"><div class="stage-track" id="progressionStages" aria-label="Etapas de la campaña"></div><div class="progression-side"><div class="progression-percent" id="progressionPercent">00%</div><p id="progressionSummary">Tu operación comienza en el centro de control.</p><div class="progression-bar"><span id="progressionFill" style="width:0%"></span></div></div></div>
+  <div class="progression-next"><div class="progression-next-copy"><b id="progressionNextTitle">Siguiente objetivo: iniciar el briefing</b><span id="progressionNextDesc">Lee el expediente y valida los datos antes de tomar decisiones.</span></div><button class="progression-action" id="progressionNextBtn" onclick="resumeMission()">INICIAR OPERACIÓN ↗</button></div>
+ </section>
  <div class="nexus-home-grid">
   <article class="home-feature home-feature-main"><div class="home-feature-image"><div class="image-grid"></div><span class="image-tag">CASE FILE · AM-100</span><div class="image-orbit"></div><div class="factory-glyph">AM</div></div><div class="home-feature-copy"><div class="eyebrow">MISIÓN PRINCIPAL · AQUAMOTION INDUSTRIAL</div><h3>Evita la interrupción de producción</h3><p>Debes coordinar el suministro de materiales para fabricar 100 bombas. Los datos de inventario, las reservas y los plazos del proveedor pueden cambiar el resultado de la operación.</p><div class="home-feature-facts"><span><b>100</b> bombas planeadas</span><span><b>23 NOV</b> fecha requerida</span><span><b>30</b> desafíos</span></div><button class="btn primary" onclick="showBriefing()">ABRIR BRIEFING OPERATIVO <b>↗</b></button></div></article>
   <article class="home-side-card"><div class="panel-header"><div><h3>Estado de misión</h3><small>Actualización de tu expediente</small></div><span class="status status-live">EN CURSO</span></div><div class="mission-state-row"><span class="state-icon">◈</span><div><b id="dashCurrentMission">Briefing operativo</b><small id="dashCurrentCaption">Lee el caso y revisa los datos iniciales.</small></div></div><div class="mission-progress"><div class="mini-bar"><span id="dashMiniProgress" style="width:0%"></span></div><strong id="dashMiniCount">0 / 30</strong></div><button class="btn home-secondary" onclick="resumeMission()">CONTINUAR MI MISIÓN <b>→</b></button><div class="home-divider"></div><div class="home-alert"><span>!</span><div><b>ALERTA DE SUMINISTRO</b><p>Una decisión incorrecta puede provocar faltantes, compras urgentes o exceso de inventario.</p></div></div></article>
@@ -292,7 +347,38 @@ function syncNexusActive(view){document.querySelectorAll("[data-nexus-view]").fo
 function showDash(){if(!state.started)return;$("#commandDashboard").classList.remove("nexus-view-hidden");$("#workspace").classList.remove("nexus-workspace-visible");$("#topbarPageTitle").textContent="Centro de control";$("#briefing").classList.remove("hidden");$("#missionMount").innerHTML="";$("#finalReport").classList.add("hidden");state.current=-2;renderNav();syncNexusActive("dashboard");updateCommandDashboard();window.scrollTo({top:0,behavior:"smooth"})}
 function resumeMission(){if(state.current>=0&&state.current<missions.length&&(!state.passed[state.current]))openMission(state.current);else if(state.unlocked<missions.length)openMission(state.unlocked);else showFinal()}
 function openTopicMission(topic){const i=missions.findIndex((m,j)=>m.topic.indexOf(topic)===0&&(j<=state.unlocked||state.passed[j]));if(i>=0)openMission(i);else{showBriefing();alert("Este tema se abrirá desde el briefing y la secuencia de retos. Completa los retos anteriores para desbloquearlo.")}}
-function updateCommandDashboard(){renderLiveOperations();const done=Object.keys(state.passed).filter(k=>state.passed[k]).length,score=missionScore(),pct=done/missions.length*100;$("#dashDone").innerHTML=String(done).padStart(2,"0")+'<span class="kpi-denom">/30</span>';$("#dashScore").textContent=score;$("#dashProgressCaption").textContent=done===0?"Tu operación está por comenzar":done===30?"Operación completada":"Progreso de misión actualizado";$("#dashProgressBar").style.width=pct+"%";$("#dashScoreBar").style.width=score+"%";$("#dashMiniProgress").style.width=pct+"%";$("#dashMiniCount").textContent=done+" / "+missions.length;$("#dashPlantStatus").textContent=done===30?"CERRADA":done>=15?"BAJO CONTROL":"EN ALERTA";$("#dashCurrentMission").textContent=state.current>=0&&state.current<missions.length?missions[state.current].title:done===30?"Operación completada":"Briefing operativo";$("#dashCurrentCaption").textContent=done===30?"Revisa tu reporte final.":done>0?"Continúa desde el siguiente reto disponible.":"Lee el caso y revisa los datos iniciales."}
+
+const progressionStages=[
+ {name:"Inteligencia",range:"01–06",start:0,end:5,icon:"⌁",rank:"CADETE",reward:"Insignia: Analista de datos",desc:"Aprende a distinguir datos confiables y sistemas digitales."},
+ {name:"Coordinación",range:"07–12",start:6,end:11,icon:"⌘",rank:"ENLACE",reward:"Insignia: Coordinador",desc:"Conecta Compras, Producción, Almacén y Finanzas."},
+ {name:"Requisición",range:"13–18",start:12,end:17,icon:"▤",rank:"ESPECIALISTA",reward:"Insignia: Expediente impecable",desc:"Documenta cantidades, fechas, autorizaciones y trazabilidad."},
+ {name:"Programación",range:"19–24",start:18,end:23,icon:"◷",rank:"ESTRATEGA",reward:"Insignia: Planificador MRP",desc:"Calcula necesidades netas y protege las fechas de producción."},
+ {name:"Control Tower",range:"25–30",start:24,end:29,icon:"⬡",rank:"COMMANDER",reward:"Insignia final: Procurement Specialist",desc:"Integra las decisiones y cierra la operación con evidencia."}
+];
+function renderProgression(){
+ const done=Object.keys(state.passed||{}).filter(k=>state.passed[k]).length;
+ const pct=Math.round(done/missions.length*100);
+ const stageIndex=Math.min(progressionStages.length-1,Math.floor(done/6));
+ const active=progressionStages[stageIndex];
+ const rank=done===30?"RANGO 05 · PROCUREMENT SPECIALIST":"RANGO "+String(stageIndex+1).padStart(2,"0")+" · "+active.rank;
+ const el=$("#progressionStages");if(!el)return;
+ el.innerHTML=progressionStages.map((st,i)=>{
+  const complete=done>=st.end+1,unlocked=done>=st.start,near=i===stageIndex&&!complete;
+  return '<div class="stage-node '+(complete?'complete ':'')+(unlocked?'unlocked ':'')+(near?'next':'')+'"><div class="stage-orb">'+(complete?'✓':st.icon)+'</div><span class="stage-name">'+st.name+'</span><span class="stage-range">RETOS '+st.range+'</span><span class="stage-state">'+(complete?'COMPLETADO':unlocked?'DESBLOQUEADO':'BLOQUEADO')+'</span></div>';
+ }).join("");
+ $("#progressionRank").textContent=rank;
+ $("#progressionPercent").textContent=String(pct).padStart(2,"0")+"%";
+ $("#progressionSummary").textContent=done===30?"Campaña finalizada. Tu expediente está listo para revisión.":done===0?"Primero: analiza el briefing y valida la información.":(30-done)+" retos para completar la campaña.";
+ $("#progressionFill").style.width=pct+"%";
+ const next=done===30?null:missions[Math.min(done,missions.length-1)];
+ $("#progressionNextTitle").textContent=done===30?"Objetivo cumplido: operación cerrada":("Siguiente objetivo: "+(next?next.title.replace(/^Reto \d+\. /,""):"revisar reporte"));
+ $("#progressionNextDesc").textContent=done===30?"Descarga tu reporte y conserva las evidencias.":active.desc+" · Recompensa de etapa: "+active.reward+".";
+ const btn=$("#progressionNextBtn");
+ btn.textContent=done===30?"VER REPORTE FINAL ↗":done===0?"INICIAR OPERACIÓN ↗":"CONTINUAR AL RETO "+String(Math.min(done+1,30)).padStart(2,"0")+" ↗";
+ btn.onclick=done===30?showFinal:resumeMission;
+}
+
+function updateCommandDashboard(){renderLiveOperations();renderProgression();const done=Object.keys(state.passed).filter(k=>state.passed[k]).length,score=missionScore(),pct=done/missions.length*100;$("#dashDone").innerHTML=String(done).padStart(2,"0")+'<span class="kpi-denom">/30</span>';$("#dashScore").textContent=score;$("#dashProgressCaption").textContent=done===0?"Tu operación está por comenzar":done===30?"Operación completada":"Progreso de misión actualizado";$("#dashProgressBar").style.width=pct+"%";$("#dashScoreBar").style.width=score+"%";$("#dashMiniProgress").style.width=pct+"%";$("#dashMiniCount").textContent=done+" / "+missions.length;$("#dashPlantStatus").textContent=done===30?"CERRADA":done>=15?"BAJO CONTROL":"EN ALERTA";$("#dashCurrentMission").textContent=state.current>=0&&state.current<missions.length?missions[state.current].title:done===30?"Operación completada":"Briefing operativo";$("#dashCurrentCaption").textContent=done===30?"Revisa tu reporte final.":done>0?"Continúa desde el siguiente reto disponible.":"Lee el caso y revisa los datos iniciales."}
 
 const liveIncidents=[
  {code:"INCIDENTE 01 · MATERIAL CRÍTICO",title:"El proveedor no confirma la entrega",description:"Producción requiere 100 bombas para el 23 de noviembre. El proveedor habitual estima 8 días hábiles, pero aún no confirma fecha. El alternativo entrega en 5 días con un costo 12% mayor.",actions:[
