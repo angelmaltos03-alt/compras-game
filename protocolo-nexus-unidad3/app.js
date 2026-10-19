@@ -187,9 +187,30 @@ function missionVisual(m,i){
   {name:"Decisión integral",title:"Conecta dato, riesgo y responsable",desc:"Integra necesidad, disponibilidad, plazo, costo, autorizaciones y evidencia en una recomendación ejecutable.",tags:["Datos","Riesgo","Plan"],nodes:[["SITUACIÓN","Datos"],["ANÁLISIS","Riesgo"],["PLAN","Responsable"]]}
  ];
  const d=scenes[i]||scenes[0], colors=["#66e9ee","#a99aff","#d7ff79"];
- const nodes=d.nodes.map((n,j)=>'<rect x="'+(8+j*202)+'" y="18" width="184" height="74" rx="12" fill="#0a1727" stroke="'+colors[j]+'" stroke-width="1.5"/><text x="'+(100+j*202)+'" y="45" fill="'+colors[j]+'" font-size="13" font-weight="900" text-anchor="middle">'+n[0]+'</text><text x="'+(100+j*202)+'" y="66" fill="#eaf5ff" font-size="11" text-anchor="middle">'+n[1]+'</text>').join('<path d="M192 55h18m-6 -6 6 6 -6 6" fill="none" stroke="#83dfe5" stroke-width="2"/>');
- return '<div class="mission-visual"><div class="visual-eyebrow">Guía visual de la misión '+String(i+1).padStart(2,"0")+' · '+esc(d.name)+'</div><div class="visual-title">'+esc(d.title)+'</div><svg viewBox="0 0 596 112" role="img" aria-label="'+esc(d.title)+'"><defs><linearGradient id="missionGlow'+i+'" x1="0" x2="1"><stop offset="0" stop-color="#112f48"/><stop offset="1" stop-color="#25274a"/></linearGradient></defs><rect x="1" y="1" width="594" height="110" rx="14" fill="url(#missionGlow'+i+')"/>'+nodes+'</svg><p class="visual-description">'+esc(d.desc)+'</p><div class="visual-tags">'+d.tags.map(t=>'<span class="visual-tag">'+esc(t)+'</span>').join("")+'</div></div>';
+ const roleDetails=[
+  ["Necesidad del usuario","El área usuaria explica qué problema debe resolver, para qué equipo se necesita y cuándo debe estar disponible. No debe imponer una marca sin justificación."],
+  ["Validación técnica","Mantenimiento o el área técnica confirma compatibilidad, dimensiones, material, tolerancias y criterios de aceptación. Si falta evidencia, la compra se detiene para aclarar."],
+  ["Gestión de Compras","Compras solicita cotizaciones comparables y evalúa precio total, plazo, calidad, condiciones, garantía y riesgo del proveedor. No sustituye la validación técnica."],
+  ["Control financiero","Finanzas valida presupuesto, centro de costo y autorización. Un precio bajo no autoriza por sí solo el gasto ni demuestra compatibilidad."],
+  ["Almacén y recepción","Almacén verifica cantidad, identificación, condición y documentación al recibir. La recepción no reemplaza la aprobación técnica."]
+ ];
+ const toolDetails=[
+  ["Datos de origen","Registros de órdenes, fechas prometidas y reales, facturas, proveedores y entregas. Antes de analizar, revisa actualización, unidad y calidad del dato."],
+  ["BI / tablero","Convierte datos en gráficos, tendencias y KPI: entregas a tiempo, gasto por proveedor o pedidos atrasados. Sirve para analizar y decidir; no mueve inventario ni autoriza compras."],
+  ["WMS / almacén","Controla ubicaciones, movimientos, existencias y operaciones físicas del almacén. Es la mejor opción cuando la pregunta es dónde está el material o qué stock está libre."],
+  ["ERP / transacciones","Integra procesos y registros de varias áreas: requisición, aprobación, orden, recepción y factura. Puede contener módulos de compras, inventario y planeación."],
+  ["EDI / intercambio","Transmite mensajes comerciales estructurados entre organizaciones, por ejemplo una orden o aviso de envío. Intercambia documentos; no es por sí mismo un tablero analítico."],
+  ["Decisión y acción","Después de revisar el indicador, asigna responsable, acción y fecha. Un tablero no reemplaza la autorización, la evidencia ni el criterio profesional."]
+ ];
+ const genericDetails=d.nodes.map((n,j)=>[n[0]+" · "+n[1],j===0?d.desc:(j===1?"Comprueba este punto con datos verificables y contrástalo con el paso anterior.":"Cierra el proceso registrando la decisión, el responsable y la evidencia necesaria.")]);
+ let cards=genericDetails;
+ if(i===2) cards=toolDetails;
+ if(i===3) cards=roleDetails;
+ const cardMarkup=cards.map((c,j)=>'<button type="button" class="visual-hotspot '+(j===0?'is-active':'')+'" data-visual-index="'+j+'" data-visual-title="'+esc(c[0])+'" data-visual-detail="'+esc(c[1])+'" aria-pressed="'+(j===0?'true':'false')+'"><span class="hotspot-number">'+String(j+1).padStart(2,"0")+'</span><span class="hotspot-copy"><b>'+esc(c[0])+'</b><small>'+esc(j===0?'Toca para explorar':'Toca para conocer su función')+'</small></span><span class="hotspot-arrow">↗</span></button>').join("");
+ return '<div class="mission-visual"><div class="visual-eyebrow">Explora la misión '+String(i+1).padStart(2,"0")+' · '+esc(d.name)+'</div><div class="visual-title">'+esc(d.title)+'</div><p class="visual-description">'+esc(d.desc)+'</p><div class="visual-explorer"><div class="visual-hotspots" aria-label="Elementos interactivos">'+cardMarkup+'</div><div class="visual-detail-panel" aria-live="polite"><span class="detail-kicker">PUNTO CLAVE · SELECCIONADO</span><h4 class="visual-detail-title">'+esc(cards[0][0])+'</h4><p class="visual-detail-text">'+esc(cards[0][1])+'</p><div class="visual-detail-hint">Selecciona otra tarjeta para comparar funciones.</div></div></div><div class="visual-tags">'+d.tags.map(t=>'<span class="visual-tag">'+esc(t)+'</span>').join("")+'</div></div>';
 }
+document.addEventListener("click",function(e){const b=e.target.closest(".visual-hotspot");if(!b)return;const box=b.closest(".visual-explorer");if(!box)return;box.querySelectorAll(".visual-hotspot").forEach(x=>{const active=x===b;x.classList.toggle("is-active",active);x.setAttribute("aria-pressed",active?"true":"false")});box.querySelector(".visual-detail-title").textContent=b.dataset.visualTitle||"Punto clave";box.querySelector(".visual-detail-text").textContent=b.dataset.visualDetail||"";box.querySelector(".visual-detail-panel").classList.remove("detail-pulse");void box.querySelector(".visual-detail-panel").offsetWidth;box.querySelector(".visual-detail-panel").classList.add("detail-pulse")});
+
 function learningMethod(m,i){
  let title="Cómo abordar este reto",formula="",steps="";
  if(i===0){title="Método · Diferencia las funciones";steps="1. Identifica si te preguntan por cálculo de materiales o integración de procesos. 2. Asocia MRP con requerimientos y ERP con procesos conectados. 3. Descarta opciones que prometen autorizaciones automáticas."}
