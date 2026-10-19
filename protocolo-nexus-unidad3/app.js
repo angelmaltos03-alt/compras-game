@@ -57,12 +57,24 @@ if(m.kind==="number"){body+='<div class="question"><b>'+esc(m.q)+'</b><div class
 if(m.kind==="form"){body+='<div class="question"><b>Completa tu requisición digital</b>';m.fields.forEach(f=>{body+='<div class="field"><label for="'+f.id+'">'+esc(f.label)+'</label><input id="'+f.id+'" type="'+f.type+'" placeholder="'+esc(f.placeholder)+'" value="'+esc((state.responses[i]||{})[f.id]||"")+'"></div>'});body+='<p class="mini">En una empresa real, el formato también puede incluir código de material, prioridad, presupuesto, adjuntos, aprobador y proveedor sugerido.</p></div>'}
 body+='<div id="feedback" class="feedback '+(done?"show ok":"")+'">'+(done?"RETO VALIDADO. "+esc(m.why):"")+'</div><div class="btnrow"><button class="btn primary" onclick="validate('+i+')">Validar respuesta</button><button class="btn" id="nextBtn" onclick="nextMission('+i+')" '+(!done?"disabled":"")+'>'+(i===missions.length-1?"Finalizar misión":"Avanzar al siguiente")+'</button></div><div class="callout warning mini"><b>Regla:</b> la validación correcta desbloquea el avance. Tras dos intentos fallidos aparece una pista.</div></section>';
 $("#missionMount").innerHTML=body}
+function showRankUp(done){
+ const idx=Math.min(progressionStages.length-1,Math.floor(done/5)-1),st=progressionStages[idx];
+ let overlay=document.getElementById("rankUpOverlay");
+ if(!overlay){overlay=document.createElement("div");overlay.id="rankUpOverlay";overlay.className="rank-up-overlay";overlay.setAttribute("role","dialog");overlay.setAttribute("aria-modal","true");overlay.setAttribute("aria-live","assertive");document.body.appendChild(overlay);}
+ overlay.innerHTML='<div class="rank-up-card"><div class="rank-up-spark">✦ ✧ ✦</div><div class="rank-up-kicker">PROTOCOLO NEXUS · ASCENSO CONFIRMADO</div><div class="rank-up-medal"><span>'+String(idx+1).padStart(2,"0")+'</span></div><div class="rank-up-label">¡NUEVO RANGO DESBLOQUEADO!</div><h2>'+esc(st.rank)+'</h2><p>Has validado '+done+' de 30 retos. Tu siguiente nivel de responsabilidad ya está disponible.</p><div class="rank-up-reward">RECOMPENSA<br><b>'+esc(st.reward)+'</b></div><button type="button" class="btn primary" id="closeRankUp">CONTINUAR OPERACIÓN</button></div>';
+ overlay.classList.add("show");document.body.classList.add("rank-up-active");
+ const close=()=>{overlay.classList.remove("show");document.body.classList.remove("rank-up-active");};
+ overlay.querySelector("#closeRankUp").addEventListener("click",close);
+ overlay.addEventListener("click",function outside(e){if(e.target===overlay){close();overlay.removeEventListener("click",outside)}});
+ overlay.querySelector("#closeRankUp").focus();
+}
 function validate(i){const m=missions[i];let ok=false,answer=null;
 if(m.kind==="mc"){const a=document.querySelector('input[name="answer"]:checked');if(!a){showFeedback(false,"Selecciona una opción antes de validar.");return}answer=Number(a.value);ok=answer===m.correct;state.answers[i]=answer}
 else if(m.kind==="number"){const el=$("#numericAnswer");if(!el||el.value===""){showFeedback(false,"Escribe una cantidad para poder validarla.");return}answer=Number(el.value);state.answers[i]=answer;ok=answer===m.correct}
 else if(m.kind==="form"){answer={};m.fields.forEach(f=>answer[f.id]=$("#"+f.id).value.trim());state.responses[i]=answer;ok=m.validate(answer)}
 state.attempts[i]=(state.attempts[i]||0)+1;
-if(ok){state.passed[i]=true;state.unlocked=Math.max(state.unlocked,Math.min(i+1,missions.length-1));state.responses["answer_"+i]=answer;save();showFeedback(true,"¡Correcto! "+m.why);$("#nextBtn").disabled=false;renderNav()}else{save();let msg="Todavía no. Revisa los datos del caso y vuelve a intentarlo.";if(state.attempts[i]>=2)msg+=" PISTA: "+m.hint;showFeedback(false,msg)}
+const completedBefore=Object.keys(state.passed).filter(k=>state.passed[k]).length;
+if(ok){state.passed[i]=true;state.unlocked=Math.max(state.unlocked,Math.min(i+1,missions.length-1));state.responses["answer_"+i]=answer;save();showFeedback(true,"¡Correcto! "+m.why);$("#nextBtn").disabled=false;renderNav();const completedNow=Object.keys(state.passed).filter(k=>state.passed[k]).length;if(completedNow>completedBefore&&completedNow%5===0){updateCommandDashboard();setTimeout(()=>showRankUp(completedNow),320)}}else{save();let msg="Todavía no. Revisa los datos del caso y vuelve a intentarlo.";if(state.attempts[i]>=2)msg+=" PISTA: "+m.hint;showFeedback(false,msg)}
 }
 function showFeedback(ok,msg){const f=$("#feedback");f.className="feedback show "+(ok?"ok":"no");f.textContent=msg}
 function nextMission(i){if(!state.passed[i])return;if(i<missions.length-1){state.unlocked=Math.max(state.unlocked,i+1);save();openMission(i+1)}else showFinal()}
@@ -79,24 +91,25 @@ function resumeMission(){if(state.current>=0&&state.current<missions.length&&(!s
 function openTopicMission(topic){const i=missions.findIndex((m,j)=>m.topic.indexOf(topic)===0&&(j<=state.unlocked||state.passed[j]));if(i>=0)openMission(i);else{showBriefing();alert("Este tema se abrirá desde el briefing y la secuencia de retos. Completa los retos anteriores para desbloquearlo.")}}
 
 const progressionStages=[
- {name:"Inteligencia",range:"01–06",start:0,end:5,icon:"⌁",rank:"CADETE",reward:"Insignia: Analista de datos",desc:"Aprende a distinguir datos confiables y sistemas digitales."},
- {name:"Coordinación",range:"07–12",start:6,end:11,icon:"⌘",rank:"ENLACE",reward:"Insignia: Coordinador",desc:"Conecta Compras, Producción, Almacén y Finanzas."},
- {name:"Requisición",range:"13–18",start:12,end:17,icon:"▤",rank:"ESPECIALISTA",reward:"Insignia: Expediente impecable",desc:"Documenta cantidades, fechas, autorizaciones y trazabilidad."},
- {name:"Programación",range:"19–24",start:18,end:23,icon:"◷",rank:"ESTRATEGA",reward:"Insignia: Planificador MRP",desc:"Calcula necesidades netas y protege las fechas de producción."},
- {name:"Control Tower",range:"25–30",start:24,end:29,icon:"⬡",rank:"COMMANDER",reward:"Insignia final: Procurement Specialist",desc:"Integra las decisiones y cierra la operación con evidencia."}
+ {name:"Inteligencia",range:"01–05",start:0,end:4,icon:"⌁",rank:"CADETE",reward:"Insignia: Analista de datos",desc:"Aprende a distinguir datos confiables, sistemas digitales y señales operativas."},
+ {name:"Coordinación",range:"06–10",start:5,end:9,icon:"⌘",rank:"ENLACE",reward:"Insignia: Coordinador",desc:"Conecta las áreas y define quién aporta, valida y autoriza cada dato."},
+ {name:"Requisición",range:"11–15",start:10,end:14,icon:"▤",rank:"ESPECIALISTA",reward:"Insignia: Expediente impecable",desc:"Documenta materiales, cantidades, fechas, autorizaciones y trazabilidad."},
+ {name:"Programación",range:"16–20",start:15,end:19,icon:"◷",rank:"ESTRATEGA",reward:"Insignia: Planificador MRP",desc:"Calcula necesidades netas, plazos y riesgos para proteger la producción."},
+ {name:"Control Tower",range:"21–25",start:20,end:24,icon:"⬡",rank:"COMMANDER",reward:"Insignia: Control de operación",desc:"Integra costo, calidad, entrega, disponibilidad y evidencia."},
+ {name:"Procurement Elite",range:"26–30",start:25,end:29,icon:"✦",rank:"PROCUREMENT SPECIALIST",reward:"Insignia final: Procurement Specialist",desc:"Integra las decisiones y cierra la operación con criterio y evidencia."}
 ];
 function renderProgression(){
  const done=Object.keys(state.passed||{}).filter(k=>state.passed[k]).length;
  const pct=Math.round(done/missions.length*100);
- const stageIndex=Math.min(progressionStages.length-1,Math.floor(done/6));
+ const stageIndex=Math.min(progressionStages.length-1,Math.floor(done/5));
  const active=progressionStages[stageIndex];
- const rank=done===30?"RANGO 05 · PROCUREMENT SPECIALIST":"RANGO "+String(stageIndex+1).padStart(2,"0")+" · "+active.rank;
+ const rank="RANGO "+String(stageIndex+1).padStart(2,"0")+" · "+active.rank;
  const el=$("#progressionStages");if(!el)return;
  el.innerHTML=progressionStages.map((st,i)=>{
   const complete=done>=st.end+1,unlocked=done>=st.start,near=i===stageIndex&&!complete;
   return '<div class="stage-node '+(complete?'complete ':'')+(unlocked?'unlocked ':'')+(near?'next':'')+'"><div class="stage-orb">'+(complete?'✓':st.icon)+'</div><span class="stage-name">'+st.name+'</span><span class="stage-range">RETOS '+st.range+'</span><span class="stage-state">'+(complete?'COMPLETADO':unlocked?'DESBLOQUEADO':'BLOQUEADO')+'</span></div>';
  }).join("");
- $("#progressionRank").textContent=rank;
+ $("#progressionRank").textContent=rank;document.querySelectorAll(".rank-emblem span").forEach(el=>{el.textContent=String(stageIndex+1).padStart(2,"0");el.parentElement.setAttribute("aria-label","Insignia de rango "+String(stageIndex+1)+": "+active.rank)});
  $("#progressionPercent").textContent=String(pct).padStart(2,"0")+"%";
  $("#progressionSummary").textContent=done===30?"Campaña finalizada. Tu expediente está listo para revisión.":done===0?"Primero: analiza el briefing y valida la información.":(30-done)+" retos para completar la campaña.";
  $("#progressionFill").style.width=pct+"%";
@@ -204,8 +217,8 @@ function missionVisual(m,i){
  ];
  const genericDetails=d.nodes.map((n,j)=>[n[0]+" · "+n[1],j===0?d.desc:(j===1?"Comprueba este punto con datos verificables y contrástalo con el paso anterior.":"Cierra el proceso registrando la decisión, el responsable y la evidencia necesaria.")]);
  let cards=genericDetails;
- if(i===2) cards=toolDetails;
- if(i===3) cards=roleDetails;
+ if(i===2) cards=[["Demanda","La necesidad que activa el análisis."],["MRP · Planeación","Calcula qué materiales hacen falta y cuándo, usando demanda, lista de materiales e inventario."],["WMS · Almacén","Controla ubicaciones, movimientos y existencias físicas."],["EDI · Intercambio","Transmite documentos comerciales estructurados entre empresas."],["Business Intelligence · BI","Convierte datos en indicadores y tendencias como entregas a tiempo, gasto por proveedor y pedidos atrasados."],["ERP · Integración","Conecta requisiciones, aprobaciones, órdenes, recepción y factura."],["Decisión · Acción","El indicador orienta una decisión; después se asignan responsable, acción y fecha."]];
+ if(i===3) cards=[["Área usuaria","Describe necesidad, uso, cantidad y fecha requerida."],["Área técnica · Valida","Confirma compatibilidad, especificación y criterios de aceptación."],["Compras · Gestiona","Compara proveedores, costo total, plazo, calidad, garantía y riesgo."],["Finanzas · Autoriza presupuesto","Valida presupuesto, centro de costo y autorizaciones."],["Almacén · Verifica recepción","Comprueba cantidad, identificación, condición y documentos recibidos."]];
  const cardMarkup=cards.map((c,j)=>'<button type="button" class="visual-hotspot '+(j===0?'is-active':'')+'" data-visual-index="'+j+'" data-visual-title="'+esc(c[0])+'" data-visual-detail="'+esc(c[1])+'" aria-pressed="'+(j===0?'true':'false')+'"><span class="hotspot-number">'+String(j+1).padStart(2,"0")+'</span><span class="hotspot-copy"><b>'+esc(c[0])+'</b><small>'+esc(j===0?'Toca para explorar':'Toca para conocer su función')+'</small></span><span class="hotspot-arrow">↗</span></button>').join("");
  return '<div class="mission-visual"><div class="visual-eyebrow">Explora la misión '+String(i+1).padStart(2,"0")+' · '+esc(d.name)+'</div><div class="visual-title">'+esc(d.title)+'</div><p class="visual-description">'+esc(d.desc)+'</p><div class="visual-explorer"><div class="visual-hotspots" aria-label="Elementos interactivos">'+cardMarkup+'</div><div class="visual-detail-panel" aria-live="polite"><span class="detail-kicker">PUNTO CLAVE · SELECCIONADO</span><h4 class="visual-detail-title">'+esc(cards[0][0])+'</h4><p class="visual-detail-text">'+esc(cards[0][1])+'</p><div class="visual-detail-hint">Selecciona otra tarjeta para comparar funciones.</div></div></div><div class="visual-tags">'+d.tags.map(t=>'<span class="visual-tag">'+esc(t)+'</span>').join("")+'</div></div>';
 }
