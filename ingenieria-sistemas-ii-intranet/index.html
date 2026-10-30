@@ -59,7 +59,7 @@ body.authed .login-gate{display:none}
     <section class="login-card"><div class="login-card-head"><span>IDENTIFICACIÓN DE OPERADOR</span><span class="lock-icon">▣</span></div>
       <div class="login-title">Inicia tu sesión</div><p class="login-sub">Crea tu identidad para entrar al centro de operaciones.</p>
       <label class="login-label" for="operatorName">NOMBRE DEL OPERADOR</label><input id="operatorName" maxlength="28" placeholder="Ej. Alex Rivera" autocomplete="name">
-      <label class="login-label" for="operatorRole">PERFIL DE ACCESO</label><select id="operatorRole"><option value="Arquitecto de sistemas">Arquitecto de sistemas</option><option value="Administrador de seguridad">Administrador de seguridad</option><option value="Analista de continuidad">Analista de continuidad</option><option value="Auditor de TI">Auditor de TI</option></select>
+      
       <button id="enterLab" class="enter-btn">AUTENTICAR Y ENTRAR <span>→</span></button>
       <div class="login-foot"><span>● MFA SIMULADO</span><span>● SESIÓN LOCAL</span><span>● ENTORNO DIDÁCTICO</span></div>
       <p class="login-note">Experiencia académica: no solicita contraseñas ni conecta con sistemas reales.</p>
@@ -155,18 +155,18 @@ createScene('commandCanvas','command');createScene('flowCanvas','flow');createSc
 <script>
 (()=> {
  const gate=document.getElementById('loginGate'), app=document.getElementById('mainApp');
- const name=document.getElementById('operatorName'), role=document.getElementById('operatorRole');
+ const name=document.getElementById('operatorName');
  const saved=localStorage.getItem('titan_operator');
- if(saved){try{const u=JSON.parse(saved);if(u.name){name.value=u.name;role.value=u.role||role.value}}catch(e){}}
+ if(saved){try{const u=JSON.parse(saved);if(u.name){name.value=u.name}}catch(e){}}
  document.getElementById('enterLab').addEventListener('click',()=>{
    const operator=(name.value||'Operador TITAN').trim().slice(0,28);
-   const profile={name:operator,role:role.value,enteredAt:new Date().toISOString()};
+   const profile={name:operator,enteredAt:new Date().toISOString()};
    localStorage.setItem('titan_operator',JSON.stringify(profile));
    document.body.classList.add('authed');
    const brand=document.querySelector('.brand h1');
    if(brand)brand.textContent='BLACK OPS // '+operator.toUpperCase();
    const small=document.querySelector('.brand small');
-   if(small)small.textContent=role.value.toUpperCase()+' · TITAN MANUFACTURING';
+   if(small)small.textContent='OPERADOR AUTORIZADO · TITAN MANUFACTURING';
    const toast=document.getElementById('toast');
    if(toast){toast.textContent='IDENTIDAD VALIDADA · BIENVENIDO/A '+operator.toUpperCase();toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3200)}
  });
@@ -184,10 +184,14 @@ createScene('commandCanvas','command');createScene('flowCanvas','flow');createSc
  function paint(){cards.forEach(b=>{const n=Number(b.dataset.module),yes=done.includes(n);b.classList.toggle('done',yes);b.textContent=yes?'✓ Módulo revisado · Desmarcar':'Marcar módulo revisado'});const pct=Math.round(done.length/5*100);root.querySelector('#academyPct').textContent=pct+'%';root.querySelector('#academyBar').style.width=pct+'%';root.querySelector('#academyCount').textContent=done.length+' de 5 módulos revisados';}
  cards.forEach(b=>b.addEventListener('click',()=>{const n=Number(b.dataset.module);done=done.includes(n)?done.filter(x=>x!==n):[...done,n];localStorage.setItem(key,JSON.stringify(done));paint()}));paint();
  const cases=[
- {q:'Un proveedor necesita consultar únicamente el estado de sus órdenes. ¿Qué solución corresponde?',o:['Dar acceso a toda la intranet con una cuenta compartida.','Crear un acceso Extranet limitado a sus órdenes.','Publicar el ERP en Internet sin autenticación.'],a:1,f:'La Extranet ofrece acceso externo controlado. El proveedor solo debe consultar los recursos asociados a su identidad y relación comercial; no necesita entrar a toda la red interna.'},
- {q:'Una persona inicia sesión correctamente, pero el sistema le niega la edición de nómina. ¿Qué control está actuando?',o:['Autorización basada en permisos.','Autenticación multifactor.','Cifrado TLS de transporte.'],a:0,f:'La autenticación ya confirmó la identidad. La autorización evalúa si esa identidad tiene permiso para ejecutar la acción solicitada.'},
- {q:'Un servicio tiene RTO de 45 minutos y RPO de 5 minutos. ¿Qué plan es compatible?',o:['Restaurar en 30 minutos con datos de hace 20 minutos.','Restaurar en 60 minutos con datos de hace 2 minutos.','Restaurar en 40 minutos con datos de hace 4 minutos.'],a:2,f:'El plan debe cumplir ambos objetivos a la vez: recuperación en 45 minutos o menos y pérdida de datos equivalente a no más de 5 minutos.'},
- {q:'¿Dónde debe validarse un permiso crítico para evitar que una llamada directa a la API lo eluda?',o:['Solo ocultando el botón en la interfaz.','En el servicio o API del lado servidor.','En un manual descargable para el usuario.'],a:1,f:'La interfaz ayuda a la experiencia, pero no es una frontera de seguridad. El servidor debe comprobar identidad, rol, recurso y acción antes de ejecutar.'}
+ {q:'TITAN tiene 1,200 colaboradores, pero solo 665 de los 950 usuarios habilitados utilizaron la intranet este mes. ¿Cuál es la adopción entre usuarios habilitados?',o:['55%.','70%.','79%.'],a:1,f:'665 ÷ 950 × 100 = 70%. El denominador correcto son los usuarios habilitados, no toda la plantilla. Quedan 285 usuarios habilitados inactivos.'},
+ {q:'En el cambio de turno, la planta Norte sigue usando una instrucción de mantenimiento obsoleta. ¿Qué control corrige la causa y deja evidencia?',o:['Publicar un aviso sin retirar la versión anterior.','Control documental con versión vigente, retiro de copias obsoletas y acuse de lectura.','Dar permisos de administrador a todos los supervisores.'],a:1,f:'El control documental debe asegurar versión, aprobación, vigencia, distribución y retiro de copias anteriores. El acuse permite demostrar comunicación del cambio.'},
+ {q:'Un proveedor de los 85 registrados descubre que puede abrir órdenes de otro proveedor mediante un enlace modificado. ¿Qué respuesta es la más adecuada?',o:['Revocar el enlace, revisar registros y limitar el portal a órdenes propias por identidad individual.','Compartir una cuenta general con todos los proveedores.','Ocultar la lista de órdenes con CSS y mantener la API sin cambios.'],a:0,f:'Se debe contener la exposición, investigar qué datos fueron consultados y aplicar autorización por objeto en el servidor. Cada proveedor solo debe ver sus propias órdenes.'},
+ {q:'La intranet tiene un RTO de 45 minutos y RPO de 5 minutos. ¿Qué resultado cumple ambos objetivos?',o:['Servicio restaurado en 32 minutos con datos de hace 12 minutos.','Servicio restaurado en 50 minutos con datos de hace 2 minutos.','Servicio restaurado en 40 minutos con datos de hace 4 minutos.'],a:2,f:'La alternativa cumple los dos límites: 40 ≤ 45 minutos y 4 ≤ 5 minutos. Cumplir solo uno no es suficiente.'},
+ {q:'Producción reporta que una requisición aparece aprobada en la intranet, pero nunca llega al ERP. ¿Qué debe revisarse primero?',o:['El color del botón de aprobación.','La integración/API, los registros de transacción y el manejo de errores entre sistemas.','La contraseña de todos los operadores.'],a:1,f:'La intranet puede registrar la solicitud, pero la integración debe confirmar envío, respuesta y estado de la transacción. Los logs permiten localizar el punto de fallo sin duplicar operaciones.'},
+ {q:'Una cuenta de supervisor fue comprometida durante el turno nocturno. ¿Qué acción inicial reduce el riesgo mientras se investiga?',o:['Deshabilitar o revocar sesiones y credenciales comprometidas, preservar logs y revisar actividad.','Borrar los registros para evitar confusiones.','Desactivar MFA para facilitar el acceso de reemplazo.'],a:0,f:'La contención exige revocar sesiones/tokens y credenciales comprometidas, conservar evidencia y revisar acciones realizadas. Después se restablece el acceso seguro.'},
+ {q:'La dirección exige reducir 30% el presupuesto del proyecto. ¿Qué decisión protege mejor la operación?',o:['Eliminar respaldos y auditoría para conservar el portal visual.','Priorizar identidad, mínimo privilegio, respaldos probados, registros y recuperación; diferir funciones no críticas.','Dar permisos amplios para reducir el trabajo de administración.'],a:1,f:'La priorización debe basarse en riesgo y continuidad. Los controles que protegen identidad, datos, trazabilidad y recuperación son esenciales; se pueden diferir mejoras cosméticas o funciones de menor criticidad.'},
+ {q:'Un trabajador puede consultar procedimientos, pero también modificar políticas de seguridad. ¿Qué principio se está incumpliendo?',o:['Mínimo privilegio y separación de funciones.','Disponibilidad de la intranet.','Cifrado de datos en tránsito.'],a:0,f:'Los permisos deben corresponder a la función. Consultar procedimientos no requiere autoridad para modificar políticas; separar funciones reduce errores y abuso de privilegios.'}
  ];let ix=0,answered=false;
  const q=root.querySelector('#academyQuestion'),opts=root.querySelector('#academyOptions'),fb=root.querySelector('#academyFeedback'),next=root.querySelector('#academyNext');
  function render(){const c=cases[ix];q.textContent=c.q;opts.innerHTML='';c.o.forEach((v,n)=>{const b=document.createElement('button');b.textContent=v;b.dataset.answer=n;b.addEventListener('click',()=>choose(n));opts.appendChild(b)});fb.textContent='Selecciona una opción para ver la retroalimentación técnica.';fb.className='academy-feedback';next.disabled=true;next.textContent=ix===cases.length-1?'Reiniciar práctica ↻':'Siguiente caso →';answered=false}
