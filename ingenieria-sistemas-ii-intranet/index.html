@@ -536,7 +536,7 @@ const sceneConfig={command:['commandCanvas','command'],flow:['flowCanvas','flow'
  const quizMap=[13,14,14,17,16,15,18,8];
  const chainTitle=document.getElementById('chainTitle'),chainRef=document.getElementById('chainBookRef');
  if(chainTitle&&chainRef){
-  const update=()=>{const m=chainTitle.textContent.match(/(\\d{2})/);const n=m?Math.min(12,Math.max(1,Number(m[1]))):1;chainRef.textContent='LIBRILLO BLACK OPS · CONSULTA PÁG. '+String(chainMap[n-1]).padStart(2,'0')+' · OPERACIÓN '+String(n).padStart(2,'0')};
+  const update=()=>{const m=chainTitle.textContent.match(/(\d{2})/);const n=m?Math.min(12,Math.max(1,Number(m[1]))):1;chainRef.textContent='LIBRILLO BLACK OPS · CONSULTA PÁG. '+String(chainMap[n-1]).padStart(2,'0')+' · OPERACIÓN '+String(n).padStart(2,'0')};
   update();new MutationObserver(update).observe(chainTitle,{childList:true,characterData:true,subtree:true});
  }
  const q=document.getElementById('academyQuestion'),qRef=document.getElementById('quizBookRef'),next=document.getElementById('academyNext');
