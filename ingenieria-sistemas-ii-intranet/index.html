@@ -131,6 +131,66 @@ select{font:inherit;max-width:100%;border-radius:8px}
 @media(hover:none){.btn:hover,.mission:hover,.flow-list .flow-item:hover,.bank button:hover,.plan:hover{transform:none;box-shadow:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
+
+<style id="blackops-mobile-fix-v2">
+/* Mobile usability pass: navigation, answer lists, forms and touch targets */
+html{scroll-padding-top:118px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overscroll-behavior-x:none}
+button,.navbtn,.academy-options button,.bank button,.plan{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+@media(max-width:700px){
+  html,body{width:100%;max-width:100%;overflow-x:hidden}
+  .topbar{position:sticky;top:0;z-index:120;height:58px;min-height:58px;padding:0 12px!important;gap:8px}
+  .brand{min-width:0;gap:8px}.brandmark{width:30px;height:30px;flex:0 0 30px}.brand h1{font-size:10px!important;letter-spacing:.06em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52vw}.brand small{display:none}
+  .topright{flex:0 0 auto}.live{font-size:8px;white-space:nowrap}
+  .layout{display:block;min-width:0}
+  .sidebar{position:sticky;top:58px;z-index:110;display:flex;flex-wrap:nowrap;align-items:stretch;gap:6px;width:100%;max-width:100%;padding:8px 10px;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:rgba(5,14,23,.97);backdrop-filter:blur(14px);border-bottom:1px solid #34536a}
+  .sidebar::-webkit-scrollbar{display:none}
+  .navbtn{display:flex;flex:0 0 auto;width:auto;min-height:40px;align-items:center;justify-content:center;white-space:nowrap;padding:10px 12px;margin:0;border-radius:5px;font-size:10px;line-height:1.2}
+  .navbtn .num{display:inline;font-size:8px}
+  main{width:100%;min-width:0;padding:16px 12px calc(38px + env(safe-area-inset-bottom))}
+  .view,.view>*{min-width:0;max-width:100%}
+  .view h2{font-size:clamp(31px,9vw,43px)!important;line-height:1.02!important;overflow-wrap:anywhere}
+  h3{font-size:21px}
+  .lead{font-size:12px;line-height:1.7;overflow-wrap:anywhere}
+  .section-head{display:flex;align-items:flex-start;flex-direction:column;gap:8px;margin:24px 0 12px}
+  .section-head>span,.pill{white-space:normal;max-width:100%;line-height:1.5}
+  .glass,.puzzle-panel,.academy-card,.brief,.inspector{padding:14px;border-radius:9px;min-width:0}
+  .academy-grid,.mission-grid,.brief-grid,.workspace,.hero-grid{grid-template-columns:minmax(0,1fr)!important}
+  .academy-card{min-height:0}
+  .academy-options{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:9px;width:100%;min-width:0}
+  .academy-options button{display:block;width:100%;min-width:0;min-height:54px;padding:13px 14px;text-align:left;font-size:13px;line-height:1.5;white-space:normal;overflow-wrap:anywhere;border-radius:7px}
+  #chainOptions{grid-template-columns:minmax(0,1fr)!important}
+  #chainLab{padding:13px}
+  #chainTitle{font-size:10px;line-height:1.5}
+  #chainCount{font-size:8px}
+  #chainQuestion{font-size:18px!important;line-height:1.35!important;overflow-wrap:anywhere}
+  #chainContext{font-size:12px;line-height:1.65}
+  .open-label{font-size:9px;line-height:1.5}
+  .open-answer{width:100%;min-height:120px;font-size:16px;line-height:1.55;padding:12px;resize:vertical}
+  .open-save{font-size:9px;line-height:1.5}
+  .actions{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+  .actions .btn,.btn{width:100%;min-height:46px;padding:12px;font-size:11px;white-space:normal;line-height:1.35}
+  .academy-done{align-self:stretch}
+  .academy-feedback{font-size:12px;line-height:1.65;overflow-wrap:anywhere}
+  .plan-grid{grid-template-columns:minmax(0,1fr)!important}
+  .plan{width:100%;min-height:76px;padding:13px}
+  .stage{height:min(66vh,420px);min-height:300px;width:100%}
+  .stage-tools{right:8px;top:8px}.stage-tools button{min-height:38px;font-size:9px}
+  .stage-hud{top:10px;left:10px}.stage-hud b{font-size:8px}.stage-hud small{font-size:7px}
+  .stage-bottom{left:10px;right:10px;bottom:9px;font-size:7px;line-height:1.4}
+  .tablewrap{max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .rbac{min-width:540px}
+  input,select,textarea{max-width:100%;font-size:16px}
+  .toast{left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));font-size:12px}
+}
+@media(min-width:701px) and (max-width:1000px){
+  .academy-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .academy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){
+  .navbtn,.btn,.mission,.view{transition:none!important;animation:none!important}
+}
+</style>
 </head><body>
 <canvas id="scene" aria-label="Escena 3D de la intranet TITAN"></canvas><div class="veil"></div>
 
