@@ -18,9 +18,52 @@ main{padding:26px clamp(18px,3vw,44px) 60px;pointer-events:none;min-width:0}.vie
 @media(max-width:1000px){.layout{grid-template-columns:205px 1fr}.workspace{grid-template-columns:1fr}.inspector{min-height:0}.mission-grid{grid-template-columns:1fr 1fr}}@media(max-width:700px){.topbar{height:65px;padding:0 14px}.brand h1{font-size:11px}.brand small{font-size:8px}.topright{gap:8px}.rankchip{display:none}.layout{display:block}.sidebar{display:flex;gap:5px;padding:8px;overflow:auto;border-right:0;border-bottom:1px solid #27435b}.side-label,.sidebar-card{display:none}.navbtn{width:auto;white-space:nowrap;padding:10px;font-size:9px}.navbtn .num{display:none}main{padding:17px 13px 45px}.hero-grid{grid-template-columns:1fr}.glass{max-width:none}.mission-grid,.brief-grid{grid-template-columns:1fr}.stage{height:390px}.section-head{align-items:start;flex-direction:column}.plan-grid{grid-template-columns:1fr}.lead{font-size:11px}}
 </style>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+
+<style>
+/* BLACK OPS 4.0 — immersive command interface */
+:root{--acid:#b7ff4a;--electric:#51e6ff;--ink:#05090f;--glass:rgba(9,19,31,.78)}
+body{background:#05090f!important}
+.login-gate{position:fixed;inset:0;z-index:9999;overflow:auto;background:radial-gradient(ellipse at 76% 44%,rgba(20,93,111,.28),transparent 34%),radial-gradient(ellipse at 15% 85%,rgba(88,53,160,.18),transparent 38%),#05090f;color:#edf7ff;padding:26px clamp(20px,5vw,76px);display:flex;flex-direction:column}
+.gate-grid{position:absolute;inset:0;opacity:.2;background-image:linear-gradient(rgba(90,177,207,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(90,177,207,.12) 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(90deg,black,transparent 90%)}
+.gate-orb{position:absolute;border:1px solid rgba(81,230,255,.22);border-radius:50%;pointer-events:none}.orb-a{width:440px;height:440px;right:8%;top:14%;box-shadow:0 0 100px #1e9fc522,inset 0 0 90px #1e9fc511}.orb-b{width:310px;height:310px;right:13%;top:22%;border-style:dashed;animation:orbit 65s linear infinite}@keyframes orbit{to{transform:rotate(360deg)}}
+.gate-top,.gate-bottom{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;font:10px var(--mono);letter-spacing:1.5px;color:#8299ad}.gate-brand{display:flex;gap:12px;align-items:center;color:#fff;font-size:13px}.gate-brand b{color:#8ca2b5;font-weight:400;margin-left:7px}.gate-mark{display:grid;place-items:center;width:36px;height:36px;background:var(--acid);color:#10180a;font-weight:900;font-size:20px;clip-path:polygon(0 0,100% 0,100% 72%,72% 100%,0 100%)}.gate-status{color:#8fb1c2}.gate-status i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--acid);box-shadow:0 0 12px var(--acid);margin-right:8px}
+.gate-layout{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .75fr;gap:clamp(40px,9vw,150px);align-items:center;max-width:1200px;width:100%;margin:auto}.gate-kicker{font:11px var(--mono);letter-spacing:2px;color:var(--acid)}.gate-copy h1{font-size:clamp(54px,8vw,104px);line-height:.9;letter-spacing:-6px;margin:24px 0;font-weight:800}.gate-copy h1 span{color:var(--acid)}.gate-copy>p{max-width:520px;color:#9cb0c0;line-height:1.9;font-size:15px}.gate-metrics{display:flex;gap:48px;margin:48px 0}.gate-metrics div{display:flex;flex-direction:column;gap:7px}.gate-metrics b{font:28px var(--mono);color:#efffff}.gate-metrics small{font:9px var(--mono);letter-spacing:1.4px;color:#71899b}.gate-signal{display:flex;flex-direction:column;gap:8px;font:9px var(--mono);letter-spacing:1px;color:#8197a9}.gate-signal b{color:#f3c36d;font-weight:500}.signal-line{height:2px;width:min(100%,390px);background:linear-gradient(90deg,var(--acid),transparent)}
+.login-card{background:linear-gradient(145deg,rgba(18,36,53,.94),rgba(7,15,25,.95));border:1px solid #35546a;border-radius:5px;padding:30px;box-shadow:0 30px 100px #0009,0 0 50px #42d8ff0b;backdrop-filter:blur(18px)}.login-card-head{display:flex;justify-content:space-between;font:9px var(--mono);letter-spacing:1.5px;color:#8ca8ba;border-bottom:1px solid #294052;padding-bottom:17px}.lock-icon{color:var(--acid);font-size:18px}.login-title{font-size:27px;font-weight:800;margin-top:24px}.login-sub{font-size:12px;color:#8fa5b8;margin:8px 0 26px}.login-label{display:block;font:9px var(--mono);letter-spacing:1.4px;color:#9ab2c5;margin:18px 0 8px}.login-card input,.login-card select{width:100%;background:#07111d;border:1px solid #29465b;color:#eaf7ff;border-radius:3px;padding:14px;font:13px var(--sans);outline:none}.login-card input:focus,.login-card select:focus{border-color:var(--electric);box-shadow:0 0 0 3px #51e6ff18}.enter-btn{width:100%;margin-top:24px;padding:16px;background:var(--acid);border:0;color:#10190a;font:800 11px var(--mono);letter-spacing:1.4px;cursor:pointer;display:flex;justify-content:space-between;transition:.2s}.enter-btn:hover{transform:translateY(-2px);box-shadow:0 10px 30px #b7ff4a33}.login-foot{display:flex;justify-content:space-between;margin-top:20px;font:8px var(--mono);color:#7892a4}.login-note{font-size:10px;color:#62798b;line-height:1.6;margin:18px 0 0}.gate-bottom{margin-top:24px;border-top:1px solid #1b3040;padding-top:17px}
+body.authed .login-gate{display:none}
+.app{position:relative;z-index:2}.topbar{background:rgba(5,12,20,.92)!important;border-bottom:1px solid #294354!important;backdrop-filter:blur(16px);padding:14px clamp(16px,3vw,42px)!important}.brandmark{background:var(--acid)!important;color:#111!important}.live{color:var(--acid)!important}.rankchip{border-color:#56703a!important}
+.view{animation:fadeUp .45s ease both}@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.view h2{font-size:clamp(34px,5vw,62px)!important;letter-spacing:-2px!important}.view h2 span{color:var(--acid)!important}.eyebrow{color:var(--acid)!important;letter-spacing:2px!important}
+.glass,.inspector,.puzzle-panel,.brief{border:1px solid #2b465a!important;background:linear-gradient(145deg,rgba(13,29,44,.92),rgba(6,15,25,.92))!important;box-shadow:0 20px 60px #0003}.btn.primary{background:var(--acid)!important;color:#10190a!important;border-color:var(--acid)!important}.btn{border-radius:3px!important}.stage{border:1px solid #31536b!important;box-shadow:0 15px 50px #0005}.stage-hud{color:var(--acid)!important}.tag{color:var(--acid)!important}
+.puzzle-panel{border-radius:5px!important}.paneltop{letter-spacing:1px}.flow-list .flow-item,.bank button,.plan{transition:.2s!important}.flow-list .flow-item:hover,.bank button:hover,.plan:hover{transform:translateY(-2px);border-color:var(--acid)!important}
+.toast{border:1px solid var(--acid)!important}
+@media(max-width:800px){.gate-layout{grid-template-columns:1fr;gap:28px;margin:45px auto}.gate-copy h1{font-size:58px;letter-spacing:-3px}.gate-metrics{margin:26px 0;gap:25px}.gate-copy>p{font-size:13px}.login-card{padding:22px}.gate-bottom{font-size:8px}.gate-status{font-size:8px}}
+</style>
 </head><body>
 <canvas id="scene" aria-label="Escena 3D de la intranet TITAN"></canvas><div class="veil"></div>
-<div class="app"><header class="topbar"><div class="brand"><div class="brandmark">IB</div><div><h1>INTRANET BLACK OPS</h1><small>INGENIERÍA DE SISTEMAS II · TEMA 6.6</small></div></div><div class="topright"><span class="live">LABORATORIO EN LÍNEA</span><span class="rankchip" id="rank">RANGO · RECLUTA</span></div></header>
+
+<div id="loginGate" class="login-gate">
+  <div class="gate-grid"></div><div class="gate-orb orb-a"></div><div class="gate-orb orb-b"></div>
+  <div class="gate-top"><div class="gate-brand"><span class="gate-mark">T</span><span>TITAN <b>SECURE SYSTEMS</b></span></div><span class="gate-status"><i></i> RED PRIVADA · ENCRIPTADA</span></div>
+  <div class="gate-layout">
+    <section class="gate-copy"><div class="gate-kicker">SIMULACIÓN EMPRESARIAL · EXPEDIENTE 06.6</div>
+      <h1>EL SISTEMA<br>TE NECESITA<span>.</span></h1>
+      <p>La intranet de TITAN Manufacturing está bajo tu responsabilidad. Identifica amenazas, diseña controles y mantén operando tres plantas industriales.</p>
+      <div class="gate-metrics"><div><b>1,200</b><small>COLABORADORES</small></div><div><b>03</b><small>PLANTAS</small></div><div><b>24/7</b><small>OPERACIÓN</small></div></div>
+      <div class="gate-signal"><span class="signal-line"></span><span>ESTADO DE INFRAESTRUCTURA</span><b>INCIDENTE CONTROLADO · ACCESO PENDIENTE</b></div>
+    </section>
+    <section class="login-card"><div class="login-card-head"><span>IDENTIFICACIÓN DE OPERADOR</span><span class="lock-icon">▣</span></div>
+      <div class="login-title">Inicia tu sesión</div><p class="login-sub">Crea tu identidad para entrar al centro de operaciones.</p>
+      <label class="login-label" for="operatorName">NOMBRE DEL OPERADOR</label><input id="operatorName" maxlength="28" placeholder="Ej. Alex Rivera" autocomplete="name">
+      <label class="login-label" for="operatorRole">PERFIL DE ACCESO</label><select id="operatorRole"><option value="Arquitecto de sistemas">Arquitecto de sistemas</option><option value="Administrador de seguridad">Administrador de seguridad</option><option value="Analista de continuidad">Analista de continuidad</option><option value="Auditor de TI">Auditor de TI</option></select>
+      <button id="enterLab" class="enter-btn">AUTENTICAR Y ENTRAR <span>→</span></button>
+      <div class="login-foot"><span>● MFA SIMULADO</span><span>● SESIÓN LOCAL</span><span>● ENTORNO DIDÁCTICO</span></div>
+      <p class="login-note">Experiencia académica: no solicita contraseñas ni conecta con sistemas reales.</p>
+    </section>
+  </div>
+  <div class="gate-bottom"><span>BLACK OPS // INTRANET LAB</span><span>ST-0704 · INGENIERÍA DE SISTEMAS II</span><span>BUILD 04.0</span></div>
+</div>
+
+<div class="app" id="mainApp"><header class="topbar"><div class="brand"><div class="brandmark">IB</div><div><h1>INTRANET BLACK OPS</h1><small>INGENIERÍA DE SISTEMAS II · TEMA 6.6</small></div></div><div class="topright"><span class="live">LABORATORIO EN LÍNEA</span><span class="rankchip" id="rank">RANGO · RECLUTA</span></div></header>
 <div class="layout"><aside class="sidebar"><div class="side-label">OPERACIONES</div><button class="navbtn active" data-view="command"><span class="num">00</span> Centro de operaciones</button><button class="navbtn" data-view="flow"><span class="num">01</span> Arquitectura / acceso</button><button class="navbtn" data-view="rbac"><span class="num">02</span> Ciberseguridad / RBAC</button><button class="navbtn" data-view="recovery"><span class="num">03</span> Continuidad / DRP</button><div class="side-label" style="margin-top:25px">INTELIGENCIA</div><button class="navbtn" data-view="briefing"><span class="num">04</span> Briefing técnico</button><button class="navbtn" data-view="report"><span class="num">05</span> Informe de misión</button><div class="sidebar-card"><b>TITAN MANUFACTURING</b><p>3 plantas · 3 turnos · 1,200 trabajadores · 950 usuarios habilitados · 85 proveedores externos.</p></div></aside>
 <main>
 <section class="view active" id="command"><div class="hero-grid"><div><div class="eyebrow">MISSION CONTROL / TITAN MANUFACTURING</div><h2>Diseña. Asegura.<br><span>Domina la intranet.</span></h2><p class="lead">No estás viendo una presentación: estás dentro de un laboratorio de sistemas. Explora la infraestructura tridimensional, intervén los componentes y resuelve incidentes reales de una red empresarial distribuida.</p><div class="actions"><button class="btn primary" onclick="go('flow')">Iniciar misión 01 →</button><button class="btn" onclick="go('briefing')">Consultar briefing técnico</button></div></div><div class="glass"><div class="eyebrow">RENDIMIENTO DE MISIÓN</div><div class="score-big" id="score">000 <span style="font-size:12px;color:#85a8bf">/ 100</span></div><div class="progress"><i id="progress"></i></div><div class="stats"><div class="stat"><b id="completed">0/3</b><small>RETOS</small></div><div class="stat"><b id="attempts">0</b><small>INTENTOS</small></div><div class="stat"><b id="errors">0</b><small>ERRORES</small></div></div></div></div>
@@ -73,5 +116,28 @@ const connections=mode==='flow'?[[0,1],[1,2],[2,3],[3,4]]:mode==='recovery'?[[0,
 const ray=new THREE.Raycaster(),mouse=new THREE.Vector2();let selected=-1;canvas.addEventListener('pointerup',e=>{const r=canvas.getBoundingClientRect();mouse.set((e.clientX-r.left)/r.width*2-1,-((e.clientY-r.top)/r.height*2-1));ray.setFromCamera(mouse,camera);const hits=ray.intersectObjects(nodeMeshes.map(n=>n.mesh));if(hits.length){selected=nodeMeshes.findIndex(n=>n.mesh===hits[0].object);const d=nodeMeshes[selected].data;if(mode==='command'){$('#commandTag').textContent=d[1];$('#commandTitle').textContent=d[0];$('#commandDesc').textContent=d[2]}else if(mode==='flow'){window.dispatchEvent(new CustomEvent('flow3dselect',{detail:selected}));$('#flowInfoTitle').textContent=d[0];$('#flowInfo').textContent=d[2]}}});
 function resize(){const w=Math.max(1,host.clientWidth),h=Math.max(1,host.clientHeight);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}const ro=new ResizeObserver(resize);ro.observe(host);resize();const clock=new THREE.Clock();function animate(){requestAnimationFrame(animate);const t=clock.getElapsedTime();if(mode==='command'&&window.sceneSpin!==false)root.rotation.y=t*.045;nodeMeshes.forEach((n,i)=>{n.g.position.y=useDefs[i][3][1]+Math.sin(t*1.1+i)*.055;n.ring.rotation.z=t*.18+i*.3;n.mat.emissiveIntensity=i===selected?.65:.2});packets.forEach(x=>{const f=(t*.17+x.o)%1;x.p.position.lerpVectors(new THREE.Vector3(...useDefs[x.a][3]),new THREE.Vector3(...useDefs[x.b][3]),f)});controls.update();renderer.render(scene,camera)}animate();scenes[mode]={controls,resize,renderer};if(mode==='command')window.activeControls=controls;}
 createScene('commandCanvas','command');createScene('flowCanvas','flow');createScene('rbacCanvas','rbac');createScene('recoveryCanvas','recovery');window.resize3D=()=>Object.values(scenes).forEach(s=>s.resize());window.focusScene=()=>Object.values(scenes).forEach(s=>{s.controls.target.set(0,0,0);s.controls.update()});
+</script>
+
+<script>
+(()=> {
+ const gate=document.getElementById('loginGate'), app=document.getElementById('mainApp');
+ const name=document.getElementById('operatorName'), role=document.getElementById('operatorRole');
+ const saved=localStorage.getItem('titan_operator');
+ if(saved){try{const u=JSON.parse(saved);if(u.name){name.value=u.name;role.value=u.role||role.value}}catch(e){}}
+ document.getElementById('enterLab').addEventListener('click',()=>{
+   const operator=(name.value||'Operador TITAN').trim().slice(0,28);
+   const profile={name:operator,role:role.value,enteredAt:new Date().toISOString()};
+   localStorage.setItem('titan_operator',JSON.stringify(profile));
+   document.body.classList.add('authed');
+   const brand=document.querySelector('.brand h1');
+   if(brand)brand.textContent='BLACK OPS // '+operator.toUpperCase();
+   const small=document.querySelector('.brand small');
+   if(small)small.textContent=role.value.toUpperCase()+' · TITAN MANUFACTURING';
+   const toast=document.getElementById('toast');
+   if(toast){toast.textContent='IDENTIDAD VALIDADA · BIENVENIDO/A '+operator.toUpperCase();toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3200)}
+ });
+ // Session is intentionally a local learning simulation, not real authentication.
+ document.addEventListener('keydown',e=>{if(e.key==='Enter'&&!document.body.classList.contains('authed'))document.getElementById('enterLab').click()});
+})();
 </script>
 </body></html>
