@@ -43,7 +43,94 @@ body.authed .login-gate{display:none}
 .academy-banner{display:grid;grid-template-columns:1fr 210px;gap:24px;align-items:center;margin:24px 0}.academy-banner h3{font-size:25px;margin:14px 0 8px}.academy-banner p{max-width:680px;color:#9bb4c7;font-size:11px;line-height:1.8}.academy-progress{padding:16px;background:#071522;border:1px solid #29475c;border-radius:10px}.academy-progress>b{font:30px var(--mono);color:var(--acid)}.academy-progress small{display:block;color:#8ba6b9;font:8px var(--mono);letter-spacing:1px;margin-top:6px}.academy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.academy-card{padding:20px;border:1px solid #2b4a60;border-radius:13px;background:linear-gradient(145deg,#102438f2,#091522f2);display:flex;flex-direction:column;min-height:340px}.academy-card h3{font-size:21px;margin:12px 0}.academy-card p{font-size:11px;line-height:1.8;color:#a7bdce}.academy-num{font:9px var(--mono);letter-spacing:1.5px;color:var(--acid)}.academy-example{padding:12px;background:#102b35;border-left:2px solid var(--electric);font-size:10px;line-height:1.7;color:#c5dbe5;margin:8px 0}.academy-ask{font-size:10px;font-weight:800;color:#e8f6ff;margin-top:9px}.academy-answer{color:#8daabd!important;margin-top:5px}.academy-done{margin-top:auto;align-self:flex-start}.academy-done.done{border-color:var(--acid);color:var(--acid);background:#182a1b}.academy-quiz{margin-bottom:18px}.quiz-question{font-size:17px;font-weight:800;margin-bottom:16px}.academy-options{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.academy-options button{padding:14px;text-align:left;border:1px solid #31516a;border-radius:9px;background:#0b1c2c;color:#d7e8f2;font-size:10px;cursor:pointer}.academy-options button:hover,.academy-options button.selected{border-color:var(--electric);background:#123348}.academy-options button:disabled{cursor:default;opacity:.85}.academy-feedback{padding:12px;margin-top:13px;border:1px solid #29475c;border-radius:8px;color:#9bb5c8;font-size:10px;line-height:1.7}.academy-feedback.good{border-color:#688d45;color:#d5f6b2}.academy-feedback.bad{border-color:#94604e;color:#ffd0b6}.academy-reference{padding:20px;border:1px solid #35536a;border-radius:13px;background:#0b1a28}.academy-reference p{font-size:11px;line-height:1.8;color:#a4bacb}.navbtn[data-view="academy"]{color:var(--acid)}@media(max-width:850px){.academy-grid{grid-template-columns:1fr}.academy-banner{grid-template-columns:1fr}.academy-options{grid-template-columns:1fr}}
 </style><style>
 .tutorial-start{margin:20px 0 24px;padding:22px;border-color:#46647a}.tutorial-start h3{font-size:25px;margin:10px 0}.tutorial-start>p{font-size:11px;line-height:1.8;color:#9fb7c8;max-width:850px}.tutorial-steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:17px}.tutorial-step{padding:14px;border:1px solid #29475d;background:#081725;border-radius:9px}.tutorial-step b{font:9px var(--mono);letter-spacing:1px;color:var(--acid)}.tutorial-step p{font-size:10px;line-height:1.75;color:#a9bfce;margin:8px 0 0}.tutorial-step strong{color:#eaf7ff}.tutorial-rule{margin-top:13px;padding:13px;border-left:3px solid var(--acid);background:#13251b;color:#d4e8c5;font-size:10px;line-height:1.7}@media(max-width:850px){.tutorial-steps{grid-template-columns:1fr}}
-</style></head><body>
+</style>
+<style id="blackops-responsive-polish">
+/* BLACK OPS 4.2 — responsive system */
+:root{--acid:#b7ff4a;--electric:#51e6ff}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{min-width:320px}
+.topbar{position:sticky;top:0;z-index:50;min-height:70px;height:auto}
+.layout{grid-template-columns:236px minmax(0,1fr);max-width:1800px;margin:0 auto}
+.sidebar{position:sticky;top:70px;height:calc(100vh - 70px);overflow-y:auto;align-self:start}
+main{width:100%;min-width:0}
+.view{max-width:1500px;margin:0 auto}
+.glass,.mission,.academy-card,.brief,.inspector,.puzzle-panel{min-width:0}
+img,canvas,svg{max-width:100%}
+button,select,input{touch-action:manipulation}
+button{min-height:40px}
+select{font:inherit;max-width:100%;border-radius:8px}
+.academy-card{height:100%}
+.academy-options button{min-height:74px;line-height:1.55}
+.cap-q{padding:14px;border:1px solid #29475c;border-radius:10px;background:#071522;margin-top:12px}
+#capstone select{min-height:48px;border-radius:7px;font-size:12px;line-height:1.5}
+#capstone .actions{position:sticky;bottom:10px;z-index:5;padding:10px;background:#071522eF;border:1px solid #29475c;border-radius:10px;backdrop-filter:blur(12px)}
+.stage{min-width:0;contain:layout paint}
+.stage canvas{width:100%;height:100%;display:block}
+.gate-layout{max-width:1320px}
+.login-card{width:100%;max-width:470px;justify-self:end}
+@media(min-width:1500px){main{padding-left:clamp(40px,4vw,76px);padding-right:clamp(40px,4vw,76px)}.mission-grid{gap:18px}.academy-grid{gap:18px}}
+@media(max-width:1000px){
+ .layout{grid-template-columns:190px minmax(0,1fr)}
+ .sidebar{top:70px}
+ .academy-banner{grid-template-columns:minmax(0,1fr) 190px}
+ .academy-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .academy-options{grid-template-columns:1fr}
+}
+@media(max-width:700px){
+ html{scroll-padding-top:122px}
+ .topbar{position:sticky;top:0;min-height:62px;padding:9px 12px!important;gap:8px}
+ .brand{gap:8px}.brandmark{width:31px;height:31px}.brand h1{font-size:10px!important;letter-spacing:.08em}.brand small{font-size:7px!important;letter-spacing:.05em}
+ .topright{gap:5px}.live{font-size:7px;letter-spacing:0}.live:before{margin-right:4px;width:6px;height:6px}
+ .layout{display:flex;flex-direction:column;min-height:calc(100vh - 62px)}
+ .sidebar{position:sticky;top:62px;z-index:45;display:flex;flex-wrap:nowrap;gap:6px;padding:8px 10px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;background:rgba(5,13,22,.96);backdrop-filter:blur(16px);border-bottom:1px solid #35546a;scrollbar-width:thin}
+ .sidebar .navbtn{flex:0 0 auto;width:auto;margin:0;padding:10px 12px;border:1px solid #29465c;border-radius:5px;font-size:9px;min-height:38px}
+ .sidebar .navbtn.active{box-shadow:inset 0 -2px var(--acid);border-color:#78984b}
+ .sidebar .side-label,.sidebar .sidebar-card{display:none}
+ main{padding:19px 13px 42px}
+ .view h2{font-size:clamp(34px,10vw,48px)!important;line-height:1.02!important;letter-spacing:-1.8px!important}
+ .lead{font-size:12px;line-height:1.75}
+ .hero-grid,.academy-banner,.workspace{grid-template-columns:minmax(0,1fr);gap:13px}
+ .academy-progress{width:100%}
+ .mission-grid,.brief-grid,.academy-grid{grid-template-columns:minmax(0,1fr)}
+ .mission{min-height:0}
+ .academy-card{min-height:0;padding:17px}
+ .academy-options{grid-template-columns:1fr}
+ .academy-options button{min-height:54px;font-size:11px}
+ .section-head{margin:23px 0 12px}
+ .section-head h3{font-size:20px}
+ .stage{height:clamp(280px,92vw,410px);border-radius:10px}
+ .stage-tools{top:8px;right:8px}.stage-tools button{min-height:34px;padding:7px}
+ .inspector{padding:14px}
+ .puzzle-panel{padding:13px}
+ .flow-chip{font-size:9px;padding:8px}
+ .rbac{min-width:590px}
+ .tablewrap{margin-left:-3px;margin-right:-3px}
+ .plan-grid{grid-template-columns:1fr}
+ .gate-layout{grid-template-columns:minmax(0,1fr);gap:22px;margin:30px auto}
+ .gate-copy h1{font-size:clamp(48px,15vw,66px);letter-spacing:-3px;margin:18px 0}
+ .gate-copy>p{font-size:12px;line-height:1.7}
+ .gate-metrics{gap:22px;margin:22px 0}
+ .gate-metrics b{font-size:22px}
+ .login-card{max-width:none;padding:19px}
+ .gate-top{font-size:8px}.gate-brand{font-size:11px}.gate-bottom{gap:8px;flex-wrap:wrap;font-size:7px}
+ #capstone{padding:14px!important}
+ #capstone .lead{font-size:11px}
+ #capstone select{font-size:11px;padding:11px 9px!important}
+ #capstone .actions{bottom:6px}
+ .actions .btn{flex:1 1 auto;min-height:44px}
+ .academy-reference,.academy-example,.academy-feedback{font-size:11px;line-height:1.7}
+}
+@media(max-width:380px){
+ .brand small{display:none}
+ .live{font-size:6px}
+ main{padding-left:10px;padding-right:10px}
+ .gate-metrics{gap:15px}
+ .gate-metrics b{font-size:19px}
+}
+@media(hover:none){.btn:hover,.mission:hover,.flow-list .flow-item:hover,.bank button:hover,.plan:hover{transform:none;box-shadow:none}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head><body>
 <canvas id="scene" aria-label="Escena 3D de la intranet TITAN"></canvas><div class="veil"></div>
 
 <div id="loginGate" class="login-gate">
@@ -155,7 +242,7 @@ import * as THREE from 'three';import {OrbitControls} from 'three/addons/control
 // Motor gráfico compartido: la misma topología se presenta en la sala principal y en cada misión.
 const nodeDefs=[['Portal intranet','PRESENTACIÓN','Portal de personal, avisos, procedimientos y tableros.',[0,2.8,0],0x62e6dc],['Identidad / IAM','SEGURIDAD','Autenticación MFA, autorización RBAC y ciclo de vida de cuentas.',[-3.2,.8,0],0x78aaff],['Servicios API','APLICACIÓN','Reglas de negocio, validación de solicitudes y auditoría.',[0,.7,0],0xb39aff],['ERP','INTEGRACIÓN','Compras, finanzas, órdenes y proveedores.',[3.2,.8,0],0xffd080],['WMS','OPERACIÓN','Inventarios, almacenes y movimientos.',[-2.5,-1.6,0],0xa1edb0],['MRP','OPERACIÓN','Planeación de materiales y producción.',[2.5,-1.6,0],0xff8796],['Datos / Backup','DATOS','Repositorios, cifrado, réplicas y recuperación.',[0,-3.2,0],0x69c8f0]];
 const scenes={};let current='command';const shared={};window.sceneSpin=true;
-function createScene(canvasId,mode){const canvas=document.getElementById(canvasId);if(!canvas)return;const host=canvas.parentElement;let renderer;try{renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'})}catch(e){return}renderer.setPixelRatio(Math.min(devicePixelRatio,1.6));renderer.outputColorSpace=THREE.SRGBColorSpace;const scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x071525,.025);const camera=new THREE.PerspectiveCamera(48,1,.1,100);camera.position.set(0,4.8,12.5);scene.add(new THREE.AmbientLight(0x8ab8dd,1.3));const light=new THREE.PointLight(0x62e6dc,70,30);light.position.set(-4,6,5);scene.add(light);const violet=new THREE.PointLight(0x927dff,35,22);violet.position.set(5,-2,-4);scene.add(violet);const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.055;controls.minDistance=6;controls.maxDistance=21;controls.enablePan=false;const root=new THREE.Group();scene.add(root);const nodeMeshes=[];const useDefs=mode==='recovery'?[['Servidor primario','FALLO CRÍTICO','Centro de datos primario fuera de servicio.',[-2,0,0],0xff596d],['Réplica secundaria','FAILOVER','Réplica geográfica disponible para recuperación.',[2,0,0],0x62e6dc],['Backups aislados','BACKUP','Copias protegidas y verificables.',[0,-2.7,0],0x78aaff]]:mode==='flow'?[['Solicitud','REQUEST','Petición inicial del usuario.',[-3,0,0],0x62e6dc],['Identidad MFA','AUTHENTICATION','Verificación de identidad y segundo factor.',[-1,0,0],0x78aaff],['Motor RBAC','AUTHORIZATION','Evaluación de rol y permisos.',[1,0,0],0xb39aff],['Políticas','POLICY','Reglas contextuales antes de ejecutar.',[3,0,0],0xffd080],['Ejecución','AUDIT','Operación autorizada y registro.',[0,-2.4,0],0xa1edb0]]:nodeDefs;
+function createScene(canvasId,mode){const canvas=document.getElementById(canvasId);if(!canvas)return;const host=canvas.parentElement;let renderer;try{renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'})}catch(e){return}renderer.setPixelRatio(Math.min(devicePixelRatio,window.innerWidth<700?1.05:1.35));renderer.outputColorSpace=THREE.SRGBColorSpace;const scene=new THREE.Scene();scene.fog=new THREE.FogExp2(0x071525,.025);const camera=new THREE.PerspectiveCamera(48,1,.1,100);camera.position.set(0,4.8,12.5);scene.add(new THREE.AmbientLight(0x8ab8dd,1.3));const light=new THREE.PointLight(0x62e6dc,70,30);light.position.set(-4,6,5);scene.add(light);const violet=new THREE.PointLight(0x927dff,35,22);violet.position.set(5,-2,-4);scene.add(violet);const controls=new OrbitControls(camera,renderer.domElement);controls.enableDamping=true;controls.dampingFactor=.055;controls.minDistance=6;controls.maxDistance=21;controls.enablePan=false;const root=new THREE.Group();scene.add(root);const nodeMeshes=[];const useDefs=mode==='recovery'?[['Servidor primario','FALLO CRÍTICO','Centro de datos primario fuera de servicio.',[-2,0,0],0xff596d],['Réplica secundaria','FAILOVER','Réplica geográfica disponible para recuperación.',[2,0,0],0x62e6dc],['Backups aislados','BACKUP','Copias protegidas y verificables.',[0,-2.7,0],0x78aaff]]:mode==='flow'?[['Solicitud','REQUEST','Petición inicial del usuario.',[-3,0,0],0x62e6dc],['Identidad MFA','AUTHENTICATION','Verificación de identidad y segundo factor.',[-1,0,0],0x78aaff],['Motor RBAC','AUTHORIZATION','Evaluación de rol y permisos.',[1,0,0],0xb39aff],['Políticas','POLICY','Reglas contextuales antes de ejecutar.',[3,0,0],0xffd080],['Ejecución','AUDIT','Operación autorizada y registro.',[0,-2.4,0],0xa1edb0]]:nodeDefs;
 useDefs.forEach((d,i)=>{const g=new THREE.Group();g.position.set(...d[3]);const mat=new THREE.MeshStandardMaterial({color:d[4],emissive:d[4],emissiveIntensity:.22,metalness:.35,roughness:.28,flatShading:true});const geo=mode==='rbac'?new THREE.BoxGeometry(1.1,1.1,1.1):new THREE.IcosahedronGeometry(mode==='command'?.62:.55,2);const mesh=new THREE.Mesh(geo,mat);g.add(mesh);const ring=new THREE.Mesh(new THREE.TorusGeometry(.78,.018,8,56),new THREE.MeshBasicMaterial({color:d[4],transparent:true,opacity:.62}));ring.rotation.x=Math.PI/2;g.add(ring);const halo=new THREE.Mesh(new THREE.SphereGeometry(.87,18,18),new THREE.MeshBasicMaterial({color:d[4],transparent:true,opacity:.055,depthWrite:false}));g.add(halo);root.add(g);nodeMeshes.push({g,mesh,ring,mat,data:d})});
 const connections=mode==='flow'?[[0,1],[1,2],[2,3],[3,4]]:mode==='recovery'?[[0,1],[1,2],[0,2]]:[[0,1],[0,2],[1,2],[2,3],[2,4],[2,5],[4,6],[5,6],[3,6]];const packets=[];connections.forEach(([a,b],i)=>{const p1=new THREE.Vector3(...useDefs[a][3]),p2=new THREE.Vector3(...useDefs[b][3]);root.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([p1,p2]),new THREE.LineBasicMaterial({color:0x5b9bb9,transparent:true,opacity:.5})));const p=new THREE.Mesh(new THREE.SphereGeometry(.06,8,8),new THREE.MeshBasicMaterial({color:0xc1fff5}));root.add(p);packets.push({p,a,b,o:i/connections.length})});const grid=new THREE.GridHelper(17,34,0x1d5268,0x163247);grid.position.y=-3.7;grid.material.transparent=true;grid.material.opacity=.2;root.add(grid);const starPositions=new Float32Array(500*3);for(let i=0;i<500;i++){starPositions[i*3]=(Math.random()-.5)*28;starPositions[i*3+1]=(Math.random()-.5)*18;starPositions[i*3+2]=(Math.random()-.5)*18-4}const sg=new THREE.BufferGeometry();sg.setAttribute('position',new THREE.BufferAttribute(starPositions,3));scene.add(new THREE.Points(sg,new THREE.PointsMaterial({color:0x9ac9e8,size:.035,transparent:true,opacity:.65})));
 const ray=new THREE.Raycaster(),mouse=new THREE.Vector2();let selected=-1;canvas.addEventListener('pointerup',e=>{const r=canvas.getBoundingClientRect();mouse.set((e.clientX-r.left)/r.width*2-1,-((e.clientY-r.top)/r.height*2-1));ray.setFromCamera(mouse,camera);const hits=ray.intersectObjects(nodeMeshes.map(n=>n.mesh));if(hits.length){selected=nodeMeshes.findIndex(n=>n.mesh===hits[0].object);const d=nodeMeshes[selected].data;if(mode==='command'){$('#commandTag').textContent=d[1];$('#commandTitle').textContent=d[0];$('#commandDesc').textContent=d[2]}else if(mode==='flow'){window.dispatchEvent(new CustomEvent('flow3dselect',{detail:selected}));$('#flowInfoTitle').textContent=d[0];$('#flowInfo').textContent=d[2]}}});
