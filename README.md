@@ -32,3 +32,13 @@ Los casos, cifras y respuestas son simulados para práctica. La puntuación es f
 - **Librillo Markdown:** [librillo-sesion-08.md](sesion-08-negociacion-orden-compra/librillo-sesion-08.md)
 - **Temas:** 3.10 Negociación de la compra; 3.11 Orden de compra; 3.12 Seguimiento de las órdenes de compra.
 - **Actividades:** simulación comprador–proveedor, elaboración de OC y seguimiento de pedidos.
+
+
+## NEXUS · Sesión 08 — Librillos ampliados y aula integrada
+
+- **Aula interactiva:** https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/
+- **Biblioteca digital:** pestaña «Biblioteca de estudio» dentro del aula.
+- **Librillo estudiante:** [librillo-sesion-08.md](sesion-08-negociacion-orden-compra/librillo-sesion-08.md)
+- **Manual del maestro:** [manual-maestro-sesion-08.md](sesion-08-negociacion-orden-compra/manual-maestro-sesion-08.md)
+- **Control Tower:** https://angelmaltos03-alt.github.io/compras-game/protocolo-nexus-unidad3/
+- **Referencias cruzadas:** páginas 5–10 → #negociacion; 11–15 → #orden; 16–19 → #seguimiento; página 23 → #evaluacion.
