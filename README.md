@@ -24,3 +24,11 @@ En el repositorio, abre **Settings → Pages**. En **Build and deployment**, eli
 
 Los casos, cifras y respuestas son simulados para práctica. La puntuación es formativa y no una calificación oficial. El avance guardado en un navegador no se sincroniza entre dispositivos ni se envía al docente.
 
+
+
+## NEXUS · Sesión 08 — Negociación y orden de compra
+
+- **Aula interactiva:** https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/
+- **Librillo Markdown:** [librillo-sesion-08.md](sesion-08-negociacion-orden-compra/librillo-sesion-08.md)
+- **Temas:** 3.10 Negociación de la compra; 3.11 Orden de compra; 3.12 Seguimiento de las órdenes de compra.
+- **Actividades:** simulación comprador–proveedor, elaboración de OC y seguimiento de pedidos.
