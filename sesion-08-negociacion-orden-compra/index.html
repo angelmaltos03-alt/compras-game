@@ -13,12 +13,52 @@ a{color:var(--cyan)}.wrap{max-width:1180px;margin:auto;padding:24px}.top{display
 label{display:block;color:var(--muted);font-size:12px;font-weight:800;margin:10px 0 5px}input,select,textarea{width:100%;background:#081622;border:1px solid var(--line);color:var(--text);border-radius:8px;padding:11px;font:inherit}textarea{min-height:85px;resize:vertical}.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.output{background:#081622;border:1px solid var(--line);border-radius:10px;padding:14px;margin-top:12px}.total{font-size:28px;color:var(--green);font-weight:900}.question{border-top:1px solid var(--line);padding:14px 0}.question label{display:flex;align-items:flex-start;gap:9px;color:var(--text);font-weight:500;font-size:14px}.question input{width:auto;margin-top:5px}.feedback{margin-top:10px;padding:10px;border-radius:8px;background:#0b2b25;color:#9fe9c8;display:none}.feedback.bad{background:#351b23;color:#ffb0b0}.pill{display:inline-block;border:1px solid var(--line);border-radius:99px;padding:4px 9px;color:var(--muted);font-size:11px;margin:2px}.footer{border-top:1px solid var(--line);margin-top:32px;padding:20px 0;color:var(--muted);font-size:12px}
 @media(max-width:760px){.wrap{padding:16px}.hero,.grid,.formgrid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.hero{padding-top:24px}.hero-art{min-height:150px}}
 @media print{body{background:white;color:#111}.top,.tabs,.hero-art,.btn{display:none!important}.card{break-inside:avoid;background:white;color:#111;border:1px solid #bbb}.card p,.card li,td{color:#222}.section{display:block!important}.wrap{max-width:none}}
+
+/* NEXUS PRACTICE CENTER — capa visual */
+.practice-entry{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin:18px 0 22px;padding:16px 18px;border:1px solid #286276;border-radius:14px;background:linear-gradient(120deg,#102d3c,#102033 68%,#182b3a)}
+.practice-entry strong{color:#8ff1e9}.practice-entry p{margin:3px 0;color:#b7c9d5;font-size:13px}
+.practice-shell{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(250px,.7fr);gap:16px}
+.practice-card{background:linear-gradient(145deg,#142a3f,#0d1b2a);border:1px solid #29465e;border-radius:16px;padding:20px;margin:0 0 16px;box-shadow:0 12px 32px #0002}
+.practice-card h2{font-size:22px;margin:4px 0 8px}.practice-card h3{font-size:17px;margin:6px 0 10px}
+.practice-kicker{font-size:10px;letter-spacing:.16em;color:#31d6cc;font-weight:900}
+.practice-meta{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.practice-meta span{font-size:11px;color:#c5d5e0;border:1px solid #324c61;border-radius:99px;padding:4px 9px}
+.practice-statgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:14px 0}
+.practice-stat{border:1px solid #29465e;border-radius:11px;padding:12px;background:#091827}
+.practice-stat small{display:block;color:#91aabd;font-size:10px;text-transform:uppercase;letter-spacing:.1em}
+.practice-stat b{font-size:23px;color:#eaf6f8}
+.practice-progress{height:9px;background:#081521;border:1px solid #29465e;border-radius:99px;overflow:hidden;margin:10px 0}
+.practice-progress>span{display:block;height:100%;width:0;background:linear-gradient(90deg,#18bfc0,#74e2b1);transition:width .3s}
+.practice-question{border:1px solid #29465e;border-radius:12px;padding:14px;margin:12px 0;background:#0b1a29}
+.practice-question p{margin:0 0 10px;color:#edf5f8;font-weight:750}
+.practice-option{display:flex!important;align-items:flex-start;gap:9px;padding:9px 10px;margin:6px 0!important;border:1px solid #2a4054;border-radius:9px;background:#0d2031;color:#c9d8e2!important;font-size:13px!important;cursor:pointer}
+.practice-option input{width:auto;margin:3px 0 0;accent-color:#20c9c1}
+.practice-feedback{display:none;margin:12px 0 0;padding:13px 14px;border-radius:10px;border:1px solid #3b6958;background:#102d27;color:#c3f5dd;font-size:13px}
+.practice-feedback.bad{border-color:#75434a;background:#351d27;color:#ffd0d0}
+.practice-feedback h4{margin:0 0 5px;font-size:14px}
+.practice-hint{display:none;margin:10px 0;padding:12px;border-left:3px solid #d8ad55;background:#2a261c;border-radius:0 9px 9px 0;color:#f1dfb3;font-size:13px}
+.practice-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.practice-actions .btn{font-size:13px}
+.practice-input{max-width:280px}
+.practice-table{overflow:auto;margin:12px 0}
+.practice-table table{min-width:460px}
+.practice-aside{position:sticky;top:12px;align-self:start}
+.practice-aside .practice-card{padding:16px}
+.practice-check{display:flex;gap:9px;align-items:flex-start;color:#bfd0dc;font-size:12px;margin:9px 0}
+.practice-check:before{content:"";width:8px;height:8px;min-width:8px;margin-top:6px;border:1px solid #4b6c82;border-radius:50%}
+.practice-check.done:before{background:#4bd19b;border-color:#4bd19b;box-shadow:0 0 0 3px #4bd19b22}
+.practice-small{color:#9fb4c3;font-size:12px}
+.practice-locked{opacity:.7}
+@media(max-width:850px){.practice-shell{grid-template-columns:1fr}.practice-aside{position:static}.practice-statgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:500px){.practice-statgrid{grid-template-columns:1fr 1fr}.practice-stat:last-child{grid-column:1/-1}.practice-card{padding:15px}}
+@media print{#misiones{display:block!important}.practice-aside,.practice-actions,.practice-entry{display:none!important}.practice-card{break-inside:avoid;background:white;color:#111;border:1px solid #aaa;box-shadow:none}.practice-card p,.practice-small,.practice-option{color:#222!important}}
+
 </style>
 </head>
 <body><div class="wrap">
 <header class="top"><div class="brand"><div class="mark">N</div><div><b>NEXUS</b><small>WORLDWIDE · PROCUREMENT</small></div></div><div class="tag">ADMINISTRACIÓN DE COMPRAS · UNIDAD 3 · SESIÓN 08</div><a class="tag" href="../protocolo-nexus-unidad3/">← NEXUS Control Tower</a></header>
 <section class="hero"><div><div class="eyebrow">LIBRILLO DE ESTUDIO Y TRABAJO · 01 NOVIEMBRE 2026</div><h1>NEGOCIACIÓN<br><em>Y ORDEN DE COMPRA</em></h1><p>De la propuesta comercial al cumplimiento del proveedor. Aprende a negociar condiciones, formalizar adquisiciones y controlar pedidos con criterios operativos y financieros.</p><div><span class="pill">3.10 Negociación</span><span class="pill">3.11 Orden de compra</span><span class="pill">3.12 Seguimiento</span></div></div><div class="hero-art"><div class="orb">N</div></div></section>
-<nav class="tabs"><button class="active" data-tab="teoria">Librillo</button><button data-tab="negociacion">Simulador de negociación</button><button data-tab="orden">Orden de compra</button><button data-tab="seguimiento">Seguimiento</button><button data-tab="recursos">Biblioteca de estudio</button><button data-tab="evaluacion">Evaluación</button></nav>
+<nav class="tabs"><button class="active" data-tab="teoria">Librillo</button><button data-tab="negociacion">Simulador de negociación</button><button data-tab="orden">Orden de compra</button><button data-tab="seguimiento">Seguimiento</button><button data-tab="recursos">Biblioteca de estudio</button><button data-tab="evaluacion">Evaluación</button><button data-tab="misiones">Centro de práctica</button></nav>
 <main>
 <section id="teoria" class="section active">
 <div class="card"><div class="num">APERTURA / PROPÓSITO</div><h2>Comprar bien es administrar decisiones</h2><p>En una organización, comprar no significa simplemente seleccionar un producto, pagarlo y esperar a que llegue. El abastecimiento requiere evaluar alternativas, negociar condiciones comerciales, formalizar compromisos y verificar que los proveedores cumplan.</p><p>Una empresa puede tener presupuesto disponible y aun así realizar una mala adquisición. El comprador debe analizar calidad, tiempos, condiciones de pago, disponibilidad, transporte, garantías y confiabilidad.</p><div class="callout"><b>Pregunta de apertura:</b> si un proveedor ofrece el precio más bajo, pero entrega después de la fecha en que producción necesita el material, ¿realmente representa la mejor compra?</div><h3>Objetivos de aprendizaje</h3><ul><li>Explicar la importancia de negociar con proveedores.</li><li>Identificar variables comerciales y aplicar técnicas básicas.</li><li>Reconocer y elaborar una orden de compra completa.</li><li>Dar seguimiento a pedidos e identificar desviaciones.</li></ul></div>
@@ -52,6 +92,169 @@ label{display:block;color:var(--muted);font-size:12px;font-weight:800;margin:10p
 <button class="btn primary" type="submit">Calificar respuestas</button></form><div class="output" id="quizOutput" aria-live="polite">Resultado pendiente.</div></div>
 <div class="card"><h2>Preguntas de análisis</h2><ol><li>¿Por qué negociar antes de emitir una OC?</li><li>¿Qué consecuencias genera una OC con información incorrecta?</li><li>¿Por qué el precio no debe ser el único criterio?</li><li>¿Qué diferencia hay entre una orden emitida y una confirmada?</li><li>¿Cómo afecta un retraso a la producción?</li><li>¿Por qué evaluar el desempeño de los proveedores?</li></ol></div>
 </section>
+
+<section id="misiones" class="section">
+  <div class="practice-entry">
+    <div><div class="practice-kicker">NEXUS PROCUREMENT LAB · TRAINING MODE</div>
+      <strong>Aprende haciendo. Corrige. Vuelve a intentar. Domina la operación.</strong>
+      <p>Cuatro misiones prácticas con pistas, validación inmediata y retroalimentación explicada.</p>
+    </div>
+    <a class="btn primary" href="#teoria" onclick="document.querySelector('[data-tab=teoria]').click();return false">Repasar el librillo ↗</a>
+  </div>
+  <div class="practice-card">
+    <div class="practice-kicker">PERFIL DE APRENDIZAJE · SESIÓN 08</div>
+    <h2>Tu bitácora NEXUS</h2>
+    <p class="practice-small">Identifícate para que la evidencia descargada tenga tus datos. El avance se guarda en este navegador y dispositivo; no se envía a un servidor ni aparece automáticamente en el panel del docente.</p>
+    <div class="formgrid">
+      <div><label for="practiceStudent">Nombre del estudiante</label><input id="practiceStudent" placeholder="Escribe tu nombre" autocomplete="name"></div>
+      <div><label for="practiceGroup">Grupo / cuatrimestre</label><input id="practiceGroup" placeholder="Ej. 8A · Administración"></div>
+    </div>
+    <div class="practice-statgrid">
+      <div class="practice-stat"><small>Misiones completas</small><b id="practiceDone">0 / 4</b></div>
+      <div class="practice-stat"><small>Experiencia</small><b id="practiceXP">0 XP</b></div>
+      <div class="practice-stat"><small>Intentos realizados</small><b id="practiceAttempts">0</b></div>
+    </div>
+    <div class="practice-progress"><span id="practiceBar"></span></div>
+    <div class="practice-small" id="practiceStatus">Completa las misiones para construir tu evidencia de aprendizaje.</div>
+    <div class="practice-actions">
+      <button class="btn" id="practiceExport">Descargar mi evidencia</button>
+      <button class="btn" id="practicePrint">Imprimir reporte</button>
+    </div>
+  </div>
+
+  <div class="practice-shell">
+    <div>
+      <article class="practice-card" id="mission-negotiation">
+        <div class="practice-kicker">MISSION 01 · PÁGINAS 5–8 · TEMA 3.10</div>
+        <div class="practice-meta"><span>Decisión de compra</span><span>100 XP</span><span>Nivel: analista</span></div>
+        <h2>El proveedor correcto no siempre es el más barato</h2>
+        <p>TITAN Industrial necesita <b>600 componentes metálicos en un máximo de 10 días</b>. Norte Supply ofrece 3% de descuento si confirma el pedido de 600 piezas y permite dos entregas de 300.</p>
+        <div class="practice-table"><table><thead><tr><th>Variable</th><th>Norte Supply</th><th>Industrial MX</th><th>Delta</th></tr></thead><tbody>
+          <tr><td>Precio unitario</td><td>$185</td><td>$178</td><td>$190</td></tr>
+          <tr><td>Entrega</td><td>7 días</td><td>14 días</td><td>5 días</td></tr>
+          <tr><td>Crédito</td><td>30 días</td><td>Contado</td><td>15 días</td></tr>
+          <tr><td>Transporte</td><td>Incluido</td><td>$3,000</td><td>Incluido</td></tr>
+        </tbody></table></div>
+        <div class="practice-question">
+          <p>1. ¿Qué proveedor representa la alternativa más conveniente con los datos y condiciones del caso?</p>
+          <label class="practice-option"><input type="radio" name="m1vendor" value="norte"> Norte Supply</label>
+          <label class="practice-option"><input type="radio" name="m1vendor" value="industrial"> Industrial MX</label>
+          <label class="practice-option"><input type="radio" name="m1vendor" value="delta"> Proveedora Delta</label>
+        </div>
+        <div class="practice-question">
+          <p>2. ¿Cuál es la justificación más sólida?</p>
+          <label class="practice-option"><input type="radio" name="m1why" value="discount"> Con el descuento, ofrece menor costo total entre las opciones que cumplen la fecha; incluye transporte y concede 30 días de crédito.</label>
+          <label class="practice-option"><input type="radio" name="m1why" value="unit"> Siempre debe elegirse el precio unitario más bajo, aunque el plazo no cumpla.</label>
+          <label class="practice-option"><input type="radio" name="m1why" value="fast"> Delta entrega más rápido, por eso necesariamente es el más económico.</label>
+        </div>
+        <div class="practice-hint" id="m1hint">Pista: separa primero las opciones que incumplen un requisito obligatorio. Después calcula el descuento de Norte Supply: precio × (1 − 0.03), y compáralo con Delta incluyendo tiempo, transporte y crédito.</div>
+        <div class="practice-actions"><button class="btn" data-hint="m1hint">Necesito una pista</button><button class="btn primary" id="m1check">Validar decisión</button><a class="btn" href="#teoria" onclick="document.querySelector('[data-tab=teoria]').click();return false">Repasar págs. 5–8</a></div>
+        <div class="practice-feedback" id="m1feedback" aria-live="polite"></div>
+      </article>
+
+      <article class="practice-card" id="mission-po">
+        <div class="practice-kicker">MISSION 02 · PÁGINAS 9–11 · TEMA 3.11</div>
+        <div class="practice-meta"><span>Precisión documental</span><span>100 XP</span><span>Nivel: comprador</span></div>
+        <h2>Construye los importes de una orden de compra</h2>
+        <p>NEXUS Industrial compra los siguientes artículos. Calcula el importe de cada partida, suma el subtotal, calcula el IVA didáctico del 16% y determina el total.</p>
+        <div class="practice-table"><table><thead><tr><th>Cantidad</th><th>Artículo</th><th>Precio unitario</th><th>Operación</th></tr></thead><tbody>
+          <tr><td>40</td><td>Paquetes de hojas</td><td>$95</td><td>40 × 95</td></tr>
+          <tr><td>15</td><td>Tóner</td><td>$780</td><td>15 × 780</td></tr>
+          <tr><td>25</td><td>Carpetas</td><td>$45</td><td>25 × 45</td></tr>
+          <tr><td>20</td><td>Cajas de bolígrafos</td><td>$120</td><td>20 × 120</td></tr>
+        </tbody></table></div>
+        <div class="formgrid">
+          <div><label for="m2subtotal">Subtotal ($)</label><input class="practice-input" id="m2subtotal" type="number" min="0" step=".01" placeholder="Tu cálculo"></div>
+          <div><label for="m2tax">IVA 16% ($)</label><input class="practice-input" id="m2tax" type="number" min="0" step=".01" placeholder="Tu cálculo"></div>
+          <div><label for="m2total">Total ($)</label><input class="practice-input" id="m2total" type="number" min="0" step=".01" placeholder="Tu cálculo"></div>
+        </div>
+        <div class="practice-question">
+          <p>¿Qué debe hacerse si el proveedor propone sustituir el tóner por otro modelo sin autorización?</p>
+          <label class="practice-option"><input type="radio" name="m2sub" value="accept"> Aceptar si el precio es parecido.</label>
+          <label class="practice-option"><input type="radio" name="m2sub" value="reject"> No aceptar la sustitución sin validación y autorización; documentar la especificación acordada.</label>
+          <label class="practice-option"><input type="radio" name="m2sub" value="ignore"> Ignorar la diferencia porque ya existe una OC.</label>
+        </div>
+        <div class="practice-hint" id="m2hint">Pista: calcula por separado: 40×95, 15×780, 25×45 y 20×120. Suma esos importes. Después multiplica el subtotal por 0.16 para el impuesto y suma ambos. En compras reales, la tasa y el tratamiento fiscal deben verificarse según la operación.</div>
+        <div class="practice-actions"><button class="btn" data-hint="m2hint">Necesito una pista</button><button class="btn primary" id="m2check">Revisar mi orden</button><a class="btn" href="#teoria" onclick="document.querySelector('[data-tab=teoria]').click();return false">Repasar págs. 9–11</a></div>
+        <div class="practice-feedback" id="m2feedback" aria-live="polite"></div>
+      </article>
+
+      <article class="practice-card" id="mission-tracking">
+        <div class="practice-kicker">MISSION 03 · PÁGINAS 12–14 · TEMA 3.12</div>
+        <div class="practice-meta"><span>Control de proveedores</span><span>100 XP</span><span>Nivel: seguimiento</span></div>
+        <h2>Detecta la desviación antes de que se convierta en problema</h2>
+        <p>Revisa la bitácora. La OC-102 fue enviada, pero el proveedor no ha confirmado recepción ni fecha. La OC-104 llegó al almacén con solo el 60% de la cantidad solicitada.</p>
+        <div class="practice-table"><table><thead><tr><th>OC</th><th>Situación</th><th>Riesgo inmediato</th></tr></thead><tbody>
+          <tr><td>OC-101</td><td>Confirmada</td><td>Seguimiento normal</td></tr>
+          <tr><td>OC-102</td><td>Sin confirmación</td><td>No hay aceptación documentada</td></tr>
+          <tr><td>OC-103</td><td>En tránsito</td><td>Monitorear traslado</td></tr>
+          <tr><td>OC-104</td><td>Entrega parcial: 60%</td><td>Falta 40% por recibir</td></tr>
+        </tbody></table></div>
+        <div class="practice-question">
+          <p>1. ¿Qué orden requiere el primer contacto inmediato?</p>
+          <select id="m3priority"><option value="">Selecciona una OC</option><option value="101">OC-101</option><option value="102">OC-102</option><option value="103">OC-103</option><option value="104">OC-104</option></select>
+        </div>
+        <div class="practice-question">
+          <p>2. ¿Qué acción describe un manejo correcto de la OC-104?</p>
+          <label class="practice-option"><input type="radio" name="m3partial" value="close"> Cerrar la orden porque ya llegó una parte del pedido.</label>
+          <label class="practice-option"><input type="radio" name="m3partial" value="record"> Registrar la cantidad recibida y aceptada, documentar el faltante del 40%, solicitar fecha confirmada del saldo y mantener abierta la orden.</label>
+          <label class="practice-option"><input type="radio" name="m3partial" value="invoice"> Pagar el total sin conciliar lo recibido.</label>
+        </div>
+        <div class="practice-hint" id="m3hint">Pista: una orden sin confirmación puede ocultar que el proveedor no aceptó el pedido o no podrá cumplirlo. Una recepción parcial no equivale a una recepción completa: registra recibido, rechazado y pendiente.</div>
+        <div class="practice-actions"><button class="btn" data-hint="m3hint">Necesito una pista</button><button class="btn primary" id="m3check">Validar seguimiento</button><a class="btn" href="#teoria" onclick="document.querySelector('[data-tab=teoria]').click();return false">Repasar págs. 12–14</a></div>
+        <div class="practice-feedback" id="m3feedback" aria-live="polite"></div>
+      </article>
+
+      <article class="practice-card" id="mission-final">
+        <div class="practice-kicker">MISSION 04 · INTEGRACIÓN · PÁGINA 18</div>
+        <div class="practice-meta"><span>Criterio profesional</span><span>100 XP</span><span>Nivel: responsable de compras</span></div>
+        <h2>Prueba final: piensa como responsable de compras</h2>
+        <p>Selecciona la respuesta más adecuada. Cada respuesta incluye una explicación para que comprendas el criterio operativo.</p>
+        <div class="practice-question"><p>1. Una cotización tiene menor precio, pero suma transporte y llega tarde. ¿Qué debe comparar compras?</p>
+          <label class="practice-option"><input type="radio" name="m4q1" value="a"> Solo el precio unitario.</label>
+          <label class="practice-option"><input type="radio" name="m4q1" value="b"> Costo total de adquisición y cumplimiento de la fecha requerida.</label>
+          <label class="practice-option"><input type="radio" name="m4q1" value="c"> El diseño de la cotización.</label>
+        </div>
+        <div class="practice-question"><p>2. ¿Qué documento formaliza la adquisición acordada?</p>
+          <label class="practice-option"><input type="radio" name="m4q2" value="a"> La orden de compra autorizada.</label>
+          <label class="practice-option"><input type="radio" name="m4q2" value="b"> Una llamada sin registro.</label>
+          <label class="practice-option"><input type="radio" name="m4q2" value="c"> El reporte de inventario.</label>
+        </div>
+        <div class="practice-question"><p>3. De 50 pedidos, 42 llegaron a tiempo. ¿Cuál es el OTD?</p>
+          <label class="practice-option"><input type="radio" name="m4q3" value="a"> 42%.</label>
+          <label class="practice-option"><input type="radio" name="m4q3" value="b"> 84%.</label>
+          <label class="practice-option"><input type="radio" name="m4q3" value="c"> 92%.</label>
+        </div>
+        <div class="practice-question"><p>4. ¿Qué significa OTIF?</p>
+          <label class="practice-option"><input type="radio" name="m4q4" value="a"> Entregar más barato.</label>
+          <label class="practice-option"><input type="radio" name="m4q4" value="b"> Que el proveedor confirme por teléfono.</label>
+          <label class="practice-option"><input type="radio" name="m4q4" value="c"> Entregar completo y a tiempo, simultáneamente.</label>
+        </div>
+        <div class="practice-hint" id="m4hint">Pista: OTD mide puntualidad; In-Full mide integridad de cantidad; OTIF solo cuenta pedidos que cumplen ambas condiciones a la vez. OTD = 42 ÷ 50 × 100.</div>
+        <div class="practice-actions"><button class="btn" data-hint="m4hint">Necesito una pista</button><button class="btn primary" id="m4check">Calificar prueba final</button><a class="btn" href="#evaluacion" onclick="document.querySelector('[data-tab=evaluacion]').click();return false">Ir al cuestionario</a></div>
+        <div class="practice-feedback" id="m4feedback" aria-live="polite"></div>
+      </article>
+    </div>
+    <aside class="practice-aside">
+      <div class="practice-card">
+        <div class="practice-kicker">MISSION CONTROL</div>
+        <h3>Ruta de dominio</h3>
+        <div class="practice-check" id="route-m1">01 · Negociación estratégica</div>
+        <div class="practice-check" id="route-m2">02 · Orden de compra</div>
+        <div class="practice-check" id="route-m3">03 · Seguimiento operativo</div>
+        <div class="practice-check" id="route-m4">04 · Evaluación integral</div>
+        <div class="callout gold"><b>Regla NEXUS</b><br>Equivocarte no bloquea el aprendizaje. Lee la explicación, revisa el concepto y vuelve a intentarlo.</div>
+      </div>
+      <div class="practice-card">
+        <div class="practice-kicker">CÓMO SE EVALÚA</div>
+        <h3>Tu avance</h3>
+        <p class="practice-small">Cada misión validada suma experiencia una sola vez. El primer intento correcto obtiene 100 XP; si necesitas corregir, obtienes 80 XP al dominarla. No se penalizan los errores: se usan para aprender.</p>
+        <p class="practice-small">La evidencia descargable resume tus resultados, pero no sustituye las actividades escritas ni la revisión del docente.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
 </main>
 <footer class="footer">NEXUS LEARNING SYSTEM · ADMINISTRACIÓN DE COMPRAS Y ABASTECIMIENTO · SESIÓN 08 · UNIDAD 3. Material académico de simulación. Datos y empresas de los casos son ficticios.</footer>
 </div>
@@ -68,4 +271,109 @@ const orders=[['OC-101','Norte Supply','03/11/2026','Confirmada'],['OC-102','Ind
 trackingRows.innerHTML=orders.map((o,i)=>'<tr><td>'+o[0]+'</td><td>'+o[1]+'</td><td>'+o[2]+'</td><td>'+o[3]+'</td><td><select id="ts'+i+'"><option>'+o[3]+'</option><option>En proceso</option><option>Confirmada</option><option>En tránsito</option><option>Recibida parcialmente</option><option>Recibida completamente</option><option>Con incidencia</option></select></td><td><input id="ta'+i+'" placeholder="Acción y evidencia"></td></tr>').join('');
 trackingSummary.onclick=()=>{trackingOutput.innerHTML=orders.map((o,i)=>'<p><b>'+o[0]+' · '+o[1]+'</b><br>Estado: '+document.getElementById('ts'+i).value+'<br>Acción: '+(document.getElementById('ta'+i).value||'Pendiente de documentar')+'</p>').join('')+'<b>Prioridad:</b> OC-102 necesita confirmación inmediata; OC-104 requiere gestionar el saldo pendiente.';};
 quizForm.onsubmit=e=>{e.preventDefault();let key={q1:'b',q2:'a',q3:'b',q4:'a',q5:'b',q6:'b'},score=0,detail=[];for(let k in key){let a=new FormData(quizForm).get(k);if(a===key[k])score++;detail.push(k.toUpperCase()+': '+(a===key[k]?'Correcto':'Revisar concepto'));}quizOutput.innerHTML='<div class="total">'+score+'/6 · '+Math.round(score/6*100)+'%</div>'+detail.join('<br>');};
-</script></body></html>
+</script>
+<script>
+(function(){
+  const KEY='nexus-s08-practice-v1';
+  const empty=()=>({student:'',group:'',done:{},attempts:{},xp:0,startedAt:new Date().toISOString(),lastUpdated:new Date().toISOString()});
+  let state=empty();
+  try{state=Object.assign(empty(),JSON.parse(localStorage.getItem(KEY)||'{}'));}catch(e){state=empty();}
+  const $=id=>document.getElementById(id);
+  const save=()=>{state.lastUpdated=new Date().toISOString();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){};render();};
+  const checked=name=>document.querySelector('input[name="'+name+'"]:checked')?.value||'';
+  const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const show=(id,ok,title,body)=>{const el=$(id);el.classList.toggle('bad',!ok);el.style.display='block';el.innerHTML='<h4>'+(ok?'✓ ':'✕ ')+title+'</h4><div>'+body+'</div>';};
+  const record=(mission,ok,id,title,body)=>{
+    state.attempts[mission]=(state.attempts[mission]||0)+1;
+    if(ok&&!state.done[mission]){state.done[mission]=true;state.xp+=(state.attempts[mission]===1?100:80);}
+    save();show(id,ok,title,body);
+  };
+  function render(){
+    $('practiceStudent').value=state.student||'';
+    $('practiceGroup').value=state.group||'';
+    const done=Object.keys(state.done).filter(k=>state.done[k]).length;
+    $('practiceDone').textContent=done+' / 4';
+    $('practiceXP').textContent=(state.xp||0)+' XP';
+    $('practiceAttempts').textContent=Object.values(state.attempts||{}).reduce((a,b)=>a+b,0);
+    $('practiceBar').style.width=(done/4*100)+'%';
+    $('practiceStatus').textContent=done===4?'Ruta completada. Descarga tu evidencia y revisa con tu docente.':(4-done)+' misión(es) pendiente(s). Sigue practicando.';
+    ['m1','m2','m3','m4'].forEach(k=>{$('route-'+k).classList.toggle('done',!!state.done[k]);});
+  }
+  $('practiceStudent').addEventListener('change',e=>{state.student=e.target.value.trim();save();});
+  $('practiceGroup').addEventListener('change',e=>{state.group=e.target.value.trim();save();});
+  document.querySelectorAll('[data-hint]').forEach(b=>b.addEventListener('click',()=>{const h=$(b.dataset.hint);h.style.display=h.style.display==='block'?'none':'block';}));
+  $('m1check').addEventListener('click',()=>{
+    const vendor=checked('m1vendor'),why=checked('m1why');
+    if(!vendor||!why){show('m1feedback',false,'Faltan respuestas','Selecciona una alternativa y una justificación antes de validar. Compara todas las variables, no solo el precio.');return;}
+    if(vendor==='norte'&&why==='discount'){
+      const unit=185*(1-.03),total=unit*600;
+      record('m1',true,'m1feedback','Decisión correcta',
+        'El 3% de descuento reduce el precio unitario a <b></html>+unit.toFixed(2)+'</b>. Para 600 unidades: <b></html>+total.toLocaleString('es-MX',{minimumFractionDigits:2})+'</b>, con transporte incluido, entrega en 7 días y crédito a 30 días. Industrial MX queda descartado porque entrega en 14 días y no cumple el límite de 10. Delta sí cumple el plazo, pero cuesta $114,000 y ofrece 15 días de crédito. La elección considera costo total, plazo y condiciones financieras.');
+    }else{
+      let detail=vendor==='industrial'?'Industrial MX ofrece el menor precio unitario ($178), pero tarda 14 días y supera el límite de 10 días; además cobra $3,000 de transporte.':'Delta cumple la fecha, pero su costo por 600 unidades es $114,000 y el crédito es de 15 días. Norte Supply, con descuento, cuesta $107,670 antes de impuestos y ofrece 30 días de crédito.';
+      if(why==='unit')detail+=' Un precio unitario bajo no compensa incumplir una condición operativa indispensable.';
+      if(why==='fast')detail+=' La rapidez por sí sola no demuestra que sea la alternativa de menor costo.';
+      show('m1feedback',false,'Revisa tu criterio de selección',detail+' Vuelve a comparar costo total, cumplimiento de plazo y crédito.');
+      state.attempts.m1=(state.attempts.m1||0)+1;save();
+    }
+  });
+  $('m2check').addEventListener('click',()=>{
+    const s=Number($('m2subtotal').value),t=Number($('m2tax').value),z=Number($('m2total').value),sub=checked('m2sub');
+    if(!$('m2subtotal').value||!$('m2tax').value||!$('m2total').value||!sub){show('m2feedback',false,'Completa todos los campos','Se necesitan subtotal, IVA, total y la decisión sobre la sustitución del artículo.');return;}
+    const good=Math.abs(s-19025)<.011&&Math.abs(t-3044)<.011&&Math.abs(z-22069)<.011&&sub==='reject';
+    if(good){
+      record('m2',true,'m2feedback','Orden calculada correctamente',
+        'Hojas: 40×95 = $3,800; tóner: 15×780 = $11,700; carpetas: 25×45 = $1,125; bolígrafos: 20×120 = $2,400. Subtotal = <b>$19,025</b>. IVA hipotético 16% = 19,025×0.16 = <b>$3,044</b>. Total = <b>$22,069</b>. La sustitución de un producto requiere autorización y control de especificaciones. La tasa fiscal se usa aquí solo como supuesto académico.');
+    }else{
+      let pieces=[];
+      if(Math.abs(s-19025)>=.011)pieces.push('Subtotal esperado: $19,025. Revisa cada multiplicación y suma las cuatro partidas.');
+      if(Math.abs(t-3044)>=.011)pieces.push('IVA esperado: $3,044 (19,025×0.16).');
+      if(Math.abs(z-22069)>=.011)pieces.push('Total esperado: $22,069 (subtotal + IVA).');
+      if(sub!=='reject')pieces.push('No se debe aceptar un cambio de modelo sin validación y autorización; la OC debe conservar las especificaciones aprobadas.');
+      show('m2feedback',false,'Hay cálculos o decisiones por corregir',pieces.join('<br>'));
+      state.attempts.m2=(state.attempts.m2||0)+1;save();
+    }
+  });
+  $('m3check').addEventListener('click',()=>{
+    const p=$('m3priority').value,a=checked('m3partial');
+    if(!p||!a){show('m3feedback',false,'Faltan respuestas','Selecciona la orden prioritaria y la acción ante la entrega parcial.');return;}
+    if(p==='102'&&a==='record'){
+      record('m3',true,'m3feedback','Seguimiento bien gestionado',
+        'La OC-102 requiere contacto inmediato: todavía no existe confirmación formal de recepción ni aceptación de fecha. Solicita respuesta por escrito y escala si no hay respuesta. Para OC-104 registra la cantidad recibida, aceptada y pendiente (40%); solicita fecha para completar el saldo y mantén la orden abierta hasta conciliar todo.');
+    }else{
+      let why=p!=='102'?'La OC-102 es la primera prioridad porque no existe confirmación formal. Sin ella no sabes si el proveedor aceptó cantidad ni fecha. ':'';
+      if(a!=='record')why+='Una entrega de 60% no permite cerrar la orden ni pagar automáticamente el 100%. Debes documentar recibido, faltante y fecha de entrega pendiente.';
+      show('m3feedback',false,'La acción no controla el riesgo',why+' Vuelve a revisar el estado y la evidencia requerida.');
+      state.attempts.m3=(state.attempts.m3||0)+1;save();
+    }
+  });
+  const finalKeys={m4q1:'b',m4q2:'a',m4q3:'b',m4q4:'c'};
+  const finalExpl={
+    m4q1:'La comparación correcta es el costo total de adquisición y la capacidad de cumplir la fecha requerida.',
+    m4q2:'La orden de compra autorizada documenta formalmente el acuerdo y sus condiciones.',
+    m4q3:'OTD = 42 ÷ 50 × 100 = 84%.',
+    m4q4:'OTIF significa On Time In Full: pedido completo y entregado a tiempo, ambas condiciones.'
+  };
+  $('m4check').addEventListener('click',()=>{
+    const missing=Object.keys(finalKeys).filter(k=>!checked(k));
+    if(missing.length){show('m4feedback',false,'Prueba incompleta','Responde las cuatro preguntas. Si tienes duda, abre la pista o consulta el librillo.');return;}
+    const wrong=Object.keys(finalKeys).filter(k=>checked(k)!==finalKeys[k]);
+    if(!wrong.length){
+      record('m4',true,'m4feedback','Prueba final superada',
+        Object.entries(finalExpl).map(([k,v])=>'<b>'+k.toUpperCase()+':</b> '+v).join('<br>')+'<br><br>Has integrado negociación, formalización y seguimiento.');
+    }else{
+      show('m4feedback',false,'Repasa los conceptos que fallaron',wrong.map(k=>'<b>'+k.toUpperCase()+':</b> '+finalExpl[k]).join('<br>'));
+      state.attempts.m4=(state.attempts.m4||0)+1;save();
+    }
+  });
+  $('practiceExport').addEventListener('click',()=>{
+    state.student=$('practiceStudent').value.trim();state.group=$('practiceGroup').value.trim();save();
+    const payload={plataforma:'NEXUS Procurement Lab',sesion:'08 · Negociación y orden de compra',estudiante:state.student,grupo:state.group,misiones_completadas:state.done,experiencia_xp:state.xp,intentos:state.attempts,total_intentos:Object.values(state.attempts).reduce((a,b)=>a+b,0),avance:(Object.keys(state.done).filter(k=>state.done[k]).length/4*100)+'%',actualizado:state.lastUpdated,nota:'Registro guardado localmente en el navegador del estudiante; no es un envío al docente.'};
+    const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+    a.href=url;a.download='NEXUS-Evidencia-Sesion-08.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+  });
+  $('practicePrint').addEventListener('click',()=>window.print());
+  render();
+})();
+</script>
+</body></html>
