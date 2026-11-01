@@ -1,4 +1,5 @@
-> Aula interactiva: [NEXUS Sesión 08](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/) · [Volver a NEXUS Control Tower](https://angelmaltos03-alt.github.io/compras-game/protocolo-nexus-unidad3/)
+> **Ruta de trabajo:** estudia cada tema, abre la misión indicada al final de la sección, resuélvela y vuelve al librillo para justificar tu respuesta.  
+> [Entrar directamente al Centro de práctica](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/?tab=misiones) · [Volver a NEXUS Control Tower](https://angelmaltos03-alt.github.io/compras-game/protocolo-nexus-unidad3/)
 
 # NEXUS · Administración de Compras y Abastecimiento
 ## Librillo de estudio y trabajo · Sesión 08
@@ -86,6 +87,15 @@ B parece más barato por unidad, pero su operación cuesta $1,500 más.
 ## Errores comunes
 Elegir únicamente por precio; no comparar propuestas; no establecer fechas ni garantías; aceptar sustituciones sin autorización; no documentar acuerdos; comprometer cantidades superiores a las necesarias.
 
+> **AHORA VE A NEXUS · PRÁCTICA 01**
+>
+> Ya estudiaste el tema 3.10. Abre **Centro de práctica → Misión 01: “El proveedor correcto no siempre es el más barato”**. Resuelve la selección de proveedor y justifica tu decisión con costo, entrega y crédito.
+>
+> **[ABRIR MISIÓN 01 EN NEXUS](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/?tab=misiones#mission-negotiation)**
+>
+> **Regresa al librillo después de practicar:** explica por escrito por qué no basta con elegir el precio unitario menor.
+
+
 ---
 
 # 3.11 · Orden de compra
@@ -148,6 +158,15 @@ Solicitud de compra → cotización y evaluación → negociación → elaboraci
 | Factura | Proveedor | Documenta fiscalmente la operación, según corresponda. |
 | Recepción | Almacén/área receptora | Registra lo recibido. |
 
+> **AHORA VE A NEXUS · PRÁCTICA 02**
+>
+> Ya estudiaste el tema 3.11. Abre **Centro de práctica → Misión 02: “Construye los importes de una orden de compra”**. Captura subtotal, IVA y total, y decide cómo actuar ante una sustitución no autorizada.
+>
+> **[ABRIR MISIÓN 02 EN NEXUS](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/?tab=misiones#mission-po)**
+>
+> **Regresa al librillo después de practicar:** revisa los elementos indispensables de una OC y escribe qué datos deben quedar autorizados.
+
+
 ---
 
 # 3.12 · Seguimiento de las órdenes de compra
@@ -194,6 +213,15 @@ Ejemplo: (5 + 7 + 6 + 10) ÷ 4 = 7 días.
 5. Establecer una acción correctiva.
 6. Verificar la solución.
 7. Registrar la incidencia en el historial del proveedor.
+
+> **AHORA VE A NEXUS · PRÁCTICA 03**
+>
+> Ya estudiaste el tema 3.12. Abre **Centro de práctica → Misión 03: “Detecta la desviación antes de que se convierta en problema”**. Identifica qué OC requiere atención inmediata y cómo controlar una entrega parcial.
+>
+> **[ABRIR MISIÓN 03 EN NEXUS](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/?tab=misiones#mission-tracking)**
+>
+> **Regresa al librillo después de practicar:** redacta qué evidencias conservarías y cuándo puede cerrarse una orden.
+
 
 ---
 
@@ -286,6 +314,13 @@ Preguntas de análisis:
 - ¿Qué diferencia hay entre una orden emitida y una confirmada?
 - ¿Cómo afecta un retraso a la producción?
 - ¿Por qué evaluar el desempeño de los proveedores?
+
+> **AHORA VE A NEXUS · PRÁCTICA 04**
+>
+> Terminaste el estudio y las actividades. Abre **Centro de práctica → Misión 04: “Prueba final”** y responde los cuatro reactivos de integración. Después, entra a la pestaña **Evaluación** para completar el cuestionario.
+>
+> **[ABRIR MISIÓN 04 EN NEXUS](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/?tab=misiones#mission-final)** · **[ABRIR EVALUACIÓN](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/?tab=evaluacion)**
+
 
 # Rúbrica de evaluación
 
