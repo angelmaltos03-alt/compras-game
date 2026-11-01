@@ -89,7 +89,7 @@ Elegir únicamente por precio; no comparar propuestas; no establecer fechas ni g
 
 > **AHORA VE A NEXUS · PRÁCTICA 01**
 >
-> Ya estudiaste el tema 3.10. Abre **Centro de práctica → Misión 01: “El proveedor correcto no siempre es el más barato”**. Resuelve la selección de proveedor y justifica tu decisión con costo, entrega y crédito.
+> Ubicación: **páginas 5–8**. Ya estudiaste el tema 3.10. Abre **Centro de práctica → Misión 01: “El proveedor correcto no siempre es el más barato”**. Resuelve la selección de proveedor y justifica tu decisión con costo, entrega y crédito.
 >
 > **[ABRIR MISIÓN 01 EN NEXUS](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/?tab=misiones#mission-negotiation)**
 >
@@ -160,7 +160,7 @@ Solicitud de compra → cotización y evaluación → negociación → elaboraci
 
 > **AHORA VE A NEXUS · PRÁCTICA 02**
 >
-> Ya estudiaste el tema 3.11. Abre **Centro de práctica → Misión 02: “Construye los importes de una orden de compra”**. Captura subtotal, IVA y total, y decide cómo actuar ante una sustitución no autorizada.
+> Ubicación: **páginas 9–11**. Ya estudiaste el tema 3.11. Abre **Centro de práctica → Misión 02: “Construye los importes de una orden de compra”**. Captura subtotal, IVA y total, y decide cómo actuar ante una sustitución no autorizada.
 >
 > **[ABRIR MISIÓN 02 EN NEXUS](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/?tab=misiones#mission-po)**
 >
@@ -216,7 +216,7 @@ Ejemplo: (5 + 7 + 6 + 10) ÷ 4 = 7 días.
 
 > **AHORA VE A NEXUS · PRÁCTICA 03**
 >
-> Ya estudiaste el tema 3.12. Abre **Centro de práctica → Misión 03: “Detecta la desviación antes de que se convierta en problema”**. Identifica qué OC requiere atención inmediata y cómo controlar una entrega parcial.
+> Ubicación: **páginas 12–14**. Ya estudiaste el tema 3.12. Abre **Centro de práctica → Misión 03: “Detecta la desviación antes de que se convierta en problema”**. Identifica qué OC requiere atención inmediata y cómo controlar una entrega parcial.
 >
 > **[ABRIR MISIÓN 03 EN NEXUS](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/?tab=misiones#mission-tracking)**
 >
@@ -317,7 +317,7 @@ Preguntas de análisis:
 
 > **AHORA VE A NEXUS · PRÁCTICA 04**
 >
-> Terminaste el estudio y las actividades. Abre **Centro de práctica → Misión 04: “Prueba final”** y responde los cuatro reactivos de integración. Después, entra a la pestaña **Evaluación** para completar el cuestionario.
+> Ubicación: **páginas 15–18**. Terminaste el estudio y las actividades. Abre **Centro de práctica → Misión 04: “Prueba final”** y responde los cuatro reactivos de integración. Después, entra a la pestaña **Evaluación** para completar el cuestionario.
 >
 > **[ABRIR MISIÓN 04 EN NEXUS](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/?tab=misiones#mission-final)** · **[ABRIR EVALUACIÓN](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/?tab=evaluacion)**
 
