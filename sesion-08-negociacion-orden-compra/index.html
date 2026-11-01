@@ -272,43 +272,42 @@ trackingRows.innerHTML=orders.map((o,i)=>'<tr><td>'+o[0]+'</td><td>'+o[1]+'</td>
 trackingSummary.onclick=()=>{trackingOutput.innerHTML=orders.map((o,i)=>'<p><b>'+o[0]+' · '+o[1]+'</b><br>Estado: '+document.getElementById('ts'+i).value+'<br>Acción: '+(document.getElementById('ta'+i).value||'Pendiente de documentar')+'</p>').join('')+'<b>Prioridad:</b> OC-102 necesita confirmación inmediata; OC-104 requiere gestionar el saldo pendiente.';};
 quizForm.onsubmit=e=>{e.preventDefault();let key={q1:'b',q2:'a',q3:'b',q4:'a',q5:'b',q6:'b'},score=0,detail=[];for(let k in key){let a=new FormData(quizForm).get(k);if(a===key[k])score++;detail.push(k.toUpperCase()+': '+(a===key[k]?'Correcto':'Revisar concepto'));}quizOutput.innerHTML='<div class="total">'+score+'/6 · '+Math.round(score/6*100)+'%</div>'+detail.join('<br>');};
 </script>
+
 <script>
 (function(){
   const KEY='nexus-s08-practice-v1';
-  const empty=()=>({student:'',group:'',done:{},attempts:{},xp:0,startedAt:new Date().toISOString(),lastUpdated:new Date().toISOString()});
+  const empty=function(){return {student:'',group:'',done:{},attempts:{},xp:0,startedAt:new Date().toISOString(),lastUpdated:new Date().toISOString()};};
   let state=empty();
   try{state=Object.assign(empty(),JSON.parse(localStorage.getItem(KEY)||'{}'));}catch(e){state=empty();}
-  const $=id=>document.getElementById(id);
-  const save=()=>{state.lastUpdated=new Date().toISOString();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){};render();};
-  const checked=name=>document.querySelector('input[name="'+name+'"]:checked')?.value||'';
-  const escapeHtml=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const show=(id,ok,title,body)=>{const el=$(id);el.classList.toggle('bad',!ok);el.style.display='block';el.innerHTML='<h4>'+(ok?'✓ ':'✕ ')+title+'</h4><div>'+body+'</div>';};
-  const record=(mission,ok,id,title,body)=>{
+  const $=function(id){return document.getElementById(id);};
+  const save=function(){state.lastUpdated=new Date().toISOString();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}render();};
+  const checked=function(name){const el=document.querySelector('input[name="'+name+'"]:checked');return el?el.value:'';};
+  const show=function(id,ok,title,body){const el=$(id);el.classList.toggle('bad',!ok);el.style.display='block';el.innerHTML='<h4>'+(ok?'✓ ':'✕ ')+title+'</h4><div>'+body+'</div>';};
+  const record=function(mission,id,title,body){
     state.attempts[mission]=(state.attempts[mission]||0)+1;
-    if(ok&&!state.done[mission]){state.done[mission]=true;state.xp+=(state.attempts[mission]===1?100:80);}
-    save();show(id,ok,title,body);
+    if(!state.done[mission]){state.done[mission]=true;state.xp+=(state.attempts[mission]===1?100:80);}
+    save();show(id,true,title,body);
   };
   function render(){
     $('practiceStudent').value=state.student||'';
     $('practiceGroup').value=state.group||'';
-    const done=Object.keys(state.done).filter(k=>state.done[k]).length;
+    const done=Object.keys(state.done).filter(function(k){return state.done[k];}).length;
     $('practiceDone').textContent=done+' / 4';
     $('practiceXP').textContent=(state.xp||0)+' XP';
-    $('practiceAttempts').textContent=Object.values(state.attempts||{}).reduce((a,b)=>a+b,0);
+    $('practiceAttempts').textContent=Object.values(state.attempts||{}).reduce(function(a,b){return a+b;},0);
     $('practiceBar').style.width=(done/4*100)+'%';
     $('practiceStatus').textContent=done===4?'Ruta completada. Descarga tu evidencia y revisa con tu docente.':(4-done)+' misión(es) pendiente(s). Sigue practicando.';
-    ['m1','m2','m3','m4'].forEach(k=>{$('route-'+k).classList.toggle('done',!!state.done[k]);});
+    ['m1','m2','m3','m4'].forEach(function(k){$('route-'+k).classList.toggle('done',!!state.done[k]);});
   }
-  $('practiceStudent').addEventListener('change',e=>{state.student=e.target.value.trim();save();});
-  $('practiceGroup').addEventListener('change',e=>{state.group=e.target.value.trim();save();});
-  document.querySelectorAll('[data-hint]').forEach(b=>b.addEventListener('click',()=>{const h=$(b.dataset.hint);h.style.display=h.style.display==='block'?'none':'block';}));
-  $('m1check').addEventListener('click',()=>{
+  $('practiceStudent').addEventListener('change',function(e){state.student=e.target.value.trim();save();});
+  $('practiceGroup').addEventListener('change',function(e){state.group=e.target.value.trim();save();});
+  document.querySelectorAll('[data-hint]').forEach(function(b){b.addEventListener('click',function(){const h=$(b.dataset.hint);h.style.display=h.style.display==='block'?'none':'block';});});
+  $('m1check').addEventListener('click',function(){
     const vendor=checked('m1vendor'),why=checked('m1why');
     if(!vendor||!why){show('m1feedback',false,'Faltan respuestas','Selecciona una alternativa y una justificación antes de validar. Compara todas las variables, no solo el precio.');return;}
     if(vendor==='norte'&&why==='discount'){
       const unit=185*(1-.03),total=unit*600;
-      record('m1',true,'m1feedback','Decisión correcta',
-        'El 3% de descuento reduce el precio unitario a <b></html>+unit.toFixed(2)+'</b>. Para 600 unidades: <b></html>+total.toLocaleString('es-MX',{minimumFractionDigits:2})+'</b>, con transporte incluido, entrega en 7 días y crédito a 30 días. Industrial MX queda descartado porque entrega en 14 días y no cumple el límite de 10. Delta sí cumple el plazo, pero cuesta $114,000 y ofrece 15 días de crédito. La elección considera costo total, plazo y condiciones financieras.');
+      record('m1','m1feedback','Decisión correcta','El 3% de descuento reduce el precio unitario a <b>$'+unit.toFixed(2)+'</b>. Para 600 unidades: <b>$'+total.toLocaleString('es-MX',{minimumFractionDigits:2})+'</b>, con transporte incluido, entrega en 7 días y crédito a 30 días. Industrial MX queda descartado porque entrega en 14 días y no cumple el límite de 10. Delta sí cumple el plazo, pero cuesta $114,000 y ofrece 15 días de crédito. La elección considera costo total, plazo y condiciones financieras.');
     }else{
       let detail=vendor==='industrial'?'Industrial MX ofrece el menor precio unitario ($178), pero tarda 14 días y supera el límite de 10 días; además cobra $3,000 de transporte.':'Delta cumple la fecha, pero su costo por 600 unidades es $114,000 y el crédito es de 15 días. Norte Supply, con descuento, cuesta $107,670 antes de impuestos y ofrece 30 días de crédito.';
       if(why==='unit')detail+=' Un precio unitario bajo no compensa incumplir una condición operativa indispensable.';
@@ -317,13 +316,12 @@ quizForm.onsubmit=e=>{e.preventDefault();let key={q1:'b',q2:'a',q3:'b',q4:'a',q5
       state.attempts.m1=(state.attempts.m1||0)+1;save();
     }
   });
-  $('m2check').addEventListener('click',()=>{
+  $('m2check').addEventListener('click',function(){
     const s=Number($('m2subtotal').value),t=Number($('m2tax').value),z=Number($('m2total').value),sub=checked('m2sub');
     if(!$('m2subtotal').value||!$('m2tax').value||!$('m2total').value||!sub){show('m2feedback',false,'Completa todos los campos','Se necesitan subtotal, IVA, total y la decisión sobre la sustitución del artículo.');return;}
     const good=Math.abs(s-19025)<.011&&Math.abs(t-3044)<.011&&Math.abs(z-22069)<.011&&sub==='reject';
     if(good){
-      record('m2',true,'m2feedback','Orden calculada correctamente',
-        'Hojas: 40×95 = $3,800; tóner: 15×780 = $11,700; carpetas: 25×45 = $1,125; bolígrafos: 20×120 = $2,400. Subtotal = <b>$19,025</b>. IVA hipotético 16% = 19,025×0.16 = <b>$3,044</b>. Total = <b>$22,069</b>. La sustitución de un producto requiere autorización y control de especificaciones. La tasa fiscal se usa aquí solo como supuesto académico.');
+      record('m2','m2feedback','Orden calculada correctamente','Hojas: 40×95 = $3,800; tóner: 15×780 = $11,700; carpetas: 25×45 = $1,125; bolígrafos: 20×120 = $2,400. Subtotal = <b>$19,025</b>. IVA hipotético 16% = 19,025×0.16 = <b>$3,044</b>. Total = <b>$22,069</b>. La sustitución de un producto requiere autorización y control de especificaciones. La tasa fiscal se usa aquí solo como supuesto académico.');
     }else{
       let pieces=[];
       if(Math.abs(s-19025)>=.011)pieces.push('Subtotal esperado: $19,025. Revisa cada multiplicación y suma las cuatro partidas.');
@@ -334,12 +332,11 @@ quizForm.onsubmit=e=>{e.preventDefault();let key={q1:'b',q2:'a',q3:'b',q4:'a',q5
       state.attempts.m2=(state.attempts.m2||0)+1;save();
     }
   });
-  $('m3check').addEventListener('click',()=>{
+  $('m3check').addEventListener('click',function(){
     const p=$('m3priority').value,a=checked('m3partial');
     if(!p||!a){show('m3feedback',false,'Faltan respuestas','Selecciona la orden prioritaria y la acción ante la entrega parcial.');return;}
     if(p==='102'&&a==='record'){
-      record('m3',true,'m3feedback','Seguimiento bien gestionado',
-        'La OC-102 requiere contacto inmediato: todavía no existe confirmación formal de recepción ni aceptación de fecha. Solicita respuesta por escrito y escala si no hay respuesta. Para OC-104 registra la cantidad recibida, aceptada y pendiente (40%); solicita fecha para completar el saldo y mantén la orden abierta hasta conciliar todo.');
+      record('m3','m3feedback','Seguimiento bien gestionado','La OC-102 requiere contacto inmediato: todavía no existe confirmación formal de recepción ni aceptación de fecha. Solicita respuesta por escrito y escala si no hay respuesta. Para OC-104 registra la cantidad recibida, aceptada y pendiente (40%); solicita fecha para completar el saldo y mantén la orden abierta hasta conciliar todo.');
     }else{
       let why=p!=='102'?'La OC-102 es la primera prioridad porque no existe confirmación formal. Sin ella no sabes si el proveedor aceptó cantidad ni fecha. ':'';
       if(a!=='record')why+='Una entrega de 60% no permite cerrar la orden ni pagar automáticamente el 100%. Debes documentar recibido, faltante y fecha de entrega pendiente.';
@@ -354,25 +351,24 @@ quizForm.onsubmit=e=>{e.preventDefault();let key={q1:'b',q2:'a',q3:'b',q4:'a',q5
     m4q3:'OTD = 42 ÷ 50 × 100 = 84%.',
     m4q4:'OTIF significa On Time In Full: pedido completo y entregado a tiempo, ambas condiciones.'
   };
-  $('m4check').addEventListener('click',()=>{
-    const missing=Object.keys(finalKeys).filter(k=>!checked(k));
+  $('m4check').addEventListener('click',function(){
+    const missing=Object.keys(finalKeys).filter(function(k){return !checked(k);});
     if(missing.length){show('m4feedback',false,'Prueba incompleta','Responde las cuatro preguntas. Si tienes duda, abre la pista o consulta el librillo.');return;}
-    const wrong=Object.keys(finalKeys).filter(k=>checked(k)!==finalKeys[k]);
+    const wrong=Object.keys(finalKeys).filter(function(k){return checked(k)!==finalKeys[k];});
     if(!wrong.length){
-      record('m4',true,'m4feedback','Prueba final superada',
-        Object.entries(finalExpl).map(([k,v])=>'<b>'+k.toUpperCase()+':</b> '+v).join('<br>')+'<br><br>Has integrado negociación, formalización y seguimiento.');
+      record('m4','m4feedback','Prueba final superada',Object.entries(finalExpl).map(function(entry){return '<b>'+entry[0].toUpperCase()+':</b> '+entry[1];}).join('<br>')+'<br><br>Has integrado negociación, formalización y seguimiento.');
     }else{
-      show('m4feedback',false,'Repasa los conceptos que fallaron',wrong.map(k=>'<b>'+k.toUpperCase()+':</b> '+finalExpl[k]).join('<br>'));
+      show('m4feedback',false,'Repasa los conceptos que fallaron',wrong.map(function(k){return '<b>'+k.toUpperCase()+':</b> '+finalExpl[k];}).join('<br>'));
       state.attempts.m4=(state.attempts.m4||0)+1;save();
     }
   });
-  $('practiceExport').addEventListener('click',()=>{
+  $('practiceExport').addEventListener('click',function(){
     state.student=$('practiceStudent').value.trim();state.group=$('practiceGroup').value.trim();save();
-    const payload={plataforma:'NEXUS Procurement Lab',sesion:'08 · Negociación y orden de compra',estudiante:state.student,grupo:state.group,misiones_completadas:state.done,experiencia_xp:state.xp,intentos:state.attempts,total_intentos:Object.values(state.attempts).reduce((a,b)=>a+b,0),avance:(Object.keys(state.done).filter(k=>state.done[k]).length/4*100)+'%',actualizado:state.lastUpdated,nota:'Registro guardado localmente en el navegador del estudiante; no es un envío al docente.'};
+    const payload={plataforma:'NEXUS Procurement Lab',sesion:'08 · Negociación y orden de compra',estudiante:state.student,grupo:state.group,misiones_completadas:state.done,experiencia_xp:state.xp,intentos:state.attempts,total_intentos:Object.values(state.attempts).reduce(function(a,b){return a+b;},0),avance:(Object.keys(state.done).filter(function(k){return state.done[k];}).length/4*100)+'%',actualizado:state.lastUpdated,nota:'Registro guardado localmente en el navegador del estudiante; no es un envío al docente.'};
     const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');
     a.href=url;a.download='NEXUS-Evidencia-Sesion-08.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
   });
-  $('practicePrint').addEventListener('click',()=>window.print());
+  $('practicePrint').addEventListener('click',function(){window.print();});
   render();
 })();
 </script>
