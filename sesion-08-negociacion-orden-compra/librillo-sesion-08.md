@@ -321,3 +321,93 @@ Preguntas de análisis:
 Una empresa no demuestra que tiene un buen departamento de compras por la cantidad de órdenes que emite, sino por su capacidad para adquirir lo que necesita, bajo condiciones convenientes y asegurando que los proveedores cumplan sus compromisos.
 
 **Evidencias:** reporte de negociación, orden de compra elaborada, ejercicio de seguimiento y respuestas de análisis.
+
+
+---
+
+# ANEXO AMPLIADO · REFERENCIAS CRUZADAS Y PROCEDIMIENTOS
+
+## Mapa de páginas y aula digital
+
+| Páginas del librillo Word | Estudio | Práctica NEXUS |
+|---|---|---|
+| 3–4 | Propósito, resultados y ciclo integral | Librillo · `#teoria` |
+| 5–10 | Tema 3.10 · negociación | Simulador de negociación · `#negociacion` |
+| 11–15 | Tema 3.11 · orden de compra | Generador de OC · `#orden` |
+| 16–19 | Tema 3.12 · seguimiento e indicadores | Tablero de seguimiento · `#seguimiento` |
+| 20–22 | Caso TITAN y evidencias | `#negociacion`, `#orden`, `#seguimiento` |
+| 23 | Autoevaluación | Evaluación · `#evaluacion` |
+
+**Ruta:** estudia la página, abre la pestaña indicada, realiza el ejercicio y conserva la evidencia. Si la impresión altera la paginación, usa el título y el ancla digital.
+
+## Desarrollo complementario de negociación
+
+### Preparación del comprador
+Antes de negociar, el comprador debe revisar la requisición, inventario utilizable, reservas, fecha requerida, presupuesto, cotizaciones vigentes y capacidad del proveedor. Define tres niveles: condición objetivo (lo que desea conseguir), condición aceptable (lo que todavía satisface la necesidad) y límite de autoridad (lo que no puede rebasar sin autorización).
+
+### Posición e interés
+La posición es la petición visible; el interés es la razón de fondo. «Entrega en cinco días» es posición; «evitar paro de producción» es interés. Cuando se conoce el interés pueden proponerse lotes, entregas parciales, rutas alternas o sustitutos técnicamente autorizados.
+
+### Fórmulas de análisis comercial
+- Subtotal = cantidad × precio unitario.
+- Descuento = subtotal × tasa de descuento.
+- Importe neto = subtotal − descuento.
+- Costo total simplificado = importe neto + transporte + seguro + maniobras + otros cargos pertinentes.
+- Puntuación ponderada = suma de (peso del criterio × calificación).
+
+Ejemplo: 300 unidades × $85 = $25,500. Descuento del 3%: $25,500 × 0.03 = $765. Neto = $24,735. Si el proveedor condiciona el descuento a un volumen mínimo, verifica que ese volumen sea necesario y autorizado.
+
+### Matriz de evaluación
+Los pesos deben sumar 100%. Una matriz posible es precio 30%, entrega 30%, calidad 25% y servicio 15%. Si A obtiene 4, 5, 4 y 4 respectivamente, su puntuación es 1.20 + 1.50 + 1.00 + 0.60 = 4.30. Si B obtiene 5, 2, 4 y 3, suma 1.50 + 0.60 + 1.00 + 0.45 = 3.55. No uses la puntuación para compensar requisitos obligatorios incumplidos.
+
+## Desarrollo complementario de la orden de compra
+
+### Lista de verificación antes de emitir
+1. Número único y fecha de emisión.
+2. Comprador y proveedor correctamente identificados.
+3. Requisición aprobada y cotización vigente relacionadas.
+4. Código, descripción técnica, unidad, cantidad y precio por partida.
+5. Descuento, subtotal, impuestos y total revisados.
+6. Fecha, lugar, horario, empaque y transporte definidos.
+7. Condición de pago y garantía documentadas.
+8. Autorizaciones completas.
+9. Evidencia de envío y confirmación archivada.
+
+### Fórmulas de la OC
+- Importe de partida = cantidad × precio unitario.
+- Subtotal = suma de importes de partidas.
+- Base gravable = subtotal − descuentos aplicables.
+- Impuesto = base gravable × tasa aplicable.
+- Total = base gravable + impuestos + cargos no incluidos.
+
+Ejemplo ilustrativo: subtotal $19,025; IVA hipotético 16% = $3,044; total = $22,069. La tasa es solo un supuesto de ejercicio; verifica el tratamiento fiscal vigente para cada operación real.
+
+## Desarrollo complementario de seguimiento
+
+### Estados y evidencia
+- Emitida: OC enviada al proveedor.
+- Confirmada: aceptación escrita de cantidad, precio y fecha.
+- En proceso: avance de preparación o fabricación.
+- En tránsito: guía, transportista y fecha estimada.
+- Recibida parcialmente: cantidad recibida, aceptada, rechazada y saldo.
+- Recibida completamente: inspección y conciliación.
+- Cerrada: documentos revisados, diferencias resueltas y expediente archivado.
+
+### Indicadores
+- OTD (%) = pedidos entregados en fecha / pedidos evaluados × 100.
+- In-Full (%) = pedidos completos / pedidos evaluados × 100.
+- OTIF (%) = pedidos completos y a tiempo / pedidos evaluados × 100.
+- Incidencias (%) = pedidos con incidencia / pedidos evaluados × 100.
+- Lead time promedio = suma de días reales / número de pedidos.
+- Cumplimiento de cantidad (%) = cantidad aceptada / cantidad ordenada × 100.
+
+Ejemplo: de 50 pedidos, 42 llegaron a tiempo, 45 completos y 38 completos y a tiempo. OTD = 84%; In-Full = 90%; OTIF = 76%. OTIF exige simultáneamente las dos condiciones. Define el periodo y la población evaluada para que el indicador sea comparable.
+
+### Gestión de entrega parcial
+Si la OC solicita 500 piezas y llegan 300, de las cuales 290 se aceptan y 10 se rechazan, registra 290 aceptadas, 10 rechazadas y 200 no recibidas. Solicita reposición de las 10 y fecha confirmada para las 200. No marques la orden como completa.
+
+## Referencia rápida de prácticas
+- **Págs. 5–10 → NEXUS #negociacion:** captura condiciones y justifica el acuerdo.
+- **Págs. 11–15 → NEXUS #orden:** genera la OC y revisa todos los campos.
+- **Págs. 16–19 → NEXUS #seguimiento:** actualiza estado, responsable, acción y evidencia.
+- **Pág. 23 → NEXUS #evaluacion:** valida los conceptos.
