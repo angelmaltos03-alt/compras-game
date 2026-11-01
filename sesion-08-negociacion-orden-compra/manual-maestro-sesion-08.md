@@ -7,11 +7,11 @@
 
 | Manual docente | Librillo estudiante | Aula NEXUS |
 |---|---|---|
-| Negociación | Págs. 5–10 | `#negociacion` |
-| Orden de compra | Págs. 11–15 | `#orden` |
-| Seguimiento | Págs. 16–19 | `#seguimiento` |
-| Caso y actividades | Págs. 20–22 | Tres pestañas prácticas |
-| Autoevaluación | Pág. 23 | `#evaluacion` |
+| Negociación | Págs. 5–8 | `#negociacion` |
+| Orden de compra | Págs. 9–11 | `#orden` |
+| Seguimiento | Págs. 12–14 | `#seguimiento` |
+| Caso y actividades | Págs. 15–17 | Tres pestañas prácticas |
+| Autoevaluación | Pág. 18 | `#evaluacion` |
 
 ## 1. Ficha didáctica
 
