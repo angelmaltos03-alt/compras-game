@@ -332,11 +332,11 @@ Una empresa no demuestra que tiene un buen departamento de compras por la cantid
 | Páginas del librillo Word | Estudio | Práctica NEXUS |
 |---|---|---|
 | 3–4 | Propósito, resultados y ciclo integral | Librillo · `#teoria` |
-| 5–10 | Tema 3.10 · negociación | Simulador de negociación · `#negociacion` |
-| 11–15 | Tema 3.11 · orden de compra | Generador de OC · `#orden` |
-| 16–19 | Tema 3.12 · seguimiento e indicadores | Tablero de seguimiento · `#seguimiento` |
-| 20–22 | Caso TITAN y evidencias | `#negociacion`, `#orden`, `#seguimiento` |
-| 23 | Autoevaluación | Evaluación · `#evaluacion` |
+| 5–8 | Tema 3.10 · negociación | Simulador de negociación · `#negociacion` |
+| 9–11 | Tema 3.11 · orden de compra | Generador de OC · `#orden` |
+| 12–14 | Tema 3.12 · seguimiento e indicadores | Tablero de seguimiento · `#seguimiento` |
+| 15–17 | Caso TITAN y evidencias | `#negociacion`, `#orden`, `#seguimiento` |
+| 18 | Autoevaluación | Evaluación · `#evaluacion` |
 
 **Ruta:** estudia la página, abre la pestaña indicada, realiza el ejercicio y conserva la evidencia. Si la impresión altera la paginación, usa el título y el ancla digital.
 
@@ -407,7 +407,7 @@ Ejemplo: de 50 pedidos, 42 llegaron a tiempo, 45 completos y 38 completos y a ti
 Si la OC solicita 500 piezas y llegan 300, de las cuales 290 se aceptan y 10 se rechazan, registra 290 aceptadas, 10 rechazadas y 200 no recibidas. Solicita reposición de las 10 y fecha confirmada para las 200. No marques la orden como completa.
 
 ## Referencia rápida de prácticas
-- **Págs. 5–10 → NEXUS #negociacion:** captura condiciones y justifica el acuerdo.
-- **Págs. 11–15 → NEXUS #orden:** genera la OC y revisa todos los campos.
-- **Págs. 16–19 → NEXUS #seguimiento:** actualiza estado, responsable, acción y evidencia.
-- **Pág. 23 → NEXUS #evaluacion:** valida los conceptos.
+- **Págs. 5–8 → NEXUS #negociacion:** captura condiciones y justifica el acuerdo.
+- **Págs. 9–11 → NEXUS #orden:** genera la OC y revisa todos los campos.
+- **Págs. 12–14 → NEXUS #seguimiento:** actualiza estado, responsable, acción y evidencia.
+- **Pág. 18 → NEXUS #evaluacion:** valida los conceptos.
