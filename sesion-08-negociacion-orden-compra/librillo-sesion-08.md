@@ -1,3 +1,5 @@
+> Aula interactiva: [NEXUS Sesión 08](https://angelmaltos03-alt.github.io/compras-game/sesion-08-negociacion-orden-compra/) · [Volver a NEXUS Control Tower](https://angelmaltos03-alt.github.io/compras-game/protocolo-nexus-unidad3/)
+
 # NEXUS · Administración de Compras y Abastecimiento
 ## Librillo de estudio y trabajo · Sesión 08
 **Fecha:** 1 de noviembre de 2026  
