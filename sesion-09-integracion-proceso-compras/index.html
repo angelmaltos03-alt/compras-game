@@ -171,6 +171,77 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 @media(max-width:850px){.time-route{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media(max-width:560px){.time-route{grid-template-columns:repeat(2,minmax(0,1fr))}.scenario-grid{grid-template-columns:1fr}.feedback-points{grid-template-columns:1fr}.sprint-control strong{font-size:25px}}
 
+
+/* GAME LAYER · 3D SUPPLY-CHAIN WORLD */
+.n9-world-panel{display:grid;grid-template-columns:minmax(240px,.72fr) minmax(420px,1.28fr);gap:14px;align-items:center;position:relative;margin:18px 0 16px;padding:15px;border:1px solid #31506b;border-radius:17px;background:radial-gradient(ellipse at 75% 45%,#1b536255,transparent 48%),linear-gradient(135deg,#0b1c2d,#10263a 55%,#0b1726);box-shadow:inset 0 1px #ffffff12,0 14px 38px #0003;overflow:hidden}
+.n9-world-copy{position:relative;z-index:2;padding:8px 10px}
+.n9-world-copy h3{max-width:350px;margin:9px 0 8px;color:#f3f8ff;font-size:clamp(18px,2.1vw,27px);line-height:1.12;letter-spacing:-.035em}
+.n9-world-copy p{max-width:350px;margin:0;color:#9eb5ca;font-size:11px;line-height:1.65}
+.n9-world-stats{display:grid;gap:7px;margin-top:16px}
+.n9-world-stats span{display:flex;align-items:center;gap:10px;color:#8fa9bf;font-size:10px}
+.n9-world-stats b{min-width:53px;color:#d8ff72;font-size:15px;font-variant-numeric:tabular-nums}
+.n9-world-tip{display:flex;align-items:center;gap:8px;margin-top:15px;padding:8px 10px;border:1px solid #2e6171;border-radius:8px;background:#08202d;color:#9eeaf0;font-size:9px;font-weight:850;letter-spacing:.06em}
+.n9-world-tip i{width:7px;height:7px;border-radius:50%;background:#64e7f0;box-shadow:0 0 12px #64e7f0}
+.n9-world-viewport{height:320px;min-width:0;position:relative;overflow:hidden;border:1px solid #2a4b64;border-radius:13px;background:radial-gradient(ellipse at 50% 50%,#1647655c,transparent 65%),linear-gradient(145deg,#071522,#0a1d2d);perspective:950px;isolation:isolate}
+.n9-world-viewport:before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(120deg,transparent 20%,#64e7f008 50%,transparent 80%),repeating-linear-gradient(0deg,transparent 0 34px,#6cb7cb0b 35px),repeating-linear-gradient(90deg,transparent 0 34px,#6cb7cb0b 35px);mask-image:linear-gradient(transparent,#000 20%,#000 85%,transparent)}
+.n9-world-glow{position:absolute;width:360px;height:260px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:#2bc8d414;filter:blur(35px)}
+.n9-world-space{position:absolute;inset:0;transform-style:preserve-3d;--tilt-x:0deg;--tilt-y:0deg;transition:transform .18s ease-out;transform:rotateX(var(--tilt-x)) rotateY(var(--tilt-y))}
+.n9-world-floor{position:absolute;left:50%;top:55%;width:76%;height:65%;transform:translate(-50%,-50%) rotateX(61deg) rotateZ(-23deg) translateZ(-32px);transform-style:preserve-3d;border:1px solid #3b829355;border-radius:14px;background:linear-gradient(rgba(80,210,223,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(80,210,223,.14) 1px,transparent 1px),linear-gradient(145deg,#0c3248dd,#091a2c);background-size:28px 28px,28px 28px,auto;box-shadow:0 28px 55px #0009,0 0 35px #22c7d31a}
+.n9-world-path{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1;filter:drop-shadow(0 0 7px #64e7f0aa)}
+.n9-world-path path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.n9-world-path .path-shadow{stroke:#d8ff72;stroke-width:5;stroke-dasharray:3 15;opacity:.35}
+.n9-world-path .path-line{stroke:#64e7f0;stroke-width:2.2;stroke-dasharray:9 8;animation:n9RouteFlow 14s linear infinite}
+.n9-world-path circle{fill:#d8ff72;stroke:#eaffc6;stroke-width:1.4}
+@keyframes n9RouteFlow{to{stroke-dashoffset:-170}}
+.n9-world-node{position:absolute;z-index:3;width:112px;height:116px;padding:0;border:0;background:transparent;color:inherit;transform-style:preserve-3d;cursor:pointer;transition:filter .2s ease,transform .2s ease;filter:drop-shadow(0 12px 10px #0008)}
+.n9-world-node:hover,.n9-world-node:focus-visible{filter:drop-shadow(0 0 14px #64e7f0aa);outline:none;transform:translateY(-7px) scale(1.05)}
+.node-factory{left:5%;top:34%}.node-planning{left:32%;top:13%}.node-supplier{left:58%;top:35%}.node-po{left:67%;top:4%}.node-warehouse{left:78%;top:52%}
+.n9-node-platform{position:absolute;left:16px;top:38px;width:80px;height:54px;transform:rotateX(61deg) rotateZ(-25deg);border:1px solid #54c7d077;border-radius:8px;background:linear-gradient(135deg,#164f68,#0c263b);box-shadow:0 0 18px #36cad733,12px 12px 0 #07111d}
+.n9-node-block{position:absolute;left:30px;top:17px;width:58px;height:51px;transform:skewY(-10deg) rotateZ(-2deg);transform-style:preserve-3d;background:linear-gradient(135deg,#2a7890,#123e59);border:1px solid #6de4e5aa;box-shadow:9px 9px 0 #092336,9px 9px 0 1px #3d8c9b}
+.n9-node-block:before{content:"";position:absolute;left:7px;right:7px;top:-13px;height:13px;background:linear-gradient(90deg,#83e7df,#2c879f);transform:skewX(-42deg);border:1px solid #a2f5e7aa}
+.n9-node-block:after{content:"";position:absolute;right:-11px;top:5px;width:10px;height:46px;background:#0b2c43;transform:skewY(-42deg);border-right:1px solid #4fa7b4}
+.n9-node-block i{position:absolute;left:9px;right:9px;bottom:9px;height:14px;border:1px solid #75d8d4;background:repeating-linear-gradient(90deg,#0d283b 0 7px,#6cd8d0 8px 10px);opacity:.8}
+.n9-node-block b{position:absolute;left:12px;top:9px;width:18px;height:6px;background:#d8ff72;box-shadow:0 0 12px #d8ff72}
+.n9-node-block em{position:absolute;right:10px;top:8px;width:7px;height:7px;border-radius:50%;background:#72f3b1;box-shadow:0 0 12px #72f3b1}
+.node-planning .n9-node-block{background:linear-gradient(135deg,#3e7fa2,#1b3d70);border-color:#93c6ff}
+.node-planning .n9-node-block:before{background:linear-gradient(90deg,#b5d7ff,#477bb4)}
+.node-supplier .n9-node-block{background:linear-gradient(135deg,#8c7137,#3e3425);border-color:#f3d38a}
+.node-supplier .n9-node-block:before{background:linear-gradient(90deg,#ffe2a0,#b58a3e)}
+.node-po .n9-node-block{background:linear-gradient(135deg,#7166a5,#312e69);border-color:#b9acff}
+.node-po .n9-node-block:before{background:linear-gradient(90deg,#c5bbff,#665fb0)}
+.node-warehouse .n9-node-block{background:linear-gradient(135deg,#3c8465,#1b4439);border-color:#8de5b4}
+.node-warehouse .n9-node-block:before{background:linear-gradient(90deg,#a1ecc1,#438b6b)}
+.n9-node-label{position:absolute;left:4px;top:88px;min-width:98px;padding:5px 7px;border:1px solid #345b73;border-radius:7px;background:#071522eb;text-align:left;box-shadow:0 6px 14px #0006}
+.n9-node-label b{display:block;color:#e9f5ff;font-size:8px;letter-spacing:.08em}
+.n9-node-label small{display:block;color:#8ba8be;font-size:7px;letter-spacing:.1em}
+.n9-world-cargo{position:absolute;left:20%;top:52%;width:28px;height:22px;z-index:5;transform:rotate(-25deg);animation:n9CargoMove 9s ease-in-out infinite;filter:drop-shadow(0 0 8px #d8ff72)}
+.n9-world-cargo span{position:absolute;width:12px;height:12px;border:1px solid #efffb8;background:linear-gradient(135deg,#eaffaa,#7baf44);transform:skewY(-18deg)}
+.n9-world-cargo span:nth-child(2){left:11px;top:4px}.n9-world-cargo span:nth-child(3){left:5px;top:10px}
+@keyframes n9CargoMove{0%{left:18%;top:51%}30%{left:38%;top:40%}56%{left:61%;top:54%}80%{left:75%;top:38%}100%{left:18%;top:51%}}
+.n9-world-orbit{position:absolute;left:49%;top:51%;width:132px;height:48px;border:1px solid #64e7f045;border-radius:50%;transform:translate(-50%,-50%) rotateX(68deg) rotateZ(-21deg);box-shadow:0 0 16px #64e7f01b}
+.n9-world-legend{position:absolute;left:12px;bottom:9px;display:flex;gap:12px;flex-wrap:wrap;color:#7996ad;font-size:7px;font-weight:900;letter-spacing:.08em}
+.n9-world-legend i{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px}
+.legend-cyan{background:#64e7f0;box-shadow:0 0 7px #64e7f0}.legend-lime{background:#d8ff72;box-shadow:0 0 7px #d8ff72}
+.n9-total-progress{width:min(260px,100%)}
+.n9-total-progress-head{display:flex;justify-content:space-between;gap:8px;margin-bottom:6px;color:#8da7bf;font-size:8px;font-weight:900;letter-spacing:.1em}
+.n9-total-progress-head b{color:#d8ff72;font-size:12px}
+.n9-mini-progress{width:100%;height:8px;border-radius:99px;background:#1a3046;overflow:hidden;border:1px solid #31506a}
+.n9-mini-progress i{transition:width .4s ease}
+.n9-mission-progress{margin:11px 0 16px;padding:10px 12px;border:1px solid #2d4861;border-radius:10px;background:linear-gradient(110deg,#0a1b2a,#12273a)}
+.n9-mission-progress-head,.n9-mission-progress-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.n9-mission-progress-head span{color:#8da7bf;font-size:8px;font-weight:900;letter-spacing:.13em}
+.n9-mission-progress-head b{color:#d8ff72;font-size:12px;font-variant-numeric:tabular-nums}
+.n9-mission-progress-track{height:7px;overflow:hidden;margin:7px 0 6px;border:1px solid #304b63;border-radius:99px;background:#06121e}
+.n9-mission-progress-track i{display:block;width:0;height:100%;border-radius:99px;background:linear-gradient(90deg,#64e7f0,#a4a2ff,#d8ff72);box-shadow:0 0 12px #64e7f044;transition:width .35s cubic-bezier(.2,.8,.2,1)}
+.n9-mission-progress-foot small{color:#7e97ad;font-size:8px}
+.n9-mission-progress-foot small:last-child{color:#abc0d2}
+.n9-mission-progress.is-complete{border-color:#398564;background:linear-gradient(110deg,#0c3027,#102c35)}
+.n9-mission-progress.is-complete .n9-mission-progress-head b{color:#8fe0ac}
+.mission-topline{align-items:center}
+.n9-world-node:focus-visible{outline:2px solid #d8ff72;outline-offset:4px}
+@media(max-width:1050px){.n9-world-panel{grid-template-columns:1fr}.n9-world-copy{padding:5px 5px 0}.n9-world-copy h3,.n9-world-copy p{max-width:700px}.n9-world-stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.n9-world-viewport{height:280px}.n9-world-node{transform:scale(.82);transform-origin:top left}.node-factory{left:1%;top:38%}.node-planning{left:23%;top:12%}.node-supplier{left:46%;top:40%}.node-po{left:58%;top:3%}.node-warehouse{left:72%;top:55%}.n9-node-label{min-width:85px}.n9-world-stats{grid-template-columns:1fr}.n9-world-legend{font-size:6px}.n9-total-progress{width:100%}}
+@media(prefers-reduced-motion:reduce){.n9-world-path .path-line,.n9-world-cargo{animation:none!important}}
 </style>
 </head>
 <body><div class="shell class09-shell">
@@ -209,6 +280,50 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 </header>
 <section class="panel command-dashboard" id="missionOverview">
  <div class="command-head"><div><div class="eyebrow">NEXUS PROCUREMENT / OPERATIONAL OVERVIEW</div><h2>Centro de control · Integración del proceso de compras</h2><p>Sesiones 1–8 · Unidad 1, Unidad 2 y Unidad 3 (3.1–3.12)</p></div><div class="n9-command-status"><i></i> ENTORNO DE ENTRENAMIENTO ACTIVO</div></div>
+
+ <div class="n9-world-panel">
+  <div class="n9-world-copy">
+   <div class="eyebrow">LIVE SIMULATION MAP · NEXUS MANUFACTURING</div>
+   <h3>La cadena de suministro está en tus manos.</h3>
+   <p>Recorre el sistema: organiza la operación, calcula el material, selecciona proveedor, formaliza la compra y controla la recepción.</p>
+   <div class="n9-world-stats"><span><b>400</b> unidades requeridas</span><span><b>10</b> días de ventana</span><span><b>$100K</b> presupuesto objetivo</span></div>
+   <div class="n9-world-tip"><i></i> Selecciona un nodo 3D para abrir su misión.</div>
+  </div>
+  <div class="n9-world-viewport" id="n9WorldScene" aria-label="Mapa 3D interactivo de la cadena de suministro">
+   <div class="n9-world-glow"></div>
+   <div class="n9-world-space">
+    <div class="n9-world-floor"></div>
+    <svg class="n9-world-path" viewBox="0 0 620 340" preserveAspectRatio="none" aria-hidden="true">
+     <path d="M95 190 C155 95 205 90 265 160 S385 245 450 155 S530 105 560 170" class="path-shadow"/>
+     <path d="M95 190 C155 95 205 90 265 160 S385 245 450 155 S530 105 560 170" class="path-line"/>
+     <circle cx="95" cy="190" r="5"/><circle cx="265" cy="160" r="5"/><circle cx="450" cy="155" r="5"/><circle cx="560" cy="170" r="5"/>
+    </svg>
+    <button class="n9-world-node node-factory" data-open-mission="mission-org" type="button" aria-label="Abrir misión de organización">
+     <span class="n9-node-platform"></span><span class="n9-node-block"><i></i><b></b><em></em></span>
+     <span class="n9-node-label"><b>01 · HQ</b><small>ORGANIZACIÓN</small></span>
+    </button>
+    <button class="n9-world-node node-planning" data-open-mission="mission-planning" type="button" aria-label="Abrir misión de planeación">
+     <span class="n9-node-platform"></span><span class="n9-node-block"><i></i><b></b><em></em></span>
+     <span class="n9-node-label"><b>02 · MRP</b><small>PLANEACIÓN</small></span>
+    </button>
+    <button class="n9-world-node node-supplier" data-open-mission="mission-sourcing" type="button" aria-label="Abrir misión de proveedores">
+     <span class="n9-node-platform"></span><span class="n9-node-block"><i></i><b></b><em></em></span>
+     <span class="n9-node-label"><b>03 · SOURCE</b><small>PROVEEDORES</small></span>
+    </button>
+    <button class="n9-world-node node-po" data-open-mission="mission-contract" type="button" aria-label="Abrir misión de negociación y orden de compra">
+     <span class="n9-node-platform"></span><span class="n9-node-block"><i></i><b></b><em></em></span>
+     <span class="n9-node-label"><b>04 · PO</b><small>NEGOCIACIÓN</small></span>
+    </button>
+    <button class="n9-world-node node-warehouse" data-open-mission="mission-close" type="button" aria-label="Abrir misión de seguimiento y cierre">
+     <span class="n9-node-platform"></span><span class="n9-node-block"><i></i><b></b><em></em></span>
+     <span class="n9-node-label"><b>05 · DC</b><small>RECEPCIÓN</small></span>
+    </button>
+    <div class="n9-world-cargo"><span></span><span></span><span></span></div>
+    <div class="n9-world-orbit"></div>
+   </div>
+   <div class="n9-world-legend"><span><i class="legend-cyan"></i> FLUJO DE INFORMACIÓN</span><span><i class="legend-lime"></i> FLUJO DE MATERIAL</span></div>
+  </div>
+ </div>
  <div class="command-kpis">
   <article class="command-kpi"><span class="kpi-label">MISIONES VALIDADAS</span><strong id="dashDone">00<span class="kpi-denom">/05</span></strong><span id="dashDoneCaption">Tu operación está por comenzar</span><div class="kpi-track"><i id="dashDoneTrack" style="width:0%"></i></div></article>
   <article class="command-kpi"><span class="kpi-label">EXPERIENCIA OPERATIVA</span><strong id="dashXP">000</strong><span>XP acumulados en esta campaña</span><div class="kpi-track"><i id="dashXPTrack" style="width:0%"></i></div></article>
@@ -224,7 +339,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
    <a class="n9-stage" id="stage-contract" href="?tab=misiones#mission-contract"><em>04</em><b>FORMALIZAR</b><span>3.10–3.11 · orden</span></a>
    <a class="n9-stage" id="stage-close" href="?tab=misiones#mission-close"><em>05</em><b>CONTROLAR</b><span>2.8–2.9 + 3.12</span></a>
   </div>
-  <div class="n9-progress-footer"><div><strong id="dashNextTitle">Siguiente objetivo: organizar el departamento</strong><small id="dashNextDesc">Comienza por asignar funciones y separar responsabilidades.</small></div><div class="n9-mini-progress"><i id="dashStageProgress"></i></div><button class="btn primary" type="button" data-open-tab="misiones">ABRIR CENTRO DE MISIONES ↗</button></div>
+  <div class="n9-progress-footer"><div><strong id="dashNextTitle">Siguiente objetivo: organizar el departamento</strong><small id="dashNextDesc">Comienza por asignar funciones y separar responsabilidades.</small></div><div class="n9-total-progress"><div class="n9-total-progress-head"><span>PROGRESO TOTAL DE CAMPAÑA</span><b id="campaignProgressPercent">0%</b></div><div class="n9-mini-progress"><i id="dashStageProgress"></i></div></div><button class="btn primary" type="button" data-open-tab="misiones">ABRIR CENTRO DE MISIONES ↗</button></div>
  </section>
  <div class="n9-module-grid">
   <article class="n9-module"><small>01 · ORGANIZATION CONTROL</small><b>Estructura y gobierno</b><p>Roles, autoridad, relaciones internas y políticas de compra.</p></article>
@@ -261,6 +376,12 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 
 <article class="card mission" id="mission-org">
 <div class="mission-topline"><span class="kicker">MISSION 01 · ORGANIZATION CONTROL</span><span class="mission-time">12 MIN · 100 XP</span></div>
+
+<div class="n9-mission-progress" id="m1Progress">
+ <div class="n9-mission-progress-head"><span>PROGRESO DE MISIÓN</span><b id="m1ProgressPercent">0%</b></div>
+ <div class="n9-mission-progress-track"><i id="m1ProgressBar"></i></div>
+ <div class="n9-mission-progress-foot"><small id="m1ProgressStatus">Por iniciar</small><small id="m1ProgressDetail">0 criterios identificados</small></div>
+</div>
 <h2>La planta necesita un departamento que no se estorbe a sí mismo</h2>
 <div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Hay una planta principal y un almacén satélite. Producción solicita material; Compras negocia; Almacén recibe; Calidad inspecciona; Finanzas controla el pago.</p><a href="?tab=estudio#study-org">↗ Repasar Unidad 1 + Unidad 2 · librillo págs. 3–6</a></div>
 <div class="scenario-grid"><div class="scenario-stat"><small>RIESGO</small><b>Compras sin control</b><span>La misma persona solicita, compra y recibe.</span></div><div class="scenario-stat"><small>DECISIÓN</small><b>Diseñar responsables</b><span>Define separación de funciones y coordinación.</span></div></div>
@@ -277,6 +398,12 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 
 <article class="card mission" id="mission-planning">
 <div class="mission-topline"><span class="kicker">MISSION 02 · SUPPLY PLANNING</span><span class="mission-time">15 MIN · 100 XP</span></div>
+
+<div class="n9-mission-progress" id="m2Progress">
+ <div class="n9-mission-progress-head"><span>PROGRESO DE MISIÓN</span><b id="m2ProgressPercent">0%</b></div>
+ <div class="n9-mission-progress-track"><i id="m2ProgressBar"></i></div>
+ <div class="n9-mission-progress-foot"><small id="m2ProgressStatus">Por iniciar</small><small id="m2ProgressDetail">0 criterios identificados</small></div>
+</div>
 <h2>Calcula lo que realmente debe comprarse</h2>
 <div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Producción requiere 480 rodamientos. Deben conservarse 40 piezas como seguridad. Hay 120 piezas utilizables y ningún pedido confirmado.</p><a href="?tab=estudio#study-planning">↗ Repasar temas 3.1–3.5 · librillo págs. 6–7</a></div>
 <div class="formula-panel"><div class="formula-label">FÓRMULA DE REQUERIMIENTO NETO</div><div class="formula">Necesidad + Seguridad − Inventario − Recepciones</div><div class="formula-values"><span>480</span><span>+ 40</span><span>− 120</span><span>− 0</span><span>= ?</span></div></div>
@@ -297,6 +424,12 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 
 <article class="card mission" id="mission-sourcing">
 <div class="mission-topline"><span class="kicker">MISSION 03 · SOURCING INTELLIGENCE</span><span class="mission-time">18 MIN · 100 XP</span></div>
+
+<div class="n9-mission-progress" id="m3Progress">
+ <div class="n9-mission-progress-head"><span>PROGRESO DE MISIÓN</span><b id="m3ProgressPercent">0%</b></div>
+ <div class="n9-mission-progress-track"><i id="m3ProgressBar"></i></div>
+ <div class="n9-mission-progress-foot"><small id="m3ProgressStatus">Por iniciar</small><small id="m3ProgressDetail">0 criterios identificados</small></div>
+</div>
 <h2>El proveedor más barato puede detener la producción</h2>
 <div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Necesitas 400 rodamientos en máximo 10 días y no debes superar $100,000 antes de impuestos. Los tres proveedores enviaron cotizaciones comparables.</p><a href="?tab=estudio#study-sourcing">↗ Repasar temas 3.6–3.9 · librillo págs. 8–9</a></div>
 <div class="tablewrap"><table><thead><tr><th>Proveedor</th><th>Precio unitario</th><th>Flete</th><th>Entrega</th><th>Crédito</th><th>Costo total</th></tr></thead><tbody>
@@ -318,6 +451,12 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 
 <article class="card mission" id="mission-contract">
 <div class="mission-topline"><span class="kicker">MISSION 04 · NEGOTIATION & PURCHASE ORDER</span><span class="mission-time">20 MIN · 100 XP</span></div>
+
+<div class="n9-mission-progress" id="m4Progress">
+ <div class="n9-mission-progress-head"><span>PROGRESO DE MISIÓN</span><b id="m4ProgressPercent">0%</b></div>
+ <div class="n9-mission-progress-track"><i id="m4ProgressBar"></i></div>
+ <div class="n9-mission-progress-foot"><small id="m4ProgressStatus">Por iniciar</small><small id="m4ProgressDetail">0 criterios identificados</small></div>
+</div>
 <h2>Convierte la negociación en un compromiso controlado</h2>
 <div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Proveedor C ofrece 400 rodamientos a $251 cada uno. Lograste negociar un descuento de 1.5%. Captura los importes y redacta las condiciones que deben quedar en la orden de compra.</p><a href="?tab=estudio#study-contract">↗ Repasar temas 3.10–3.11 · librillo págs. 9–10</a></div>
 <div class="formgrid">
@@ -339,6 +478,12 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 
 <article class="card mission" id="mission-close">
 <div class="mission-topline"><span class="kicker">MISSION 05 · RECEIVING & CLOSEOUT</span><span class="mission-time">15 MIN · 100 XP</span></div>
+
+<div class="n9-mission-progress" id="m5Progress">
+ <div class="n9-mission-progress-head"><span>PROGRESO DE MISIÓN</span><b id="m5ProgressPercent">0%</b></div>
+ <div class="n9-mission-progress-track"><i id="m5ProgressBar"></i></div>
+ <div class="n9-mission-progress-foot"><small id="m5ProgressStatus">Por iniciar</small><small id="m5ProgressDetail">0 criterios identificados</small></div>
+</div>
 <h2>El pedido llegó… pero ¿está realmente completo?</h2>
 <div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Se recibieron 240 piezas el día 5 y 160 el día 8. En la inspección, 10 piezas están dañadas. El proveedor considera que ya cumplió la orden.</p><a href="?tab=estudio#study-close">↗ Repasar temas 2.8–2.9 y 3.12 · librillo págs. 10–11</a></div>
 <div class="formgrid"><div><label for="m5accepted">Piezas aceptadas</label><input id="m5accepted" type="number" min="0" placeholder="Cantidad conforme"></div><div><label for="m5pending">Piezas pendientes de solución</label><input id="m5pending" type="number" min="0" placeholder="Cantidad por resolver"></div></div>
