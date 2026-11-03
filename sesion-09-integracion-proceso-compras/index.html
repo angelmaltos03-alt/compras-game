@@ -127,6 +127,50 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
 @media print{body{background:white!important;color:#111!important}.class09-side,.nexus-topbar,.command-dashboard,.class09-shell>.top{display:none!important}.class09-layout{display:block!important}.class-main-content .section{display:block!important}.class-main-content .card{background:white!important;color:#111!important;box-shadow:none;break-inside:avoid}.class-main-content .card p,.class-main-content .card li,.class-main-content td{color:#222!important}}
 
+
+.mission-topline{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.mission-time{border:1px solid #58714a;background:#d8ff7210;color:#d8ff72;border-radius:99px;padding:5px 9px;font-size:9px;font-weight:900;letter-spacing:.1em}
+.sprint-overview{border-color:#47627b!important;background:radial-gradient(ellipse at 92% 0%,#263e5b55,transparent 40%),linear-gradient(145deg,#142d44,#0a1727)!important}
+.sprint-control{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:15px 0;padding:14px 16px;border:1px solid #3b5872;border-radius:12px;background:#081725}
+.sprint-control strong{display:block;font-size:30px;line-height:1.15;color:#d8ff72;font-variant-numeric:tabular-nums}
+.sprint-control small{display:block;margin-top:4px;color:#8fa8bf;font-size:10px}
+.sprint-buttons{display:flex;gap:7px;flex-wrap:wrap}
+.time-route{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin:13px 0}
+.time-route span{padding:8px 6px;border:1px solid #2a475f;border-radius:8px;background:#091827;color:#8ea7bb;text-align:center;font-size:8px;letter-spacing:.04em}
+.time-route b{display:block;color:#e6f2ff;font-size:11px;margin-top:3px}
+.rubric-explainer{display:grid;gap:4px;padding:11px 13px;border-left:3px solid #a4a2ff;border-radius:0 9px 9px 0;background:#171d36;color:#bbc9db;font-size:10px;line-height:1.55}
+.rubric-explainer b{color:#c5c4ff;font-size:11px}
+.scenario-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:13px 0}
+.scenario-stat{padding:12px;border:1px solid #2c465d;border-radius:10px;background:linear-gradient(140deg,#10243a,#091725)}
+.scenario-stat small{display:block;color:#86a0b8;font-size:8px;letter-spacing:.13em;font-weight:900}
+.scenario-stat b{display:block;margin:5px 0;color:#e8f4ff;font-size:14px}
+.scenario-stat span{display:block;color:#9cb1c4;font-size:10px}
+.open-lab{margin:14px 0;padding:15px;border:1px solid #3a5470;border-radius:12px;background:linear-gradient(145deg,#0d2033,#091624)}
+.open-prompt{display:grid;gap:4px;margin-bottom:10px}
+.open-prompt>span{color:#64e7f0;font-size:9px;font-weight:900;letter-spacing:.14em}
+.open-prompt>b{color:#f0f6ff;font-size:14px}
+.open-prompt p{margin:0;color:#9fb3c7;font-size:11px;line-height:1.6}
+.open-answer{display:block;width:100%;min-height:112px;padding:12px;border:1px solid #3b5874;border-radius:9px;background:#06121f;color:#f2f7ff;font:13px/1.6 Inter,system-ui,sans-serif;resize:vertical}
+.open-answer:focus{outline:2px solid #64e7f088;border-color:#64e7f0}
+.open-answer::placeholder{color:#5f7890}
+.open-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:9px}
+.word-meter{color:#7f98af;font-size:9px;font-variant-numeric:tabular-nums}
+.model-answer{margin-top:10px;border:1px dashed #42617c;border-radius:9px;background:#0a1928;padding:9px 11px;color:#aebfd0}
+.model-answer summary{cursor:pointer;color:#b8cdf0;font-size:10px;font-weight:850}
+.model-answer p{margin:9px 0 2px;color:#c3d0dd!important;font-size:11px;line-height:1.65}
+.class-main-content .feedback{padding:13px!important}
+.feedback-score{display:flex;align-items:center;gap:9px;margin:8px 0}
+.feedback-score strong{color:#d8ff72;font-size:15px}
+.feedback-score-track{height:6px;flex:1;border-radius:99px;background:#1c3448;overflow:hidden}
+.feedback-score-track i{display:block;height:100%;background:linear-gradient(90deg,#64e7f0,#d8ff72)}
+.feedback-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin-top:9px}
+.feedback-point{padding:6px 8px;border-radius:7px;background:#091b2a;color:#9eb5c8;font-size:10px}
+.feedback-point.ok{border:1px solid #285944;color:#a6e8c2}
+.feedback-point.miss{border:1px solid #6b4543;color:#f1b8b5}
+.feedback-next{margin-top:9px;padding:9px 10px;border-left:3px solid #d9ae58;background:#2a251c;border-radius:0 7px 7px 0;color:#e9d9b6;font-size:10px}
+@media(max-width:850px){.time-route{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:560px){.time-route{grid-template-columns:repeat(2,minmax(0,1fr))}.scenario-grid{grid-template-columns:1fr}.feedback-points{grid-template-columns:1fr}.sprint-control strong{font-size:25px}}
+
 </style>
 </head>
 <body><div class="shell class09-shell">
@@ -205,78 +249,108 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 </section>
 
 <section id="misiones" class="section">
-<div class="card"><div class="kicker">NEXUS PROCUREMENT LAB · FIVE MISSIONS</div><h2>Resuelve, recibe retroalimentación y demuestra dominio</h2><p>Cada respuesta puede corregirse. Lee la explicación, utiliza la pista y vuelve a intentarlo. Los errores son parte del aprendizaje.</p><div class="route"><span id="route-m1">01 · Organización</span><span id="route-m2">02 · Planeación</span><span id="route-m3">03 · Fuentes</span><span id="route-m4">04 · Negociación + OC</span><span id="route-m5">05 · Seguimiento + cierre</span></div></div>
+<div class="card sprint-overview">
+ <div class="mission-topline"><span class="kicker">NEXUS PROCUREMENT LAB · RAPID RESPONSE SIMULATION</span><span class="mission-time">DURACIÓN OBJETIVO · 90 MIN</span></div>
+ <h2>Una operación. Cinco decisiones. Un expediente de compra.</h2>
+ <p>Resuelve el caso en orden. Cada misión combina decisión práctica y respuesta abierta. La plataforma revisa conceptos clave, cálculos y criterios; si algo falta, explica qué mejorar y te permite reintentar.</p>
+ <div class="sprint-control"><div><span class="kicker">CRONÓMETRO DE LA SIMULACIÓN</span><strong id="sprintClock">00:00</strong><small id="sprintStatus">Listo para comenzar · meta 90:00</small></div><div class="sprint-buttons"><button class="btn primary" id="sprintStart">Iniciar</button><button class="btn" id="sprintPause">Pausar</button><button class="btn" id="sprintReset">Reiniciar</button></div></div>
+ <div class="time-route"><span>BRIEFING <b>5 min</b></span><span>01 · ORG <b>12 min</b></span><span>02 · PLAN <b>15 min</b></span><span>03 · SOURCING <b>18 min</b></span><span>04 · OC <b>20 min</b></span><span>05 · CIERRE <b>15 min</b></span><span>DEBRIEF <b>5 min</b></span></div>
+ <div class="route"><span id="route-m1">01 · Organización</span><span id="route-m2">02 · Planeación</span><span id="route-m3">03 · Fuentes</span><span id="route-m4">04 · Negociación + OC</span><span id="route-m5">05 · Seguimiento + cierre</span></div>
+ <div class="rubric-explainer"><b>¿Cómo se revisan las respuestas abiertas?</b><span>La plataforma comprueba la presencia de conceptos, datos y decisiones esperadas. No es una IA que interprete cualquier redacción: usa una rúbrica de palabras clave y criterios mínimos, por eso debes redactar con claridad. La retroalimentación muestra los puntos que faltan y un ejemplo de referencia.</span></div>
+</div>
 
 <article class="card mission" id="mission-org">
-<div class="kicker">MISSION 01 · LIBRILLO PÁGS. 3–6 · U1 + U2</div><h2>Diseña el departamento y asigna responsabilidades</h2>
-<div class="bridge"><b>ESTUDIA → PRACTICA</b><p>Repasa la función de compras, la estructura, relaciones, centralización, políticas y separación de funciones.</p><a href="?tab=estudio#study-org">← Volver a la guía: Unidad 1 + Unidad 2</a></div>
-<div class="question"><p>1. La empresa tiene una planta principal y un almacén satélite. ¿Qué estructura suele equilibrar control y respuesta local?</p>
-<label class="option"><input type="radio" name="m1q1" value="a"> Centralizar absolutamente todas las compras, sin excepciones.</label>
-<label class="option"><input type="radio" name="m1q1" value="b"> Modelo híbrido: estratégicas centralizadas y compras menores locales con límites.</label>
-<label class="option"><input type="radio" name="m1q1" value="c"> Cada área compra sin política ni autorización común.</label></div>
-<div class="question"><p>2. ¿Quién debe contar y registrar físicamente lo recibido?</p>
-<label class="option"><input type="radio" name="m1q2" value="a"> Almacén / recepción.</label>
-<label class="option"><input type="radio" name="m1q2" value="b"> El proveedor sin testigo interno.</label>
-<label class="option"><input type="radio" name="m1q2" value="c"> El comprador que negoció y emitió la OC, sin validación.</label></div>
-<div class="hint" id="m1hint">Pista: una estructura híbrida combina políticas y poder de negociación con capacidad de respuesta local. En el control interno, el comprador no debe ser la única persona que solicita, aprueba, recibe y libera el pago.</div>
-<div class="actions"><button class="btn" data-hint="m1hint">Mostrar pista</button><button class="btn primary" id="m1check">Validar misión 01</button></div><div class="feedback" id="m1feedback" aria-live="polite"></div>
+<div class="mission-topline"><span class="kicker">MISSION 01 · ORGANIZATION CONTROL</span><span class="mission-time">12 MIN · 100 XP</span></div>
+<h2>La planta necesita un departamento que no se estorbe a sí mismo</h2>
+<div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Hay una planta principal y un almacén satélite. Producción solicita material; Compras negocia; Almacén recibe; Calidad inspecciona; Finanzas controla el pago.</p><a href="?tab=estudio#study-org">↗ Repasar Unidad 1 + Unidad 2 · librillo págs. 3–6</a></div>
+<div class="scenario-grid"><div class="scenario-stat"><small>RIESGO</small><b>Compras sin control</b><span>La misma persona solicita, compra y recibe.</span></div><div class="scenario-stat"><small>DECISIÓN</small><b>Diseñar responsables</b><span>Define separación de funciones y coordinación.</span></div></div>
+<div class="open-lab">
+ <div class="open-prompt"><span>RESPUESTA ABIERTA · 4 MIN</span><b>Como jefe de Compras, explica cómo repartirías las responsabilidades.</b><p>Escribe quién solicita, quién cotiza/negocia, quién autoriza, quién recibe e inspecciona y cómo evitarías que una sola persona controle todo.</p></div>
+ <textarea id="m1open" class="open-answer" rows="4" placeholder="Ejemplo: Producción solicita... Compras se encarga de... Almacén... Calidad... Finanzas..." spellcheck="true"></textarea>
+ <div class="open-actions"><button class="btn" data-model="m1model">Ver estructura de referencia</button><span class="word-meter" id="m1words">0 palabras</span></div>
+ <details class="model-answer" id="m1model"><summary>Modelo de respuesta y conceptos esperados</summary><p>Producción/área usuaria define la necesidad y especificación. Compras investiga, compara y negocia. La jefatura autoriza según presupuesto y política. Almacén cuenta y registra la recepción. Calidad inspecciona y acepta o rechaza. Finanzas concilia OC, recepción y factura. Las funciones se separan para evitar errores, conflictos y pagos indebidos.</p></details>
+</div>
+<div class="actions"><button class="btn" data-hint="m1hint">Necesito una pista</button><button class="btn primary" id="m1check">Evaluar misión 01 ↗</button></div>
+<div class="hint" id="m1hint">Pista: piensa en cinco verbos diferentes: solicitar, comprar, autorizar, recibir e inspeccionar/pagar. No deberían recaer todos en la misma persona.</div>
+<div class="feedback" id="m1feedback" aria-live="polite"></div>
 </article>
 
 <article class="card mission" id="mission-planning">
-<div class="kicker">MISSION 02 · LIBRILLO PÁGS. 6–7 · U3 · 3.1–3.5</div><h2>Calcula la necesidad y construye la requisición</h2>
-<div class="bridge"><b>ESTUDIA → PRACTICA</b><p>Requerimiento neto = necesidad bruta + stock de seguridad − inventario utilizable − recepciones confirmadas.</p><a href="?tab=estudio#study-planning">← Volver a la guía: planeación y requisición</a></div>
-<div class="tablewrap"><table><thead><tr><th>Dato</th><th>Valor</th></tr></thead><tbody><tr><td>Necesidad del periodo</td><td>480</td></tr><tr><td>Stock de seguridad objetivo</td><td>40</td></tr><tr><td>Inventario utilizable</td><td>120</td></tr><tr><td>Recepciones confirmadas</td><td>0</td></tr></tbody></table></div>
-<div class="formgrid"><div><label for="m2net">Requerimiento neto (piezas)</label><input id="m2net" type="number" min="0" placeholder="Escribe tu cálculo"></div><div><label for="m2date">Fecha máxima requerida</label><select id="m2date"><option value="">Selecciona</option><option value="10">10 días</option><option value="18">18 días</option><option value="30">30 días</option></select></div></div>
-<div class="question"><p>¿Cuál de estos elementos debe aparecer en una requisición completa?</p>
-<label class="option"><input type="radio" name="m2q" value="a"> Solo el nombre del proveedor y su cuenta bancaria.</label>
-<label class="option"><input type="radio" name="m2q" value="b"> Solicitante, especificación, cantidad, unidad, fecha/lugar, justificación y autorización.</label>
-<label class="option"><input type="radio" name="m2q" value="c"> Únicamente el precio final negociado.</label></div>
-<div class="hint" id="m2hint">Pista: suma la demanda y la reserva; después resta lo que ya puedes utilizar y los pedidos confirmados. La requisición es una solicitud interna, antes de seleccionar y emitir la OC.</div>
-<div class="actions"><button class="btn" data-hint="m2hint">Mostrar pista</button><button class="btn primary" id="m2check">Validar misión 02</button></div><div class="feedback" id="m2feedback" aria-live="polite"></div>
+<div class="mission-topline"><span class="kicker">MISSION 02 · SUPPLY PLANNING</span><span class="mission-time">15 MIN · 100 XP</span></div>
+<h2>Calcula lo que realmente debe comprarse</h2>
+<div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Producción requiere 480 rodamientos. Deben conservarse 40 piezas como seguridad. Hay 120 piezas utilizables y ningún pedido confirmado.</p><a href="?tab=estudio#study-planning">↗ Repasar temas 3.1–3.5 · librillo págs. 6–7</a></div>
+<div class="formula-panel"><div class="formula-label">FÓRMULA DE REQUERIMIENTO NETO</div><div class="formula">Necesidad + Seguridad − Inventario − Recepciones</div><div class="formula-values"><span>480</span><span>+ 40</span><span>− 120</span><span>− 0</span><span>= ?</span></div></div>
+<div class="formgrid">
+ <div><label for="m2net">¿Cuántas piezas debes requisitar?</label><input id="m2net" type="number" min="0" step="1" placeholder="Cantidad de piezas"></div>
+ <div><label for="m2date">¿Cuál es el plazo máximo?</label><select id="m2date"><option value="">Selecciona plazo</option><option value="10">10 días</option><option value="18">18 días</option><option value="30">30 días</option></select></div>
+</div>
+<div class="open-lab">
+ <div class="open-prompt"><span>RESPUESTA ABIERTA · 5 MIN</span><b>Redacta los datos mínimos de la requisición.</b><p>Incluye quién solicita, qué necesita, cantidad/unidad, especificación, fecha/lugar, justificación, presupuesto y autorización. Explica también por qué la requisición no es todavía una orden de compra.</p></div>
+ <textarea id="m2open" class="open-answer" rows="4" placeholder="La requisición debe contener..." spellcheck="true"></textarea>
+ <div class="open-actions"><button class="btn" data-model="m2model">Ver ficha de requisición</button><span class="word-meter" id="m2words">0 palabras</span></div>
+ <details class="model-answer" id="m2model"><summary>Modelo de respuesta y conceptos esperados</summary><p>Requisición: número/fecha, área solicitante y responsable, centro de costo, código y especificación, cantidad y unidad, fecha y lugar de entrega, justificación, presupuesto y autorización. Es interna: solicita iniciar la compra, pero no compromete todavía al proveedor. La OC autorizada formaliza el acuerdo externo.</p></details>
+</div>
+<div class="actions"><button class="btn" data-hint="m2hint">Necesito una pista</button><button class="btn primary" id="m2check">Evaluar misión 02 ↗</button></div>
+<div class="hint" id="m2hint">Pista: primero agrega la reserva a la necesidad; después resta lo que ya tienes y lo que llegará con certeza. Requisición = solicitud interna; OC = compromiso documentado con el proveedor.</div>
+<div class="feedback" id="m2feedback" aria-live="polite"></div>
 </article>
 
 <article class="card mission" id="mission-sourcing">
-<div class="kicker">MISSION 03 · LIBRILLO PÁGS. 8–9 · U3 · 3.6–3.9</div><h2>Selecciona fuentes y evalúa cotizaciones</h2>
-<div class="bridge"><b>ESTUDIA → PRACTICA</b><p>Filtra requisitos obligatorios antes de usar una matriz ponderada. El plazo máximo del caso es 10 días y el presupuesto es $100,000 antes de impuestos.</p><a href="?tab=estudio#study-sourcing">← Volver a la guía: fuentes y cotizaciones</a></div>
-<div class="tablewrap"><table><thead><tr><th>Proveedor</th><th>Precio</th><th>Flete</th><th>Entrega</th><th>Crédito</th><th>Costo total</th></tr></thead><tbody>
-<tr><td>A</td><td>$245</td><td>$2,500</td><td>7 días</td><td>30 días</td><td>$100,500</td></tr>
-<tr><td>B</td><td>$232</td><td>Incluido</td><td>18 días</td><td>Contado</td><td>$92,800</td></tr>
-<tr><td>C</td><td>$251</td><td>Incluido</td><td>5 días</td><td>15 días</td><td>$100,400</td></tr>
+<div class="mission-topline"><span class="kicker">MISSION 03 · SOURCING INTELLIGENCE</span><span class="mission-time">18 MIN · 100 XP</span></div>
+<h2>El proveedor más barato puede detener la producción</h2>
+<div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Necesitas 400 rodamientos en máximo 10 días y no debes superar $100,000 antes de impuestos. Los tres proveedores enviaron cotizaciones comparables.</p><a href="?tab=estudio#study-sourcing">↗ Repasar temas 3.6–3.9 · librillo págs. 8–9</a></div>
+<div class="tablewrap"><table><thead><tr><th>Proveedor</th><th>Precio unitario</th><th>Flete</th><th>Entrega</th><th>Crédito</th><th>Costo total</th></tr></thead><tbody>
+<tr><td><b>A</b></td><td>$245</td><td>$2,500</td><td>7 días</td><td>30 días</td><td>$100,500</td></tr>
+<tr><td><b>B</b></td><td>$232</td><td>Incluido</td><td>18 días</td><td>Contado</td><td>$92,800</td></tr>
+<tr><td><b>C</b></td><td>$251</td><td>Incluido</td><td>5 días</td><td>15 días</td><td>$100,400</td></tr>
 </tbody></table></div>
-<div class="question"><p>1. ¿Qué proveedor incumple un requisito obligatorio del caso?</p>
-<label class="option"><input type="radio" name="m3q1" value="a"> A.</label><label class="option"><input type="radio" name="m3q1" value="b"> B.</label><label class="option"><input type="radio" name="m3q1" value="c"> C.</label></div>
-<div class="question"><p>2. ¿Qué proveedor conviene llevar a negociación para intentar respetar presupuesto y lograr el menor tiempo?</p>
-<label class="option"><input type="radio" name="m3q2" value="a"> C: entrega en 5 días y necesita una mejora comercial de al menos 0.5% para quedar bajo el presupuesto.</label>
-<label class="option"><input type="radio" name="m3q2" value="b"> B: es el precio unitario menor, aunque tarda 18 días.</label>
-<label class="option"><input type="radio" name="m3q2" value="c"> Ninguno: no deben negociarse condiciones.</label></div>
-<div class="hint" id="m3hint">Pista: el plazo de 10 días es obligatorio. B cuesta menos, pero tarda 18 días. C cotiza $100,400; un descuento de 0.5% equivale a $502 y deja $99,898 antes de impuestos.</div>
-<div class="actions"><button class="btn" data-hint="m3hint">Mostrar pista</button><button class="btn primary" id="m3check">Validar misión 03</button></div><div class="feedback" id="m3feedback" aria-live="polite"></div>
+<div class="formgrid"><div><label for="m3vendor">¿A qué proveedor llevarías a negociación?</label><select id="m3vendor"><option value="">Elige una alternativa</option><option value="A">Proveedor A</option><option value="B">Proveedor B</option><option value="C">Proveedor C</option></select></div><div><label for="m3discount">¿Qué descuento mínimo requiere C para estar dentro del presupuesto?</label><select id="m3discount"><option value="">Selecciona</option><option value="0.25">0.25%</option><option value="0.5">0.5%</option><option value="1.5">1.5%</option><option value="3">3%</option></select></div></div>
+<div class="open-lab">
+ <div class="open-prompt"><span>RESPUESTA ABIERTA · 6 MIN</span><b>Defiende tu recomendación ante la gerencia.</b><p>Explica por qué descartas o condicionas a un proveedor. Usa plazo máximo, costo total, riesgo de retraso y una propuesta concreta de negociación.</p></div>
+ <textarea id="m3open" class="open-answer" rows="4" placeholder="Recomiendo negociar con... porque..." spellcheck="true"></textarea>
+ <div class="open-actions"><button class="btn" data-model="m3model">Ver análisis de referencia</button><span class="word-meter" id="m3words">0 palabras</span></div>
+ <details class="model-answer" id="m3model"><summary>Modelo de análisis y conceptos esperados</summary><p>B incumple el plazo obligatorio porque entrega en 18 días. A llega en 7 días, pero su costo total es $100,500 y supera el objetivo. C entrega en 5 días y cuesta $100,400; con 0.5% de descuento ($502) queda en $99,898 antes de impuestos. Por eso conviene negociar con C y dejar por escrito precio, plazo, calidad y condiciones de pago.</p></details>
+</div>
+<div class="actions"><button class="btn" data-hint="m3hint">Necesito una pista</button><button class="btn primary" id="m3check">Evaluar misión 03 ↗</button></div>
+<div class="hint" id="m3hint">Pista: primero elimina incumplimientos obligatorios. Un proveedor que llega tarde no gana por ser barato. Para C: $100,400 × 0.5% = $502; nuevo costo = $99,898.</div>
+<div class="feedback" id="m3feedback" aria-live="polite"></div>
 </article>
 
 <article class="card mission" id="mission-contract">
-<div class="kicker">MISSION 04 · LIBRILLO PÁGS. 9–10 · U3 · 3.10–3.11</div><h2>Negocia y formaliza la orden de compra</h2>
-<div class="bridge"><b>ESTUDIA → PRACTICA</b><p>La negociación establece los compromisos; la OC autorizada los documenta. Revisa los campos mínimos y las condiciones.</p><a href="?tab=estudio#study-contract">← Volver a la guía: negociación y orden de compra</a></div>
-<p>Proveedor C propone $251 por pieza para 400 piezas. Se solicita descuento de 1.5%. El IVA del ejercicio es un supuesto didáctico de 16%; no representa asesoría fiscal.</p>
-<div class="formgrid"><div><label for="m4disc">Descuento ($)</label><input id="m4disc" type="number" step=".01" placeholder="Tu cálculo"></div><div><label for="m4net">Importe neto antes de impuestos ($)</label><input id="m4net" type="number" step=".01" placeholder="Tu cálculo"></div><div><label for="m4tax">IVA 16% ($)</label><input id="m4tax" type="number" step=".01" placeholder="Tu cálculo"></div><div><label for="m4total">Total con IVA ($)</label><input id="m4total" type="number" step=".01" placeholder="Tu cálculo"></div></div>
-<div class="question"><p>El proveedor quiere sustituir el rodamiento por otro modelo sin validación. ¿Qué debe hacer compras?</p>
-<label class="option"><input type="radio" name="m4q" value="a"> Aceptar si la diferencia de precio es pequeña.</label>
-<label class="option"><input type="radio" name="m4q" value="b"> Exigir validación técnica y autorización escrita antes de modificar la especificación y la OC.</label>
-<label class="option"><input type="radio" name="m4q" value="c"> Dejar que almacén decida al recibirlo.</label></div>
-<div class="hint" id="m4hint">Pista: importe bruto = 400×251 = $100,400. Descuento = 100,400×0.015. Neto = bruto − descuento. IVA = neto×0.16. Total = neto + IVA.</div>
-<div class="actions"><button class="btn" data-hint="m4hint">Mostrar pista</button><button class="btn primary" id="m4check">Validar misión 04</button></div><div class="feedback" id="m4feedback" aria-live="polite"></div>
+<div class="mission-topline"><span class="kicker">MISSION 04 · NEGOTIATION & PURCHASE ORDER</span><span class="mission-time">20 MIN · 100 XP</span></div>
+<h2>Convierte la negociación en un compromiso controlado</h2>
+<div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Proveedor C ofrece 400 rodamientos a $251 cada uno. Lograste negociar un descuento de 1.5%. Captura los importes y redacta las condiciones que deben quedar en la orden de compra.</p><a href="?tab=estudio#study-contract">↗ Repasar temas 3.10–3.11 · librillo págs. 9–10</a></div>
+<div class="formgrid">
+ <div><label for="m4disc">Descuento ($)</label><input id="m4disc" type="number" step=".01" placeholder="Calcula el descuento"></div>
+ <div><label for="m4net">Importe neto antes de impuestos ($)</label><input id="m4net" type="number" step=".01" placeholder="Calcula el neto"></div>
+ <div><label for="m4tax">IVA ilustrativo 16% ($)</label><input id="m4tax" type="number" step=".01" placeholder="Calcula el IVA"></div>
+ <div><label for="m4total">Total con IVA ($)</label><input id="m4total" type="number" step=".01" placeholder="Calcula el total"></div>
+</div>
+<div class="open-lab">
+ <div class="open-prompt"><span>RESPUESTA ABIERTA · 7 MIN</span><b>Escribe las cláusulas esenciales de la orden de compra.</b><p>Incluye producto/especificación, cantidad, precio y descuento, fecha/lugar de entrega, pago, garantía y autorización. Señala qué harías si el proveedor pretende sustituir el modelo.</p></div>
+ <textarea id="m4open" class="open-answer" rows="4" placeholder="La OC deberá indicar... No se permitirá sustituir..." spellcheck="true"></textarea>
+ <div class="open-actions"><button class="btn" data-model="m4model">Ver checklist de la OC</button><span class="word-meter" id="m4words">0 palabras</span></div>
+ <details class="model-answer" id="m4model"><summary>Modelo de cláusulas y conceptos esperados</summary><p>La OC debe identificar número y fecha, proveedor, requisición, producto y especificación técnica, cantidad 400, precio $251, descuento 1.5%, neto $98,894 antes de impuestos, impuesto aplicable, total, lugar y fecha de entrega, transporte, forma/plazo de pago, garantía, responsables y autorizaciones. No se aceptan sustituciones sin aprobación técnica y autorización escrita, seguida de la modificación controlada de la OC.</p></details>
+</div>
+<div class="actions"><button class="btn" data-hint="m4hint">Necesito una pista</button><button class="btn primary" id="m4check">Evaluar misión 04 ↗</button></div>
+<div class="hint" id="m4hint">Pista: bruto = 400 × $251 = $100,400. Descuento = bruto × 0.015. Neto = bruto − descuento. IVA ilustrativo = neto × 0.16. Total = neto + IVA. La OC convierte lo negociado en condiciones verificables.</div>
+<div class="feedback" id="m4feedback" aria-live="polite"></div>
 </article>
 
 <article class="card mission" id="mission-close">
-<div class="kicker">MISSION 05 · LIBRILLO PÁGS. 10–11 · U2 · 2.8–2.9 + U3 · 3.12</div><h2>Da seguimiento, gestiona la incidencia y cierra</h2>
-<div class="bridge"><b>ESTUDIA → PRACTICA</b><p>Una OC solo se cierra cuando las cantidades, calidad, documentos e incidencias se encuentran conciliados.</p><a href="?tab=estudio#study-close">← Volver a la guía: seguimiento y terminación</a></div>
-<p>La OC es por 400 rodamientos. Se reciben 240 en el día 5 y 160 en el día 8. Durante inspección, 10 piezas llegan dañadas y son rechazadas.</p>
-<div class="formgrid"><div><label for="m5accepted">Piezas aceptadas</label><input id="m5accepted" type="number" placeholder="Tu cálculo"></div><div><label for="m5pending">Piezas pendientes de solución</label><input id="m5pending" type="number" placeholder="Tu cálculo"></div></div>
-<div class="question"><p>¿Puede cerrarse la OC inmediatamente después de la recepción?</p>
-<label class="option"><input type="radio" name="m5q" value="a"> Sí, porque llegaron físicamente 400 piezas.</label>
-<label class="option"><input type="radio" name="m5q" value="b"> No. Debe registrarse la no conformidad y acordarse reposición, devolución o nota de crédito; después conciliar documentos.</label>
-<label class="option"><input type="radio" name="m5q" value="c"> Sí, si el transportista firma la entrega.</label></div>
-<div class="hint" id="m5hint">Pista: 240 + 160 = 400 recibidas físicamente. Pero 10 fueron rechazadas. Se aceptan 390 y siguen pendientes 10 por reposición o solución documentada.</div>
-<div class="actions"><button class="btn" data-hint="m5hint">Mostrar pista</button><button class="btn primary" id="m5check">Validar misión 05</button></div><div class="feedback" id="m5feedback" aria-live="polite"></div>
+<div class="mission-topline"><span class="kicker">MISSION 05 · RECEIVING & CLOSEOUT</span><span class="mission-time">15 MIN · 100 XP</span></div>
+<h2>El pedido llegó… pero ¿está realmente completo?</h2>
+<div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Se recibieron 240 piezas el día 5 y 160 el día 8. En la inspección, 10 piezas están dañadas. El proveedor considera que ya cumplió la orden.</p><a href="?tab=estudio#study-close">↗ Repasar temas 2.8–2.9 y 3.12 · librillo págs. 10–11</a></div>
+<div class="formgrid"><div><label for="m5accepted">Piezas aceptadas</label><input id="m5accepted" type="number" min="0" placeholder="Cantidad conforme"></div><div><label for="m5pending">Piezas pendientes de solución</label><input id="m5pending" type="number" min="0" placeholder="Cantidad por resolver"></div></div>
+<div class="open-lab">
+ <div class="open-prompt"><span>RESPUESTA ABIERTA · 7 MIN</span><b>Redacta tu plan de acción y determina cuándo cerrarías la OC.</b><p>Explica cómo documentarías el daño, qué solución pedirías al proveedor, qué documentos conciliarías y qué condición debe cumplirse antes de cerrar.</p></div>
+ <textarea id="m5open" class="open-answer" rows="4" placeholder="Primero separaría las piezas dañadas... Después emitiría..." spellcheck="true"></textarea>
+ <div class="open-actions"><button class="btn" data-model="m5model">Ver protocolo de cierre</button><span class="word-meter" id="m5words">0 palabras</span></div>
+ <details class="model-answer" id="m5model"><summary>Modelo de plan de acción y conceptos esperados</summary><p>Registrar 400 piezas recibidas físicamente, 390 aceptadas y 10 rechazadas. Separar/identificar el material no conforme, levantar evidencia y reporte de incidencia, notificar al proveedor y acordar reposición, devolución o nota de crédito con fecha y responsable. Conciliar orden de compra, recepción e invoice/factura. No cerrar hasta resolver las 10 piezas y dejar el expediente completo.</p></details>
+</div>
+<div class="actions"><button class="btn" data-hint="m5hint">Necesito una pista</button><button class="btn primary" id="m5check">Evaluar misión 05 ↗</button></div>
+<div class="hint" id="m5hint">Pista: 240 + 160 = 400 recibidas; 400 − 10 dañadas = 390 conformes. La orden sigue abierta mientras la incidencia y los documentos no estén conciliados.</div>
+<div class="feedback" id="m5feedback" aria-live="polite"></div>
 </article>
 </section>
 
@@ -295,102 +369,255 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 </div>
 <script>
 (function(){
- const KEY='nexus-class09-integrated-v1';
- const empty=function(){return {student:'',group:'',done:{},attempts:{},xp:0,updated:new Date().toISOString()};};
- let state=empty();try{state=Object.assign(empty(),JSON.parse(localStorage.getItem(KEY)||'{}'));}catch(e){state=empty();}
+ const KEY='nexus-class09-open-lab-v2';
  const $=function(id){return document.getElementById(id);};
- const selected=function(n){const el=document.querySelector('input[name="'+n+'"]:checked');return el?el.value:'';};
- const save=function(){state.updated=new Date().toISOString();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}render();};
- const show=function(id,ok,title,body){const el=$(id);el.classList.toggle('bad',!ok);el.style.display='block';el.innerHTML='<b>'+(ok?'✓ ':'✕ ')+title+'</b><div>'+body+'</div>';};
- const attempt=function(k){state.attempts[k]=(state.attempts[k]||0)+1;};
- const complete=function(k,id,title,body){attempt(k);if(!state.done[k]){state.done[k]=true;state.xp+=state.attempts[k]===1?100:80;}save();show(id,true,title,body);};
- function render(){
-  $('studentName').value=state.student||'';$('studentGroup').value=state.group||'';
-  const done=Object.keys(state.done).filter(k=>state.done[k]).length;
-  $('doneCount').textContent=done+' / 5';$('xpCount').textContent=(state.xp||0)+' XP';
-  $('attemptCount').textContent=Object.values(state.attempts||{}).reduce((a,b)=>a+b,0);
-  $('progressBar').style.width=(done/5*100)+'%';
-  $('progressText').textContent=done===5?'Ruta completada. Descarga tu evidencia y entrega el expediente.':(5-done)+' misión(es) pendientes.';
-  $('sideStudentName').textContent=state.student||'Sin identificar';
-  $('sideStudentGroup').textContent=state.group||'Clase 09 · Grupo pendiente';
-  $('sideProgressText').textContent=String(done).padStart(2,'0')+' / 05';
-  $('sideProgressBar').style.width=(done/5*100)+'%';
-  $('dashDone').innerHTML=String(done).padStart(2,'0')+'<span class="kpi-denom">/05</span>';
-  $('dashDoneCaption').textContent=done===5?'Campaña completada':'Etapas validadas de cinco misiones';
-  $('dashDoneTrack').style.width=(done/5*100)+'%';
-  $('dashXP').textContent=String(state.xp||0).padStart(3,'0');
-  $('dashXPTrack').style.width=Math.min(100,(state.xp||0)/5)+'%';
-  $('dashStageProgress').style.width=(done/5*100)+'%';
-  const next=[['org','organizar el departamento','Asigna funciones y separa responsabilidades.'],['planning','calcular la necesidad','Valida inventario, reserva y requerimiento neto.'],['sourcing','evaluar fuentes','Filtra plazos y compara el costo total.'],['contract','negociar y formalizar','Documenta el acuerdo y construye la OC.'],['close','controlar y cerrar','Resuelve incidencias y concilia la recepción.']];
-  const item=next.find(x=>!state.done[x[0]]);
-  $('dashNextTitle').textContent=item?'Siguiente objetivo: '+item[1]:'Campaña completada · Procurement Specialist';
-  $('dashNextDesc').textContent=item?item[2]:'Has completado las cinco etapas de la operación.';
-  $('dashRank').textContent=done===5?'RANGO 05 · PROCUREMENT SPECIALIST':'RANGO 0'+(Math.min(done+1,4))+' · '+(['CADETE DE COMPRAS','ANALISTA','COMPRADOR','COORDINADOR'][Math.min(done,3)]);
-  ['org','planning','sourcing','contract','close'].forEach(k=>{
-    $('stage-'+k).classList.toggle('done',!!state.done[k]);
-  });
-  $('topAvatar').textContent=(state.student||'OP').split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase();
+ const empty=function(){return {student:'',group:'',done:{},attempts:{},xp:0,answers:{},openReviews:{},fields:{},elapsedSeconds:0,updated:new Date().toISOString()};};
+ let state=empty();
+ try{state=Object.assign(empty(),JSON.parse(localStorage.getItem(KEY)||'{}'));}catch(e){state=empty();}
+ state.done=state.done||{};state.attempts=state.attempts||{};state.answers=state.answers||{};state.openReviews=state.openReviews||{};state.fields=state.fields||{};
+ let timer=null;
+ const normalize=function(s){return String(s||'').toLocaleLowerCase('es-MX').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9%$.,\s-]/g,' ').replace(/\s+/g,' ').trim();};
+ const words=function(s){const v=String(s||'').trim();return v?v.split(/\s+/).length:0;};
+ const selected=function(name){const e=document.querySelector('input[name="'+name+'"]:checked');return e?e.value:'';};
+ const moneyNear=function(id,target){const value=$(id).value;return value!==''&&Math.abs(Number(value)-target)<0.011;};
+ function save(){state.updated=new Date().toISOString();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}render();}
+ function criteriaCheck(text,criteria,min,required){
+   const n=normalize(text);
+   const matched=[],missing=[];
+   criteria.forEach(function(c){const hit=c.terms.some(function(term){return n.includes(normalize(term));});(hit?matched:missing).push(c);});
+   const requiredMiss=(required||[]).filter(function(label){return missing.some(function(x){return x.label===label;});});
+   const passed=words(text)>=12&&matched.length>=min&&requiredMiss.length===0;
+   return {matched:matched,missing:missing,requiredMiss:requiredMiss,score:Math.round(matched.length/criteria.length*100),passed:passed,wordCount:words(text)};
  }
- $('studentName').addEventListener('change',e=>{state.student=e.target.value.trim();save();});
- $('studentGroup').addEventListener('change',e=>{state.group=e.target.value.trim();save();});
- document.querySelectorAll('[data-hint]').forEach(b=>b.addEventListener('click',()=>{const h=$(b.dataset.hint);h.style.display=h.style.display==='block'?'none':'block';}));
- $('m1check').addEventListener('click',()=>{
-  const a=selected('m1q1'),b=selected('m1q2');
-  if(!a||!b){show('m1feedback',false,'Faltan respuestas','Contesta las dos preguntas para evaluar el diseño organizacional.');return;}
-  if(a==='b'&&b==='a')complete('org','m1feedback','Estructura y control correctos','El modelo híbrido combina coordinación de compras estratégicas con respuesta local bajo límites. Almacén recibe y registra; calidad inspecciona; finanzas concilia y gestiona pago. Separar funciones reduce errores, conflictos y riesgos.');
-  else{attempt('org');save();let x=[];if(a!=='b')x.push('La estructura híbrida conserva políticas comunes y permite respuesta local para compras menores autorizadas.');if(b!=='a')x.push('Almacén debe contar y documentar la recepción; el área técnica/calidad inspecciona.');show('m1feedback',false,'Revisa la responsabilidad de cada área',x.join('<br>'));}
+ function feedbackHtml(title,body,review,next){
+   let out='<b>'+title+'</b><div>'+body+'</div>';
+   if(review){
+    out+='<div class="feedback-score"><strong>'+review.score+'/100</strong><div class="feedback-score-track"><i style="width:'+review.score+'%"></i></div><span>'+review.matched.length+'/'+(review.matched.length+review.missing.length)+' criterios</span></div>';
+    out+='<div class="feedback-points">';
+    review.matched.forEach(function(c){out+='<div class="feedback-point ok">✓ '+c.label+'</div>';});
+    review.missing.forEach(function(c){out+='<div class="feedback-point miss">＋ '+c.label+'</div>';});
+    out+='</div>';
+   }
+   if(next)out+='<div class="feedback-next">'+next+'</div>';
+   return out;
+ }
+ function show(id,ok,title,body,review,next){
+   const el=$(id);el.classList.toggle('bad',!ok);el.style.display='block';el.innerHTML=feedbackHtml((ok?'✓ ':'↻ ')+title,body,review,next);
+ }
+ function captureFields(){
+   ['m2net','m2date','m3vendor','m3discount','m4disc','m4net','m4tax','m4total','m5accepted','m5pending'].forEach(function(id){if($(id))state.fields[id]=$(id).value;});
+   ['m1open','m2open','m3open','m4open','m5open'].forEach(function(id){if($(id))state.answers[id.slice(0,2)]=$(id).value;});
+ }
+ function render(){
+   $('studentName').value=state.student||'';$('studentGroup').value=state.group||'';
+   const done=['org','planning','sourcing','contract','close'].filter(function(k){return state.done[k];}).length;
+   $('doneCount').textContent=done+' / 5';$('xpCount').textContent=(state.xp||0)+' XP';
+   $('attemptCount').textContent=Object.values(state.attempts).reduce(function(a,b){return a+b;},0);
+   $('progressBar').style.width=(done/5*100)+'%';
+   $('progressText').textContent=done===5?'Operación completada. Descarga tu expediente de evidencia.':(5-done)+' misión(es) por completar.';
+   $('sideStudentName').textContent=state.student||'Sin identificar';
+   $('sideStudentGroup').textContent=state.group||'Clase 09 · Grupo pendiente';
+   $('sideProgressText').textContent=String(done).padStart(2,'0')+' / 05';
+   $('sideProgressBar').style.width=(done/5*100)+'%';
+   $('dashDone').innerHTML=String(done).padStart(2,'0')+'<span class="kpi-denom">/05</span>';
+   $('dashDoneCaption').textContent=done===5?'Campaña completada':'Etapas validadas de cinco misiones';
+   $('dashDoneTrack').style.width=(done/5*100)+'%';
+   $('dashXP').textContent=String(state.xp||0).padStart(3,'0');
+   $('dashXPTrack').style.width=Math.min(100,(state.xp||0)/5)+'%';
+   $('dashStageProgress').style.width=(done/5*100)+'%';
+   const next=[['org','organizar el departamento','Asigna funciones y separa responsabilidades.'],['planning','calcular la necesidad','Valida inventario, reserva y requerimiento neto.'],['sourcing','evaluar fuentes','Filtra plazos y compara el costo total.'],['contract','negociar y formalizar','Documenta el acuerdo y construye la OC.'],['close','controlar y cerrar','Resuelve incidencias y concilia la recepción.']];
+   const item=next.find(function(x){return !state.done[x[0]];});
+   $('dashNextTitle').textContent=item?'Siguiente objetivo: '+item[1]:'Campaña completada · Procurement Specialist';
+   $('dashNextDesc').textContent=item?item[2]:'Has completado las cinco etapas de la operación.';
+   $('dashRank').textContent=done===5?'RANGO 05 · PROCUREMENT SPECIALIST':'RANGO 0'+Math.min(done+1,4)+' · '+(['CADETE DE COMPRAS','ANALISTA','COMPRADOR','COORDINADOR'][Math.min(done,3)]);
+   ['org','planning','sourcing','contract','close'].forEach(function(k){$('stage-'+k).classList.toggle('done',!!state.done[k]);});
+   $('topAvatar').textContent=(state.student||'OP').split(' ').map(function(x){return x[0];}).slice(0,2).join('').toUpperCase();
+   displayTimer();
+ }
+ function displayTimer(){
+   const sec=state.elapsedSeconds||0,mm=Math.floor(sec/60),ss=sec%60;
+   $('sprintClock').textContent=String(mm).padStart(2,'0')+':'+String(ss).padStart(2,'0');
+   $('sprintStatus').textContent=sec>=5400?'Meta de 90 minutos alcanzada · termina y entrega.':(5400-sec>=0?'Tiempo restante de referencia: '+Math.floor((5400-sec)/60)+' min':'Tiempo de práctica');
+ }
+ function beginAttempt(key,textareaId){
+   state.attempts[key]=(state.attempts[key]||0)+1;
+   const answer=$(textareaId).value;
+   state.answers[key]=answer;
+   captureFields();
+   return answer;
+ }
+ function finishMission(key,feedbackId,title,body,review,next){
+   if(!state.done[key]){
+     state.done[key]=true;
+     state.xp+=(state.attempts[key]===1?100:80);
+   }
+   save();
+   show(feedbackId,true,title,body,review,next);
+ }
+ function failMission(key,feedbackId,title,body,review,next){
+   save();
+   show(feedbackId,false,title,body,review,next);
+ }
+ function bindOpenCounter(textareaId,counterId,key){
+   const area=$(textareaId);
+   area.value=state.answers[key]||'';
+   $(counterId).textContent=words(area.value)+' palabras';
+   area.addEventListener('input',function(){
+     state.answers[key]=area.value;
+     $(counterId).textContent=words(area.value)+' palabras';
+     try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
+   });
+ }
+ const C={
+  org:[
+   {label:'Área usuaria solicita y define la necesidad',terms:['area usuaria','solicitante','produccion','producción','operaciones','mantenimiento']},
+   {label:'Compras cotiza, compara y negocia',terms:['compras','comprador','cotiza','negocia','cotizaciones']},
+   {label:'Jefatura o responsable autoriza',terms:['autoriza','autorizacion','jefatura','gerencia','presupuesto aprobado']},
+   {label:'Almacén recibe y Calidad inspecciona',terms:['almacen','recepcion','recibe','calidad','inspeccion','inspecciona']},
+   {label:'Separa funciones y conserva control interno',terms:['separar funciones','segregacion','independiente','control interno','no debe ser la misma persona','no debe recaer']}
+  ],
+  planning:[
+   {label:'Identifica área solicitante/responsable',terms:['solicitante','area usuaria','responsable','departamento']},
+   {label:'Incluye especificación o código del material',terms:['especificacion','codigo','descripcion tecnica','caracteristicas']},
+   {label:'Incluye cantidad y unidad de medida',terms:['cantidad','unidad','piezas','rodamientos']},
+   {label:'Incluye fecha y lugar de entrega',terms:['fecha','entrega','lugar','destino']},
+   {label:'Incluye justificación, presupuesto y autorización',terms:['justificacion','presupuesto','autorizacion','centro de costo']},
+   {label:'Distingue requisición interna de OC al proveedor',terms:['interna','interno','no es una orden','no compromete','orden de compra']}
+  ],
+  sourcing:[
+   {label:'Reconoce el plazo máximo de 10 días',terms:['10 dias','10 día','maximo 10','plazo maximo','fecha limite']},
+   {label:'Descarta o condiciona B por sus 18 días',terms:['proveedor b','b tarda','b entrega','18 dias','18 día']},
+   {label:'Considera el costo total, no solo precio unitario',terms:['costo total','costo de adquisicion','flete','transporte','costo completo']},
+   {label:'Propone negociar al menos 0.5% con C',terms:['0.5','medio por ciento','502','descuento']},
+   {label:'Justifica la elección de C por entrega en 5 días',terms:['proveedor c','c entrega','5 dias','cinco dias']}
+  ],
+  contract:[
+   {label:'Identifica producto, especificación y cantidad',terms:['rodamiento','especificacion','400 piezas','400 unidades','cantidad']},
+   {label:'Registra precio y descuento negociado',terms:['251','1.5','descuento','98894','98,894']},
+   {label:'Incluye fecha/lugar de entrega y condiciones de pago',terms:['fecha de entrega','lugar de entrega','pago','credito','15 dias']},
+   {label:'Incluye garantía o criterio de calidad',terms:['garantia','calidad','inspeccion','conformidad']},
+   {label:'Exige validación técnica y autorización para sustituir',terms:['validacion tecnica','autorizacion escrita','sustitu','no se permite cambiar','no aceptar cambio']}
+  ],
+  close:[
+   {label:'Registra 390 aceptadas y 10 rechazadas',terms:['390','10 rechazadas','10 dañadas','10 piezas']},
+   {label:'Levanta reporte y evidencia de no conformidad',terms:['no conformidad','incidencia','reporte','evidencia','fotografia']},
+   {label:'Separa o identifica el material dañado',terms:['separar','aislar','cuarentena','identificar material']},
+   {label:'Solicita reposición, devolución o nota de crédito',terms:['reposicion','devolucion','nota de credito','reemplazo']},
+   {label:'Concilia OC, recepción y factura',terms:['oc','orden de compra','recepcion','factura','conciliar']},
+   {label:'No cierra hasta resolver la incidencia',terms:['no cerrar','no se cierra','hasta resolver','pendiente','orden abierta']}
+  ]
+ };
+ function reviewFor(key,text,min,required){return criteriaCheck(text,C[key],min,required);}
+ function renderReview(r){
+   const labels=r.missing.map(function(x){return x.label;});
+   return {matched:r.matched,missing:r.missing,score:r.score};
+ }
+ const required={
+  org:['Separa funciones y conserva control interno'],
+  planning:['Distingue requisición interna de OC al proveedor'],
+  sourcing:['Reconoce el plazo máximo de 10 días','Propone negociar al menos 0.5% con C'],
+  contract:['Exige validación técnica y autorización para sustituir'],
+  close:['Levanta reporte y evidencia de no conformidad','No cierra hasta resolver la incidencia']
+ };
+ function evaluate(key,textarea,feedback,title,min,errors,next,successBody){
+   const answer=beginAttempt(key,textarea);
+   const review=reviewFor(key,answer,min,required[key]);
+   const short=review.wordCount<12;
+   let fail=[];
+   if(errors.length)fail=fail.concat(errors);
+   if(short)fail.push('Desarrolla tu respuesta: escribe al menos 12 palabras para explicar tu criterio.');
+   if(!review.passed){
+     const missing=review.missing.map(function(c){return c.label;});
+     if(missing.length)fail.push('Completa estos criterios: '+missing.join('; ')+'.');
+     if(review.requiredMiss.length)fail.push('Criterios indispensables pendientes: '+review.requiredMiss.map(function(c){return c.label;}).join('; ')+'.');
+   }
+   if(errors.length===0&&review.passed){
+     finishMission(key,feedback,title,successBody,renderReview(review),'Misión validada. Continúa a la siguiente etapa de la ruta.');
+   }else{
+     failMission(key,feedback,'Todavía hay puntos que mejorar',fail.join('<br>')||'Revisa la respuesta y vuelve a intentarlo.',renderReview(review),next);
+   }
+ }
+ $('studentName').addEventListener('change',function(e){state.student=e.target.value.trim();save();});
+ $('studentGroup').addEventListener('change',function(e){state.group=e.target.value.trim();save();});
+ ['m1open','m2open','m3open','m4open','m5open'].forEach(function(id,i){bindOpenCounter(id,'m'+(i+1)+'words',['org','planning','sourcing','contract','close'][i]);});
+ document.querySelectorAll('[data-hint]').forEach(function(b){b.addEventListener('click',function(){const el=$(b.dataset.hint);el.style.display=el.style.display==='block'?'none':'block';});});
+ document.querySelectorAll('[data-model]').forEach(function(b){b.addEventListener('click',function(){const el=$(b.dataset.model);el.open=!el.open;});});
+ $('m1check').addEventListener('click',function(){
+   const a=$('m1open').value;
+   evaluate('org','m1open','m1feedback','Departamento organizado',4,[],'Asigna un área distinta a solicitud, compra, autorización y recepción.','Buena distribución. Producción solicita; Compras compara y negocia; la jefatura autoriza; Almacén recibe; Calidad inspecciona y Finanzas concilia. Separar responsabilidades mejora trazabilidad y control interno.');
  });
- $('m2check').addEventListener('click',()=>{
-  const net=Number($('m2net').value),date=$('m2date').value,q=selected('m2q');
-  if(!$('m2net').value||!date||!q){show('m2feedback',false,'Faltan datos','Captura el requerimiento neto, selecciona fecha y contesta el contenido de la requisición.');return;}
-  const ok=Math.abs(net-400)<.001&&date==='10'&&q==='b';
-  if(ok)complete('planning','m2feedback','Planeación correcta','480 + 40 − 120 − 0 = 400 piezas. El horizonte máximo es 10 días. La requisición debe incluir solicitante, centro de costo, especificación, cantidad, unidad, fecha/lugar, justificación, presupuesto y autorización.');
-  else{attempt('planning');save();let x=[];if(Math.abs(net-400)>=.001)x.push('Requerimiento neto esperado: 480 + 40 − 120 − 0 = 400 piezas.');if(date!=='10')x.push('La fecha máxima requerida es de 10 días, no 18 ni 30.');if(q!=='b')x.push('La requisición es un documento interno: debe identificar solicitante, especificación, cantidad, unidad, fecha, lugar, justificación y autorización.');show('m2feedback',false,'Corrige los datos de planeación',x.join('<br>'));}
+ $('m2check').addEventListener('click',function(){
+   const errors=[];
+   if(!$('m2net').value||Number($('m2net').value)!==400)errors.push('Requerimiento neto incorrecto: 480 + 40 − 120 − 0 = 400 piezas.');
+   if($('m2date').value!=='10')errors.push('El plazo máximo del caso es de 10 días.');
+   evaluate('planning','m2open','m2feedback','Requisición y planeación correctas',5,errors,'Verifica que tu requisición sea interna e incluya solicitante, especificación, cantidad, fecha, lugar, justificación, presupuesto y autorización.','Cálculo correcto: 400 rodamientos. La requisición solicita internamente iniciar la compra; la orden de compra formaliza después el acuerdo con el proveedor.');
  });
- $('m3check').addEventListener('click',()=>{
-  const a=selected('m3q1'),b=selected('m3q2');
-  if(!a||!b){show('m3feedback',false,'Faltan respuestas','Selecciona el proveedor que incumple y el que llevarías a negociación.');return;}
-  if(a==='b'&&b==='a')complete('sourcing','m3feedback','Evaluación de proveedores correcta','B incumple el plazo obligatorio: tarda 18 días frente al máximo de 10. C entrega en 5 días y puede quedar dentro del presupuesto con al menos 0.5% de descuento: $100,400 − $502 = $99,898 antes de impuestos. Para 1.5% de descuento, el neto es $98,894. Una matriz ponderada debe sumar 100% y no compensar incumplimientos obligatorios.');
-  else{attempt('sourcing');save();let x=[];if(a!=='b')x.push('Proveedor B es el que incumple: su entrega es de 18 días.');if(b!=='a')x.push('Proveedor C cumple en 5 días. Negocia un descuento de 0.5% o mayor para ajustarlo al presupuesto.');show('m3feedback',false,'Revisa el filtro de cumplimiento y el costo total',x.join('<br>'));}
+ $('m3check').addEventListener('click',function(){
+   const errors=[];
+   if($('m3vendor').value!=='C')errors.push('La mejor alternativa para negociar es C: cumple en 5 días y su costo puede reducirse dentro del presupuesto.');
+   if($('m3discount').value!=='0.5'&&$('m3discount').value!=='1.5'&&$('m3discount').value!=='3')errors.push('El descuento mínimo requerido es 0.5% ($502): $100,400 − $502 = $99,898 antes de impuestos.');
+   evaluate('sourcing','m3open','m3feedback','Selección sustentada',4,errors,'Compara el plazo máximo, costo total, riesgo operativo y descuento necesario.','Correcto: B incumple los 10 días porque tarda 18. C entrega en 5 días y, con al menos 0.5% de descuento, queda en $99,898 antes de impuestos. La recomendación se basa en cumplimiento y costo total, no solo en precio unitario.');
  });
- $('m4check').addEventListener('click',()=>{
-  const d=Number($('m4disc').value),n=Number($('m4net').value),t=Number($('m4tax').value),z=Number($('m4total').value),q=selected('m4q');
-  if(!$('m4disc').value||!$('m4net').value||!$('m4tax').value||!$('m4total').value||!q){show('m4feedback',false,'Completa todos los cálculos','Se requieren descuento, neto, IVA, total y decisión sobre la sustitución.');return;}
-  const ok=Math.abs(d-1506)<.011&&Math.abs(n-98894)<.011&&Math.abs(t-15823.04)<.011&&Math.abs(z-114717.04)<.011&&q==='b';
-  if(ok)complete('contract','m4feedback','Negociación y OC correctas','Descuento: 100,400 × 1.5% = $1,506. Neto: $98,894. IVA didáctico 16%: $15,823.04. Total: $114,717.04. El presupuesto de $100,000 se compara antes de impuestos. La OC debe documentar las condiciones acordadas; no se sustituyen especificaciones sin validación y autorización escrita.');
-  else{attempt('contract');save();let x=[];if(Math.abs(d-1506)>=.011)x.push('Descuento correcto: $1,506.');if(Math.abs(n-98894)>=.011)x.push('Neto correcto: $98,894.');if(Math.abs(t-15823.04)>=.011)x.push('IVA ilustrativo: $15,823.04.');if(Math.abs(z-114717.04)>=.011)x.push('Total con IVA: $114,717.04.');if(q!=='b')x.push('No aceptes cambios de especificación sin validación técnica y autorización escrita.');show('m4feedback',false,'Revisa los importes y controles de la OC',x.join('<br>'));}
+ $('m4check').addEventListener('click',function(){
+   const errors=[];
+   if(!moneyNear('m4disc',1506))errors.push('Descuento esperado: $100,400 × 1.5% = $1,506.');
+   if(!moneyNear('m4net',98894))errors.push('Neto esperado: $100,400 − $1,506 = $98,894.');
+   if(!moneyNear('m4tax',15823.04))errors.push('IVA ilustrativo: $98,894 × 16% = $15,823.04.');
+   if(!moneyNear('m4total',114717.04))errors.push('Total ilustrativo: $98,894 + $15,823.04 = $114,717.04.');
+   evaluate('contract','m4open','m4feedback','Negociación formalizada',4,errors,'La orden debe traducir la negociación a condiciones medibles y exigir autorización para cualquier cambio técnico.','Cálculos validados: descuento $1,506; neto $98,894; IVA ilustrativo $15,823.04; total $114,717.04. La OC debe conservar especificaciones y controlar cualquier cambio por escrito.');
  });
- $('m5check').addEventListener('click',()=>{
-  const a=Number($('m5accepted').value),b=Number($('m5pending').value),q=selected('m5q');
-  if(!$('m5accepted').value||!$('m5pending').value||!q){show('m5feedback',false,'Faltan respuestas','Indica las piezas aceptadas, pendientes de solución y la decisión de cierre.');return;}
-  if(a===390&&b===10&&q==='b')complete('close','m5feedback','Seguimiento y cierre correctamente controlados','Llegaron físicamente 400 piezas, pero solo 390 se aceptan. Diez están rechazadas y requieren reposición, devolución o nota de crédito. Registra lote, evidencia, responsable y fecha de solución. La OC permanece abierta hasta conciliar recepción, calidad y factura.');
-  else{attempt('close');save();let x=[];if(a!==390)x.push('Piezas aceptadas: 400 − 10 rechazadas = 390.');if(b!==10)x.push('Piezas pendientes de solución: 10.');if(q!=='b')x.push('No se debe cerrar con una no conformidad pendiente. Documenta reposición, devolución o nota de crédito y concilia los documentos.');show('m5feedback',false,'Corrige el registro de recepción y cierre',x.join('<br>'));}
+ $('m5check').addEventListener('click',function(){
+   const errors=[];
+   if(Number($('m5accepted').value)!==390)errors.push('Cantidad aceptada: 400 recibidas − 10 dañadas = 390.');
+   if(Number($('m5pending').value)!==10)errors.push('Pendiente de solución: 10 piezas dañadas.');
+   evaluate('close','m5open','m5feedback','Recepción e incidencia controladas',4,errors,'Registra la no conformidad, separa las piezas, acuerda una solución con el proveedor y concilia los documentos antes del cierre.','Correcto: 390 piezas aceptadas y 10 pendientes de solución. La orden permanece abierta hasta reponer, devolver o emitir nota de crédito, y conciliar OC, recepción y factura.');
  });
- $('exportEvidence').addEventListener('click',()=>{
-  state.student=$('studentName').value.trim();state.group=$('studentGroup').value.trim();save();
-  const data={plataforma:'NEXUS Procurement Learning System',clase:'09 · Integración del proceso de compras',estudiante:state.student,grupo:state.group,misiones_completadas:state.done,experiencia_xp:state.xp,intentos:state.attempts,porcentaje:(Object.keys(state.done).filter(k=>state.done[k]).length/5*100)+'%',actualizado:state.updated,nota:'Guardado localmente en el navegador. Este archivo debe entregarse al docente; no se envía automáticamente.'};
-  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='NEXUS-Evidencia-Clase-09.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+ $('sprintStart').addEventListener('click',function(){
+   if(timer)return;
+   $('sprintStatus').textContent='Cronómetro en marcha · meta 90:00';
+   timer=setInterval(function(){
+     state.elapsedSeconds=(state.elapsedSeconds||0)+1;displayTimer();
+     if(state.elapsedSeconds%15===0){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+     if(state.elapsedSeconds>=5400){clearInterval(timer);timer=null;$('sprintStatus').textContent='Meta de 90 minutos alcanzada. Cierra tu evidencia.';}
+   },1000);
  });
- $('printEvidence').addEventListener('click',()=>window.print());
+ $('sprintPause').addEventListener('click',function(){if(timer){clearInterval(timer);timer=null;}save();$('sprintStatus').textContent='Cronómetro pausado.';});
+ $('sprintReset').addEventListener('click',function(){if(timer){clearInterval(timer);timer=null;}state.elapsedSeconds=0;save();$('sprintStatus').textContent='Cronómetro reiniciado.';});
+ $('exportEvidence').addEventListener('click',function(){
+   state.student=$('studentName').value.trim();state.group=$('studentGroup').value.trim();captureFields();
+   const data={plataforma:'NEXUS Procurement Learning System',clase:'09 · Sprint integrador de 90 minutos',estudiante:state.student,grupo:state.group,misiones_completadas:state.done,experiencia_xp:state.xp,intentos:state.attempts,respuestas_abiertas:state.answers,criterios_evaluados:state.openReviews,tiempo_total_segundos:state.elapsedSeconds,porcentaje:(['org','planning','sourcing','contract','close'].filter(function(k){return state.done[k];}).length/5*100)+'%',actualizado:state.updated,nota:'La retroalimentación de respuestas abiertas se basa en rúbricas locales de palabras clave y no en evaluación semántica por IA. Archivo generado localmente para entregar al docente.'};
+   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='NEXUS-Evidencia-Clase-09.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+ });
+ $('printEvidence').addEventListener('click',function(){captureFields();window.print();});
+ document.querySelectorAll('[data-open-tab]').forEach(function(btn){btn.addEventListener('click',function(){const target=document.querySelector('.tabs button[data-tab="'+btn.dataset.openTab+'"]');if(target)target.click();});});
+ ['m2net','m2date','m3vendor','m3discount','m4disc','m4net','m4tax','m4total','m5accepted','m5pending'].forEach(function(id){
+   if(state.fields[id]!==undefined&&$(id))$(id).value=state.fields[id];
+   if($(id))$(id).addEventListener('change',function(){captureFields();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}});
+ });
  render();
 })();
 </script>
 <script>
-document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
- document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('active',x===b));
- document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===b.dataset.tab));
- window.scrollTo({top:0,behavior:'smooth'});
-}));
-const tabTitles={inicio:'Briefing de operación',estudio:'Guía de estudio',misiones:'Centro de misiones',biblioteca:'Biblioteca de aprendizaje'};
-document.querySelectorAll('.tabs button').forEach(btn=>btn.addEventListener('click',()=>{document.getElementById('topbarPageTitle').textContent=tabTitles[btn.dataset.tab]||'Clase 09';}));
-document.querySelectorAll('[data-open-tab]').forEach(btn=>btn.addEventListener('click',()=>{const target=document.querySelector('.tabs button[data-tab="'+btn.dataset.openTab+'"]');if(target)target.click();}));
-document.getElementById('missionSearch').addEventListener('input',e=>{
- const q=e.target.value.trim().toLocaleLowerCase('es-MX');
- document.querySelectorAll('#misiones .mission').forEach(card=>{card.style.display=!q||card.textContent.toLocaleLowerCase('es-MX').includes(q)?'':'none';});
- if(document.querySelector('.tabs button[data-tab="misiones"]').classList.contains('active')===false&&q){document.querySelector('.tabs button[data-tab="misiones"]').click();}
-});
-const initialTab=new URLSearchParams(location.search).get('tab');
-if(initialTab){const btn=document.querySelector('.tabs button[data-tab="'+initialTab+'"]');if(btn)btn.click();}
-if(location.hash){requestAnimationFrame(()=>{const el=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(el)el.scrollIntoView({behavior:'smooth',block:'start'});});}
+(function(){
+ const titles={inicio:'Briefing de operación',estudio:'Guía de estudio',misiones:'Centro de misiones',biblioteca:'Biblioteca de aprendizaje'};
+ document.querySelectorAll('.tabs button').forEach(function(btn){btn.addEventListener('click',function(){
+  document.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('active',x===btn);});
+  document.querySelectorAll('.section').forEach(function(s){s.classList.toggle('active',s.id===btn.dataset.tab);});
+  document.getElementById('topbarPageTitle').textContent=titles[btn.dataset.tab]||'Clase 09';
+  if(btn.dataset.tab==='misiones'&&location.hash){const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target)target.scrollIntoView({behavior:'smooth',block:'start'});}
+  else window.scrollTo({top:0,behavior:'smooth'});
+ });});
+ document.querySelectorAll('.n9-queue a,.n9-stage').forEach(function(link){link.addEventListener('click',function(e){
+  const url=new URL(link.href);const tab=url.searchParams.get('tab');if(tab){e.preventDefault();const button=document.querySelector('.tabs button[data-tab="'+tab+'"]');if(button)button.click();history.replaceState(null,'',link.getAttribute('href'));const target=document.getElementById(url.hash.slice(1));if(target)setTimeout(function(){target.scrollIntoView({behavior:'smooth',block:'start'});},50);}
+ });});
+ document.getElementById('missionSearch').addEventListener('input',function(e){
+  const q=e.target.value.trim().toLocaleLowerCase('es-MX');
+  document.querySelectorAll('#misiones .mission').forEach(function(card){card.style.display=!q||card.textContent.toLocaleLowerCase('es-MX').includes(q)?'':'none';});
+  if(q){const b=document.querySelector('.tabs button[data-tab="misiones"]');if(!b.classList.contains('active'))b.click();}
+ });
+ const tab=new URLSearchParams(location.search).get('tab');
+ if(tab){const button=document.querySelector('.tabs button[data-tab="'+tab+'"]');if(button)button.click();}
+ if(location.hash){requestAnimationFrame(function(){const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target){const missionTab=document.querySelector('.tabs button[data-tab="misiones"]');if(missionTab)missionTab.click();target.scrollIntoView({behavior:'smooth',block:'start'});}});}
+})();
 </script>
 </body></html>
