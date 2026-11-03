@@ -816,16 +816,26 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 <script>
 (function(){
  const titles={inicio:'Briefing de operación',estudio:'Guía de estudio',misiones:'Centro de misiones',biblioteca:'Biblioteca de aprendizaje'};
- document.querySelectorAll('.tabs button').forEach(function(btn){btn.addEventListener('click',function(){
-  document.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('active',x===btn);});
-  document.querySelectorAll('.section').forEach(function(s){s.classList.toggle('active',s.id===btn.dataset.tab);});
-  document.getElementById('topbarPageTitle').textContent=titles[btn.dataset.tab]||'Clase 09';
-  if(btn.dataset.tab==='misiones'&&location.hash){const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target)target.scrollIntoView({behavior:'smooth',block:'start'});}
-  else window.scrollTo({top:0,behavior:'smooth'});
- });});
- // Queue and stage anchors use target=_blank; preserve native browser multi-window navigation.
-
-
+ function activateSection(tab,scrollTop){
+  const id=titles[tab]?tab:'inicio';
+  document.querySelectorAll('.section').forEach(function(section){section.classList.toggle('active',section.id===id);});
+  const title=document.getElementById('topbarPageTitle');
+  if(title)title.textContent=titles[id];
+  if(scrollTop)window.scrollTo({top:0,behavior:'smooth'});
+ }
+ const params=new URLSearchParams(window.location.search);
+ const tab=params.get('tab')||'inicio';
+ activateSection(tab,false);
+ const hash=decodeURIComponent(window.location.hash.replace(/^#/,''));
+ if(hash){
+  requestAnimationFrame(function(){
+   const target=document.getElementById(hash);
+   if(target){
+    if(target.closest('.section'))activateSection('misiones',false);
+    setTimeout(function(){target.scrollIntoView({behavior:'smooth',block:'start'});},80);
+   }
+  });
+ }
  const world=document.getElementById('n9WorldScene');
  if(world&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   world.addEventListener('pointermove',function(e){
@@ -835,27 +845,33 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
    space.style.setProperty('--tilt-y',(dx*8).toFixed(2)+'deg');
   });
   world.addEventListener('pointerleave',function(){
-   const space=world.querySelector('.n9-world-space');space.style.setProperty('--tilt-x','0deg');space.style.setProperty('--tilt-y','0deg');
+   const space=world.querySelector('.n9-world-space');
+   space.style.setProperty('--tilt-x','0deg');space.style.setProperty('--tilt-y','0deg');
   });
  }
  document.querySelectorAll('[data-open-mission]').forEach(function(node){
   node.addEventListener('click',function(){
    const id=node.dataset.openMission;
    const url=new URL(window.location.href);
-   url.search='?tab=misiones';
-   url.hash=id;
+   url.search='?tab=misiones';url.hash=id;
    const win=window.open(url.href,'_blank','popup=yes,width=1360,height=920,resizable=yes,scrollbars=yes');
-   if(!win){const fallback=document.createElement('a');fallback.href=url.href;fallback.target='_blank';fallback.rel='noopener';fallback.click();}
+   if(!win){const link=document.createElement('a');link.href=url.href;link.target='_blank';link.rel='noopener';document.body.appendChild(link);link.click();link.remove();}
   });
  });
  document.getElementById('missionSearch').addEventListener('input',function(e){
   const q=e.target.value.trim().toLocaleLowerCase('es-MX');
-  document.querySelectorAll('#misiones .mission').forEach(function(card){card.style.display=!q||card.textContent.toLocaleLowerCase('es-MX').includes(q)?'':'none';});
-  if(q){const b=document.querySelector('.tabs button[data-tab="misiones"]');if(!b.classList.contains('active'))b.click();}
+  document.querySelectorAll('#misiones .mission').forEach(function(card){
+   card.style.display=!q||card.textContent.toLocaleLowerCase('es-MX').includes(q)?'':'none';
+  });
+  if(q)activateSection('misiones',false);
  });
- const tab=new URLSearchParams(location.search).get('tab');
- if(tab){const button=document.querySelector('.tabs button[data-tab="'+tab+'"]');if(button)button.click();}
- if(location.hash){requestAnimationFrame(function(){const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target){const missionTab=document.querySelector('.tabs button[data-tab="misiones"]');if(missionTab)missionTab.click();target.scrollIntoView({behavior:'smooth',block:'start'});}});}
+ document.querySelectorAll('[data-open-tab]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+   const url=new URL(window.location.href);url.search='?tab='+encodeURIComponent(btn.dataset.openTab);url.hash='';
+   const win=window.open(url.href,'_blank','popup=yes,width=1360,height=920,resizable=yes,scrollbars=yes');
+   if(!win){const link=document.createElement('a');link.href=url.href;link.target='_blank';link.rel='noopener';document.body.appendChild(link);link.click();link.remove();}
+  });
+ });
 })();
 </script>
 </body></html>
