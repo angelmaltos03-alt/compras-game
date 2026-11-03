@@ -406,7 +406,8 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
  }
  function captureFields(){
    ['m2net','m2date','m3vendor','m3discount','m4disc','m4net','m4tax','m4total','m5accepted','m5pending'].forEach(function(id){if($(id))state.fields[id]=$(id).value;});
-   ['m1open','m2open','m3open','m4open','m5open'].forEach(function(id){if($(id))state.answers[id.slice(0,2)]=$(id).value;});
+   const answerKeys={m1open:'org',m2open:'planning',m3open:'sourcing',m4open:'contract',m5open:'close'};
+   Object.keys(answerKeys).forEach(function(id){if($(id))state.answers[answerKeys[id]]=$(id).value;});
  }
  function render(){
    $('studentName').value=state.student||'';$('studentGroup').value=state.group||'';
@@ -522,6 +523,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
  function evaluate(key,textarea,feedback,title,min,errors,next,successBody){
    const answer=beginAttempt(key,textarea);
    const review=reviewFor(key,answer,min,required[key]);
+   state.openReviews[key]={score:review.score,passed:review.passed,matched:review.matched.map(function(c){return c.label;}),missing:review.missing.map(function(c){return c.label;}),wordCount:review.wordCount};
    const short=review.wordCount<12;
    let fail=[];
    if(errors.length)fail=fail.concat(errors);
