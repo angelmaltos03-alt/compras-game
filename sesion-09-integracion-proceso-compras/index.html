@@ -243,57 +243,40 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 @media(max-width:700px){.n9-world-viewport{height:280px}.n9-world-node{transform:scale(.82);transform-origin:top left}.node-factory{left:1%;top:38%}.node-planning{left:23%;top:12%}.node-supplier{left:46%;top:40%}.node-po{left:58%;top:3%}.node-warehouse{left:72%;top:55%}.n9-node-label{min-width:85px}.n9-world-stats{grid-template-columns:1fr}.n9-world-legend{font-size:6px}.n9-total-progress{width:100%}}
 @media(prefers-reduced-motion:reduce){.n9-world-path .path-line,.n9-world-cargo{animation:none!important}}
 
-/* Independent workspace windows and mission launchers */
+/* NEXUS IN-APP EXPERIENCE · navegación nativa sin recargas */
 .n9-window-launcher{display:grid!important;gap:6px!important}
-.n9-window-launcher .n9-launcher{display:grid;grid-template-columns:25px 1fr 17px;align-items:center;gap:10px;width:100%;padding:9px 10px;border:1px solid #263f57;border-radius:9px;background:linear-gradient(105deg,#0a1928,#102238);color:#adc1d4;text-decoration:none;font-size:11px;transition:transform .18s,border-color .18s,background .18s,box-shadow .18s}
-.n9-window-launcher .n9-launcher:hover{transform:translateX(3px);border-color:#64e7f0;background:linear-gradient(105deg,#13344a,#192d47);box-shadow:0 5px 18px #0004;color:#f3f8ff}
-.n9-window-launcher .n9-launcher span{display:grid;place-items:center;width:25px;height:25px;border:1px solid #35546c;border-radius:7px;background:#10263a;color:#64e7f0;font-size:13px}
+.n9-window-launcher .n9-launcher{display:grid;grid-template-columns:25px 1fr;align-items:center;gap:10px;width:100%;padding:9px 10px;border:1px solid #263f57;border-radius:9px;background:linear-gradient(105deg,#0a1928,#102238);color:#adc1d4;text-decoration:none;font-size:11px;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s}
+.n9-window-launcher .n9-launcher:hover,.n9-window-launcher .n9-launcher.is-active{transform:translateX(3px);border-color:var(--cyan);background:linear-gradient(105deg,#13344a,#192d47);box-shadow:0 5px 18px #0004;color:#f3f8ff}
+.n9-window-launcher .n9-launcher span{display:grid;place-items:center;width:25px;height:25px;border:1px solid #35546c;border-radius:7px;background:#10263a;color:var(--cyan);font-size:13px}
 .n9-window-launcher .n9-launcher b{font-size:10px;font-weight:800}
-.n9-window-launcher .n9-launcher i{color:#d8ff72;font-size:13px;font-style:normal;text-align:right}
-.n9-queue a{position:relative;grid-template-columns:26px 1fr 14px;padding-right:7px}
-.n9-queue a:after{content:"↗";color:#d8ff72;font-size:12px;opacity:.8}
-.n9-queue a:hover{transform:translateX(3px);box-shadow:0 5px 18px #0004}
+.n9-queue a{position:relative;grid-template-columns:26px 1fr;padding-right:7px;transition:transform .2s,border-color .2s,background .2s}
+.n9-queue a:hover,.n9-queue a.is-active{transform:translateX(3px);border-color:var(--lime);background:#142b3c;box-shadow:0 5px 18px #0004}
+.n9-queue a:after{content:"›";color:var(--lime);font-size:17px;opacity:.8}
 .n9-queue a i{font-size:10px}
 .n9-launcher-title{margin-top:18px}
-.n9-side-note{position:relative}
-.n9-side-note:after{content:"MULTI-WINDOW WORKSPACE";display:block;margin-top:7px;color:#64e7f0;font-size:7px;font-weight:900;letter-spacing:.14em}
 .n9-window-hint{padding:8px 10px;margin:7px 0 12px;border:1px dashed #385772;border-radius:8px;color:#91a9bf;font-size:9px;line-height:1.45}
-.n9-window-hint b{color:#d8ff72}
-@media(max-width:850px){.n9-window-launcher .n9-launcher{grid-template-columns:24px 1fr 15px;padding:7px 5px}.n9-window-launcher .n9-launcher b{font-size:9px}}
-
-/* POPUP WORKSPACE — dedicated independent window views */
-.n9-popup-windowbar{display:none;align-items:center;justify-content:space-between;gap:12px;position:sticky;top:0;z-index:1000;margin:0 0 20px;padding:12px 16px;border:1px solid #34536c;border-radius:13px;background:linear-gradient(100deg,#0b1c2d,#142b40 65%,#101c31);box-shadow:0 12px 35px #0007;backdrop-filter:blur(16px)}
-.n9-popup-window-brand{display:flex;align-items:center;gap:10px;min-width:0}
-.n9-popup-window-brand>span{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:linear-gradient(140deg,#d8ff72,#92c94f);color:#101a12;font-weight:950;font-size:18px}
-.n9-popup-window-brand b{display:block;color:#f4f8ff;font-size:12px;letter-spacing:.12em}
-.n9-popup-window-brand small{display:block;color:#90a8bd;font-size:8px;letter-spacing:.13em;margin-top:2px}
-.n9-popup-window-controls{display:flex;align-items:center;gap:12px}
-.n9-window-live{display:flex;align-items:center;gap:7px;color:#93edc0;font-size:8px;font-weight:900;letter-spacing:.12em}
-.n9-window-live i{width:7px;height:7px;border-radius:50%;background:#65e5a5;box-shadow:0 0 10px #65e5a5}
-.n9-window-close{padding:8px 12px;border:1px solid #54708a;border-radius:8px;background:#172b40;color:#dbe8f4;font-size:9px;font-weight:900;cursor:pointer}
-.n9-window-close:hover{border-color:#d8ff72;color:#d8ff72}
-.n9-popup-mode .class09-shell{width:100%;max-width:none;min-height:100vh;padding:16px 22px}
-.n9-popup-mode .class09-shell>.top,.n9-popup-mode .class09-side,.n9-popup-mode .nexus-topbar{display:none!important}
-.n9-popup-mode .class09-layout{display:block!important;grid-template-columns:minmax(0,1fr)!important;margin:0!important}
-.n9-popup-mode .class09-main{width:100%;max-width:1480px;margin:0 auto!important}
-.n9-popup-mode .n9-popup-windowbar{display:flex}
-.n9-popup-mode .class-main-content{max-width:1420px;margin:0 auto;padding:0 2px 28px}
-.n9-popup-mode .class-main-content .section{display:none!important}
-.n9-popup-mode .class-main-content .section.n9-popup-visible{display:block!important}
-.n9-popup-mode .class-main-content .section.n9-popup-visible>.card,
-.n9-popup-mode .class-main-content .section.n9-popup-visible>.mission{display:block}
-.n9-popup-mode .class-main-content #misiones.n9-popup-visible>.mission{display:block!important}
-.n9-popup-mode .class-main-content #misiones.n9-popup-visible>.mission.selected-mission{display:block!important}
-.n9-popup-mode.view-briefing #missionOverview{display:block!important;max-width:1420px;margin:0 auto 18px}
-.n9-popup-mode.view-briefing .class-main-content{max-width:1420px}
-.n9-popup-mode.view-mission .class-main-content #misiones.n9-popup-visible>.sprint-overview{display:none!important}
-.n9-popup-mode.view-mission .class-main-content #misiones.n9-popup-visible>.card:not(.selected-mission){display:none!important}
-.n9-popup-mode.view-mission .class-main-content #misiones.n9-popup-visible>.mission:not(.selected-mission){display:none!important}
-.n9-popup-mode.view-mission .class-main-content #misiones.n9-popup-visible>.mission.selected-mission{display:block!important;margin-top:0}
-.n9-popup-mode .class-main-content .mission{scroll-margin-top:90px}
-.n9-popup-mode .class-main-content .card{box-shadow:0 18px 48px #0005}
-@media(max-width:700px){.n9-popup-mode .class09-shell{padding:9px}.n9-popup-mode .n9-popup-windowbar{padding:9px 10px}.n9-popup-window-brand b{font-size:10px}.n9-window-live{display:none}.n9-popup-mode .class-main-content{padding:0}}
-
+.n9-window-hint b{color:var(--lime)}
+/* View changes feel like entering a new game scene, not loading a new page */
+.class-main-content .section{display:none!important;opacity:0;transform:translateY(12px) scale(.995)}
+.class-main-content .section.active{display:block!important;animation:n9SceneEnter .34s cubic-bezier(.2,.75,.25,1) both}
+@keyframes n9SceneEnter{to{opacity:1;transform:translateY(0) scale(1)}}
+.n9-scene-transition{pointer-events:none}
+.n9-scene-transition .class-main-content{filter:brightness(.82);transition:filter .18s}
+.n9-scene-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 13px;padding:10px 13px;border:1px solid #2c4c66;border-radius:11px;background:linear-gradient(100deg,#0b1d2d,#14283d);color:#9db5ca;font-size:9px;letter-spacing:.12em}
+.n9-scene-header b{color:var(--lime);font-size:10px}
+.n9-back-control{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid #38546d;border-radius:8px;background:#0b1a29;color:#c9d8e6;font-size:10px;font-weight:850;cursor:pointer}
+.n9-back-control:hover{border-color:var(--cyan);color:#fff}
+body.n9-mission-focus #misiones>.sprint-overview{display:none!important}
+body.n9-mission-focus #misiones>.mission:not(.selected-mission){display:none!important}
+body.n9-mission-focus #misiones>.mission.selected-mission{display:block!important;animation:n9SceneEnter .35s ease both}
+body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{position:relative}
+.n9-mission-focus-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 13px;padding:11px 14px;border:1px solid #54734b;border-radius:11px;background:linear-gradient(100deg,#1c342b,#102235);color:#d9e9d9}
+.n9-mission-focus-banner strong{color:var(--lime);font-size:10px;letter-spacing:.1em}
+.n9-mission-focus-banner small{display:block;color:#9fb7c9;font-size:9px}
+.n9-mission-focus-banner button{padding:8px 11px;border:1px solid #54734b;border-radius:8px;background:#172b26;color:#d9ffb5;font-size:10px;font-weight:850;cursor:pointer}
+.n9-progress-track span,.n9-mini-progress i,.n9-mission-progress>div{transition:width .35s ease}
+@media(max-width:850px){.n9-window-launcher .n9-launcher{grid-template-columns:24px 1fr;padding:7px 5px}.n9-window-launcher .n9-launcher b{font-size:9px}.n9-scene-header{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.class-main-content .section.active{animation:none!important}.class-main-content .section{transform:none!important;opacity:1!important}}
 </style>
 </head>
 <body><div class="shell class09-shell">
@@ -305,22 +288,22 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
  <div class="n9-sidebar-brand"><span class="n9-sidebar-mark">N</span><span><b>NEXUS</b><small>PROCUREMENT LEARNING</small></span></div>
  <div class="n9-operator"><div class="eyebrow">OPERADOR EN ENTRENAMIENTO</div><strong id="sideStudentName">Sin identificar</strong><small id="sideStudentGroup">Clase 09 · Grupo pendiente</small></div>
  <div class="n9-progress-label"><span>Progreso de campaña</span><b id="sideProgressText">00 / 05</b></div><div class="n9-progress-track"><span id="sideProgressBar"></span></div>
- <div class="n9-queue-title n9-launcher-title">WORKSPACE WINDOWS <span>04</span></div>
- <nav class="tabs nexus-primary-nav n9-window-launcher" aria-label="Abrir cada módulo en su propia ventana">
-  <a class="n9-launcher" href="?window=1&view=briefing" target="_blank" rel="noopener" title="Abrir Briefing en una ventana independiente"><span>⌂</span><b>Briefing</b><i>↗</i></a>
-  <a class="n9-launcher" href="?window=1&view=study" target="_blank" rel="noopener" title="Abrir Guía de estudio en una ventana independiente"><span>▤</span><b>Guía de estudio</b><i>↗</i></a>
-  <a class="n9-launcher" href="?window=1&view=missions" target="_blank" rel="noopener" title="Abrir Centro de misiones en una ventana independiente"><span>⚑</span><b>Centro de misiones</b><i>↗</i></a>
-  <a class="n9-launcher" href="?window=1&view=library" target="_blank" rel="noopener" title="Abrir Biblioteca en una ventana independiente"><span>▧</span><b>Biblioteca</b><i>↗</i></a>
+ <div class="n9-queue-title n9-launcher-title">NEXUS MODULES <span>04</span></div>
+ <nav class="tabs nexus-primary-nav n9-window-launcher" aria-label="Navegación principal de NEXUS">
+  <a class="n9-launcher" href="#inicio" title="Entrar a Briefing"><span>⌂</span><b>Briefing</b><i>↗</i></a>
+  <a class="n9-launcher" href="#estudio" title="Entrar a Guía de estudio"><span>▤</span><b>Guía de estudio</b><i>↗</i></a>
+  <a class="n9-launcher" href="#misiones" title="Entrar a Centro de misiones"><span>⚑</span><b>Centro de misiones</b><i>↗</i></a>
+  <a class="n9-launcher" href="#biblioteca" title="Entrar a Biblioteca"><span>▧</span><b>Biblioteca</b><i>↗</i></a>
  </nav>
- <div class="n9-queue-title">MISSION QUEUE <span>05 · NUEVA VENTANA ↗</span></div>
+ <div class="n9-queue-title">MISSION QUEUE <span>05 · LIVE</span></div>
  <div class="n9-queue">
-  <a href="?window=1&view=mission#mission-org" target="_blank" rel="noopener" title="Abrir Organización en una ventana independiente"><i>01</i><span><b>Organización</b>U1 + U2</span></a>
-  <a href="?window=1&view=mission#mission-planning" target="_blank" rel="noopener" title="Abrir Planeación en una ventana independiente"><i>02</i><span><b>Planeación</b>3.1–3.5</span></a>
-  <a href="?window=1&view=mission#mission-sourcing" target="_blank" rel="noopener" title="Abrir Fuentes y cotizaciones en una ventana independiente"><i>03</i><span><b>Fuentes y cotizaciones</b>3.6–3.9</span></a>
-  <a href="?window=1&view=mission#mission-contract" target="_blank" rel="noopener" title="Abrir Negociación + OC en una ventana independiente"><i>04</i><span><b>Negociación + OC</b>3.10–3.11</span></a>
-  <a href="?window=1&view=mission#mission-close" target="_blank" rel="noopener" title="Abrir Seguimiento + cierre en una ventana independiente"><i>05</i><span><b>Seguimiento + cierre</b>2.8–2.9 + 3.12</span></a>
+  <a href="#mission-org" title="Entrar a Organización"><i>01</i><span><b>Organización</b>U1 + U2</span></a>
+  <a href="#mission-planning" title="Entrar a Planeación"><i>02</i><span><b>Planeación</b>3.1–3.5</span></a>
+  <a href="#mission-sourcing" title="Entrar a Fuentes y cotizaciones"><i>03</i><span><b>Fuentes y cotizaciones</b>3.6–3.9</span></a>
+  <a href="#mission-contract" title="Entrar a Negociación + OC"><i>04</i><span><b>Negociación + OC</b>3.10–3.11</span></a>
+  <a href="#mission-close" title="Entrar a Seguimiento + cierre"><i>05</i><span><b>Seguimiento + cierre</b>2.8–2.9 + 3.12</span></a>
  </div>
- <div class="n9-side-note"><b>WORKSPACE MODE</b>Cada módulo y misión se abre en una ventana independiente y muestra solamente el contenido elegido. Mantén el tablero principal abierto para consultar tu progreso.</div>
+ <div class="n9-side-note"><b>WORKSPACE MODE</b>Cada módulo y misión se abre en una ventana independiente y muestra solamente el contenido elegido. Todo ocurre dentro del mismo entorno: sin pestañas, ventanas ni recargas.</div>
  <a class="n9-page-link" style="margin-top:12px;width:100%;justify-content:center" href="../sesion-08-negociacion-orden-compra/">← Regresar a la Sesión 08</a>
  <a class="n9-page-link" style="margin-top:7px;width:100%;justify-content:center" href="../protocolo-nexus-unidad3/">Abrir Control Tower ↗</a>
 </aside>
@@ -340,7 +323,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
    <h3>La cadena de suministro está en tus manos.</h3>
    <p>Recorre el sistema: organiza la operación, calcula el material, selecciona proveedor, formaliza la compra y controla la recepción.</p>
    <div class="n9-world-stats"><span><b>400</b> unidades requeridas</span><span><b>10</b> días de ventana</span><span><b>$100K</b> presupuesto objetivo</span></div>
-   <div class="n9-world-tip"><i></i> Selecciona un nodo 3D para abrir su misión.</div>
+   <div class="n9-world-tip"><i></i> Selecciona un nodo 3D para entrar a su misión dentro del mismo entorno.</div>
   </div>
   <div class="n9-world-viewport" id="n9WorldScene" aria-label="Mapa 3D interactivo de la cadena de suministro">
    <div class="n9-world-glow"></div>
@@ -386,13 +369,13 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
  <section class="nexus-progression">
   <div class="n9-progression-head"><div><div class="eyebrow">CAMPAÑA OPERATIVA · PROCUREMENT SPECIALIST</div><h3>Tu ruta de dominio</h3><div class="n9-progression-sub">Cinco etapas para llevar una necesidad desde la organización interna hasta el cierre documentado.</div></div><div class="n9-rank-chip" id="dashRank">RANGO 01 · CADETE DE COMPRAS</div></div>
   <div class="n9-stage-track">
-   <a class="n9-stage" id="stage-org" href="?window=1&view=mission#mission-org" target="_blank" rel="noopener"><em>01</em><b>ORGANIZAR</b><span>U1 + U2 · estructura</span></a>
-   <a class="n9-stage" id="stage-planning" href="?window=1&view=mission#mission-planning" target="_blank" rel="noopener"><em>02</em><b>PLANEAR</b><span>3.1–3.5 · requisición</span></a>
-   <a class="n9-stage" id="stage-sourcing" href="?window=1&view=mission#mission-sourcing" target="_blank" rel="noopener"><em>03</em><b>EVALUAR</b><span>3.6–3.9 · proveedores</span></a>
-   <a class="n9-stage" id="stage-contract" href="?window=1&view=mission#mission-contract" target="_blank" rel="noopener"><em>04</em><b>FORMALIZAR</b><span>3.10–3.11 · orden</span></a>
-   <a class="n9-stage" id="stage-close" href="?window=1&view=mission#mission-close" target="_blank" rel="noopener"><em>05</em><b>CONTROLAR</b><span>2.8–2.9 + 3.12</span></a>
+   <a class="n9-stage" id="stage-org" href="#mission-org"><em>01</em><b>ORGANIZAR</b><span>U1 + U2 · estructura</span></a>
+   <a class="n9-stage" id="stage-planning" href="#mission-planning"><em>02</em><b>PLANEAR</b><span>3.1–3.5 · requisición</span></a>
+   <a class="n9-stage" id="stage-sourcing" href="#mission-sourcing"><em>03</em><b>EVALUAR</b><span>3.6–3.9 · proveedores</span></a>
+   <a class="n9-stage" id="stage-contract" href="#mission-contract"><em>04</em><b>FORMALIZAR</b><span>3.10–3.11 · orden</span></a>
+   <a class="n9-stage" id="stage-close" href="#mission-close"><em>05</em><b>CONTROLAR</b><span>2.8–2.9 + 3.12</span></a>
   </div>
-  <div class="n9-progress-footer"><div><strong id="dashNextTitle">Siguiente objetivo: organizar el departamento</strong><small id="dashNextDesc">Comienza por asignar funciones y separar responsabilidades.</small></div><div class="n9-total-progress"><div class="n9-total-progress-head"><span>PROGRESO TOTAL DE CAMPAÑA</span><b id="campaignProgressPercent">0%</b></div><div class="n9-mini-progress"><i id="dashStageProgress"></i></div></div><button class="btn primary" type="button" data-open-tab="misiones">ABRIR CENTRO DE MISIONES ↗</button></div>
+  <div class="n9-progress-footer"><div><strong id="dashNextTitle">Siguiente objetivo: organizar el departamento</strong><small id="dashNextDesc">Comienza por asignar funciones y separar responsabilidades.</small></div><div class="n9-total-progress"><div class="n9-total-progress-head"><span>PROGRESO TOTAL DE CAMPAÑA</span><b id="campaignProgressPercent">0%</b></div><div class="n9-mini-progress"><i id="dashStageProgress"></i></div></div><button class="btn primary" type="button" data-open-tab="misiones">ENTRAR AL CENTRO DE MISIONES →</button></div>
  </section>
  <div class="n9-module-grid">
   <article class="n9-module"><small>01 · ORGANIZATION CONTROL</small><b>Estructura y gobierno</b><p>Roles, autoridad, relaciones internas y políticas de compra.</p></article>
@@ -400,10 +383,6 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
   <article class="n9-module"><small>03 · SOURCING INTELLIGENCE</small><b>Fuentes y negociación</b><p>RFQ, comparación, costo total y decisión comercial.</p></article>
  </div>
 </section>
-<div class="n9-popup-windowbar" id="n9PopupWindowbar">
- <div class="n9-popup-window-brand"><span>N</span><div><b id="n9PopupWindowTitle">NEXUS WORKSPACE</b><small id="n9PopupWindowSubtitle">PROCUREMENT LEARNING SYSTEM</small></div></div>
- <div class="n9-popup-window-controls"><span class="n9-window-live"><i></i> VENTANA ACTIVA</span><button type="button" id="n9PopupClose" class="n9-window-close" aria-label="Cerrar ventana">✕ CERRAR</button></div>
-</div>
 <main class="class-main-content">
 <section id="inicio" class="section active">
 <div class="card"><div class="kicker">MISSION BRIEF · NEXUS MANUFACTURING</div><h2>La línea necesita abastecimiento en 10 días</h2><p>Una planta fabrica equipos de bombeo. La necesidad del siguiente periodo es de 480 rodamientos. El inventario utilizable es de 120 piezas, la reserva objetivo es de 40 piezas y no existen recepciones confirmadas. El presupuesto objetivo es de $100,000 antes de impuestos.</p><div class="callout"><b>Tu trabajo:</b> actuarás como equipo de compras. No puedes saltarte etapas: primero organizas responsabilidades, calculas el requerimiento, comparas fuentes, negocias y finalmente controlas la recepción y el cierre.</div><div class="route"><span>01 · ORGANIZAR</span><span>02 · PLANEAR</span><span>03 · EVALUAR FUENTES</span><span>04 · NEGOCIAR + OC</span><span>05 · SEGUIR + CERRAR</span></div></div>
@@ -838,11 +817,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
    const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='NEXUS-Evidencia-Clase-09.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
  });
  $('printEvidence').addEventListener('click',function(){captureFields();window.print();});
- document.querySelectorAll('[data-open-tab]').forEach(function(btn){btn.addEventListener('click',function(){
-  const url=new URL(window.location.href);url.search='?tab='+encodeURIComponent(btn.dataset.openTab);url.hash='';
-  const win=window.open(url.href,'_blank','popup=yes,width=1360,height=920,resizable=yes,scrollbars=yes');
-  if(!win){const a=document.createElement('a');a.href=url.href;a.target='_blank';a.rel='noopener';a.click();}
- });});
+ // data-open-tab is handled by the in-app NEXUS router below.
  ['m2net','m2date','m3vendor','m3discount','m4disc','m4net','m4tax','m4total','m5accepted','m5pending'].forEach(function(id){
    if(state.fields[id]!==undefined&&$(id))$(id).value=state.fields[id];
    if($(id))$(id).addEventListener('input',function(){captureFields();updateAllMissionProgress();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}});
@@ -853,135 +828,118 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 </script>
 <script>
 (function(){
- const titles={
-  briefing:'BRIEFING · OPERATION OVERVIEW',
-  study:'GUÍA DE ESTUDIO · PROCUREMENT',
-  missions:'CENTRO DE MISIONES · RAPID RESPONSE LAB',
-  library:'BIBLIOTECA · LEARNING RESOURCES'
- };
- const missionNames={
+ const labels={inicio:'BRIEFING DE OPERACIÓN',estudio:'GUÍA DE ESTUDIO',misiones:'CENTRO DE MISIONES',biblioteca:'BIBLIOTECA NEXUS'};
+ const missionLabels={
   'mission-org':'MISIÓN 01 · ORGANIZACIÓN',
   'mission-planning':'MISIÓN 02 · PLANEACIÓN',
   'mission-sourcing':'MISIÓN 03 · FUENTES Y COTIZACIONES',
   'mission-contract':'MISIÓN 04 · NEGOCIACIÓN + ORDEN DE COMPRA',
   'mission-close':'MISIÓN 05 · SEGUIMIENTO Y CIERRE'
  };
- const params=new URLSearchParams(window.location.search);
- const popup=params.get('window')==='1';
- const view=params.get('view')||'briefing';
- const hash=decodeURIComponent(window.location.hash.replace(/^#/,''));
+ const sections=['inicio','estudio','misiones','biblioteca'];
  const body=document.body;
- function activateSection(id){
-  document.querySelectorAll('.section').forEach(function(section){
-   const active=section.id===id;
-   section.classList.toggle('active',active);
-   section.classList.toggle('n9-popup-visible',popup&&active);
+ const main=document.querySelector('.class-main-content');
+ const title=document.getElementById('topbarPageTitle');
+ const search=document.getElementById('missionSearch');
+ let activeMission=null;
+ function setActiveLinks(id){
+  document.querySelectorAll('.n9-launcher').forEach(function(a){
+   const target=(a.getAttribute('href')||'').replace(/^#/,'');
+   a.classList.toggle('is-active',target===id);
   });
-  const title=document.getElementById('topbarPageTitle');
-  if(title)title.textContent=id==='inicio'?'Briefing de operación':id==='estudio'?'Guía de estudio':id==='misiones'?'Centro de misiones':'Biblioteca de aprendizaje';
+  document.querySelectorAll('.n9-queue a,.n9-stage').forEach(function(a){
+   const target=(a.getAttribute('href')||'').replace(/^#/,'');
+   a.classList.toggle('is-active',target===activeMission);
+  });
+  document.querySelectorAll('[data-open-tab]').forEach(function(b){b.classList.toggle('is-active',id==='misiones');});
  }
- function launchPopup(url,name,width,height){
-  const features='popup=yes,width='+width+',height='+height+',left=80,top=50,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,status=no';
-  const win=window.open(url,name,features);
-  if(win){try{win.focus();}catch(e){}return win;}
-  // Fallback if the browser blocks script-created windows: open the standalone URL.
-  const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener';
-  document.body.appendChild(link);link.click();link.remove();
-  return null;
+ function addSceneHeader(sectionId){
+  let header=document.getElementById('n9SceneHeader');
+  if(!header){
+   header=document.createElement('div');header.id='n9SceneHeader';header.className='n9-scene-header';
+   main.insertBefore(header,main.firstChild);
+  }
+  const isMission=!!activeMission;
+  header.innerHTML='<div><b>NEXUS / '+(isMission?missionLabels[activeMission]:labels[sectionId])+'</b><div>PROCUREMENT LEARNING SYSTEM · CLASS 09</div></div>'+
+   (isMission?'<button class="n9-back-control" type="button" id="n9BackToMissions">← VOLVER AL CENTRO DE MISIONES</button>':'<span>ENTORNO DE ENTRENAMIENTO ACTIVO</span>');
+  const back=document.getElementById('n9BackToMissions');
+  if(back)back.addEventListener('click',function(){navigate('misiones');});
  }
- function moduleUrl(id){
-  const url=new URL(window.location.href);
-  url.search='?window=1&view='+encodeURIComponent(id);url.hash='';
-  return url.href;
- }
- function missionUrl(id){
-  const url=new URL(window.location.href);
-  url.search='?window=1&view=mission';url.hash=id;
-  return url.href;
- }
- if(popup){
-  body.classList.add('n9-popup-mode','view-'+(view==='mission'?'mission':view));
-  const section=view==='study'?'estudio':(view==='missions'||view==='mission')?'misiones':view==='library'?'biblioteca':'inicio';
-  activateSection(section);
-  const barTitle=document.getElementById('n9PopupWindowTitle');
-  const barSub=document.getElementById('n9PopupWindowSubtitle');
-  const close=document.getElementById('n9PopupClose');
-  if(view==='mission'){
-   const mission=document.getElementById(hash);
-   if(mission&&mission.classList.contains('mission')){
-    document.querySelectorAll('#misiones>.mission').forEach(function(el){el.classList.remove('selected-mission');});
-    mission.classList.add('selected-mission');
-    barTitle.textContent=missionNames[hash]||'MISIÓN NEXUS';
-    barSub.textContent='VENTANA INDEPENDIENTE · SOLO ESTA MISIÓN';
-   }else{
-    barTitle.textContent='CENTRO DE MISIONES';
-    barSub.textContent='No se identificó la misión. Se muestra el centro completo.';
+ function navigate(sectionId,missionId,opts){
+  opts=opts||{};
+  if(!sections.includes(sectionId))sectionId='inicio';
+  body.classList.add('n9-scene-transition');
+  window.setTimeout(function(){body.classList.remove('n9-scene-transition');},120);
+  activeMission=missionId||null;
+  body.classList.toggle('n9-mission-focus',!!activeMission);
+  document.querySelectorAll('.class-main-content .section').forEach(function(section){
+   const active=section.id===sectionId;
+   section.classList.toggle('active',active);
+   section.setAttribute('aria-hidden',active?'false':'true');
+  });
+  if(title)title.textContent=activeMission?missionLabels[activeMission]:labels[sectionId];
+  addSceneHeader(sectionId);
+  setActiveLinks(sectionId);
+  if(activeMission){
+   const mission=document.getElementById(activeMission);
+   if(mission){
+    document.querySelectorAll('#misiones>.mission').forEach(function(card){card.classList.toggle('selected-mission',card===mission);});
+    if(!opts.keepScroll)window.scrollTo({top:0,behavior:'smooth'});
    }
   }else{
-   barTitle.textContent=titles[view]||titles.briefing;
-   barSub.textContent='VENTANA INDEPENDIENTE · SOLO ESTE MÓDULO';
+   document.querySelectorAll('#misiones>.mission').forEach(function(card){card.classList.remove('selected-mission');});
+   if(!opts.keepScroll)window.scrollTo({top:0,behavior:'smooth'});
   }
-  close.addEventListener('click',function(){
-   window.close();
-   setTimeout(function(){if(!window.closed)close.textContent='CIERRA CON LA ✕ DEL NAVEGADOR';},160);
-  });
-  document.title='NEXUS · '+(missionNames[hash]||titles[view]||titles.briefing);
-  if(view==='mission'&&hash){
-   requestAnimationFrame(function(){const mission=document.getElementById(hash);if(mission)mission.scrollIntoView({block:'start'});});
-  }
- }else{
-  activateSection('inicio');
-  const views=['briefing','study','missions','library'];
-  document.querySelectorAll('.n9-launcher').forEach(function(link,index){
-   const id=views[index]||'briefing';
-   link.href=moduleUrl(id);
-   link.addEventListener('click',function(e){
-    e.preventDefault();launchPopup(moduleUrl(id),'nexus_class09_'+id,id==='missions'?1440:1280,id==='missions'?960:850);
-   });
-  });
-  document.querySelectorAll('.n9-queue a,.n9-stage').forEach(function(link){
-   const id=(new URL(link.href,window.location.href)).hash.replace(/^#/,'');
-   if(missionNames[id]){
-    link.href=missionUrl(id);
-    link.addEventListener('click',function(e){
-     e.preventDefault();launchPopup(missionUrl(id),'nexus_class09_'+id,1360,940);
-    });
-   }
-  });
-  document.querySelectorAll('[data-open-mission]').forEach(function(node){
-   node.addEventListener('click',function(e){
-    e.preventDefault();const id=node.dataset.openMission;
-    launchPopup(missionUrl(id),'nexus_class09_'+id,1360,940);
-   });
-  });
-  document.querySelectorAll('[data-open-tab]').forEach(function(button){
-   button.addEventListener('click',function(e){
-    e.preventDefault();const val=button.dataset.openTab;
-    const id=val==='misiones'?'missions':val==='estudio'?'study':val==='biblioteca'?'library':'briefing';
-    launchPopup(moduleUrl(id),'nexus_class09_'+id,1360,940);
-   });
-  });
+  const url=new URL(window.location.href);
+  url.search='';
+  url.hash=activeMission?'#'+activeMission:'#'+sectionId;
+  try{history.pushState({section:sectionId,mission:activeMission},'',url.pathname+url.hash);}catch(e){}
+  if(sectionId==='misiones'&&search&&search.value){filterMissions(search.value);}
  }
- const world=document.getElementById('n9WorldScene');
- if(world&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-  world.addEventListener('pointermove',function(e){
-   const rect=world.getBoundingClientRect(),dx=(e.clientX-rect.left)/rect.width-.5,dy=(e.clientY-rect.top)/rect.height-.5;
-   const space=world.querySelector('.n9-world-space');
-   space.style.setProperty('--tilt-x',(-dy*7).toFixed(2)+'deg');
-   space.style.setProperty('--tilt-y',(dx*8).toFixed(2)+'deg');
-  });
-  world.addEventListener('pointerleave',function(){
-   const space=world.querySelector('.n9-world-space');
-   space.style.setProperty('--tilt-x','0deg');space.style.setProperty('--tilt-y','0deg');
-  });
- }
- document.getElementById('missionSearch').addEventListener('input',function(e){
-  const q=e.target.value.trim().toLocaleLowerCase('es-MX');
-  document.querySelectorAll('#misiones .mission').forEach(function(card){
+ function filterMissions(value){
+  const q=(value||'').trim().toLocaleLowerCase('es-MX');
+  document.querySelectorAll('#misiones>.mission').forEach(function(card){
    card.style.display=!q||card.textContent.toLocaleLowerCase('es-MX').includes(q)?'':'none';
   });
-  if(q)launchPopup(moduleUrl('missions'),'nexus_class09_missions',1440,960);
+ }
+ function routeFromHash(){
+  const hash=decodeURIComponent(location.hash.replace(/^#/,'')); 
+  if(missionLabels[hash])navigate('misiones',hash,{keepScroll:true});
+  else navigate(sections.includes(hash)?hash:'inicio',null,{keepScroll:true});
+ }
+ document.addEventListener('click',function(e){
+  const launcher=e.target.closest('.n9-launcher');
+  const queue=e.target.closest('.n9-queue a,.n9-stage');
+  const missionNode=e.target.closest('[data-open-mission]');
+  const moduleButton=e.target.closest('[data-open-tab]');
+  const internal=e.target.closest('a[href^="#"],a[href*="?tab="]');
+  if(launcher){
+   e.preventDefault();const id=(launcher.getAttribute('href')||'#inicio').replace(/^#/,'');navigate(id);return;
+  }
+  if(queue){
+   const id=(queue.getAttribute('href')||'').replace(/^#/,'');
+   if(missionLabels[id]){e.preventDefault();navigate('misiones',id);return;}
+  }
+  if(missionNode){
+   e.preventDefault();const id=missionNode.dataset.openMission;if(missionLabels[id])navigate('misiones',id);return;
+  }
+  if(moduleButton){e.preventDefault();navigate(moduleButton.dataset.openTab==='misiones'?'misiones':moduleButton.dataset.openTab==='estudio'?'estudio':moduleButton.dataset.openTab==='biblioteca'?'biblioteca':'inicio');return;}
+  if(internal&&!e.defaultPrevented){
+   const href=internal.getAttribute('href')||'';
+   if(href.startsWith('#')){
+    const id=decodeURIComponent(href.slice(1));
+    if(missionLabels[id]){e.preventDefault();navigate('misiones',id);return;}
+    if(sections.includes(id)){e.preventDefault();navigate(id);return;}
+   }
+   if(href.includes('?tab=')){e.preventDefault();navigate('misiones');return;}
+  }
  });
+ if(search)search.addEventListener('input',function(){filterMissions(search.value);if(search.value)navigate('misiones',null,{keepScroll:true});});
+ window.addEventListener('popstate',routeFromHash);
+ window.addEventListener('hashchange',routeFromHash);
+ routeFromHash();
+ // Expose one tiny navigation hook for controls already wired by the learning engine.
+ window.NEXUSNavigate=function(section,mission){navigate(section,mission);};
 })();
 </script>
 </body></html>
