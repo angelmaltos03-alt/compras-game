@@ -277,6 +277,25 @@ body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{posit
 .n9-progress-track span,.n9-mini-progress i,.n9-mission-progress>div{transition:width .35s ease}
 @media(max-width:850px){.n9-window-launcher .n9-launcher{grid-template-columns:24px 1fr;padding:7px 5px}.n9-window-launcher .n9-launcher b{font-size:9px}.n9-scene-header{align-items:flex-start;flex-direction:column}}
 @media(prefers-reduced-motion:reduce){.class-main-content .section.active{animation:none!important}.class-main-content .section{transform:none!important;opacity:1!important}}
+
+/* NEXUS CLASS 09 · GAME COMMAND DASHBOARD */
+body.n9-dashboard-view .class-main-content{display:none!important}
+body.n9-dashboard-view .command-dashboard{display:block!important}
+body.n9-section-view .command-dashboard{display:none!important}
+body.n9-section-view .class-main-content{display:block!important}
+body.n9-dashboard-view .n9-scene-header{display:none!important}
+.n9-launcher[href="#dashboard"]{border-color:#45664b!important;background:linear-gradient(110deg,#1c3428,#102238)!important}
+.n9-launcher[href="#dashboard"] span{color:var(--lime)!important}
+.command-dashboard .n9-world-panel{min-height:350px}
+.command-dashboard .n9-world-viewport{min-height:290px}
+.n9-dashboard-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:13px 0 18px}
+.n9-dashboard-shortcut{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #2b465e;border-radius:12px;background:linear-gradient(145deg,#10243a,#091725);color:#dceafa;text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
+.n9-dashboard-shortcut:hover{transform:translateY(-3px);border-color:var(--cyan);box-shadow:0 12px 28px #0004}
+.n9-dashboard-shortcut i{display:grid;place-items:center;width:34px;height:34px;flex:0 0 auto;border:1px solid #42627a;border-radius:10px;background:#122d42;color:var(--lime);font-style:normal;font-weight:900}
+.n9-dashboard-shortcut b{display:block;font-size:10px;letter-spacing:.04em}
+.n9-dashboard-shortcut small{display:block;margin-top:3px;color:#91a8bf;font-size:9px}
+@media(max-width:1050px){.n9-dashboard-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.n9-dashboard-shortcuts{grid-template-columns:1fr 1fr}.n9-dashboard-shortcut{padding:9px}.n9-dashboard-shortcut i{width:29px;height:29px}}
 </style>
 </head>
 <body><div class="shell class09-shell">
@@ -290,7 +309,8 @@ body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{posit
  <div class="n9-progress-label"><span>Progreso de campaña</span><b id="sideProgressText">00 / 05</b></div><div class="n9-progress-track"><span id="sideProgressBar"></span></div>
  <div class="n9-queue-title n9-launcher-title">NEXUS MODULES <span>04</span></div>
  <nav class="tabs nexus-primary-nav n9-window-launcher" aria-label="Navegación principal de NEXUS">
-  <a class="n9-launcher" href="#inicio" title="Entrar a Briefing"><span>⌂</span><b>Briefing</b><i>↗</i></a>
+  <a class="n9-launcher" href="#dashboard" title="Volver al dashboard"><span>⌂</span><b>Dashboard</b><i>⌘</i></a>
+  <a class="n9-launcher" href="#inicio" title="Entrar a Briefing"><span>▣</span><b>Briefing operativo</b><i>↗</i></a>
   <a class="n9-launcher" href="#estudio" title="Entrar a Guía de estudio"><span>▤</span><b>Guía de estudio</b><i>↗</i></a>
   <a class="n9-launcher" href="#misiones" title="Entrar a Centro de misiones"><span>⚑</span><b>Centro de misiones</b><i>↗</i></a>
   <a class="n9-launcher" href="#biblioteca" title="Entrar a Biblioteca"><span>▧</span><b>Biblioteca</b><i>↗</i></a>
@@ -303,13 +323,13 @@ body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{posit
   <a href="#mission-contract" title="Entrar a Negociación + OC"><i>04</i><span><b>Negociación + OC</b>3.10–3.11</span></a>
   <a href="#mission-close" title="Entrar a Seguimiento + cierre"><i>05</i><span><b>Seguimiento + cierre</b>2.8–2.9 + 3.12</span></a>
  </div>
- <div class="n9-side-note"><b>WORKSPACE MODE</b>Cada módulo y misión se abre en una ventana independiente y muestra solamente el contenido elegido. Todo ocurre dentro del mismo entorno: sin pestañas, ventanas ni recargas.</div>
+ <div class="n9-side-note"><b>SIMULATION MODE</b>Centro de mando activo. Navega entre briefing, estudio y misiones sin salir del simulador. Tu progreso permanece en el expediente local.</div>
  <a class="n9-page-link" style="margin-top:12px;width:100%;justify-content:center" href="../sesion-08-negociacion-orden-compra/">← Regresar a la Sesión 08</a>
  <a class="n9-page-link" style="margin-top:7px;width:100%;justify-content:center" href="../protocolo-nexus-unidad3/">Abrir Control Tower ↗</a>
 </aside>
 <div class="class09-main">
 <header class="nexus-topbar">
- <div class="n9-top-location"><span>NEXUS WORLDWIDE / CLASS 09</span><strong id="topbarPageTitle">Briefing de operación</strong></div>
+ <div class="n9-top-location"><span>NEXUS WORLDWIDE / CLASS 09</span><strong id="topbarPageTitle">Dashboard de operación</strong></div>
  <label class="n9-search"><span>⌕</span><input id="missionSearch" type="search" placeholder="Buscar una misión…"></label>
  <div class="n9-live"><i></i> SISTEMA EN LÍNEA</div>
  <div class="n9-avatar" id="topAvatar">OP</div>
@@ -375,7 +395,7 @@ body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{posit
    <a class="n9-stage" id="stage-contract" href="#mission-contract"><em>04</em><b>FORMALIZAR</b><span>3.10–3.11 · orden</span></a>
    <a class="n9-stage" id="stage-close" href="#mission-close"><em>05</em><b>CONTROLAR</b><span>2.8–2.9 + 3.12</span></a>
   </div>
-  <div class="n9-progress-footer"><div><strong id="dashNextTitle">Siguiente objetivo: organizar el departamento</strong><small id="dashNextDesc">Comienza por asignar funciones y separar responsabilidades.</small></div><div class="n9-total-progress"><div class="n9-total-progress-head"><span>PROGRESO TOTAL DE CAMPAÑA</span><b id="campaignProgressPercent">0%</b></div><div class="n9-mini-progress"><i id="dashStageProgress"></i></div></div><button class="btn primary" type="button" data-open-tab="misiones">ENTRAR AL CENTRO DE MISIONES →</button></div>
+  <div class="n9-progress-footer"><div><strong id="dashNextTitle">Siguiente objetivo: organizar el departamento</strong><small id="dashNextDesc">Comienza por asignar funciones y separar responsabilidades.</small></div><div class="n9-total-progress"><div class="n9-total-progress-head"><span>PROGRESO TOTAL DE CAMPAÑA</span><b id="campaignProgressPercent">0%</b></div><div class="n9-mini-progress"><i id="dashStageProgress"></i></div></div><button class="btn primary" type="button" data-open-tab="misiones">VER TODAS LAS MISIONES →</button></div>
  </section>
  <div class="n9-module-grid">
   <article class="n9-module"><small>01 · ORGANIZATION CONTROL</small><b>Estructura y gobierno</b><p>Roles, autoridad, relaciones internas y políticas de compra.</p></article>
@@ -828,7 +848,7 @@ body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{posit
 </script>
 <script>
 (function(){
- const labels={inicio:'BRIEFING DE OPERACIÓN',estudio:'GUÍA DE ESTUDIO',misiones:'CENTRO DE MISIONES',biblioteca:'BIBLIOTECA NEXUS'};
+ const labels={dashboard:'DASHBOARD · CENTRO DE CONTROL',inicio:'BRIEFING DE OPERACIÓN',estudio:'GUÍA DE ESTUDIO',misiones:'CENTRO DE MISIONES',biblioteca:'BIBLIOTECA NEXUS'};
  const missionLabels={
   'mission-org':'MISIÓN 01 · ORGANIZACIÓN',
   'mission-planning':'MISIÓN 02 · PLANEACIÓN',
@@ -836,7 +856,7 @@ body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{posit
   'mission-contract':'MISIÓN 04 · NEGOCIACIÓN + ORDEN DE COMPRA',
   'mission-close':'MISIÓN 05 · SEGUIMIENTO Y CIERRE'
  };
- const sections=['inicio','estudio','misiones','biblioteca'];
+ const sections=['dashboard','inicio','estudio','misiones','biblioteca'];
  const body=document.body;
  const main=document.querySelector('.class-main-content');
  const title=document.getElementById('topbarPageTitle');
@@ -855,6 +875,7 @@ body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{posit
  }
  function addSceneHeader(sectionId){
   let header=document.getElementById('n9SceneHeader');
+  if(sectionId==='dashboard'){if(header)header.remove();return;}
   if(!header){
    header=document.createElement('div');header.id='n9SceneHeader';header.className='n9-scene-header';
    main.insertBefore(header,main.firstChild);
@@ -868,6 +889,8 @@ body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{posit
  function navigate(sectionId,missionId,opts){
   opts=opts||{};
   if(!sections.includes(sectionId))sectionId='inicio';
+  body.classList.toggle('n9-dashboard-view',sectionId==='dashboard');
+  body.classList.toggle('n9-section-view',sectionId!=='dashboard');
   body.classList.add('n9-scene-transition');
   window.setTimeout(function(){body.classList.remove('n9-scene-transition');},120);
   activeMission=missionId||null;
@@ -905,7 +928,7 @@ body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{posit
  function routeFromHash(){
   const hash=decodeURIComponent(location.hash.replace(/^#/,'')); 
   if(missionLabels[hash])navigate('misiones',hash,{keepScroll:true});
-  else navigate(sections.includes(hash)?hash:'inicio',null,{keepScroll:true});
+  else navigate(sections.includes(hash)?hash:'dashboard',null,{keepScroll:true});
  }
  document.addEventListener('click',function(e){
   const launcher=e.target.closest('.n9-launcher');
@@ -914,7 +937,7 @@ body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{posit
   const moduleButton=e.target.closest('[data-open-tab]');
   const internal=e.target.closest('a[href^="#"],a[href*="?tab="]');
   if(launcher){
-   e.preventDefault();const id=(launcher.getAttribute('href')||'#inicio').replace(/^#/,'');navigate(id);return;
+   e.preventDefault();const id=(launcher.getAttribute('href')||'#dashboard').replace(/^#/,'');navigate(id);return;
   }
   if(queue){
    const id=(queue.getAttribute('href')||'').replace(/^#/,'');
@@ -923,7 +946,7 @@ body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{posit
   if(missionNode){
    e.preventDefault();const id=missionNode.dataset.openMission;if(missionLabels[id])navigate('misiones',id);return;
   }
-  if(moduleButton){e.preventDefault();navigate(moduleButton.dataset.openTab==='misiones'?'misiones':moduleButton.dataset.openTab==='estudio'?'estudio':moduleButton.dataset.openTab==='biblioteca'?'biblioteca':'inicio');return;}
+  if(moduleButton){e.preventDefault();navigate(moduleButton.dataset.openTab==='misiones'?'misiones':moduleButton.dataset.openTab==='estudio'?'estudio':moduleButton.dataset.openTab==='biblioteca'?'biblioteca':'dashboard');return;}
   if(internal&&!e.defaultPrevented){
    const href=internal.getAttribute('href')||'';
    if(href.startsWith('#')){
