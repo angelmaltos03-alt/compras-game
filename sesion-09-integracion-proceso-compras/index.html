@@ -666,9 +666,37 @@ body:before{
  .command-dashboard,.class-main-content .card{box-shadow:none!important;background:white!important;border-color:#bbb!important}
 }
 </style>
+<style id="nexus-100-submissions">
+.n9-submission-hub{position:relative;margin:18px 0 20px;padding:17px;border:1px solid #3d627c;border-radius:16px;background:radial-gradient(ellipse at 100% 0%,rgba(98,233,243,.11),transparent 36%),linear-gradient(145deg,rgba(11,31,48,.98),rgba(5,16,28,.99));box-shadow:inset 0 1px rgba(255,255,255,.065),0 15px 34px rgba(0,0,0,.22)}
+.n9-submission-hub-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}.n9-submission-hub-kicker{color:#75dfe9;font-size:8px;font-weight:950;letter-spacing:.17em}
+.n9-submission-hub-head h3{margin:5px 0 3px;color:#f2f8ff;font-size:18px;letter-spacing:-.025em}.n9-submission-hub-head p{margin:0;color:#91a9be;font-size:10px;line-height:1.55}
+.n9-submission-count{min-width:88px;padding:9px 11px;border:1px solid rgba(220,255,121,.38);border-radius:10px;background:linear-gradient(130deg,rgba(220,255,121,.12),rgba(98,233,243,.06));text-align:center}
+.n9-submission-count strong{display:block;color:#dcff79;font-size:22px;line-height:1.05;font-variant-numeric:tabular-nums}.n9-submission-count small{display:block;margin-top:4px;color:#9fb4c8;font-size:8px;font-weight:900;letter-spacing:.12em}
+.n9-submission-overall{height:7px;overflow:hidden;margin:13px 0 15px;border:1px solid #35536a;border-radius:99px;background:#061321}.n9-submission-overall i{display:block;width:0;height:100%;border-radius:99px;background:linear-gradient(90deg,#62e9f3,#a69bff,#dcff79);box-shadow:0 0 14px rgba(98,233,243,.24);transition:width .3s}
+.n9-submission-phases{display:grid;gap:8px}.n9-submission-phase{overflow:hidden;border:1px solid #2c4c65;border-radius:12px;background:rgba(5,19,32,.72)}
+.n9-submission-phase>summary{display:flex;align-items:center;gap:10px;padding:11px 12px;cursor:pointer;list-style:none}.n9-submission-phase>summary::-webkit-details-marker,.n9-subtask>summary::-webkit-details-marker{display:none}
+.n9-phase-number{width:27px;height:27px;flex:0 0 auto;display:grid;place-items:center;border:1px solid #426a82;border-radius:8px;background:#102a3d;color:#83e8ef;font-size:9px;font-weight:950}
+.n9-phase-copy{min-width:0;flex:1}.n9-phase-copy b{display:block;color:#e7f1fb;font-size:10px;letter-spacing:.07em}.n9-phase-copy small{display:block;margin-top:2px;color:#829db2;font-size:8px}
+.n9-phase-count{color:#a8bed0;font-size:9px;font-weight:850;font-variant-numeric:tabular-nums}.n9-phase-arrow{color:#7c9ab0;font-size:14px;transition:transform .2s}.n9-submission-phase[open]>summary .n9-phase-arrow{transform:rotate(90deg)}
+.n9-phase-tasks{display:grid;gap:6px;padding:0 9px 10px}.n9-subtask{overflow:hidden;border:1px solid #29465e;border-radius:10px;background:linear-gradient(115deg,rgba(11,29,45,.97),rgba(8,21,34,.97))}
+.n9-subtask>summary{display:flex;align-items:center;gap:9px;padding:10px 11px;cursor:pointer;list-style:none}
+.n9-subtask-index{width:25px;height:25px;flex:0 0 auto;display:grid;place-items:center;border:1px solid #385a72;border-radius:7px;background:#0c2235;color:#9be8ed;font-size:9px;font-weight:950}
+.n9-subtask-copy{min-width:0;flex:1}.n9-subtask-copy b{display:block;color:#dce9f5;font-size:10px;line-height:1.35}.n9-subtask-copy small{display:block;margin-top:2px;color:#7591a9;font-size:8px;line-height:1.4}
+.n9-subtask-state{padding:4px 7px;border:1px solid #38566c;border-radius:99px;color:#91a8bc;font-size:7px;font-weight:950;letter-spacing:.09em;white-space:nowrap}
+.n9-subtask[open]{border-color:#47768d;box-shadow:0 7px 20px rgba(0,0,0,.16)}.n9-subtask.is-done{border-color:#39785f;background:linear-gradient(110deg,rgba(13,47,39,.92),rgba(8,28,34,.95))}
+.n9-subtask.is-done .n9-subtask-index{border-color:#4e9875;background:#123d30;color:#baf5d4}.n9-subtask.is-done .n9-subtask-state{border-color:#438a66;background:#123729;color:#a9edc6}
+.n9-subtask-body{padding:0 12px 12px 45px}.n9-subtask-prompt{margin:0 0 9px;color:#aebfd0;font-size:10px;line-height:1.6}
+.n9-subtask-body select,.n9-subtask-body input,.n9-subtask-body textarea{display:block;width:100%;min-height:38px;padding:9px 10px;border:1px solid #3a5b74;border-radius:8px;background:#061522;color:#eef7ff;font:11px/1.5 Inter,system-ui,sans-serif}
+.n9-subtask-body textarea{min-height:66px;resize:vertical}.n9-subtask-body select:focus,.n9-subtask-body input:focus,.n9-subtask-body textarea:focus{outline:2px solid rgba(98,233,243,.25);border-color:#62e9f3}
+.n9-subtask-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:8px}.n9-subtask-actions small{color:#728ca3;font-size:8px}
+.n9-subtask-actions button{padding:8px 11px;border:1px solid #6d854c;border-radius:8px;background:linear-gradient(110deg,#dcff79,#b7e660);color:#102016;font-size:9px;font-weight:950;cursor:pointer}.n9-subtask-actions button:disabled{opacity:.55;cursor:default}
+.n9-sub-feedback{display:none;margin-top:9px;padding:9px 10px;border:1px solid #6e5242;border-radius:8px;background:#2b231d;color:#edcfaa;font-size:9px;line-height:1.55}.n9-sub-feedback.ok{display:block;border-color:#347557;background:#102b25;color:#b8eecf}.n9-sub-feedback.bad{display:block}.n9-sub-feedback b{display:block;margin-bottom:3px;font-size:9px}
+.n9-submission-hub-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:11px;border-top:1px solid rgba(133,175,196,.15);color:#819bb0;font-size:9px}.n9-submission-hub-footer strong{color:#dcff79}.n9-submission-hub-footer .n9-submission-final{color:#9cebf0;font-weight:850}
+@media(max-width:560px){.n9-submission-hub{padding:11px;border-radius:13px}.n9-submission-hub-head h3{font-size:16px}.n9-submission-count{min-width:72px;padding:7px}.n9-submission-count strong{font-size:19px}.n9-phase-tasks{padding:0 6px 7px}.n9-subtask-body{padding-left:12px}.n9-submission-hub-footer{font-size:8px}}
+</style>
 </head>
 <body><div class="shell class09-shell">
-<header class="top"><div class="brand"><div class="logo">N</div><div><div class="eyebrow">NEXUS WORLDWIDE · PROCUREMENT</div><h1>NEXUS PROCUREMENT · INTEGRATED OPERATIONS</h1><div class="sub">Centro de aprendizaje y simulación de abastecimiento</div></div></div><div class="badge">CAMPAÑA 09 · 5 MISIONES</div></header>
+<header class="top"><div class="brand"><div class="logo">N</div><div><div class="eyebrow">NEXUS WORLDWIDE · PROCUREMENT</div><h1>NEXUS PROCUREMENT · INTEGRATED OPERATIONS</h1><div class="sub">Centro de aprendizaje y simulación de abastecimiento</div></div></div><div class="badge">CAMPAÑA 09 · 100 SUBMISIONES</div></header>
 
 
 <div class="layout class09-layout">
@@ -750,7 +778,7 @@ body:before{
   </div>
  </div>
  <div class="command-kpis">
-  <article class="command-kpi"><span class="kpi-label">MISIONES VALIDADAS</span><strong id="dashDone">00<span class="kpi-denom">/05</span></strong><span id="dashDoneCaption">Tu operación está por comenzar</span><div class="kpi-track"><i id="dashDoneTrack" style="width:0%"></i></div></article>
+  <article class="command-kpi"><span class="kpi-label">SUBMISIONES VALIDADAS</span><strong id="dashDone">00<span class="kpi-denom">/100</span></strong><span id="dashDoneCaption">Tu operación está por comenzar</span><div class="kpi-track"><i id="dashDoneTrack" style="width:0%"></i></div></article>
   <article class="command-kpi"><span class="kpi-label">EXPERIENCIA OPERATIVA</span><strong id="dashXP">000</strong><span>XP acumulados en esta campaña</span><div class="kpi-track"><i id="dashXPTrack" style="width:0%"></i></div></article>
   <article class="command-kpi"><span class="kpi-label">REQUERIMIENTO NETO</span><strong>400 <span style="font-size:13px;color:#9fb4c8">PZAS.</span></strong><span>480 demanda + 40 reserva − 120 inventario</span><div class="kpi-track"><i style="width:80%"></i></div></article>
   <article class="command-kpi"><span class="kpi-label">VENTANA DE ABASTECIMIENTO</span><strong>10 <span style="font-size:13px;color:#9fb4c8">DÍAS</span></strong><span>Presupuesto objetivo: $100,000 antes de impuestos</span><div class="kpi-track"><i style="width:100%"></i></div></article>
@@ -800,7 +828,7 @@ body:before{
 </div>
 
 <article class="card mission" id="mission-org">
-<div class="mission-topline"><span class="kicker">MISSION 01 · ORGANIZATION CONTROL</span><span class="mission-time">12 MIN · 100 XP</span></div>
+<div class="mission-topline"><span class="kicker">MISSION 01 · ORGANIZATION CONTROL</span><span class="mission-time">12 MIN · 20 SUBMISIONES</span></div>
 
 <div class="n9-mission-progress" id="m1Progress">
  <div class="n9-mission-progress-head"><span>PROGRESO DE MISIÓN</span><b id="m1ProgressPercent">0%</b></div>
@@ -810,6 +838,7 @@ body:before{
 <h2>La planta necesita un departamento que no se estorbe a sí mismo</h2>
 <div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Hay una planta principal y un almacén satélite. Producción solicita material; Compras negocia; Almacén recibe; Calidad inspecciona; Finanzas controla el pago.</p><a href="?tab=estudio#study-org">↗ Repasar Unidad 1 + Unidad 2 · librillo págs. 3–6</a></div>
 <div class="scenario-grid"><div class="scenario-stat"><small>RIESGO</small><b>Compras sin control</b><span>La misma persona solicita, compra y recibe.</span></div><div class="scenario-stat"><small>DECISIÓN</small><b>Diseñar responsables</b><span>Define separación de funciones y coordinación.</span></div></div>
+<section class="n9-submission-hub" data-submission-hub="org"></section>
 <div class="open-lab">
  <div class="open-prompt"><span>RESPUESTA ABIERTA · 4 MIN</span><b>Como jefe de Compras, explica cómo repartirías las responsabilidades.</b><p>Escribe quién solicita, quién cotiza/negocia, quién autoriza, quién recibe e inspecciona y cómo evitarías que una sola persona controle todo.</p></div>
  <textarea id="m1open" class="open-answer" rows="4" placeholder="Ejemplo: Producción solicita... Compras se encarga de... Almacén... Calidad... Finanzas..." spellcheck="true"></textarea>
@@ -822,7 +851,7 @@ body:before{
 </article>
 
 <article class="card mission" id="mission-planning">
-<div class="mission-topline"><span class="kicker">MISSION 02 · SUPPLY PLANNING</span><span class="mission-time">15 MIN · 100 XP</span></div>
+<div class="mission-topline"><span class="kicker">MISSION 02 · SUPPLY PLANNING</span><span class="mission-time">15 MIN · 20 SUBMISIONES</span></div>
 
 <div class="n9-mission-progress" id="m2Progress">
  <div class="n9-mission-progress-head"><span>PROGRESO DE MISIÓN</span><b id="m2ProgressPercent">0%</b></div>
@@ -836,6 +865,7 @@ body:before{
  <div><label for="m2net">¿Cuántas piezas debes requisitar?</label><input id="m2net" type="number" min="0" step="1" placeholder="Cantidad de piezas"></div>
  <div><label for="m2date">¿Cuál es el plazo máximo?</label><select id="m2date"><option value="">Selecciona plazo</option><option value="10">10 días</option><option value="18">18 días</option><option value="30">30 días</option></select></div>
 </div>
+<section class="n9-submission-hub" data-submission-hub="planning"></section>
 <div class="open-lab">
  <div class="open-prompt"><span>RESPUESTA ABIERTA · 5 MIN</span><b>Redacta los datos mínimos de la requisición.</b><p>Incluye quién solicita, qué necesita, cantidad/unidad, especificación, fecha/lugar, justificación, presupuesto y autorización. Explica también por qué la requisición no es todavía una orden de compra.</p></div>
  <textarea id="m2open" class="open-answer" rows="4" placeholder="La requisición debe contener..." spellcheck="true"></textarea>
@@ -848,7 +878,7 @@ body:before{
 </article>
 
 <article class="card mission" id="mission-sourcing">
-<div class="mission-topline"><span class="kicker">MISSION 03 · SOURCING INTELLIGENCE</span><span class="mission-time">18 MIN · 100 XP</span></div>
+<div class="mission-topline"><span class="kicker">MISSION 03 · SOURCING INTELLIGENCE</span><span class="mission-time">18 MIN · 20 SUBMISIONES</span></div>
 
 <div class="n9-mission-progress" id="m3Progress">
  <div class="n9-mission-progress-head"><span>PROGRESO DE MISIÓN</span><b id="m3ProgressPercent">0%</b></div>
@@ -863,6 +893,7 @@ body:before{
 <tr><td><b>C</b></td><td>$251</td><td>Incluido</td><td>5 días</td><td>15 días</td><td>$100,400</td></tr>
 </tbody></table></div>
 <div class="formgrid"><div><label for="m3vendor">¿A qué proveedor llevarías a negociación?</label><select id="m3vendor"><option value="">Elige una alternativa</option><option value="A">Proveedor A</option><option value="B">Proveedor B</option><option value="C">Proveedor C</option></select></div><div><label for="m3discount">¿Qué descuento mínimo requiere C para estar dentro del presupuesto?</label><select id="m3discount"><option value="">Selecciona</option><option value="0.25">0.25%</option><option value="0.5">0.5%</option><option value="1.5">1.5%</option><option value="3">3%</option></select></div></div>
+<section class="n9-submission-hub" data-submission-hub="sourcing"></section>
 <div class="open-lab">
  <div class="open-prompt"><span>RESPUESTA ABIERTA · 6 MIN</span><b>Defiende tu recomendación ante la gerencia.</b><p>Explica por qué descartas o condicionas a un proveedor. Usa plazo máximo, costo total, riesgo de retraso y una propuesta concreta de negociación.</p></div>
  <textarea id="m3open" class="open-answer" rows="4" placeholder="Recomiendo negociar con... porque..." spellcheck="true"></textarea>
@@ -875,7 +906,7 @@ body:before{
 </article>
 
 <article class="card mission" id="mission-contract">
-<div class="mission-topline"><span class="kicker">MISSION 04 · NEGOTIATION & PURCHASE ORDER</span><span class="mission-time">20 MIN · 100 XP</span></div>
+<div class="mission-topline"><span class="kicker">MISSION 04 · NEGOTIATION & PURCHASE ORDER</span><span class="mission-time">20 MIN · 20 SUBMISIONES</span></div>
 
 <div class="n9-mission-progress" id="m4Progress">
  <div class="n9-mission-progress-head"><span>PROGRESO DE MISIÓN</span><b id="m4ProgressPercent">0%</b></div>
@@ -890,6 +921,7 @@ body:before{
  <div><label for="m4tax">IVA ilustrativo 16% ($)</label><input id="m4tax" type="number" step=".01" placeholder="Calcula el IVA"></div>
  <div><label for="m4total">Total con IVA ($)</label><input id="m4total" type="number" step=".01" placeholder="Calcula el total"></div>
 </div>
+<section class="n9-submission-hub" data-submission-hub="contract"></section>
 <div class="open-lab">
  <div class="open-prompt"><span>RESPUESTA ABIERTA · 7 MIN</span><b>Escribe las cláusulas esenciales de la orden de compra.</b><p>Incluye producto/especificación, cantidad, precio y descuento, fecha/lugar de entrega, pago, garantía y autorización. Señala qué harías si el proveedor pretende sustituir el modelo.</p></div>
  <textarea id="m4open" class="open-answer" rows="4" placeholder="La OC deberá indicar... No se permitirá sustituir..." spellcheck="true"></textarea>
@@ -902,7 +934,7 @@ body:before{
 </article>
 
 <article class="card mission" id="mission-close">
-<div class="mission-topline"><span class="kicker">MISSION 05 · RECEIVING & CLOSEOUT</span><span class="mission-time">15 MIN · 100 XP</span></div>
+<div class="mission-topline"><span class="kicker">MISSION 05 · RECEIVING & CLOSEOUT</span><span class="mission-time">15 MIN · 20 SUBMISIONES</span></div>
 
 <div class="n9-mission-progress" id="m5Progress">
  <div class="n9-mission-progress-head"><span>PROGRESO DE MISIÓN</span><b id="m5ProgressPercent">0%</b></div>
@@ -912,6 +944,7 @@ body:before{
 <h2>El pedido llegó… pero ¿está realmente completo?</h2>
 <div class="bridge"><b>CONTEXTO OPERATIVO</b><p>Se recibieron 240 piezas el día 5 y 160 el día 8. En la inspección, 10 piezas están dañadas. El proveedor considera que ya cumplió la orden.</p><a href="?tab=estudio#study-close">↗ Repasar temas 2.8–2.9 y 3.12 · librillo págs. 10–11</a></div>
 <div class="formgrid"><div><label for="m5accepted">Piezas aceptadas</label><input id="m5accepted" type="number" min="0" placeholder="Cantidad conforme"></div><div><label for="m5pending">Piezas pendientes de solución</label><input id="m5pending" type="number" min="0" placeholder="Cantidad por resolver"></div></div>
+<section class="n9-submission-hub" data-submission-hub="close"></section>
 <div class="open-lab">
  <div class="open-prompt"><span>RESPUESTA ABIERTA · 7 MIN</span><b>Redacta tu plan de acción y determina cuándo cerrarías la OC.</b><p>Explica cómo documentarías el daño, qué solución pedirías al proveedor, qué documentos conciliarías y qué condición debe cumplirse antes de cerrar.</p></div>
  <textarea id="m5open" class="open-answer" rows="4" placeholder="Primero separaría las piezas dañadas... Después emitiría..." spellcheck="true"></textarea>
@@ -944,7 +977,7 @@ body:before{
  const empty=function(){return {student:'',group:'',done:{},attempts:{},xp:0,answers:{},openReviews:{},fields:{},elapsedSeconds:0,updated:new Date().toISOString()};};
  let state=empty();
  try{state=Object.assign(empty(),JSON.parse(localStorage.getItem(KEY)||'{}'));}catch(e){state=empty();}
- state.done=state.done||{};state.attempts=state.attempts||{};state.answers=state.answers||{};state.openReviews=state.openReviews||{};state.fields=state.fields||{};
+ state.done=state.done||{};state.attempts=state.attempts||{};state.answers=state.answers||{};state.openReviews=state.openReviews||{};state.fields=state.fields||{};state.submissions=state.submissions||{};state.subAttempts=state.subAttempts||{};state.finalPassed=state.finalPassed||{};
  let timer=null;
  const normalize=function(s){return String(s||'').toLocaleLowerCase('es-MX').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9%$.,\s-]/g,' ').replace(/\s+/g,' ').trim();};
  const words=function(s){const v=String(s||'').trim();return v?v.split(/\s+/).length:0;};
@@ -988,16 +1021,8 @@ body:before{
   close:{key:'close',num:5,answer:'m5open',fields:['m5accepted','m5pending']}
  };
  function missionProgress(key){
-  const spec=missionSpecs[key],text=$(spec.answer).value||'';
-  const criteria=C[key]||[];
-  const review=criteriaCheck(text,criteria,0,[]);
-  const answerRatio=Math.min(1,review.wordCount/36);
-  let fieldRatio=0;
-  if(spec.fields.length){
-   fieldRatio=spec.fields.filter(function(id){const el=$(id);return el&&String(el.value).trim()!=='';}).length/spec.fields.length;
-  }else fieldRatio=review.wordCount>0?1:0;
-  const value=state.done[key]?100:Math.min(99,Math.round(fieldRatio*25+answerRatio*15+(criteria.length?review.matched.length/criteria.length:0)*60));
-  return {value:value,matched:review.matched.length,total:criteria.length,words:review.wordCount,done:!!state.done[key]};
+  const completed=subCount(key),final=!!state.finalPassed[key],value=Math.min(100,Math.round(completed/20*85+(final?15:0)));
+  return {value:value,matched:completed,total:20,words:0,done:!!state.done[key],submissions:completed,final:final};
  }
  function updateMissionProgress(key){
   const spec=missionSpecs[key];if(!spec)return 0;
@@ -1006,38 +1031,33 @@ body:before{
   $('m'+n+'ProgressPercent').textContent=p.value+'%';
   $('m'+n+'ProgressBar').style.width=p.value+'%';
   $('m'+n+'ProgressBar').parentElement.setAttribute('aria-valuenow',String(p.value));
-  $('m'+n+'ProgressStatus').textContent=p.done?'MISIÓN VALIDADA':(p.value>0?'EN DESARROLLO':'POR INICIAR');
-  $('m'+n+'ProgressDetail').textContent=p.done?'Todos los criterios completados':p.matched+'/'+p.total+' criterios · '+p.words+' palabras';
+  $('m'+n+'ProgressStatus').textContent=p.done?'MISIÓN COMPLETADA':(p.submissions===20?'20/20 · EVALUACIÓN FINAL DISPONIBLE':(p.submissions>0?'EN DESARROLLO':'POR INICIAR'));
+  $('m'+n+'ProgressDetail').textContent=p.submissions+'/20 submisiones'+(p.final?' · evaluación aprobada':' · evaluación final pendiente');
   wrap.classList.toggle('is-complete',p.done);
   return p.value;
  }
  function updateAllMissionProgress(){
-  const keys=Object.keys(missionSpecs);
-  const values=keys.map(updateMissionProgress);
-  const total=Math.round(values.reduce(function(a,b){return a+b;},0)/keys.length);
-  $('campaignProgressPercent').textContent=total+'%';
-  $('dashStageProgress').style.width=total+'%';
-  $('sideProgressBar').style.width=total+'%';
-  $('sideProgressText').textContent=total+'%';
-  return total;
+  const keys=Object.keys(missionSpecs);keys.forEach(function(key){state.done[key]=subCount(key)===20&&!!state.finalPassed[key];});
+  const values=keys.map(updateMissionProgress),total=Math.round(values.reduce(function(a,b){return a+b;},0)/keys.length),submitted=totalSubCount();
+  $('campaignProgressPercent').textContent=total+'%';$('dashStageProgress').style.width=total+'%';$('sideProgressBar').style.width=total+'%';
+  $('sideProgressText').textContent=submitted+' / 100';keys.forEach(updateSubMissionHub);return total;
  }
  function render(){
+   ['org','planning','sourcing','contract','close'].forEach(function(k){state.done[k]=subCount(k)===20&&!!state.finalPassed[k];});
    $('studentName').value=state.student||'';$('studentGroup').value=state.group||'';
    const done=['org','planning','sourcing','contract','close'].filter(function(k){return state.done[k];}).length;
    $('doneCount').textContent=done+' / 5';$('xpCount').textContent=(state.xp||0)+' XP';
    $('attemptCount').textContent=Object.values(state.attempts).reduce(function(a,b){return a+b;},0);
-   $('progressBar').style.width=(done/5*100)+'%';
-   $('progressText').textContent=done===5?'Operación completada. Descarga tu expediente de evidencia.':(5-done)+' misión(es) por completar.';
+   const submitted=totalSubCount(),campaignPct=Math.round(submitted/100*85+['org','planning','sourcing','contract','close'].filter(function(k){return state.finalPassed[k];}).length/5*15);
+   $('progressBar').style.width=campaignPct+'%';$('progressText').textContent=submitted+' / 100 submisiones validadas · '+done+' / 5 evaluaciones finales.';
    $('sideStudentName').textContent=state.student||'Sin identificar';
    $('sideStudentGroup').textContent=state.group||'Clase 09 · Grupo pendiente';
-   $('sideProgressText').textContent=String(done).padStart(2,'0')+' / 05';
-   $('sideProgressBar').style.width=(done/5*100)+'%';
-   $('dashDone').innerHTML=String(done).padStart(2,'0')+'<span class="kpi-denom">/05</span>';
-   $('dashDoneCaption').textContent=done===5?'Campaña completada':'Etapas validadas de cinco misiones';
-   $('dashDoneTrack').style.width=(done/5*100)+'%';
+   $('sideProgressText').textContent=submitted+' / 100';$('sideProgressBar').style.width=submitted+'%';
+   $('dashDone').innerHTML=String(submitted).padStart(2,'0')+'<span class="kpi-denom">/100</span>';
+   $('dashDoneCaption').textContent=submitted===100?'100 submisiones validadas':'Retos breves validados en las cinco misiones';
+   $('dashDoneTrack').style.width=submitted+'%';
    $('dashXP').textContent=String(state.xp||0).padStart(3,'0');
-   $('dashXPTrack').style.width=Math.min(100,(state.xp||0)/5)+'%';
-   $('dashStageProgress').style.width=(done/5*100)+'%';
+   $('dashXPTrack').style.width=Math.min(100,(state.xp||0)/15)+'%';
    const next=[['org','organizar el departamento','Asigna funciones y separa responsabilidades.'],['planning','calcular la necesidad','Valida inventario, reserva y requerimiento neto.'],['sourcing','evaluar fuentes','Filtra plazos y compara el costo total.'],['contract','negociar y formalizar','Documenta el acuerdo y construye la OC.'],['close','controlar y cerrar','Resuelve incidencias y concilia la recepción.']];
    const item=next.find(function(x){return !state.done[x[0]];});
    $('dashNextTitle').textContent=item?'Siguiente objetivo: '+item[1]:'Campaña completada · Procurement Specialist';
@@ -1061,12 +1081,8 @@ body:before{
    return answer;
  }
  function finishMission(key,feedbackId,title,body,review,next){
-   if(!state.done[key]){
-     state.done[key]=true;
-     state.xp+=(state.attempts[key]===1?100:80);
-   }
-   save();
-   show(feedbackId,true,title,body,review,next);
+   if(!state.finalPassed[key]){state.finalPassed[key]=true;state.xp+=100;}
+   state.done[key]=subCount(key)===20;save();show(feedbackId,true,title,body,review,next);
  }
  function failMission(key,feedbackId,title,body,review,next){
    save();
@@ -1136,6 +1152,7 @@ body:before{
   close:['Levanta reporte y evidencia de no conformidad','No cierra hasta resolver la incidencia']
  };
  function evaluate(key,textarea,feedback,title,min,errors,next,successBody){
+   if(subCount(key)!==20){const pending=20-subCount(key);show(feedback,false,'Evaluación integradora bloqueada','Primero valida las 20 submisiones de esta misión. Te faltan '+pending+'.',null,'Abre los cuatro bloques de submisiones y completa cada reto.');return;}
    const answer=beginAttempt(key,textarea);
    const review=reviewFor(key,answer,min,required[key]);
    state.openReviews[key]={score:review.score,passed:review.passed,matched:review.matched.map(function(c){return c.label;}),missing:review.missing.map(function(c){return c.label;}),wordCount:review.wordCount};
@@ -1202,7 +1219,7 @@ body:before{
  $('sprintReset').addEventListener('click',function(){if(timer){clearInterval(timer);timer=null;}state.elapsedSeconds=0;save();$('sprintStatus').textContent='Cronómetro reiniciado.';});
  $('exportEvidence').addEventListener('click',function(){
    state.student=$('studentName').value.trim();state.group=$('studentGroup').value.trim();captureFields();
-   const data={plataforma:'NEXUS Procurement Learning System',clase:'09 · Sprint integrador de 90 minutos',estudiante:state.student,grupo:state.group,misiones_completadas:state.done,experiencia_xp:state.xp,intentos:state.attempts,respuestas_abiertas:state.answers,criterios_evaluados:state.openReviews,tiempo_total_segundos:state.elapsedSeconds,porcentaje:(['org','planning','sourcing','contract','close'].filter(function(k){return state.done[k];}).length/5*100)+'%',actualizado:state.updated,nota:'La retroalimentación de respuestas abiertas se basa en rúbricas locales de palabras clave y no en evaluación semántica por IA. Archivo generado localmente para entregar al docente.'};
+   const data={plataforma:'NEXUS Procurement Learning System',clase:'09 · Campaña de 100 submisiones',estudiante:state.student,grupo:state.group,misiones_completadas:state.done,submisiones_validadas:totalSubCount(),submisiones_totales:100,respuestas_submisiones:state.submissions,intentos_submisiones:state.subAttempts,evaluaciones_integradoras:state.finalPassed,experiencia_xp:state.xp,intentos:state.attempts,respuestas_abiertas:state.answers,criterios_evaluados:state.openReviews,tiempo_total_segundos:state.elapsedSeconds,porcentaje_submisiones:(totalSubCount()/100*100)+'%',actualizado:state.updated,nota:'Las submisiones de selección y cálculo se validan automáticamente; las respuestas abiertas breves se revisan mediante rúbricas locales de palabras clave, no mediante IA semántica. Archivo generado localmente para entregar al docente.'};
    const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='NEXUS-Evidencia-Clase-09.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
  });
  $('printEvidence').addEventListener('click',function(){captureFields();window.print();});
@@ -1212,6 +1229,188 @@ body:before{
    if($(id))$(id).addEventListener('input',function(){captureFields();updateAllMissionProgress();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}});
    if($(id))$(id).addEventListener('change',function(){captureFields();updateAllMissionProgress();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}});
  });
+
+ const P=function(title,prompt,options,correct,why){return {title:title,prompt:prompt,type:'choice',options:options,correct:correct,why:why};};
+ const N=function(title,prompt,answer,why){return {title:title,prompt:prompt,type:'number',answer:answer,why:why};};
+ const T=function(title,prompt,terms,why){return {title:title,prompt:prompt,type:'text',terms:terms,minWords:5,why:why};};
+ const SUBMISSION_BANK={
+ org:[
+ P('Identifica al área usuaria','¿Qué área debe originar la necesidad de los rodamientos?',['Producción','Compras','Finanzas'],0,'Producción conoce la necesidad de fabricación y solicita el material.'),
+ P('Asigna la búsqueda de mercado','¿Quién solicita cotizaciones y compara propuestas?',['Almacén','Compras','Calidad'],1,'Compras administra la búsqueda, comparación y negociación.'),
+ P('Define la autorización','¿Quién debe autorizar la compra conforme a presupuesto y política?',['El proveedor','Cualquier operador','Jefatura o nivel facultado'],2,'La autorización debe provenir del nivel definido en la matriz de facultades.'),
+ P('Separa la recepción física','¿Quién cuenta y registra las piezas que llegan?',['Almacén','Compras','Producción'],0,'Almacén registra cantidades y condiciones de recepción.'),
+ P('Asigna la inspección','¿Qué función determina si el rodamiento cumple la especificación?',['Finanzas','Calidad','Compras'],1,'Calidad verifica la conformidad técnica antes de aceptar el material.'),
+ P('Detecta el conflicto de funciones','Una persona solicita, compra y recibe el mismo material. ¿Qué control falta?',['Segregación de funciones','Más cotizaciones','Aumentar inventario'],0,'Separar funciones reduce errores, fraude y aceptación indebida.'),
+ P('Concilia documentos','¿Qué debe revisar Finanzas antes de programar el pago?',['Solo el correo del proveedor','OC, recepción y factura','Únicamente la cotización'],1,'La conciliación de los tres documentos verifica lo pedido, recibido y facturado.'),
+ P('Define la especificación','¿Quién aporta los requisitos técnicos del material?',['El área usuaria con apoyo técnico','El área de pagos','El transportista'],0,'El usuario y el área técnica describen características y criterios de aceptación.'),
+ P('Controla la aprobación propia','¿Debe un comprador aprobar por sí solo una compra que él mismo gestionó?',['Sí, siempre','Solo si el proveedor lo pide','No; debe existir autorización independiente'],2,'La revisión independiente limita conflictos de interés y errores.'),
+ P('Protege las cotizaciones','¿Cómo se deben manejar las ofertas de proveedores?',['Compartirlas entre competidores','Restringir acceso y conservar trazabilidad','Publicarlas sin autorización'],1,'La confidencialidad y el acceso controlado protegen el proceso competitivo.'),
+ P('Aplica la matriz de autoridad','¿Qué determina quién puede aprobar una compra por monto?',['La matriz de autorización vigente','La antigüedad del proveedor','El turno de trabajo'],0,'Los límites por importe y categoría deben estar documentados.'),
+ P('Gestiona una urgencia','Si existe una compra urgente, ¿qué debe hacerse?',['Omitir todos los controles','Documentar la excepción y obtener las aprobaciones aplicables','Pedir al proveedor que facture después'],1,'La urgencia no elimina la necesidad de justificar, autorizar y documentar.'),
+ P('Centraliza la comunicación','¿Quién debe formalizar condiciones comerciales con el proveedor?',['Cualquier empleado','Solo el área solicitante','Compras mediante un canal autorizado'],2,'Un canal definido evita compromisos contradictorios.'),
+ P('Comprende RACI','En una matriz RACI, ¿qué significa la letra A?',['Accountable: responsable final de rendir cuentas','Archivo','Área alterna'],0,'Debe quedar claro quién responde finalmente por el resultado.'),
+ P('Construye evidencia','¿Qué expediente permite reconstruir una compra?',['Solo la factura','Requisición, cotizaciones, autorización, OC, recepción y factura','Solo el chat del comprador'],1,'La secuencia documental aporta trazabilidad desde la necesidad hasta el pago.'),
+ P('Rechaza material no conforme','Almacén detecta empaque roto y Calidad aún no libera el material. ¿Qué procede?',['Ingresarlo como disponible','Entregarlo a producción','Identificarlo y mantenerlo separado hasta inspección'],2,'El material no liberado no debe confundirse con inventario disponible.'),
+ P('Declara un conflicto de interés','Un familiar trabaja para un proveedor participante. ¿Qué debe hacer el comprador?',['Declararlo y seguir el procedimiento de revisión','Ocultarlo','Dar ventaja al proveedor'],0,'La declaración permite gestionar imparcialidad y recusación cuando corresponda.'),
+ P('Define una escalación','¿Qué debe ocurrir si el monto excede la facultad del comprador?',['Dividir la compra para evitar aprobación','Escalar al nivel autorizado antes de comprometerse','Emitir la OC y avisar después'],1,'No se debe fraccionar artificialmente ni comprometer recursos sin autorización.'),
+ T('Redacta la ruta RACI','Resume quién solicita, cotiza, autoriza, recibe, inspecciona y concilia.',[['produccion','area usuaria','solicitante'],['compras','cotiza','negocia'],['autoriza','jefatura','gerencia'],['almacen','recibe','recepcion'],['calidad','inspeccion'],['finanzas','concilia','factura']],'Una distribución clara permite que cada etapa tenga responsable y evidencia.'),
+ T('Explica el control interno','Explica por qué no debe concentrarse solicitud, compra, autorización y recepción en una sola persona.',[['separar','segregacion','funciones'],['control interno','trazabilidad','fraude','error'],['independiente','autorizacion','revision']],'La segregación reduce riesgos y permite revisiones independientes.')
+ ],
+ planning:[
+ N('Cuantifica la demanda','Producción requiere 480 rodamientos. ¿Cuál es la demanda bruta?',480,'La demanda bruta del caso es 480 piezas.'),
+ N('Identifica el inventario de seguridad','¿Cuántas piezas deben conservarse como stock de seguridad?',40,'El stock de seguridad es 40 piezas.'),
+ N('Registra inventario disponible','¿Cuántas piezas utilizables existen?',120,'El inventario disponible confirmado es 120 piezas.'),
+ N('Verifica recepciones confirmadas','¿Cuántas piezas están confirmadas para recibirse antes de la necesidad?',0,'No hay recepciones confirmadas: el valor es cero.'),
+ N('Calcula el requerimiento neto','Calcula: 480 de demanda + 40 de seguridad − 120 disponibles − 0 recepciones.',400,'El requerimiento neto es 400 rodamientos.'),
+ P('Selecciona la fórmula','¿Cuál es la fórmula usada en este caso?',['Demanda − seguridad + inventario','Demanda + seguridad − disponible − recepciones confirmadas','Inventario + recepciones − demanda'],1,'La seguridad se conserva y el inventario utilizable y las recepciones oportunas reducen la compra.'),
+ P('Define la unidad','¿Cuál es la unidad de medida de la requisición?',['Piezas','Litros','Kilogramos'],0,'El material se solicita en piezas/unidades.'),
+ P('Respeta la ventana','¿Cuál es el plazo máximo para abastecer la necesidad?',['5 días','10 días','18 días'],1,'La necesidad debe cubrirse en un máximo de 10 días.'),
+ P('Identifica la requisición','¿Qué representa la requisición de compra?',['Un contrato ya firmado con el proveedor','Una solicitud interna documentada para iniciar la compra','Un comprobante de recepción'],1,'La requisición comunica y autoriza internamente la necesidad.'),
+ P('Distingue la orden de compra','¿Qué documento formaliza las condiciones acordadas con el proveedor?',['La orden de compra','La requisición interna','El conteo cíclico'],0,'La OC formaliza el compromiso externo autorizado.'),
+ P('Completa la especificación','¿Qué dato ayuda a evitar comprar un rodamiento incompatible?',['Solo el color del empaque','Una descripción técnica, código y características requeridas','El nombre del conductor'],1,'La especificación debe identificar inequívocamente el producto.'),
+ P('Identifica al solicitante','¿Qué dato debe aparecer en una requisición?',['Área solicitante y responsable','Solo el nombre comercial del proveedor','La placa del transporte'],0,'El documento debe permitir rastrear quién originó y justifica la necesidad.'),
+ P('Vincula el presupuesto','¿Qué información permite revisar la disponibilidad presupuestal?',['Centro de costo y presupuesto autorizado','Color del almacén','Número de teléfono personal'],0,'La requisición debe vincularse con presupuesto y autorización.'),
+ P('Valida una recepción futura','¿Cuándo puede descontarse una recepción del requerimiento?',['Cuando el vendedor promete enviarla sin fecha','Cuando está confirmada y llegará antes de la fecha de uso','Cuando aparece en una cotización antigua'],1,'Solo cuentan recepciones documentadas y oportunas.'),
+ N('Recalcula con inventario mayor','Si el inventario disponible subiera a 150 y todo lo demás permaneciera igual, ¿cuánto se compraría?',370,'480 + 40 − 150 − 0 = 370 piezas.'),
+ N('Recalcula con recepción oportuna','Si se confirman 80 piezas que llegarán antes de la necesidad, ¿cuál sería la compra?',320,'480 + 40 − 120 − 80 = 320 piezas.'),
+ P('Programa la liberación','¿Qué dato debes conocer para determinar cuándo liberar la orden?',['Plazo de entrega confirmado del proveedor','El cumpleaños del comprador','El color de la unidad'],0,'La fecha requerida y el lead time permiten programar la liberación.'),
+ P('Evita compras duplicadas','Antes de emitir otra requisición, ¿qué debe verificarse?',['Órdenes abiertas y recepciones pendientes','Solo el precio de la compra anterior','La cantidad de correos enviados'],0,'La planeación revisa pedidos abiertos para no duplicar abastecimiento.'),
+ T('Completa una requisición','Menciona solicitante, material, cantidad/unidad, especificación, fecha/lugar y justificación.',[['solicitante','produccion','area usuaria'],['rodamiento','material','codigo','especificacion'],['400','cantidad'],['piezas','unidad'],['fecha','entrega'],['justificacion','presupuesto','autorizacion']],'Una requisición completa es verificable y autorizable.'),
+ T('Explica requisición contra OC','Explica la diferencia entre la solicitud interna y el compromiso formal con el proveedor.',[['requisicion','solicitud interna','necesidad'],['orden de compra','oc'],['proveedor','compromiso','condiciones'],['autoriza','aprobacion']],'La requisición inicia el proceso; la OC autorizada formaliza el acuerdo externo.')
+ ],
+ sourcing:[
+ N('Calcula el costo de A','400 piezas a $245 más $2,500 de flete. ¿Cuál es el costo total antes de impuestos?',100500,'400 × 245 + 2,500 = $100,500.'),
+ N('Calcula el costo de B','400 piezas a $232 con flete incluido. ¿Cuál es el costo total?',92800,'400 × 232 = $92,800.'),
+ N('Calcula el costo de C','400 piezas a $251 con flete incluido. ¿Cuál es el costo total?',100400,'400 × 251 = $100,400.'),
+ N('Comprueba el plazo de B','¿Cuántos días tarda el proveedor B?',18,'B entrega en 18 días.'),
+ N('Comprueba el plazo de C','¿Cuántos días tarda el proveedor C?',5,'C entrega en 5 días.'),
+ P('Filtra por fecha','¿Qué proveedor incumple el plazo obligatorio de 10 días?',['A','B','C'],1,'B tarda 18 días y no satisface la ventana.'),
+ P('Compara costo total','¿Qué criterio evita elegir solo por precio unitario?',['Costo total de adquisición y condiciones','Solo el precio anunciado','El diseño del logotipo'],0,'Deben considerarse flete, plazo, pago, calidad y riesgo.'),
+ N('Calcula la brecha de C','¿Cuánto excede C el presupuesto objetivo de $100,000 antes de negociar?',400,'$100,400 − $100,000 = $400.'),
+ N('Calcula el descuento de 0.5%','¿Cuánto representa 0.5% de $100,400?',502,'$100,400 × 0.005 = $502.'),
+ N('Calcula el costo negociado','¿Cuál es el costo de C después de aplicar 0.5% de descuento?',99898,'$100,400 − $502 = $99,898.'),
+ P('Valida el plazo de A','¿A satisface la ventana de 10 días?',['Sí, entrega en 7 días','No, entrega en 18 días','No hay dato de plazo'],0,'A llega en 7 días y cumple plazo, aunque rebasa el presupuesto por $500.'),
+ P('Compara el crédito de C','¿Qué plazo de crédito ofrece C?',['Contado','15 días','30 días'],1,'C ofrece 15 días de crédito.'),
+ P('Identifica la condición de B','¿Qué condición de pago ofrece B?',['Contado','15 días','30 días'],0,'B exige pago de contado.'),
+ P('Homologa cotizaciones','Para comparar ofertas, ¿qué debe mantenerse igual?',['Especificación, cantidad, unidad y fecha requerida','Solo el nombre del vendedor','El formato visual del PDF'],0,'La comparación requiere ofertas equivalentes.'),
+ P('Incluye variables de riesgo','Además de precio, ¿qué variables son relevantes?',['Calidad, cumplimiento, plazo y condiciones de pago','Solo el color del empaque','La distancia personal al vendedor'],0,'La decisión debe evaluar costo y riesgo de suministro.'),
+ P('Verifica al proveedor','Antes de adjudicar, ¿qué conviene revisar?',['Capacidad, referencias y cumplimiento de requisitos','Solo su publicidad','Si responde con emojis'],0,'La evaluación debe confirmar capacidad y desempeño.'),
+ P('Formula la negociación','¿Qué propuesta deja a C dentro del presupuesto del ejercicio?',['Solicitar al menos 0.5% de descuento','Aceptar $100,400 sin revisar presupuesto','Cambiar la especificación sin autorización'],0,'Con 0.5% el costo queda en $99,898 antes de impuestos.'),
+ P('Condiciona la adjudicación','¿Qué debe quedar confirmado al elegir C?',['Precio neto, plazo de 5 días, calidad y condiciones por escrito','Solo una promesa verbal','Una entrega sin fecha'],0,'La adjudicación requiere condiciones verificables.'),
+ T('Defiende la recomendación','Redacta por qué negociarías con el proveedor C y qué condiciones exigirías.',[['proveedor c','c entrega'],['5 dias','cinco dias','plazo'],['100400','100,400','costo total','precio'],['0.5','descuento','502','99898','99,898'],['presupuesto','100000','riesgo']],'C cumple plazo y puede quedar dentro del objetivo presupuestal mediante descuento.'),
+ T('Explica el costo de una demora','Explica por qué B no debe elegirse solo por ser más barato.',[['proveedor b','b'],['18 dias','dieciocho','plazo'],['10 dias','fecha limite','retraso'],['produccion','paro','riesgo','continuidad']],'Un precio menor no compensa incumplir una fecha crítica de producción.')
+ ],
+ contract:[
+ N('Confirma la cantidad','¿Cuántos rodamientos se formalizan en la OC?',400,'La orden contempla 400 piezas.'),
+ N('Confirma el precio unitario','¿Cuál es el precio unitario negociado antes del descuento?',251,'El precio unitario de C es $251.'),
+ N('Calcula el importe bruto','400 piezas × $251. ¿Cuál es el importe bruto?',100400,'El importe bruto es $100,400.'),
+ N('Convierte el descuento','¿Qué porcentaje se negoció?',1.5,'El descuento pactado es 1.5%.'),
+ N('Calcula el descuento monetario','¿Cuánto equivale 1.5% de $100,400?',1506,'$100,400 × 0.015 = $1,506.'),
+ N('Calcula el neto','¿Cuál es el importe después de restar el descuento?',98894,'$100,400 − $1,506 = $98,894.'),
+ N('Calcula el IVA ilustrativo','Con tasa ilustrativa de 16%, ¿cuál es el impuesto sobre $98,894?',15823.04,'$98,894 × 0.16 = $15,823.04.'),
+ N('Calcula el total ilustrativo','¿Cuál es el total sumando el IVA ilustrativo?',114717.04,'$98,894 + $15,823.04 = $114,717.04.'),
+ N('Formaliza la fecha','¿En cuántos días se compromete a entregar C?',5,'El plazo acordado es de 5 días.'),
+ N('Formaliza el pago','¿Cuántos días de crédito ofrece C?',15,'La condición acordada es crédito a 15 días.'),
+ P('Identifica a las partes','¿Qué debe identificar la OC?',['Comprador, proveedor y datos de la orden','Solo al conductor','Solo el número de factura'],0,'La OC necesita identificación de las partes y trazabilidad documental.'),
+ P('Protege la especificación','¿Cómo debe describirse el rodamiento?',['Con código, características y criterio técnico verificable','Como “material estándar” sin detalles','Con una fotografía únicamente'],0,'La descripción técnica evita sustituciones ambiguas.'),
+ P('Define el destino','¿Qué debe incluir la condición de entrega?',['Lugar, fecha, responsable y condiciones logísticas','Solo una fecha aproximada','Ningún dato de recepción'],0,'El destino y la fecha permiten planear y verificar la recepción.'),
+ P('Incluye garantía','¿Qué debe indicar la OC sobre calidad?',['Garantía y criterios de aceptación o rechazo','Que todo material se acepta sin inspección','Solo el color del empaque'],0,'La aceptación debe basarse en criterios verificables.'),
+ P('Controla sustituciones','Si C quiere cambiar el modelo, ¿qué procede?',['Aceptar verbalmente','Aprobar técnicamente y autorizar por escrito antes del cambio','Recibirlo y documentar después'],1,'No se permiten sustituciones sin validación técnica y autorización escrita.'),
+ P('Detalla el pago','¿Qué condición evita ambigüedad en el pago?',['Plazo, método y documentación requerida','Solo “pago normal”','Un acuerdo verbal no registrado'],0,'Las condiciones deben ser claras y trazables.'),
+ P('Expresa impuestos','¿Cómo deben mostrarse los impuestos en el ejercicio?',['Separados y claramente identificados como cálculo ilustrativo','Ocultos dentro del precio sin nota','Como tasa universal para cualquier operación'],0,'El 16% aquí es un supuesto didáctico, no una afirmación fiscal universal.'),
+ P('Controla cambios','¿Qué debe ocurrir ante una modificación de la OC?',['Registrar versión, motivo, aprobación y notificación','Editar el documento sin rastro','Eliminar la OC anterior'],0,'El control de cambios conserva la historia del compromiso.'),
+ T('Redacta cláusulas esenciales','Describe producto, cantidad, precio, descuento, entrega, pago y garantía.',[['rodamiento','producto','especificacion'],['400','cantidad'],['251','precio'],['1.5','descuento','98894','98,894'],['entrega','5 dias','fecha'],['pago','15 dias','credito'],['garantia','calidad']],'Las cláusulas convierten la negociación en condiciones medibles.'),
+ T('Redacta una cláusula de no sustitución','Explica cómo impedirías un cambio de modelo sin autorización.',[['sustitu','cambio','modelo'],['validacion tecnica','revision tecnica','area tecnica'],['autorizacion escrita','por escrito','aprobacion'],['modificacion','version','orden de compra']],'Una sustitución necesita revisión técnica, aprobación formal y cambio documental controlado.')
+ ],
+ close:[
+ N('Registra la primera entrega','¿Cuántas piezas llegaron el día 5?',240,'La primera recepción fue de 240 piezas.'),
+ N('Registra la segunda entrega','¿Cuántas piezas llegaron el día 8?',160,'La segunda recepción fue de 160 piezas.'),
+ N('Concilia lo recibido','¿Cuántas piezas llegaron físicamente en total?',400,'240 + 160 = 400 piezas recibidas.'),
+ N('Identifica el rechazo','¿Cuántas piezas se detectaron dañadas?',10,'Se reportaron 10 piezas dañadas.'),
+ N('Calcula lo aceptado','¿Cuántas piezas conformes pueden aceptarse?',390,'400 recibidas − 10 dañadas = 390 aceptadas.'),
+ N('Calcula lo pendiente','¿Cuántas piezas siguen pendientes de solución?',10,'Las 10 piezas dañadas no están resueltas.'),
+ P('Libera el inventario','¿Cuándo pueden las piezas entrar como inventario disponible?',['Después de contar e inspeccionar y obtener liberación','Al bajar del camión sin revisar','Cuando el proveedor envía la factura'],0,'La recepción física no equivale automáticamente a aceptación.'),
+ P('Segrega el daño','¿Qué hacer con las piezas dañadas?',['Mezclarlas con las conformes','Identificarlas y mantenerlas separadas','Entregarlas a producción'],1,'La segregación impide consumo accidental de material no conforme.'),
+ P('Levanta una no conformidad','¿Qué documento debe abrirse?',['Reporte de no conformidad/incidencia','Una nueva cotización','Un calendario de vacaciones'],0,'La incidencia debe registrarse con responsable, fecha y descripción.'),
+ P('Conserva evidencia','¿Qué evidencia fortalece el reclamo?',['Fotos, lote, cantidad, fecha y resultado de inspección','Solo una llamada sin registro','Una opinión sin datos'],0,'La evidencia debe permitir identificar y reproducir el hallazgo.'),
+ P('Notifica al proveedor','¿Cómo debe comunicarse el rechazo?',['Con evidencia y referencia a la OC por canal formal','Solo por mensaje informal sin folio','No avisar al proveedor'],0,'El aviso formal inicia el seguimiento y fija trazabilidad.'),
+ P('Selecciona una solución','¿Qué alternativas pueden resolver las 10 piezas?',['Reposición, devolución o nota de crédito','Cerrar sin ajuste','Aumentar el precio unitario'],0,'La solución debe acordarse y documentarse.'),
+ P('Mantén el control abierto','¿Debe cerrarse la OC mientras las 10 piezas siguen pendientes?',['Sí, porque llegó el camión','No, debe mantenerse abierta o pendiente hasta resolver','Sí, si el proveedor lo solicita'],1,'No se cierra el expediente con una incidencia sin resolver.'),
+ P('Realiza la conciliación triple','¿Qué documentos se comparan?',['Orden de compra, recepción y factura','Cotización, gafete y horario','Correo, calendario y lista de asistencia'],0,'La conciliación confirma cantidades, precios y condiciones.'),
+ P('Controla el pago','¿Qué debe hacerse si la factura refleja 400 piezas y solo 390 fueron aceptadas?',['Conciliar la diferencia y resolver las 10 antes del pago/cierre según política','Pagar automáticamente todo','Borrar el registro de recepción'],0,'La diferencia requiere ajuste, reposición, devolución o nota de crédito.'),
+ P('Fija una fecha de respuesta','¿Qué elemento evita que el reclamo quede indefinido?',['Responsable y fecha compromiso de solución','Un comentario sin fecha','Esperar sin seguimiento'],0,'Cada incidencia debe tener responsable, fecha y evidencia de seguimiento.'),
+ P('Registra una recepción parcial','¿Cómo deben registrarse las entregas de 240 y 160?',['Como dos eventos de recepción vinculados a la misma OC','Como una sola entrega sin fechas','Como dos órdenes distintas sin justificación'],0,'La recepción parcial conserva fechas, cantidades y trazabilidad.'),
+ P('Evalúa el desempeño','¿Qué indicador ayuda a calificar al proveedor en este caso?',['Porcentaje de entregas conformes y a tiempo','Cantidad de correos enviados','Diseño del catálogo'],0,'Calidad y puntualidad son indicadores relevantes de desempeño.'),
+ T('Escribe el plan de resolución','Describe cómo aislar, reportar, notificar y resolver las 10 piezas dañadas.',[['10','piezas','danadas','dañadas'],['separar','aislar','cuarentena'],['reporte','no conformidad','evidencia','fotografia'],['proveedor','notificar','reclamo'],['reposicion','reemplazo','devolucion','nota de credito']],'El plan debe convertir el hallazgo en una acción trazable con responsable y fecha.'),
+ T('Define el cierre documental','Explica cuándo cerrarías la OC y qué documentos conciliarías.',[['no cerrar','cerrar hasta','pendiente resuelta','resolver'],['390','400','cantidad'],['oc','orden de compra'],['recepcion','recibo'],['factura','nota de credito','reposicion']],'La orden se cierra cuando la incidencia está resuelta y OC, recepción y factura quedan conciliadas.')
+ ]
+ };
+
+ const SUB_PHASES=['01 · DIAGNÓSTICO','02 · DISEÑO / PLANEACIÓN','03 · DECISIÓN OPERATIVA','04 · CONTROL / EVIDENCIA'];
+ state.submissions=state.submissions||{};state.subAttempts=state.subAttempts||{};state.finalPassed=state.finalPassed||{};
+ Object.keys(state.done).forEach(function(k){if(state.done[k])state.finalPassed[k]=true;});
+ function escapeSub(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+ function subId(key,index){return key+'-'+String(index+1).padStart(2,'0');}
+ function subCount(key){return (SUBMISSION_BANK[key]||[]).filter(function(task,i){return state.submissions[subId(key,i)]&&state.submissions[subId(key,i)].done;}).length;}
+ function totalSubCount(){return Object.keys(SUBMISSION_BANK).reduce(function(sum,key){return sum+subCount(key);},0);}
+ function buildSubMissionHubs(){
+  Object.keys(SUBMISSION_BANK).forEach(function(key){
+   const root=document.querySelector('[data-submission-hub="'+key+'"]');if(!root||root.dataset.built==='yes')return;
+   let out='<div class="n9-submission-hub-head"><div><div class="n9-submission-hub-kicker">FIELD OPERATIONS · MICRO CHALLENGES</div><h3>20 submisiones de la misión</h3><p>Completa cada reto, valida tu respuesta y acumula XP. Después desbloquearás la evaluación integradora.</p></div><div class="n9-submission-count"><strong id="subCount-'+key+'">00/20</strong><small>VALIDADAS</small></div></div><div class="n9-submission-overall"><i id="subBar-'+key+'"></i></div><div class="n9-submission-phases">';
+   for(let phase=0;phase<4;phase++){
+    const start=phase*5,items=SUBMISSION_BANK[key].slice(start,start+5);
+    out+='<details class="n9-submission-phase" '+(phase===0?'open':'')+'><summary><span class="n9-phase-number">0'+(phase+1)+'</span><span class="n9-phase-copy"><b>'+SUB_PHASES[phase]+'</b><small>Submisiones '+String(start+1).padStart(2,'0')+'–'+String(start+5).padStart(2,'0')+'</small></span><span class="n9-phase-count" id="phaseCount-'+key+'-'+phase+'">0/5</span><span class="n9-phase-arrow">›</span></summary><div class="n9-phase-tasks">';
+    items.forEach(function(task,offset){
+     const index=start+offset,id=subId(key,index),entry=state.submissions[id]||{},done=!!entry.done;
+     out+='<details class="n9-subtask '+(done?'is-done':'')+'" id="subtask-'+id+'" '+(index===0?'open':'')+'><summary><span class="n9-subtask-index">'+String(index+1).padStart(2,'0')+'</span><span class="n9-subtask-copy"><b>'+escapeSub(task.title)+'</b><small>'+escapeSub(task.prompt)+'</small></span><span class="n9-subtask-state" id="substate-'+id+'">'+(done?'VALIDADA':'PENDIENTE')+'</span></summary><div class="n9-subtask-body"><p class="n9-subtask-prompt">'+escapeSub(task.prompt)+'</p>';
+     if(task.type==='choice')out+='<select data-sub-answer="'+id+'"><option value="">Selecciona una respuesta</option>'+task.options.map(function(opt,i){return '<option value="'+i+'" '+(String(entry.response)===String(i)?'selected':'')+'>'+escapeSub(opt)+'</option>';}).join('')+'</select>';
+     else if(task.type==='number')out+='<input type="number" step="any" data-sub-answer="'+id+'" value="'+(entry.response!==undefined?escapeSub(entry.response):'')+'" placeholder="Escribe el resultado">';
+     else out+='<textarea rows="3" data-sub-answer="'+id+'" placeholder="Escribe tu respuesta en una o dos ideas...">'+(entry.response!==undefined?escapeSub(entry.response):'')+'</textarea>';
+     out+='<div class="n9-subtask-actions"><small>'+(task.type==='text'?'Incluye los conceptos clave solicitados.':task.type==='number'?'Introduce el valor numérico.':'Elige la opción que resuelve el caso.')+'</small><button type="button" data-sub-validate="'+id+'" '+(done?'disabled':'')+'>'+(done?'SUBMISIÓN VALIDADA':'VALIDAR RETO ↗')+'</button></div><div class="n9-sub-feedback '+(done?'ok':'')+'" id="subfeedback-'+id+'" '+(done?'style="display:block"':'')+'>'+(done?'<b>✓ Correcto · +XP</b>'+escapeSub(task.why):'')+'</div></div></details>';
+    });
+    out+='</div></details>';
+   }
+   out+='</div><div class="n9-submission-hub-footer"><span>RECOMPENSA: <strong>10 XP</strong> POR SUBMISIÓN</span><span class="n9-submission-final" id="subFinal-'+key+'">Evaluación integradora bloqueada · faltan 20 retos</span></div>';
+   root.innerHTML=out;root.dataset.built='yes';
+  });
+ }
+ function updateSubMissionHub(key){
+  const count=subCount(key),bar=$('subBar-'+key),label=$('subCount-'+key);
+  if(label)label.textContent=String(count).padStart(2,'0')+'/20';if(bar)bar.style.width=(count/20*100)+'%';
+  for(let phase=0;phase<4;phase++){
+   const c=SUBMISSION_BANK[key].slice(phase*5,phase*5+5).filter(function(t,i){return state.submissions[subId(key,phase*5+i)]&&state.submissions[subId(key,phase*5+i)].done;}).length;
+   const el=$('phaseCount-'+key+'-'+phase);if(el)el.textContent=c+'/5';
+  }
+  SUBMISSION_BANK[key].forEach(function(task,index){
+   const id=subId(key,index),entry=state.submissions[id]||{},done=!!entry.done,card=$('subtask-'+id),status=$('substate-'+id),btn=document.querySelector('[data-sub-validate="'+id+'"]');
+   if(card)card.classList.toggle('is-done',done);if(status)status.textContent=done?'VALIDADA':'PENDIENTE';
+   if(btn){btn.disabled=done;btn.textContent=done?'SUBMISIÓN VALIDADA':'VALIDAR RETO ↗';}
+   const fb=$('subfeedback-'+id);if(fb&&entry.feedback){fb.classList.toggle('ok',!!entry.done);fb.classList.toggle('bad',!entry.done);fb.style.display='block';fb.innerHTML=entry.feedback;}
+  });
+  const final=$('subFinal-'+key);if(final)final.textContent=count===20?'20/20 completas · evaluación integradora disponible':'Evaluación integradora bloqueada · faltan '+(20-count)+' retos';
+ }
+ function validateSubMission(id){
+  const parts=id.split('-'),key=parts[0],index=Number(parts[1])-1,task=SUBMISSION_BANK[key]&&SUBMISSION_BANK[key][index];if(!task)return;
+  const field=document.querySelector('[data-sub-answer="'+id+'"]');if(!field)return;
+  const response=field.value.trim(),tries=(state.subAttempts[id]||0)+1;state.subAttempts[id]=tries;
+  let ok=false,help='';
+  if(task.type==='choice'){ok=response!==''&&Number(response)===task.correct;help='Revisa la decisión y vuelve a intentarlo.';}
+  else if(task.type==='number'){ok=response!==''&&Number.isFinite(Number(response))&&Math.abs(Number(response)-task.answer)<0.011;help='Valor esperado: '+task.answer.toLocaleString('es-MX')+'. Comprueba la operación y vuelve a intentar.';}
+  else{const normalized=normalize(response),missing=task.terms.filter(function(group){return !group.some(function(term){return normalized.includes(normalize(term));});});ok=words(response)>=task.minWords&&missing.length===0;help='Faltan conceptos clave: '+missing.map(function(group){return group[0];}).join(', ')+'. Desarrolla la idea con al menos '+task.minWords+' palabras.';}
+  const previous=state.submissions[id]||{},alreadyDone=!!previous.done;
+  const entry={response:response,done:ok||alreadyDone,tries:tries,feedback:ok?'<b>✓ Correcto · +'+(alreadyDone?0:(tries===1?10:7))+' XP</b>'+escapeSub(task.why):'<b>Reto pendiente</b>'+escapeSub(help)};
+  if(ok&&!alreadyDone)state.xp+=(tries===1?10:7);
+  state.submissions[id]=entry;if(subCount(key)===20&&state.finalPassed[key])state.done[key]=true;
+  state.updated=new Date().toISOString();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
+  const fb=$('subfeedback-'+id);if(fb){fb.classList.toggle('ok',ok||alreadyDone);fb.classList.toggle('bad',!ok&&!alreadyDone);fb.style.display='block';fb.innerHTML=entry.feedback;}
+  if(ok){const card=$('subtask-'+id);if(card)card.classList.add('is-done');}render();
+ }
+ document.addEventListener('click',function(e){const button=e.target.closest('[data-sub-validate]');if(button){e.preventDefault();validateSubMission(button.getAttribute('data-sub-validate'));}});
+ function saveSubInput(e){const field=e.target.closest('[data-sub-answer]');if(!field)return;const id=field.getAttribute('data-sub-answer'),entry=state.submissions[id]||{};entry.response=field.value;state.submissions[id]=entry;try{localStorage.setItem(KEY,JSON.stringify(state));}catch(err){}}
+ document.addEventListener('input',saveSubInput);document.addEventListener('change',saveSubInput);
+
+ buildSubMissionHubs();
+ ['org','planning','sourcing','contract','close'].forEach(function(k){state.done[k]=subCount(k)===20&&!!state.finalPassed[k];});
  render();
 })();
 </script>
