@@ -42,3 +42,16 @@ Los casos, cifras y respuestas son simulados para práctica. La puntuación es f
 - **Manual del maestro:** [manual-maestro-sesion-08.md](sesion-08-negociacion-orden-compra/manual-maestro-sesion-08.md)
 - **Control Tower:** https://angelmaltos03-alt.github.io/compras-game/protocolo-nexus-unidad3/
 - **Referencias cruzadas:** páginas 5–10 → #negociacion; 11–15 → #orden; 16–19 → #seguimiento; página 23 → #evaluacion.
+
+
+## NEXUS · Clase 09 — Integración de Unidades 1, 2 y 3
+
+- **Aula interactiva:** https://angelmaltos03-alt.github.io/compras-game/sesion-09-integracion-proceso-compras/
+- **Centro de misiones:** cinco misiones con validación, pistas, retroalimentación y reporte local.
+- **Librillo estudiante:** [librillo-sesion-09.md](sesion-09-integracion-proceso-compras/librillo-sesion-09.md)
+- **Manual del maestro:** [manual-maestro-sesion-09.md](sesion-09-integracion-proceso-compras/manual-maestro-sesion-09.md)
+- **Cobertura:** Unidad 1 (1.1–1.8), Unidad 2 (2.1–2.9) y Unidad 3 (3.1–3.12).
+- **Caso integrador:** NEXUS Manufacturing, del requerimiento al cierre de la orden.
+- **Control Tower:** https://angelmaltos03-alt.github.io/compras-game/protocolo-nexus-unidad3/
+
+La sesión integra lo trabajado en las sesiones 1 a 8. Los casos, proveedores y cifras son simulados para fines académicos. El avance del estudiante se guarda localmente en su navegador y se exporta mediante archivo JSON; no se sincroniza automáticamente con una base de datos docente.
