@@ -352,11 +352,11 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
  <section class="nexus-progression">
   <div class="n9-progression-head"><div><div class="eyebrow">CAMPAÑA OPERATIVA · PROCUREMENT SPECIALIST</div><h3>Tu ruta de dominio</h3><div class="n9-progression-sub">Cinco etapas para llevar una necesidad desde la organización interna hasta el cierre documentado.</div></div><div class="n9-rank-chip" id="dashRank">RANGO 01 · CADETE DE COMPRAS</div></div>
   <div class="n9-stage-track">
-   <a class="n9-stage" id="stage-org" href="?tab=misiones#mission-org"><em>01</em><b>ORGANIZAR</b><span>U1 + U2 · estructura</span></a>
-   <a class="n9-stage" id="stage-planning" href="?tab=misiones#mission-planning"><em>02</em><b>PLANEAR</b><span>3.1–3.5 · requisición</span></a>
-   <a class="n9-stage" id="stage-sourcing" href="?tab=misiones#mission-sourcing"><em>03</em><b>EVALUAR</b><span>3.6–3.9 · proveedores</span></a>
-   <a class="n9-stage" id="stage-contract" href="?tab=misiones#mission-contract"><em>04</em><b>FORMALIZAR</b><span>3.10–3.11 · orden</span></a>
-   <a class="n9-stage" id="stage-close" href="?tab=misiones#mission-close"><em>05</em><b>CONTROLAR</b><span>2.8–2.9 + 3.12</span></a>
+   <a class="n9-stage" id="stage-org" href="?tab=misiones#mission-org" target="_blank" rel="noopener"><em>01</em><b>ORGANIZAR</b><span>U1 + U2 · estructura</span></a>
+   <a class="n9-stage" id="stage-planning" href="?tab=misiones#mission-planning" target="_blank" rel="noopener"><em>02</em><b>PLANEAR</b><span>3.1–3.5 · requisición</span></a>
+   <a class="n9-stage" id="stage-sourcing" href="?tab=misiones#mission-sourcing" target="_blank" rel="noopener"><em>03</em><b>EVALUAR</b><span>3.6–3.9 · proveedores</span></a>
+   <a class="n9-stage" id="stage-contract" href="?tab=misiones#mission-contract" target="_blank" rel="noopener"><em>04</em><b>FORMALIZAR</b><span>3.10–3.11 · orden</span></a>
+   <a class="n9-stage" id="stage-close" href="?tab=misiones#mission-close" target="_blank" rel="noopener"><em>05</em><b>CONTROLAR</b><span>2.8–2.9 + 3.12</span></a>
   </div>
   <div class="n9-progress-footer"><div><strong id="dashNextTitle">Siguiente objetivo: organizar el departamento</strong><small id="dashNextDesc">Comienza por asignar funciones y separar responsabilidades.</small></div><div class="n9-total-progress"><div class="n9-total-progress-head"><span>PROGRESO TOTAL DE CAMPAÑA</span><b id="campaignProgressPercent">0%</b></div><div class="n9-mini-progress"><i id="dashStageProgress"></i></div></div><button class="btn primary" type="button" data-open-tab="misiones">ABRIR CENTRO DE MISIONES ↗</button></div>
  </section>
@@ -823,9 +823,8 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
   if(btn.dataset.tab==='misiones'&&location.hash){const target=document.getElementById(decodeURIComponent(location.hash.slice(1)));if(target)target.scrollIntoView({behavior:'smooth',block:'start'});}
   else window.scrollTo({top:0,behavior:'smooth'});
  });});
- document.querySelectorAll('.n9-queue a,.n9-stage').forEach(function(link){link.addEventListener('click',function(e){
-  const url=new URL(link.href);const tab=url.searchParams.get('tab');if(tab){e.preventDefault();const button=document.querySelector('.tabs button[data-tab="'+tab+'"]');if(button)button.click();history.replaceState(null,'',link.getAttribute('href'));const target=document.getElementById(url.hash.slice(1));if(target)setTimeout(function(){target.scrollIntoView({behavior:'smooth',block:'start'});},50);}
- });});
+ // Queue and stage anchors use target=_blank; preserve native browser multi-window navigation.
+
 
  const world=document.getElementById('n9WorldScene');
  if(world&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
