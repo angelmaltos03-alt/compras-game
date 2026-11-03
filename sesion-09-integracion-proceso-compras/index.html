@@ -242,6 +242,24 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
 @media(max-width:1050px){.n9-world-panel{grid-template-columns:1fr}.n9-world-copy{padding:5px 5px 0}.n9-world-copy h3,.n9-world-copy p{max-width:700px}.n9-world-stats{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.n9-world-viewport{height:280px}.n9-world-node{transform:scale(.82);transform-origin:top left}.node-factory{left:1%;top:38%}.node-planning{left:23%;top:12%}.node-supplier{left:46%;top:40%}.node-po{left:58%;top:3%}.node-warehouse{left:72%;top:55%}.n9-node-label{min-width:85px}.n9-world-stats{grid-template-columns:1fr}.n9-world-legend{font-size:6px}.n9-total-progress{width:100%}}
 @media(prefers-reduced-motion:reduce){.n9-world-path .path-line,.n9-world-cargo{animation:none!important}}
+
+/* Independent workspace windows and mission launchers */
+.n9-window-launcher{display:grid!important;gap:6px!important}
+.n9-window-launcher .n9-launcher{display:grid;grid-template-columns:25px 1fr 17px;align-items:center;gap:10px;width:100%;padding:9px 10px;border:1px solid #263f57;border-radius:9px;background:linear-gradient(105deg,#0a1928,#102238);color:#adc1d4;text-decoration:none;font-size:11px;transition:transform .18s,border-color .18s,background .18s,box-shadow .18s}
+.n9-window-launcher .n9-launcher:hover{transform:translateX(3px);border-color:#64e7f0;background:linear-gradient(105deg,#13344a,#192d47);box-shadow:0 5px 18px #0004;color:#f3f8ff}
+.n9-window-launcher .n9-launcher span{display:grid;place-items:center;width:25px;height:25px;border:1px solid #35546c;border-radius:7px;background:#10263a;color:#64e7f0;font-size:13px}
+.n9-window-launcher .n9-launcher b{font-size:10px;font-weight:800}
+.n9-window-launcher .n9-launcher i{color:#d8ff72;font-size:13px;font-style:normal;text-align:right}
+.n9-queue a{position:relative;grid-template-columns:26px 1fr 14px;padding-right:7px}
+.n9-queue a:after{content:"↗";color:#d8ff72;font-size:12px;opacity:.8}
+.n9-queue a:hover{transform:translateX(3px);box-shadow:0 5px 18px #0004}
+.n9-queue a i{font-size:10px}
+.n9-launcher-title{margin-top:18px}
+.n9-side-note{position:relative}
+.n9-side-note:after{content:"MULTI-WINDOW WORKSPACE";display:block;margin-top:7px;color:#64e7f0;font-size:7px;font-weight:900;letter-spacing:.14em}
+.n9-window-hint{padding:8px 10px;margin:7px 0 12px;border:1px dashed #385772;border-radius:8px;color:#91a9bf;font-size:9px;line-height:1.45}
+.n9-window-hint b{color:#d8ff72}
+@media(max-width:850px){.n9-window-launcher .n9-launcher{grid-template-columns:24px 1fr 15px;padding:7px 5px}.n9-window-launcher .n9-launcher b{font-size:9px}}
 </style>
 </head>
 <body><div class="shell class09-shell">
@@ -253,21 +271,22 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
  <div class="n9-sidebar-brand"><span class="n9-sidebar-mark">N</span><span><b>NEXUS</b><small>PROCUREMENT LEARNING</small></span></div>
  <div class="n9-operator"><div class="eyebrow">OPERADOR EN ENTRENAMIENTO</div><strong id="sideStudentName">Sin identificar</strong><small id="sideStudentGroup">Clase 09 · Grupo pendiente</small></div>
  <div class="n9-progress-label"><span>Progreso de campaña</span><b id="sideProgressText">00 / 05</b></div><div class="n9-progress-track"><span id="sideProgressBar"></span></div>
- <nav class="tabs nexus-primary-nav" aria-label="Navegación de Clase 09">
-  <button class="active" data-tab="inicio"><span>⌂</span> Briefing</button>
-  <button data-tab="estudio"><span>▤</span> Guía de estudio</button>
-  <button data-tab="misiones"><span>⚑</span> Centro de misiones</button>
-  <button data-tab="biblioteca"><span>▧</span> Biblioteca</button>
+ <div class="n9-queue-title n9-launcher-title">WORKSPACE WINDOWS <span>04</span></div>
+ <nav class="tabs nexus-primary-nav n9-window-launcher" aria-label="Abrir áreas de trabajo en ventana independiente">
+  <a class="n9-launcher" href="?tab=inicio" target="_blank" rel="noopener" title="Abrir Briefing en otra pestaña"><span>⌂</span><b>Briefing</b><i>↗</i></a>
+  <a class="n9-launcher" href="?tab=estudio" target="_blank" rel="noopener" title="Abrir Guía de estudio en otra pestaña"><span>▤</span><b>Guía de estudio</b><i>↗</i></a>
+  <a class="n9-launcher" href="?tab=misiones" target="_blank" rel="noopener" title="Abrir Centro de misiones en otra pestaña"><span>⚑</span><b>Centro de misiones</b><i>↗</i></a>
+  <a class="n9-launcher" href="?tab=biblioteca" target="_blank" rel="noopener" title="Abrir Biblioteca en otra pestaña"><span>▧</span><b>Biblioteca</b><i>↗</i></a>
  </nav>
- <div class="n9-queue-title">MISSION QUEUE <span>05</span></div>
+ <div class="n9-queue-title">MISSION QUEUE <span>05 · NUEVA VENTANA ↗</span></div>
  <div class="n9-queue">
-  <a href="?tab=misiones#mission-org"><i>01</i><span><b>Organización</b>U1 + U2</span></a>
-  <a href="?tab=misiones#mission-planning"><i>02</i><span><b>Planeación</b>3.1–3.5</span></a>
-  <a href="?tab=misiones#mission-sourcing"><i>03</i><span><b>Fuentes y cotizaciones</b>3.6–3.9</span></a>
-  <a href="?tab=misiones#mission-contract"><i>04</i><span><b>Negociación + OC</b>3.10–3.11</span></a>
-  <a href="?tab=misiones#mission-close"><i>05</i><span><b>Seguimiento + cierre</b>2.8–2.9 + 3.12</span></a>
+  <a href="?tab=misiones#mission-org" target="_blank" rel="noopener" title="Abrir Organización en una pestaña independiente"><i>01</i><span><b>Organización</b>U1 + U2</span></a>
+  <a href="?tab=misiones#mission-planning" target="_blank" rel="noopener" title="Abrir Planeación en una pestaña independiente"><i>02</i><span><b>Planeación</b>3.1–3.5</span></a>
+  <a href="?tab=misiones#mission-sourcing" target="_blank" rel="noopener" title="Abrir Fuentes y cotizaciones en una pestaña independiente"><i>03</i><span><b>Fuentes y cotizaciones</b>3.6–3.9</span></a>
+  <a href="?tab=misiones#mission-contract" target="_blank" rel="noopener" title="Abrir Negociación + OC en una pestaña independiente"><i>04</i><span><b>Negociación + OC</b>3.10–3.11</span></a>
+  <a href="?tab=misiones#mission-close" target="_blank" rel="noopener" title="Abrir Seguimiento + cierre en una pestaña independiente"><i>05</i><span><b>Seguimiento + cierre</b>2.8–2.9 + 3.12</span></a>
  </div>
- <div class="n9-side-note"><b>REGLA OPERATIVA</b>Primero estudia, después resuelve la misión. Lee la retroalimentación y conserva tu evidencia.</div>
+ <div class="n9-side-note"><b>WORKSPACE MODE</b>Cada módulo y misión se abre en una pestaña independiente. Mantén el tablero principal abierto para consultar tu progreso y cambia entre ventanas cuando lo necesites.</div>
  <a class="n9-page-link" style="margin-top:12px;width:100%;justify-content:center" href="../sesion-08-negociacion-orden-compra/">← Regresar a la Sesión 08</a>
  <a class="n9-page-link" style="margin-top:7px;width:100%;justify-content:center" href="../protocolo-nexus-unidad3/">Abrir Control Tower ↗</a>
 </aside>
@@ -781,7 +800,11 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
    const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='NEXUS-Evidencia-Clase-09.json';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
  });
  $('printEvidence').addEventListener('click',function(){captureFields();window.print();});
- document.querySelectorAll('[data-open-tab]').forEach(function(btn){btn.addEventListener('click',function(){const target=document.querySelector('.tabs button[data-tab="'+btn.dataset.openTab+'"]');if(target)target.click();});});
+ document.querySelectorAll('[data-open-tab]').forEach(function(btn){btn.addEventListener('click',function(){
+  const url=new URL(window.location.href);url.search='?tab='+encodeURIComponent(btn.dataset.openTab);url.hash='';
+  const win=window.open(url.href,'_blank','popup=yes,width=1360,height=920,resizable=yes,scrollbars=yes');
+  if(!win){const a=document.createElement('a');a.href=url.href;a.target='_blank';a.rel='noopener';a.click();}
+ });});
  ['m2net','m2date','m3vendor','m3discount','m4disc','m4net','m4tax','m4total','m5accepted','m5pending'].forEach(function(id){
    if(state.fields[id]!==undefined&&$(id))$(id).value=state.fields[id];
    if($(id))$(id).addEventListener('input',function(){captureFields();updateAllMissionProgress();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}});
@@ -818,10 +841,12 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
  }
  document.querySelectorAll('[data-open-mission]').forEach(function(node){
   node.addEventListener('click',function(){
-   const id=node.dataset.openMission,button=document.querySelector('.tabs button[data-tab="misiones"]');
-   if(button)button.click();
-   history.replaceState(null,'','?tab=misiones#'+id);
-   setTimeout(function(){const target=document.getElementById(id);if(target)target.scrollIntoView({behavior:'smooth',block:'start'});},80);
+   const id=node.dataset.openMission;
+   const url=new URL(window.location.href);
+   url.search='?tab=misiones';
+   url.hash=id;
+   const win=window.open(url.href,'_blank','popup=yes,width=1360,height=920,resizable=yes,scrollbars=yes');
+   if(!win){const fallback=document.createElement('a');fallback.href=url.href;fallback.target='_blank';fallback.rel='noopener';fallback.click();}
   });
  });
  document.getElementById('missionSearch').addEventListener('input',function(e){
