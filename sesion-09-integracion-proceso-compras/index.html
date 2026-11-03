@@ -334,7 +334,7 @@ body{min-height:100vh;background:radial-gradient(ellipse at 65% -12%,#1a4260 0,t
     $('route-m'+(i+1)).classList.toggle('done',!!state.done[k]);
     $('stage-'+k).classList.toggle('done',!!state.done[k]);
   });
-  $('topAvatar').textContent=(state.student||'OP').split(/\\s+/).map(x=>x[0]).slice(0,2).join('').toUpperCase();
+  $('topAvatar').textContent=(state.student||'OP').split(' ').map(x=>x[0]).slice(0,2).join('').toUpperCase();
  }
  $('studentName').addEventListener('change',e=>{state.student=e.target.value.trim();save();});
  $('studentGroup').addEventListener('change',e=>{state.group=e.target.value.trim();save();});
