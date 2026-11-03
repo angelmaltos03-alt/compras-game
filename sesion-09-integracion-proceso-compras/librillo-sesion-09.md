@@ -3,9 +3,23 @@
 
 **Fecha propuesta:** domingo 8 de noviembre de 2026 (confirmar con el calendario del curso).  
 **Cobertura:** Unidad 1 completa; Unidad 2 completa; Unidad 3, temas 3.1–3.12.  
-**Ruta:** estudia el tema, abre la misión indicada, resuelve, lee la retroalimentación y vuelve a tu evidencia escrita.
+**Duración de la práctica digital:** 90 minutos. **Ruta:** estudia el resumen breve, resuelve cada misión con respuesta abierta y cálculos, lee la retroalimentación y corrige antes de avanzar.
 
 [Abrir aula NEXUS Clase 09](https://angelmaltos03-alt.github.io/compras-game/sesion-09-integracion-proceso-compras/?tab=inicio) · [Entrar al Centro de misiones](https://angelmaltos03-alt.github.io/compras-game/sesion-09-integracion-proceso-compras/?tab=misiones)
+
+## Ruta de trabajo de 90 minutos
+
+| Etapa | Tiempo | Qué debes hacer |
+|---|---:|---|
+| Briefing | 5 min | Lee el caso y registra tu nombre y grupo. |
+| Misión 01 · Organización | 12 min | Redacta cómo separar responsabilidades. |
+| Misión 02 · Planeación | 15 min | Calcula el requerimiento neto y redacta una requisición. |
+| Misión 03 · Proveedores | 18 min | Elige proveedor y defiende tu decisión con datos. |
+| Misión 04 · Negociación y OC | 20 min | Resuelve importes y redacta cláusulas. |
+| Misión 05 · Seguimiento | 15 min | Calcula aceptación y redacta el plan de cierre. |
+| Debrief | 5 min | Descarga evidencia y comparte una decisión crítica. |
+
+**Cómo funciona la retroalimentación:** las respuestas abiertas se contrastan con una rúbrica local de conceptos y criterios. La página indica cuáles detectó y cuáles faltan. La rúbrica no interpreta semánticamente como una IA: expresa las ideas con claridad, usa los términos técnicos y revisa el ejemplo cuando necesites corregir.
 
 ## Propósito de la sesión
 
