@@ -554,6 +554,48 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
    const answerKeys={m1open:'org',m2open:'planning',m3open:'sourcing',m4open:'contract',m5open:'close'};
    Object.keys(answerKeys).forEach(function(id){if($(id))state.answers[answerKeys[id]]=$(id).value;});
  }
+
+ const missionSpecs={
+  org:{key:'org',num:1,answer:'m1open',fields:[]},
+  planning:{key:'planning',num:2,answer:'m2open',fields:['m2net','m2date']},
+  sourcing:{key:'sourcing',num:3,answer:'m3open',fields:['m3vendor','m3discount']},
+  contract:{key:'contract',num:4,answer:'m4open',fields:['m4disc','m4net','m4tax','m4total']},
+  close:{key:'close',num:5,answer:'m5open',fields:['m5accepted','m5pending']}
+ };
+ function missionProgress(key){
+  const spec=missionSpecs[key],text=$(spec.answer).value||'';
+  const criteria=C[key]||[];
+  const review=criteriaCheck(text,criteria,0,[]);
+  const answerRatio=Math.min(1,review.wordCount/36);
+  let fieldRatio=0;
+  if(spec.fields.length){
+   fieldRatio=spec.fields.filter(function(id){const el=$(id);return el&&String(el.value).trim()!=='';}).length/spec.fields.length;
+  }else fieldRatio=review.wordCount>0?1:0;
+  const value=state.done[key]?100:Math.min(99,Math.round(fieldRatio*25+answerRatio*15+(criteria.length?review.matched.length/criteria.length:0)*60));
+  return {value:value,matched:review.matched.length,total:criteria.length,words:review.wordCount,done:!!state.done[key]};
+ }
+ function updateMissionProgress(key){
+  const spec=missionSpecs[key];if(!spec)return 0;
+  const p=missionProgress(key),n=spec.num;
+  const wrap=$('m'+n+'Progress');
+  $('m'+n+'ProgressPercent').textContent=p.value+'%';
+  $('m'+n+'ProgressBar').style.width=p.value+'%';
+  $('m'+n+'ProgressBar').parentElement.setAttribute('aria-valuenow',String(p.value));
+  $('m'+n+'ProgressStatus').textContent=p.done?'MISIÓN VALIDADA':(p.value>0?'EN DESARROLLO':'POR INICIAR');
+  $('m'+n+'ProgressDetail').textContent=p.done?'Todos los criterios completados':p.matched+'/'+p.total+' criterios · '+p.words+' palabras';
+  wrap.classList.toggle('is-complete',p.done);
+  return p.value;
+ }
+ function updateAllMissionProgress(){
+  const keys=Object.keys(missionSpecs);
+  const values=keys.map(updateMissionProgress);
+  const total=Math.round(values.reduce(function(a,b){return a+b;},0)/keys.length);
+  $('campaignProgressPercent').textContent=total+'%';
+  $('dashStageProgress').style.width=total+'%';
+  $('sideProgressBar').style.width=total+'%';
+  $('sideProgressText').textContent=total+'%';
+  return total;
+ }
  function render(){
    $('studentName').value=state.student||'';$('studentGroup').value=state.group||'';
    const done=['org','planning','sourcing','contract','close'].filter(function(k){return state.done[k];}).length;
@@ -578,6 +620,7 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
    $('dashRank').textContent=done===5?'RANGO 05 · PROCUREMENT SPECIALIST':'RANGO 0'+Math.min(done+1,4)+' · '+(['CADETE DE COMPRAS','ANALISTA','COMPRADOR','COORDINADOR'][Math.min(done,3)]);
    ['org','planning','sourcing','contract','close'].forEach(function(k){$('stage-'+k).classList.toggle('done',!!state.done[k]);});
    $('topAvatar').textContent=(state.student||'OP').split(' ').map(function(x){return x[0];}).slice(0,2).join('').toUpperCase();
+   updateAllMissionProgress();
    displayTimer();
  }
  function displayTimer(){
@@ -611,6 +654,8 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
    area.addEventListener('input',function(){
      state.answers[key]=area.value;
      $(counterId).textContent=words(area.value)+' palabras';
+     updateMissionProgress(key);
+     updateAllMissionProgress();
      try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}
    });
  }
@@ -739,7 +784,8 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
  document.querySelectorAll('[data-open-tab]').forEach(function(btn){btn.addEventListener('click',function(){const target=document.querySelector('.tabs button[data-tab="'+btn.dataset.openTab+'"]');if(target)target.click();});});
  ['m2net','m2date','m3vendor','m3discount','m4disc','m4net','m4tax','m4total','m5accepted','m5pending'].forEach(function(id){
    if(state.fields[id]!==undefined&&$(id))$(id).value=state.fields[id];
-   if($(id))$(id).addEventListener('change',function(){captureFields();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}});
+   if($(id))$(id).addEventListener('input',function(){captureFields();updateAllMissionProgress();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}});
+   if($(id))$(id).addEventListener('change',function(){captureFields();updateAllMissionProgress();try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}});
  });
  render();
 })();
@@ -757,6 +803,27 @@ button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cy
  document.querySelectorAll('.n9-queue a,.n9-stage').forEach(function(link){link.addEventListener('click',function(e){
   const url=new URL(link.href);const tab=url.searchParams.get('tab');if(tab){e.preventDefault();const button=document.querySelector('.tabs button[data-tab="'+tab+'"]');if(button)button.click();history.replaceState(null,'',link.getAttribute('href'));const target=document.getElementById(url.hash.slice(1));if(target)setTimeout(function(){target.scrollIntoView({behavior:'smooth',block:'start'});},50);}
  });});
+
+ const world=document.getElementById('n9WorldScene');
+ if(world&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  world.addEventListener('pointermove',function(e){
+   const rect=world.getBoundingClientRect(),dx=(e.clientX-rect.left)/rect.width-.5,dy=(e.clientY-rect.top)/rect.height-.5;
+   const space=world.querySelector('.n9-world-space');
+   space.style.setProperty('--tilt-x',(-dy*7).toFixed(2)+'deg');
+   space.style.setProperty('--tilt-y',(dx*8).toFixed(2)+'deg');
+  });
+  world.addEventListener('pointerleave',function(){
+   const space=world.querySelector('.n9-world-space');space.style.setProperty('--tilt-x','0deg');space.style.setProperty('--tilt-y','0deg');
+  });
+ }
+ document.querySelectorAll('[data-open-mission]').forEach(function(node){
+  node.addEventListener('click',function(){
+   const id=node.dataset.openMission,button=document.querySelector('.tabs button[data-tab="misiones"]');
+   if(button)button.click();
+   history.replaceState(null,'','?tab=misiones#'+id);
+   setTimeout(function(){const target=document.getElementById(id);if(target)target.scrollIntoView({behavior:'smooth',block:'start'});},80);
+  });
+ });
  document.getElementById('missionSearch').addEventListener('input',function(e){
   const q=e.target.value.trim().toLocaleLowerCase('es-MX');
   document.querySelectorAll('#misiones .mission').forEach(function(card){card.style.display=!q||card.textContent.toLocaleLowerCase('es-MX').includes(q)?'':'none';});
