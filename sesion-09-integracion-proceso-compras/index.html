@@ -389,7 +389,7 @@ document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',
 const tabTitles={inicio:'Briefing de operación',estudio:'Guía de estudio',misiones:'Centro de misiones',biblioteca:'Biblioteca de aprendizaje'};
 document.querySelectorAll('.tabs button').forEach(btn=>btn.addEventListener('click',()=>{document.getElementById('topbarPageTitle').textContent=tabTitles[btn.dataset.tab]||'Clase 09';}));
 document.querySelectorAll('[data-open-tab]').forEach(btn=>btn.addEventListener('click',()=>{const target=document.querySelector('.tabs button[data-tab="'+btn.dataset.openTab+'"]');if(target)target.click();}));
-$('missionSearch').addEventListener('input',e=>{
+document.getElementById('missionSearch').addEventListener('input',e=>{
  const q=e.target.value.trim().toLocaleLowerCase('es-MX');
  document.querySelectorAll('#misiones .mission').forEach(card=>{card.style.display=!q||card.textContent.toLocaleLowerCase('es-MX').includes(q)?'':'none';});
  if(document.querySelector('.tabs button[data-tab="misiones"]').classList.contains('active')===false&&q){document.querySelector('.tabs button[data-tab="misiones"]').click();}
