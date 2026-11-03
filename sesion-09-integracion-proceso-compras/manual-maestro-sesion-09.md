@@ -3,7 +3,7 @@
 
 **Fecha propuesta:** domingo 8 de noviembre de 2026; confirmar con el calendario institucional.  
 **Cobertura:** Unidad 1; Unidad 2; Unidad 3, temas 3.1–3.12.  
-**Duración sugerida:** 240 minutos, con una pausa de 10 minutos.
+**Duración sugerida:** 90 minutos. La secuencia está diseñada como sprint de repaso aplicado; no se vuelve a exponer cada tema en profundidad.
 
 [Abrir el aula Clase 09](https://angelmaltos03-alt.github.io/compras-game/sesion-09-integracion-proceso-compras/) · [Abrir Centro de misiones](https://angelmaltos03-alt.github.io/compras-game/sesion-09-integracion-proceso-compras/?tab=misiones) · [Librillo del estudiante](librillo-sesion-09.md)
 
@@ -31,20 +31,22 @@ No volver a impartir cada tema como exposición aislada. La sesión funciona com
 | 7 | Unidad 3: 3.6–3.9 | Fuentes, selección, RFQ y comparativo |
 | 8 | Unidad 3: 3.10–3.12 | Negociación, OC y seguimiento |
 
-## Secuencia didáctica sugerida · 240 minutos
+## Secuencia didáctica sugerida · 90 minutos
 
 | Tiempo | Momento | Conducción | Evidencia |
 |---|---|---|---|
-| 0–15 | Apertura | Presentar el problema: se necesitan 400 piezas en 10 días. Preguntar qué revisar antes de comprar. | Diagnóstico oral |
-| 15–35 | U1 | Ordenar etapas del proceso y diferenciar compras de abastecimiento. | Diagrama |
-| 35–65 | U2 | Asignar roles y diseñar estructura híbrida + RACI. | Organigrama |
-| 65–95 | 3.1–3.5 | Calcular requerimiento neto, completar requisición y programar entregas. | Requisición |
-| 95–105 | Pausa | Descanso | — |
-| 105–145 | 3.6–3.9 | Filtrar proveedores, calcular costo total y matriz ponderada. | Comparativo |
-| 145–180 | 3.10–3.11 | Simular negociación y elaborar OC. | Minuta + OC |
-| 180–210 | 2.8–2.9 + 3.12 | Simular recepción parcial/dañada, documentar incidencia y cierre. | Bitácora |
-| 210–230 | Defensa | Cada equipo explica su decisión, riesgo y control. | Presentación |
-| 230–240 | Cierre | Autoevaluación y reflexión individual. | Reflexión |
+| 0–5 | Briefing | Presenta el caso: 400 rodamientos, plazo de 10 días y presupuesto objetivo de $100,000 antes de impuestos. | Diagnóstico oral breve |
+| 5–17 | Misión 01 · Organización | Los alumnos redactan la separación de funciones y validan su criterio en NEXUS. | Respuesta abierta + roles |
+| 17–32 | Misión 02 · Planeación | Calculan requerimiento neto y redactan los campos de la requisición. | Cálculo + requisición |
+| 32–50 | Misión 03 · Proveedores | Comparan las tres cotizaciones y justifican la negociación con C. | Selección + justificación |
+| 50–70 | Misión 04 · Negociación y OC | Calculan descuento, neto, IVA ilustrativo y total; redactan cláusulas. | Cálculos + cláusulas de OC |
+| 70–85 | Misión 05 · Seguimiento y cierre | Calculan aceptadas/pendientes y redactan el plan de no conformidad. | Plan de acción + cierre |
+| 85–90 | Debrief | Cada equipo comparte una decisión y descarga su evidencia JSON. | Evidencia digital |
+
+
+## Cómo usar la retroalimentación de respuestas abiertas
+
+Cada misión pide redactar una decisión profesional. El botón **Evaluar misión** contrasta la respuesta con una rúbrica de conceptos: muestra el porcentaje orientativo, criterios detectados y criterios faltantes. Cuando hay omisiones, el alumno consulta la pista o el modelo orientativo, corrige su texto y vuelve a evaluar. La revisión está basada en palabras clave y criterios locales, no en comprensión semántica generativa; por ello no debe interpretarse como calificación automática definitiva del docente.
 
 ## Guion de apertura
 
