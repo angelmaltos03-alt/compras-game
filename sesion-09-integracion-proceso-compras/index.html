@@ -129,6 +129,23 @@ body{min-height:100vh;background:radial-gradient(ellipse at 65% -12%,#1a4260 0,t
 @media(max-width:1120px){.class09-layout{grid-template-columns:238px minmax(0,1fr);gap:13px}.command-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.n9-module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:850px){.class09-layout{grid-template-columns:1fr}.class09-side{position:relative;top:auto;max-height:none}.nexus-primary-nav{grid-template-columns:repeat(4,minmax(0,1fr));border:0;padding:0;margin:12px 0}.nexus-primary-nav button{justify-content:center;flex-direction:column;gap:4px;padding:8px 5px;font-size:9px;text-align:center}.nexus-primary-nav button span{width:28px;height:25px}.n9-queue{grid-template-columns:repeat(5,minmax(0,1fr))}.n9-queue a{grid-template-columns:1fr;text-align:center;padding:7px 4px}.n9-queue i{margin:auto}.nexus-topbar{top:78px}.n9-search{display:none}.n9-live{margin-left:auto}.command-dashboard{padding:17px}.n9-stage-track{grid-template-columns:repeat(5,minmax(0,1fr))}}
 @media(max-width:560px){.class09-shell{padding:9px}.class09-shell>.top{position:relative;padding:10px}.class09-shell .logo{width:38px;height:38px}.class09-shell .brand h1{font-size:13px}.class09-shell .brand .sub{font-size:10px}.class09-shell .badge{font-size:8px}.class09-side{padding:11px}.nexus-primary-nav{grid-template-columns:repeat(4,minmax(0,1fr))}.n9-queue{grid-template-columns:repeat(3,minmax(0,1fr))}.nexus-topbar{top:0;height:58px;padding:0 10px}.n9-top-location span{font-size:7px}.n9-top-location strong{font-size:11px}.n9-live{font-size:8px}.command-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.command-kpi{padding:11px}.command-kpi strong{font-size:22px}.n9-stage-track{grid-template-columns:repeat(2,minmax(0,1fr))}.n9-stage:last-child{grid-column:span 2}.n9-module-grid{grid-template-columns:1fr}.n9-progression-head h3{font-size:17px}.class-main-content .card{padding:14px}.class-main-content table{min-width:500px}}
+
+/* Isolate the Class 09 shell from Control Tower's login-gated shell rules. */
+.shell.class09-shell{display:block!important;max-width:1680px;padding:18px clamp(10px,2vw,30px);min-height:100vh}
+.shell.class09-shell>.top{display:flex!important;position:relative!important;top:auto!important}
+.shell.class09-shell .class09-layout{display:grid!important;grid-template-columns:278px minmax(0,1fr)!important;gap:20px!important;margin-top:18px!important}
+.shell.class09-shell .class09-side{position:sticky!important;left:auto!important;top:94px!important;bottom:auto!important;width:auto!important;max-height:calc(100vh - 110px)!important;overflow:auto!important;transform:none!important;border:1px solid #294762!important;border-radius:17px!important;padding:15px!important}
+.shell.class09-shell .class09-side .nexus-primary-nav{display:grid!important;grid-template-columns:1fr!important;gap:5px!important;margin:16px 0 14px!important;padding:0 0 14px!important;border:0!important;border-bottom:1px solid #243a4e!important}
+.shell.class09-shell .class09-side .nexus-primary-nav button{display:flex!important;flex-direction:row!important;justify-content:flex-start!important;align-items:center!important;gap:10px!important;text-align:left!important;padding:10px!important;font-size:11px!important}
+.shell.class09-shell .class09-main{display:block!important;min-width:0!important;margin:0!important}
+.shell.class09-shell .class09-main .nexus-topbar{display:flex!important}
+.shell.class09-shell .class09-main .command-dashboard{display:block!important}
+@media(max-width:850px){
+ .shell.class09-shell .class09-layout{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+ .shell.class09-shell .class09-side{position:relative!important;top:auto!important;left:auto!important;bottom:auto!important;width:auto!important;max-height:none!important}
+ .shell.class09-shell .class09-side .nexus-primary-nav{grid-template-columns:repeat(4,minmax(0,1fr))!important;border:0!important;padding:0!important;margin:12px 0!important}
+ .shell.class09-shell .class09-side .nexus-primary-nav button{justify-content:center!important;flex-direction:column!important;gap:4px!important;padding:8px 5px!important;font-size:9px!important;text-align:center!important}
+}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 @media print{.class09-side,.nexus-topbar,.command-dashboard,.class09-shell>.top{display:none!important}.class09-layout{display:block}.class-main-content .section{display:block!important}.class-main-content .card{background:white!important;color:#111!important;box-shadow:none;break-inside:avoid}.class-main-content .card p,.class-main-content .card li{color:#222!important}}
 </style>
