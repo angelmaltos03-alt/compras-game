@@ -55,7 +55,7 @@ label.field{display:block;color:var(--muted);font:9px var(--mono);margin:10px 0 
   <button class="nav" data-go="reto"><i>08</i> Reto práctico</button>
   <button class="nav" data-go="evaluacion"><i>09</i> Evaluación</button>
   <button class="nav" data-go="glosario"><i>10</i> Glosario</button>
-  <div class="sidecard"><b>AVANCE DE LA CLASE</b><p id="progressText">0 de 6 módulos completados</p><div class="progressline"><span id="progressBar"></span></div></div>
+  <div class="sidecard"><b>AVANCE DE LA CLASE</b><p id="progressText">0 de 9 módulos completados</p><div class="progressline"><span id="progressBar"></span></div></div>
   <div class="sidecard"><b>REGLA DEL LABORATORIO</b><p>Primero entiende el problema. Después propone tecnología. Nunca al revés.</p></div>
  </aside>
  <main>
@@ -192,7 +192,7 @@ const KEY='is2_sociotecnico_clase11_v1';
 const state=JSON.parse(localStorage.getItem(KEY)||'{"done":[]}');
 function persist(){localStorage.setItem(KEY,JSON.stringify(state));renderProgress()}
 function complete(id){if(!state.done.includes(id))state.done.push(id);persist();const b=document.querySelector('[data-go="'+id+'"]');if(b)b.classList.add('done');alert('Módulo registrado como comprendido. ¡Buen trabajo!')}
-function renderProgress(){const n=state.done.length;const pct=Math.round(n/6*100);document.getElementById('progressText').textContent=n+' de 6 módulos completados';document.getElementById('progressBar').style.width=pct+'%';document.querySelectorAll('.nav').forEach(x=>{if(state.done.includes(x.dataset.go))x.style.color='var(--green)'})}
+function renderProgress(){const n=state.done.length;const pct=Math.round(n/9*100);document.getElementById('progressText').textContent=n+' de 9 módulos completados';document.getElementById('progressBar').style.width=pct+'%';document.querySelectorAll('.nav').forEach(x=>{if(state.done.includes(x.dataset.go))x.style.color='var(--green)'})}
 document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>{const el=document.getElementById(b.dataset.go);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});document.querySelectorAll('.nav').forEach(n=>n.classList.toggle('active',n===b))}));
 const sections=[...document.querySelectorAll('main section[id]')];const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){document.querySelectorAll('.nav').forEach(n=>n.classList.toggle('active',n.dataset.go===e.target.id))}}),{rootMargin:'-25% 0px -65% 0px'});sections.forEach(s=>obs.observe(s));
 document.querySelectorAll('[data-method]').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('[data-method]').forEach(x=>x.classList.toggle('active',x===t));document.querySelectorAll('.methodpanel').forEach(x=>x.classList.toggle('active',x.id==='method-'+t.dataset.method))}));
