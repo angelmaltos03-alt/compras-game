@@ -55,3 +55,10 @@ Los casos, cifras y respuestas son simulados para práctica. La puntuación es f
 - **Control Tower:** https://angelmaltos03-alt.github.io/compras-game/protocolo-nexus-unidad3/
 
 La sesión integra lo trabajado en las sesiones 1 a 8. Los casos, proveedores y cifras son simulados para fines académicos. El avance del estudiante se guarda localmente en su navegador y se exporta mediante archivo JSON; no se sincroniza automáticamente con una base de datos docente.
+
+## Ingeniería de Sistemas II · Clase 11 — Metodologías sociotécnicas
+
+- **Aula interactiva:** https://angelmaltos03-alt.github.io/compras-game/ingenieria-sistemas-ii-metodologias-sociotecnicas/
+- **Contenido:** enfoque sociotécnico, principios de diseño, SSM, ETHICS, diseño participativo, diagnóstico, rediseño AS-IS/TO-BE, gestión del cambio y evaluación.
+- **Prácticas:** mini casos, calculadora de adopción, caso TITAN Manufacturing, reto de diseño y evaluación con retroalimentación.
+- **Nota:** los casos y cifras de TITAN son simulados para fines académicos; el avance se guarda localmente en el navegador.
