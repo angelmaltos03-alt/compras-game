@@ -83,3 +83,7 @@ La Clase 12 amplió su aula interactiva con:
 - Defensa ejecutiva con preguntas de dirección y generador de recomendación.
 
 Todos los datos de Alimentos Sierra Norte son ficticios. Los avances y respuestas se almacenan localmente en el navegador; no existe envío automático al docente.
+
+### Clase 12 · Sistema de misiones, rangos y tareas
+
+El aula incluye un panel de mando con rangos XP, insignias, una campaña principal de nueve decisiones, ocho misiones secundarias con retroalimentación y ocho tareas entregables con progreso guardado en navegador. El informe descargable registra el avance de la campaña, las misiones opcionales y las tareas completadas.
