@@ -62,3 +62,12 @@ La sesión integra lo trabajado en las sesiones 1 a 8. Los casos, proveedores y 
 - **Contenido:** enfoque sociotécnico, principios de diseño, SSM, ETHICS, diseño participativo, diagnóstico, rediseño AS-IS/TO-BE, gestión del cambio y evaluación.
 - **Prácticas:** mini casos, calculadora de adopción, caso TITAN Manufacturing, reto de diseño y evaluación con retroalimentación.
 - **Nota:** los casos y cifras de TITAN son simulados para fines académicos; el avance se guarda localmente en el navegador.
+
+## Ingeniería de Sistemas II · Clase 12 — Consejo de Ingeniería Empresarial
+
+- **Aula interactiva:** https://angelmaltos03-alt.github.io/compras-game/ingenieria-sistemas-ii-clase-12-consultoria/
+- **Caso:** Alimentos Sierra Norte (empresa ficticia), con pedidos duplicados, inventarios inconsistentes, reportes tardíos y procedimientos distintos entre turnos.
+- **Dinámica:** nueve decisiones con retroalimentación correctiva, pistas, reintentos, puntos y avance guardado localmente.
+- **Entregable:** informe ejecutivo descargable con diagnóstico, sistemas a integrar, gestión del cambio, piloto e indicadores.
+- **Cierre:** discusión y conclusiones personales de la Clase 12.
+- **Nota:** datos de caso simulados; respuestas y avance se guardan en el navegador y no se envían automáticamente al docente.
