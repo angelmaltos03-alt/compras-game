@@ -71,3 +71,15 @@ La sesión integra lo trabajado en las sesiones 1 a 8. Los casos, proveedores y 
 - **Entregable:** informe ejecutivo descargable con diagnóstico, sistemas a integrar, gestión del cambio, piloto e indicadores.
 - **Cierre:** discusión y conclusiones personales de la Clase 12.
 - **Nota:** datos de caso simulados; respuestas y avance se guardan en el navegador y no se envían automáticamente al docente.
+
+### Ampliación del aula · biblioteca y laboratorios
+
+La Clase 12 amplió su aula interactiva con:
+- Biblioteca de estudio con explicaciones de EDI, e-commerce, marketplace, ERP, WMS, Data Warehouse, BI e intranet.
+- Arquitectura ampliada del pedido a la decisión, con interfaces, validaciones, identificadores, monitoreo y seguridad.
+- Laboratorio de datos con calculadoras de duplicados, cancelaciones y reducción del tiempo de reportes.
+- Sala de incidencias con cuatro ejercicios adicionales y retroalimentación correctiva.
+- Gobierno de datos, responsables funcionales y matriz RACI ilustrativa.
+- Defensa ejecutiva con preguntas de dirección y generador de recomendación.
+
+Todos los datos de Alimentos Sierra Norte son ficticios. Los avances y respuestas se almacenan localmente en el navegador; no existe envío automático al docente.
