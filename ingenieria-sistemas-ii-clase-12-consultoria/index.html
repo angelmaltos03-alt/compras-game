@@ -50,6 +50,30 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
 details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9px;background:#0a1b2a}summary{cursor:pointer;color:var(--cyan);font-size:11px;font-weight:800}details p,details li{font-size:10px;color:#c8d6e1}label:has(input[type=checkbox]){font-size:10px;color:#c5d3df;display:inline-block;margin:6px 12px 6px 0}input[type=checkbox]{accent-color:var(--cyan);margin-right:5px}
 @media(max-width:900px){.hud-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.hud-grid{grid-template-columns:1fr 1fr}.rank-card{grid-column:span 2}.mission-grid{grid-template-columns:1fr}.mission-banner{align-items:flex-start}.mission-banner-stat{min-width:75px}.task-board{grid-template-columns:1fr}.mission-route{gap:4px}.route-node{width:68px;min-height:58px}.route-node span{font-size:7px}.route-link{min-width:5px}}
+
+/* Bidirectional references to the Class 12 printed booklet */
+.book-ref{
+  margin:12px 0 16px;
+  padding:10px 13px;
+  border:1px solid #34566e;
+  border-left:3px solid var(--blue);
+  border-radius:0 9px 9px 0;
+  background:linear-gradient(100deg,#102a40,#0d2031);
+  color:#dbe9f2;
+  font-size:10px;
+  line-height:1.55;
+}
+.book-ref strong{
+  color:var(--cyan);
+  font:800 9px var(--mono);
+  letter-spacing:.09em;
+}
+.book-ref span{color:#b8cada}
+@media print{
+  .book-ref{background:#f0f5f8!important;color:#203344!important;border-color:#8ba8bc!important;break-inside:avoid}
+  .book-ref strong{color:#176e78!important}
+}
+
 </style>
 </head>
 <body>
@@ -77,6 +101,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
 </aside>
 <main>
 <section id="inicio" class="hero">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 1–3</strong><br><span>Revisa la pregunta central, el propósito de la clase y la ruta de aprendizaje. El librillo desarrolla la explicación; esta aula se utiliza para practicar.</span></div>
+
  <div class="eyebrow">29 NOVIEMBRE · CLASE 12</div>
  <h1>Consejo de Ingeniería Empresarial</h1>
  <p>Una empresa mexicana está perdiendo ventas, duplicando trabajo y tomando decisiones con información atrasada. La dirección te contrató para investigar el problema y recomendar una solución. Tus decisiones importan: si eliges mal, recibirás retroalimentación y podrás corregir.</p>
@@ -84,6 +110,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  <svg class="hero-art" viewBox="0 0 300 210" role="img" aria-label="Diagrama de empresa conectada"><g fill="none" stroke="#5de0d3" stroke-width="2"><path d="M150 25L55 90L150 175L245 90Z"/><path d="M55 90H245M150 25V175"/></g><g fill="#12364a" stroke="#82b6ff"><rect x="105" y="5" width="90" height="42" rx="8"/><rect x="10" y="70" width="90" height="42" rx="8"/><rect x="200" y="70" width="90" height="42" rx="8"/><rect x="105" y="155" width="90" height="42" rx="8"/></g><g fill="#eefaff" font-size="10" font-family="Manrope" text-anchor="middle"><text x="150" y="30">PERSONAS</text><text x="55" y="95">PROCESOS</text><text x="245" y="95">SISTEMAS</text><text x="150" y="180">DECISIONES</text></g></svg>
 </section>
 <section class="section" id="panel">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 39–41</strong><br><span>Consulta el recorrido recomendado, los rangos de XP y las instrucciones para conservar y entregar tus evidencias.</span></div>
+
  <div class="head"><div><div class="kicker">COMMAND CENTER · ESTADO DEL EQUIPO</div><h2>Panel de mando del consultor</h2></div><p>Tu progreso se calcula con decisiones correctas, misiones adicionales y tareas que completes.</p></div>
  <div class="hud-grid">
   <article class="hud-card rank-card"><div class="hud-label">RANGO ACTUAL</div><div class="rank-name" id="rankName">ANALISTA EN FORMACIÓN</div><div class="rank-caption" id="rankCaption">Comienza tu primera operación.</div><div class="rank-xp"><strong id="rankXp">0</strong><span>XP acumulados</span></div><div class="xp-track"><span id="rankBar"></span></div><div class="rank-next" id="rankNext">Siguiente rango: Analista · 40 XP</div></article>
@@ -97,6 +125,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  </div>
 </section>
 <section class="section" id="caso">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 19–22</strong><br><span>Lee el contexto de Alimentos Sierra Norte, sus datos, síntomas, posibles causas y el rediseño AS-IS → TO-BE.</span></div>
+
  <div class="head"><div><div class="kicker">BRIEFING DE LA ORGANIZACIÓN</div><h2>Conoce a Alimentos Sierra Norte</h2></div><p>Empresa ficticia mexicana creada para este ejercicio. Todos los nombres y datos son simulados.</p></div>
  <div class="grid">
   <article class="card c7"><h3>Quiénes son</h3><p>Alimentos Sierra Norte fabrica salsas, conservas y productos empacados. Tiene oficinas en Monterrey, dos plantas (Apodaca y Saltillo), cuatro centros de distribución y vende a tiendas de autoservicio, distribuidores, clientes directos y plataformas marketplace.</p><p>La empresa creció rápido. Cada área incorporó herramientas distintas y ahora la información no coincide.</p>
@@ -107,6 +137,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  </div>
 </section>
 <section class="section" id="mapa">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 9–10 Y 22–23</strong><br><span>Compara el diagrama de sistemas conectados con la arquitectura de referencia y sigue el recorrido desde el canal de venta hasta la decisión.</span></div>
+
  <div class="head"><div><div class="kicker">MAPA DE SISTEMAS</div><h2>¿Qué piezas deben trabajar juntas?</h2></div><p>Antes de resolver, identifica qué hace cada sistema y qué información necesita compartir.</p></div>
  <div class="card">
   <div class="flow"><div class="node">E-COMMERCE<small>Tienda propia</small></div><div class="node">MARKETPLACE<small>Canal externo</small></div><div class="node">EDI<small>Pedidos B2B</small></div></div>
@@ -119,6 +151,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  </div>
 </section>
 <section class="section" id="biblioteca">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 6–10 Y 42</strong><br><span>Utiliza estas páginas para estudiar EDI, e-commerce, marketplace, ERP, WMS, Data Warehouse, BI e Intranet; el glosario está en la página 42.</span></div>
+
  <div class="head"><div><div class="kicker">CENTRO DE CONOCIMIENTO · AMPLIACIÓN</div><h2>Biblioteca de sistemas empresariales</h2></div><p>Profundiza en los conceptos que necesitas para resolver el caso. Abre cada ficha y conecta la teoría con Alimentos Sierra Norte.</p></div>
  <div class="grid">
   <article class="card c6"><h3>EDI: documentos entre empresas</h3><p>EDI (Electronic Data Interchange) permite intercambiar documentos comerciales con una estructura acordada entre organizaciones. Su valor está en reducir recapturas y hacer más consistente el intercambio de órdenes, confirmaciones, avisos y facturas.</p><details><summary>Ejemplo explicado</summary><p>Una cadena envía un pedido a Sierra Norte. El mensaje debe identificar comprador, proveedor, productos, cantidades, unidades, lugar de entrega y fechas. El sistema receptor valida el formato y los datos; si acepta el mensaje, responde conforme al acuerdo operativo. La empresa debe monitorear rechazos, mensajes pendientes y duplicados.</p></details><div class="callout"><strong>Idea clave:</strong> EDI automatiza el intercambio estructurado, pero no garantiza que el dato comercial sea correcto.</div></article>
@@ -130,6 +164,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  </div>
 </section>
 <section class="section" id="arquitectura">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 11–13 Y 22–25</strong><br><span>Consulta los tipos de integración, API, EDI, procesos por lote, identificadores, errores, documentación de interfaces y responsabilidades.</span></div>
+
  <div class="head"><div><div class="kicker">DISEÑO DE SOLUCIÓN</div><h2>Arquitectura ampliada: del pedido a la decisión</h2></div><p>La arquitectura organiza quién registra, quién procesa, quién conserva el histórico y quién analiza.</p></div>
  <div class="card">
   <div class="flow"><div class="node">CLIENTE FINAL<small>Compra digital</small></div><div class="node">CADENA RETAIL<small>Pedido B2B</small></div><div class="node">MARKETPLACE<small>Canal tercero</small></div></div>
@@ -146,6 +182,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  </div>
 </section>
 <section class="section" id="datos">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 14–15 Y 26–27</strong><br><span>Repasa calidad de datos, datos maestros, Data Warehouse y BI. En las páginas 26–27 encontrarás las fórmulas y los cálculos resueltos para comparar tus resultados.</span></div>
+
  <div class="head"><div><div class="kicker">LABORATORIO DE DATOS</div><h2>Convierte los datos del caso en indicadores</h2></div><p>Calcula los porcentajes y explica qué significan. Los indicadores ayudan a investigar, no sustituyen el análisis.</p></div>
  <div class="grid">
   <article class="card c6"><h3>Calculadora de operación semanal</h3><p>Valores iniciales del caso: 1,250 pedidos, 46 duplicados y 78 cancelados por inventario.</p>
@@ -165,6 +203,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  </div>
 </section>
 <section class="section" id="incidentes">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 12–15, 25 Y 31–32</strong><br><span>Relaciona cada incidente con el concepto correspondiente: duplicados e idempotencia, inventario disponible, vigencia de BI y control de versiones.</span></div>
+
  <div class="head"><div><div class="kicker">SALA DE INCIDENCIAS · PRÁCTICA EXTRA</div><h2>Resuelve problemas que no estaban en el briefing</h2></div><p>Estos retos adicionales prueban si sabes transferir los conceptos a situaciones nuevas.</p></div>
  <div class="grid">
   <article class="card c6"><h3>Incidente A · El pedido llegó dos veces</h3><p>La cadena envió una orden por EDI. El sistema tardó en responder y el mensaje se reenvió. ERP registró dos pedidos iguales.</p><div class="choices"><button class="choice" onclick="extraCheck('a',0)"><span class="letter">A</span><span>Desconectar EDI permanentemente.</span></button><button class="choice" onclick="extraCheck('a',1)"><span class="letter">B</span><span>Usar identificador único, validar mensajes ya procesados, registrar confirmaciones y conciliar duplicados.</span></button><button class="choice" onclick="extraCheck('a',2)"><span class="letter">C</span><span>Borrar uno de los pedidos sin investigar el origen.</span></button></div><div class="feedback" id="extra-a"></div></article>
@@ -174,6 +214,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  </div>
 </section>
 <section class="section" id="gobierno">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 16–17 Y 23–25</strong><br><span>Consulta el enfoque sociotécnico, la gestión del cambio, la propiedad de los datos y la matriz RACI antes de asignar responsabilidades.</span></div>
+
  <div class="head"><div><div class="kicker">ORGANIZACIÓN Y CONTROL</div><h2>Gobierno de datos, responsabilidades y RACI</h2></div><p>La integración requiere que alguien sea responsable de cada dato, regla y decisión.</p></div>
  <div class="grid">
   <article class="card c6"><h3>¿Quién responde por la información?</h3><p>La propiedad del dato no siempre corresponde al equipo que administra el servidor. El área que entiende el significado del dato debe participar en su definición y calidad.</p><div class="tablewrap"><table><tr><th>Dato</th><th>Responsable funcional sugerido</th><th>Validación</th></tr><tr><td>Catálogo de productos</td><td>Comercial / maestro de datos</td><td>Unidades, códigos, estado.</td></tr><tr><td>Existencias</td><td>Almacén</td><td>Físico, reservado, disponible.</td></tr><tr><td>Pedido</td><td>Ventas / atención</td><td>Cliente, canal, cantidades.</td></tr><tr><td>Factura</td><td>Finanzas</td><td>Importes, impuestos, estatus.</td></tr><tr><td>Procedimiento</td><td>Calidad / dueño del proceso</td><td>Versión, vigencia, aprobación.</td></tr></table></div></article>
@@ -182,6 +224,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  </div>
 </section>
 <section class="section" id="decision">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 28–30</strong><br><span>Lee el razonamiento de las nueve decisiones antes de responder. Después de elegir, contrasta la retroalimentación con los criterios del librillo.</span></div>
+
  <div class="head"><div><div class="kicker">SIMULACIÓN · 9 DECISIONES</div><h2>Resuelve el caso por etapas</h2></div><p>Lee cada situación y elige una alternativa. Si te equivocas, el sistema explica qué falló y te permite intentar de nuevo.</p></div>
  <div class="grid">
   <article class="card c4"><h3>Estado de tu misión</h3><div class="big" id="stepCounter">0 / 9</div><p class="tiny">Decisiones resueltas correctamente</p><div class="bar"><span id="caseBar"></span></div><p>Intentos: <b id="attemptCount">0</b></p><p>Puntos: <b id="xpCount" class="big">0</b></p><div class="callout">Cada decisión correcta aporta puntos. Un error no bloquea la misión: te muestra el razonamiento y puedes volver a probar.</div></article>
@@ -197,15 +241,20 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  </div>
 </section>
 <section class="section" id="misiones">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 31–32</strong><br><span>Cada misión secundaria está explicada en el librillo. Lee el problema y su conexión con la clase, resuelve el reto y revisa la retroalimentación.</span></div>
+
  <div class="head"><div><div class="kicker">SIDE QUESTS · OPERACIONES DE ESPECIALIZACIÓN</div><h2>Misiones adicionales: sube de nivel</h2></div><p>Ocho retos breves para aplicar los conceptos a situaciones nuevas. Cada misión correcta suma 15 XP y queda registrada.</p></div>
  <div class="mission-banner"><div><div class="eyebrow">CONTRATOS DISPONIBLES</div><h3>Selecciona una operación y demuestra tu criterio.</h3><p>No son preguntas de memoria: debes reconocer el problema, elegir el control y justificar por qué funcionaría.</p></div><div class="mission-banner-stat"><strong id="bonusHeadline">0/8</strong><span>operaciones concluidas</span></div></div>
  <div id="bonusMissions" class="mission-grid"></div>
  <div class="grid" style="margin-top:16px">
-  <article class="card c7"><h3>Tablero de tareas pendientes</h3><p>Marca cada evidencia cuando tu equipo la haya elaborado. Estas tareas preparan el informe ejecutivo.</p><div id="taskBoard" class="task-board"></div></article>
+  <article class="card c7"><h3>Tablero de tareas pendientes</h3>
+<div class="book-ref"><strong>REFERENCIA PARA LAS OCHO EVIDENCIAS · PÁGINAS DEL LIBRILLO</strong><br><span>Mapa de sistemas: págs. 6–13 y 22. Síntomas y causas: 19–21. Responsables y datos maestros: 14 y 22–25. Indicadores: 26–27. Matriz RACI: 23–24. Capacitación por turno: 16–17. Diseño del piloto: 22–25 y 28–30. Defensa ejecutiva: 35–38.</span></div><p>Marca cada evidencia cuando tu equipo la haya elaborado. Estas tareas preparan el informe ejecutivo.</p><div id="taskBoard" class="task-board"></div></article>
   <article class="card c5"><h3>Recompensas de la especialización</h3><div class="reward-list"><div><b>+15 XP</b><span>Por cada misión opcional resuelta. Completar las ocho activa un bono único de +30 XP.</span></div><div><b>+30 XP</b><span>Al completar las ocho misiones.</span></div><div><b>Insignia</b><span>Por cerrar campaña, misiones y tareas.</span></div></div><div class="callout good">La práctica adicional permite ganar experiencia, pero los intentos fallidos no quitan puntos.</div></article>
  </div>
 </section>
 <section class="section hidden" id="informe">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 33–34 Y 37–38</strong><br><span>Usa las tareas del capítulo 10 para armar evidencias; el capítulo 12 presenta la estructura del informe ejecutivo, preguntas de dirección y rúbrica.</span></div>
+
  <div class="head"><div><div class="kicker">ENTREGABLE DEL EQUIPO</div><h2>Informe de recomendación ejecutiva</h2></div><p>Después de resolver el caso, redacta una recomendación breve y descargable.</p></div>
  <div class="card">
   <div class="callout good">Tu informe debe relacionar problema, sistemas, personas, proceso, implementación y medición.</div>
@@ -219,6 +268,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  </div>
 </section>
 <section class="section" id="defensa">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 35–38</strong><br><span>Prepara tu argumento con afirmación, razón, evidencia y limitación. El librillo también contiene el guion de cuatro minutos y las preguntas difíciles de la dirección.</span></div>
+
  <div class="head"><div><div class="kicker">PRESENTACIÓN EJECUTIVA</div><h2>Defiende tu solución ante la dirección</h2></div><p>Convierte el análisis en una recomendación clara. Una buena respuesta técnica también debe poder explicarse.</p></div>
  <div class="grid">
   <article class="card c5"><h3>Guion de presentación de 4 minutos</h3><div class="steps" style="grid-template-columns:1fr 1fr"><div class="step"><b>00:00–01:00</b><strong>Problema</strong><span>Qué ocurre y qué evidencia lo demuestra.</span></div><div class="step"><b>01:00–02:00</b><strong>Solución</strong><span>Qué sistemas se integran y qué cambia.</span></div><div class="step"><b>02:00–03:00</b><strong>Personas</strong><span>Roles, formación y soporte.</span></div><div class="step"><b>03:00–04:00</b><strong>Resultados</strong><span>Piloto, indicadores y riesgos.</span></div></div></article>
@@ -227,6 +278,8 @@ details{margin:9px 0;padding:10px 12px;border:1px solid #29475e;border-radius:9p
  </div>
 </section>
 <section class="section" id="reflexion">
+<div class="book-ref"><strong>REFERENCIA EN EL LIBRILLO · PÁGS. 35–36 Y 42</strong><br><span>Consulta las preguntas de discusión, la estructura de argumento y la conclusión personal antes de redactar tu reflexión individual.</span></div>
+
  <div class="head"><div><div class="kicker">CIERRE · DISCUSIÓN Y CONCLUSIONES PERSONALES</div><h2>¿Qué aprendiste como ingeniero?</h2></div><p>La Clase 12 cierra el bloque de aplicaciones organizacionales. Conecta lo aprendido con una decisión profesional.</p></div>
  <div class="grid">
   <article class="card c6"><h3>Preguntas para debatir en grupo</h3><ol class="tiny"><li>¿Es mejor tener muchos sistemas independientes o integrarlos?</li><li>¿Puede BI producir buenas decisiones si los datos son incorrectos?</li><li>¿La transformación digital depende más de la tecnología o de las personas?</li><li>¿Qué riesgos tiene automatizar un proceso que ya está mal diseñado?</li><li>¿Qué aprendimos de las empresas mexicanas expuestas en la clase anterior?</li></ol></article>
