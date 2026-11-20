@@ -947,12 +947,14 @@ html{scroll-padding-top:18px}
   <a class="n9-launcher" href="#dashboard"><span>⌂</span><b>Dashboard</b><i>⌘</i></a>
   <a class="n9-launcher" href="#briefing"><span>▣</span><b>Briefing</b><i>↗</i></a>
   <a class="n9-launcher" href="#guia"><span>▤</span><b>Guía de estudio</b><i>↗</i></a>
+  <a class="n9-launcher" href="#calculadora"><span>∑</span><b>Centro de cálculo</b><i>↗</i></a>
   <a class="n9-launcher" href="#misiones"><span>⚑</span><b>Centro de misiones</b><i>↗</i></a>
   <a class="n9-launcher" href="#integrador"><span>⌘</span><b>Diagrama integral</b><i>↗</i></a>
   <a class="n9-launcher" href="#recursos"><span>▧</span><b>Referencias</b><i>↗</i></a>
  </nav>
  <div class="n9-queue-title">MISSION QUEUE <span>04 · LIVE</span></div>
  <div class="n9-queue">
+  <a href="#calculadora"><i>∑</i><span><b>Centro de cálculo</b>4 labs · desarrollo paso a paso</span></a>
   <a href="#mission-receiving"><i>01</i><span><b>Recepción</b>3.13 · 20 retos</span></a>
   <a href="#mission-quality"><i>02</i><span><b>Calidad</b>3.14 · 20 retos</span></a>
   <a href="#mission-payment"><i>03</i><span><b>Pago y factura</b>3.15 · 20 retos</span></a>
@@ -1347,7 +1349,7 @@ function validateTask(id){
   ok=value!==''&&Number(value)===task.correct;
   feedback=ok?'Respuesta correcta. '+task.explain:'Revisa la selección. '+task.hint;
  }else if(task.type==='number'){
-  const words=procedure?procedure.split(/\\s+/).filter(Boolean).length:0;const resultOk=value!==''&&Number.isFinite(Number(value))&&Math.abs(Number(value)-task.answer)<=task.tolerance;ok=resultOk&&words>=12;
+  const words=procedure?procedure.split(/\s+/).filter(Boolean).length:0;const resultOk=value!==''&&Number.isFinite(Number(value))&&Math.abs(Number(value)-task.answer)<=task.tolerance;ok=resultOk&&words>=12;
   feedback=ok?'Cálculo correcto y procedimiento registrado. '+task.explain:(!resultOk?'El resultado numérico no coincide. ':'El resultado coincide, pero falta el desarrollo escrito (mínimo 12 palabras). ')+'Resultado esperado: '+task.answer+(task.unit?' '+task.unit:'.')+' Incluye datos, fórmula, sustitución, operación e interpretación. '+task.explain;
  }else{
   const text=normalize(value),missing=(task.groups||[]).filter(group=>!group.some(term=>text.includes(normalize(term))));
