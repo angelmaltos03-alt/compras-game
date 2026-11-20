@@ -1405,9 +1405,10 @@ function checkFlow(){
  renderProgress();
 }
 function updateEvidence(){
- state.evidence={};
+ const calculations=state.evidence?.calculations||{};
+ state.evidence={calculations};
  document.querySelectorAll('[data-evidence]').forEach(el=>{state.evidence[el.dataset.evidence]=el.checked;});
- save();
+ save();renderCalcScore();
 }
 function downloadEvidence(){
  if(!state.student.trim()){alert('Registra tu nombre antes de descargar la evidencia.');$('studentName').focus();return;}
