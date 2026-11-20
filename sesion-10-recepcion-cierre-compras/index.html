@@ -1,0 +1,1468 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#07111e">
+<meta name="description" content="NEXUS Sesión 10: práctica interactiva de recepción, calidad, pago de facturas y archivo histórico de compras.">
+<title>NEXUS | Sesión 10 · Recepción y cierre de compras</title>
+<style>
+
+:root{color-scheme:dark;--bg:#050b15;--panel:#0d1b2c;--panel2:#14273c;--line:#29445f;--ink:#f4f8ff;--muted:#9bb0c6;--lime:#d8ff72;--cyan:#64e7f0;--violet:#a4a2ff;--red:#ff8894;--green:#8fe0ac}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 70% -15%,#183e5b 0,transparent 37%),radial-gradient(ellipse at 3% 32%,#14213e 0,transparent 34%),linear-gradient(rgba(83,145,184,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(83,145,184,.035) 1px,transparent 1px),#050b15;background-size:auto,auto,42px 42px,42px 42px,auto;background-attachment:fixed;color:var(--ink);font:15px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--cyan)}
+.shell.class09-shell{display:block!important;width:100%;max-width:1680px;min-height:100vh;margin:0 auto;padding:18px clamp(10px,2vw,30px)}
+.class09-shell>.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;position:relative;margin:0 0 18px;padding:13px 18px;border:1px solid #29445f;border-radius:17px;background:#07111eed;box-shadow:0 14px 45px #0004;backdrop-filter:blur(18px)}
+.class09-shell .brand{display:flex;align-items:center;gap:13px;min-width:0}
+.class09-shell .logo{width:46px;height:46px;flex:0 0 auto;display:grid;place-items:center;border-radius:14px;background:linear-gradient(145deg,#d8ff72,#91cb52);color:#0b1721;font-size:23px;font-weight:950;box-shadow:0 0 30px #d8ff7230}
+.class09-shell .brand h1{margin:0;font-size:clamp(15px,1.55vw,22px);letter-spacing:.075em;line-height:1.2}
+.class09-shell .eyebrow{color:var(--cyan);font-size:9px;letter-spacing:.17em;font-weight:900;text-transform:uppercase}
+.class09-shell .sub{margin-top:4px;color:#91a8bf;font-size:11px}
+.class09-shell .badge{padding:7px 11px;border:1px solid #6d8848;border-radius:99px;background:#d8ff7210;color:var(--lime);font-size:10px;font-weight:900;letter-spacing:.07em}
+.class09-layout{display:grid!important;grid-template-columns:278px minmax(0,1fr);gap:20px;margin-top:0!important;align-items:start}
+.class09-side{display:block!important;position:sticky!important;top:16px!important;left:auto!important;bottom:auto!important;width:auto!important;max-height:calc(100vh - 32px);overflow:auto;padding:15px;border:1px solid #294762;border-radius:17px;background:linear-gradient(165deg,#10243af5,#081421f7);box-shadow:0 18px 50px #0004;scrollbar-width:thin;transform:none!important}
+.n9-sidebar-brand{display:flex;align-items:center;gap:10px;padding:4px 6px 14px;border-bottom:1px solid #243a4e}
+.n9-sidebar-mark{width:35px;height:35px;flex:0 0 auto;display:grid;place-items:center;border:1px solid #4d7890;border-radius:10px;background:linear-gradient(145deg,#1a4358,#0d2231);color:var(--lime);font-size:17px;font-weight:950}
+.n9-sidebar-brand b{display:block;font-size:13px;letter-spacing:.15em}.n9-sidebar-brand small{display:block;color:#8da7bf;font-size:9px;letter-spacing:.12em}
+.n9-operator{margin:13px 0;padding:12px;border:1px solid #365570;border-radius:12px;background:linear-gradient(125deg,#142e45,#0a1725)}
+.n9-operator strong{display:block;margin-top:4px;font-size:13px;overflow-wrap:anywhere}.n9-operator small{display:block;margin-top:3px;color:#8fa7bb;font-size:10px}
+.n9-progress-label{display:flex;justify-content:space-between;margin:14px 0 6px;color:#9fb2c7;font-size:11px}
+.n9-progress-track{height:9px;overflow:hidden;border:1px solid #304962;border-radius:99px;background:#1b3046}
+.n9-progress-track span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--lime));box-shadow:0 0 14px #64e7f055;transition:width .25s}
+.nexus-primary-nav{display:grid!important;grid-template-columns:1fr;gap:5px;margin:16px 0 14px;padding:0 0 14px;border:0;border-bottom:1px solid #243a4e}
+.nexus-primary-nav button{display:flex;align-items:center;justify-content:flex-start;gap:10px;width:100%;padding:10px;border:1px solid transparent;border-radius:9px;background:#091725;color:#8fa7bb;text-align:left;font-size:11px;font-weight:750}
+.nexus-primary-nav button span{width:24px;height:24px;flex:0 0 auto;display:grid;place-items:center;border:1px solid #35546c;border-radius:7px;background:#10263a;color:var(--cyan);font-size:12px}
+.nexus-primary-nav button.active{border-color:var(--cyan);background:linear-gradient(105deg,#203c54,#192b45);box-shadow:inset 3px 0 var(--cyan);color:#f3f8ff}
+.n9-queue-title{display:flex;justify-content:space-between;margin:17px 4px 9px;color:#829bb2;font-size:9px;font-weight:900;letter-spacing:.16em}.n9-queue-title span{color:var(--lime)}
+.n9-queue{display:grid;gap:6px}
+.n9-queue a{display:grid;grid-template-columns:25px 1fr;align-items:center;gap:9px;padding:9px;border:1px solid #243d54;border-radius:9px;background:#091725;color:#afc0d0;text-decoration:none;font-size:10px;line-height:1.35}
+.n9-queue a:hover{border-color:var(--cyan);background:#10253a;color:#f4f8ff}
+.n9-queue i{width:24px;height:24px;display:grid;place-items:center;border:1px solid #385a72;border-radius:7px;color:var(--lime);font-style:normal;font-weight:900}
+.n9-queue b{display:block;color:#dceafa;font-size:10px}
+.n9-side-note{margin-top:14px;padding:11px;border:1px solid #72513b;border-radius:10px;background:linear-gradient(110deg,#30251f,#1b1d25);color:#d7c2b1;font-size:10px;line-height:1.5}
+.n9-side-note b{display:block;margin-bottom:4px;color:#ffd18a;letter-spacing:.08em}
+.n9-page-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:8px 10px;border:1px solid #42647d;border-radius:8px;background:#0a1b2c;font-size:10px;font-weight:850;text-decoration:none}
+.class09-main{display:block!important;min-width:0!important;margin:0!important}
+.class09-main .nexus-topbar{height:70px;display:flex!important;align-items:center;gap:15px;margin:0 0 16px;padding:0 17px;position:sticky;top:12px;z-index:25;border:1px solid #243b52;border-radius:15px;background:#07111eeb;box-shadow:0 10px 34px #0002;backdrop-filter:blur(18px)}
+.n9-top-location{min-width:170px}.n9-top-location span{display:block;color:#76dce4;font-size:8px;font-weight:900;letter-spacing:.16em}.n9-top-location strong{display:block;margin-top:3px;color:#eef6ff;font-size:13px}
+.n9-search{display:flex;align-items:center;gap:8px;max-width:350px;flex:1;padding:0 10px;border:1px solid #2c465e;border-radius:9px;background:#081725}
+.n9-search span{color:#78dce5;font-size:17px}.n9-search input{min-width:0;width:100%;padding:9px 0;border:0!important;outline:none;background:transparent!important;color:#eef6ff;font-size:11px}
+.n9-live{display:flex;align-items:center;gap:7px;margin-left:auto;color:#9cf3c5;font-size:9px;font-weight:900;letter-spacing:.11em;white-space:nowrap}.n9-live i{width:7px;height:7px;border-radius:50%;background:#62e6a6;box-shadow:0 0 11px #62e6a6}
+.n9-avatar{width:34px;height:34px;flex:0 0 auto;display:grid;place-items:center;border:1px solid #3d657d;border-radius:10px;background:linear-gradient(145deg,#224b66,#10283a);color:var(--lime);font-size:11px;font-weight:900}
+.command-dashboard{display:block!important;position:relative;overflow:hidden;margin:0 0 16px;padding:clamp(18px,2.5vw,30px);border:1px solid #2b4560;border-radius:19px;background:linear-gradient(155deg,#0e1d2ef5,#091522f7);box-shadow:0 18px 50px #0003}
+.command-dashboard:before{content:"";position:absolute;right:-100px;top:-150px;width:380px;height:380px;border:1px solid #47718a50;border-radius:50%;box-shadow:0 0 0 36px #47718a12,0 0 0 76px #47718a0b;pointer-events:none}
+.command-head{position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.command-head h2{margin:8px 0 5px;font-size:clamp(23px,3vw,34px);letter-spacing:-.04em;line-height:1.15}
+.command-head p{margin:0;color:#a9bdd2;font-size:12px}
+.n9-command-status{display:flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid #2f6b57;border-radius:8px;background:#0d2a25;color:#9cf3c5;font-size:9px;font-weight:900;letter-spacing:.12em}
+.n9-command-status i{width:7px;height:7px;border-radius:50%;background:#62e6a6;box-shadow:0 0 12px #62e6a6}
+.command-kpis{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin:19px 0 16px}
+.command-kpi{position:relative;min-width:0;overflow:hidden;padding:15px;border:1px solid #2a435a;border-radius:12px;background:linear-gradient(145deg,#11243a,#0a1624)}
+.command-kpi:after{content:"";position:absolute;right:-18px;top:-22px;width:80px;height:80px;border:1px solid #41627a45;border-radius:50%;pointer-events:none}
+.kpi-label{display:block;color:#8da7bf;font-size:9px;font-weight:900;letter-spacing:.13em}
+.command-kpi strong{display:block;margin:8px 0 2px;color:#eaf5ff;font-size:clamp(23px,2.4vw,31px);letter-spacing:-.04em}
+.command-kpi>span:last-of-type{display:block;min-height:28px;color:#9eb2c7;font-size:10px;line-height:1.4}
+.kpi-track{height:3px;overflow:hidden;margin-top:11px;border-radius:8px;background:#20374c}.kpi-track i{display:block;width:0;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--lime))}
+.nexus-progression{position:relative;overflow:hidden;margin:17px 0 2px;padding:19px;border:1px solid #38536e;border-radius:17px;background:radial-gradient(ellipse at 95% 0%,#273b642c,transparent 36%),linear-gradient(125deg,#0d2339,#11152b 65%,#1c2b22)}
+.n9-progression-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.n9-progression-head h3{margin:5px 0;font-size:20px}.n9-progression-sub{max-width:620px;color:#9fb2c7;font-size:11px}
+.n9-rank-chip{padding:8px 11px;border:1px solid #52734b;border-radius:9px;background:#d8ff7210;color:var(--lime);font-size:9px;font-weight:900;letter-spacing:.1em}
+.n9-stage-track{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:15px}
+.n9-stage{display:block;min-width:0;padding:11px 9px;border:1px solid #2c455c;border-radius:10px;background:#081725;text-decoration:none}
+.n9-stage b{display:block;color:#d8e5f1;font-size:9px;letter-spacing:.04em}.n9-stage span{display:block;margin-top:4px;color:#7f99b0;font-size:8px}
+.n9-stage em{width:22px;height:22px;display:inline-grid;place-items:center;margin-bottom:7px;border:1px solid #3c6178;border-radius:7px;color:var(--cyan);font-size:10px;font-style:normal;font-weight:900}
+.n9-stage.done{border-color:#3b8a69;background:#0c261f}.n9-stage.done em{border-color:#4d9b73;background:#123c2c;color:#b6f3d0}
+.n9-progress-footer{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;margin-top:14px;padding-top:12px;border-top:1px solid #ffffff16}
+.n9-progress-footer strong{color:#eaf5ff;font-size:11px}.n9-progress-footer small{display:block;margin-top:3px;color:#93a9be;font-size:9px}
+.n9-mini-progress{width:min(220px,100%);height:7px;overflow:hidden;border-radius:99px;background:#1a3046}.n9-mini-progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--lime))}
+.n9-module-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.n9-module{min-height:125px;padding:13px;border:1px solid #29445d;border-radius:12px;background:linear-gradient(150deg,#102237,#091522)}
+.n9-module small{display:block;color:#7fa0b9;font-size:8px;font-weight:900;letter-spacing:.12em}.n9-module b{display:block;margin:7px 0 4px;font-size:12px}.n9-module p{margin:0;color:#9fb2c5;font-size:10px;line-height:1.45}
+.class-main-content{display:block!important;min-width:0;margin-top:17px}
+.class-main-content .section{display:none!important}
+.class-main-content .section.active{display:block!important}
+.class-main-content .card{margin:0 0 14px;padding:clamp(16px,2vw,23px);border:1px solid #29445f;border-radius:15px;background:linear-gradient(155deg,#102137f2,#0a1625f7);box-shadow:0 14px 36px #0002}
+.class-main-content .card h2{color:#f1f6ff;font-size:clamp(19px,2vw,25px);line-height:1.2}
+.class-main-content .card h3{color:#dceafa;font-size:16px}
+.class-main-content .card p,.class-main-content .card li{color:#b8c9da}
+.class-main-content .kicker{color:var(--cyan);font-size:9px;font-weight:900;letter-spacing:.17em}
+.class-main-content .mission{position:relative;scroll-margin-top:105px}
+.class-main-content .mission:before{content:"";position:absolute;top:18px;bottom:18px;left:0;width:3px;border-radius:6px;background:linear-gradient(180deg,var(--cyan),var(--violet),var(--lime))}
+.class-main-content .bridge{margin:12px 0 15px;padding:12px 14px;border:1px solid #2c6570;border-left:3px solid var(--cyan);border-radius:9px;background:linear-gradient(110deg,#0c2d3d,#101b2d)}
+.class-main-content .bridge b{color:#9df5eb;font-size:9px;letter-spacing:.13em}.class-main-content .bridge p{margin:5px 0;color:#c0cfdf;font-size:11px}.class-main-content .bridge a{font-size:11px;font-weight:850;text-decoration:none}
+.class-main-content .question{margin:12px 0;padding:13px;border:1px solid #354f6a;border-radius:11px;background:linear-gradient(145deg,#0a1726,#10233a)}
+.class-main-content .question p{margin:0 0 9px;color:var(--ink);font-weight:750}
+.class-main-content .option{display:flex!important;align-items:flex-start;gap:8px;margin:6px 0!important;padding:8px 9px;border:1px solid transparent;border-radius:8px;background:#0e2132;color:#d0dce5!important;font-size:13px;cursor:pointer}
+.class-main-content .option:hover{border-color:#446580;background:#172c42}
+.class-main-content .option input{width:auto;margin:3px 0 0;accent-color:var(--lime)}
+.class-main-content .feedback{display:none;margin:11px 0 0;padding:12px;border:1px solid #3d735c;border-radius:9px;background:#102e28;color:#c8f3df;font-size:13px;line-height:1.7}
+.class-main-content .feedback.bad{border-color:#75434b;background:#351c25;color:#ffd0d0}
+.class-main-content .hint{display:none;margin:10px 0;padding:11px 13px;border-left:3px solid #d9ae58;border-radius:0 9px 9px 0;background:#2d281c;color:#f3e2b7;font-size:13px}
+.class-main-content .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.class-main-content .btn,.n9-progress-footer .btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border:1px solid #45617d;border-radius:9px;background:linear-gradient(130deg,#203b55,#172a40);color:var(--ink);font-size:11px;font-weight:850;text-decoration:none;cursor:pointer}
+.class-main-content .btn.primary,.n9-progress-footer .btn.primary{border-color:var(--lime);background:linear-gradient(110deg,#d8ff72,#b5e75e);color:#101a12}
+.class-main-content .formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.class-main-content label{display:block;margin:9px 0 5px;color:#a9bdd2;font-size:12px;font-weight:800}
+.class-main-content input:not([type=radio]),.class-main-content select,.class-main-content textarea{width:100%;padding:10px;border:1px solid #38536f;border-radius:8px;background:#071320;color:var(--ink);font:inherit}
+.class-main-content input[type=radio]{accent-color:var(--lime)}
+.class-main-content .muted{color:#9bb0c6}
+.class-main-content .pill{display:inline-block;margin:2px;padding:4px 9px;border:1px solid #2c6270;border-radius:99px;background:#17394a;color:var(--cyan);font-size:10px}
+.class-main-content .callout{margin:13px 0;padding:12px 14px;border-left:3px solid var(--cyan);border-radius:0 9px 9px 0;background:#102d3b;color:#c9d8e6}
+.class-main-content .callout.gold{border-left-color:#d9ae58;background:#30291b}
+.class-main-content .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.class-main-content .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:14px 0}
+.class-main-content .stat{padding:12px;border:1px solid #29445f;border-radius:10px;background:linear-gradient(145deg,#10243a,#091725)}
+.class-main-content .stat small{display:block;color:#9bb0c6;font-size:10px;text-transform:uppercase}.class-main-content .stat b{color:var(--lime);font-size:22px}
+.class-main-content .progress{height:8px;overflow:hidden;border:1px solid #304962;border-radius:99px;background:#1b3046}.class-main-content .progress span{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--cyan),var(--lime))}
+.class-main-content .route{display:flex;gap:7px;flex-wrap:wrap;margin:12px 0}.class-main-content .route span{padding:7px 9px;border:1px solid #304c64;border-radius:8px;background:#091827;color:#c7d6e0;font-size:10px}
+.class-main-content .tablewrap{overflow:auto;margin:12px 0;border-radius:10px}
+.class-main-content table{width:100%;min-width:520px;border-collapse:separate;border-spacing:0;font-size:13px}
+.class-main-content th,.class-main-content td{padding:9px;border-bottom:1px solid #29445f;text-align:left}
+.class-main-content th{background:#1b3550;color:#dceafa}.class-main-content td{background:#091827;color:#c9d8e6}
+.class-main-content .section a:not(.btn){color:var(--cyan)}
+.class09-shell .footer{margin-top:24px;padding:18px 0;border-top:1px solid #22384d;color:#8199ae;font-size:10px;text-align:center}
+@media(max-width:1120px){.class09-layout{grid-template-columns:238px minmax(0,1fr)}.command-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.n9-module-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:850px){.class09-layout{grid-template-columns:1fr}.class09-side{position:relative!important;top:auto!important;max-height:none}.nexus-primary-nav{grid-template-columns:repeat(4,minmax(0,1fr))!important;border:0!important;padding:0!important;margin:12px 0!important}.nexus-primary-nav button{justify-content:center!important;flex-direction:column!important;gap:4px!important;padding:8px 5px!important;font-size:9px!important;text-align:center!important}.nexus-primary-nav button span{width:28px;height:25px}.class09-main .nexus-topbar{top:0}.n9-search{display:none}.n9-live{margin-left:auto}.command-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.n9-stage-track{grid-template-columns:repeat(5,minmax(0,1fr))}}
+@media(max-width:560px){.shell.class09-shell{padding:9px}.class09-shell>.top{padding:10px}.class09-shell .logo{width:38px;height:38px}.class09-shell .brand h1{font-size:13px}.class09-shell .brand .sub{font-size:10px}.class09-shell .badge{font-size:8px}.class09-side{padding:11px}.nexus-primary-nav{grid-template-columns:repeat(4,minmax(0,1fr))!important}.n9-queue{grid-template-columns:repeat(3,minmax(0,1fr))}.class09-main .nexus-topbar{height:58px;padding:0 10px}.n9-top-location span{font-size:7px}.n9-top-location strong{font-size:11px}.n9-live{font-size:8px}.command-kpis{gap:7px}.command-kpi{padding:11px}.command-kpi strong{font-size:22px}.n9-stage-track{grid-template-columns:repeat(2,minmax(0,1fr))}.n9-stage:last-child{grid-column:span 2}.n9-module-grid,.class-main-content .grid,.class-main-content .formgrid{grid-template-columns:1fr}.class-main-content .card{padding:14px}.class-main-content table{min-width:500px}.class-main-content .stats{grid-template-columns:repeat(2,minmax(0,1fr))}.class-main-content .stat:last-child{grid-column:span 2}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media print{body{background:white!important;color:#111!important}.class09-side,.nexus-topbar,.command-dashboard,.class09-shell>.top{display:none!important}.class09-layout{display:block!important}.class-main-content .section{display:block!important}.class-main-content .card{background:white!important;color:#111!important;box-shadow:none;break-inside:avoid}.class-main-content .card p,.class-main-content .card li,.class-main-content td{color:#222!important}}
+
+
+.mission-topline{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.mission-time{border:1px solid #58714a;background:#d8ff7210;color:#d8ff72;border-radius:99px;padding:5px 9px;font-size:9px;font-weight:900;letter-spacing:.1em}
+.sprint-overview{border-color:#47627b!important;background:radial-gradient(ellipse at 92% 0%,#263e5b55,transparent 40%),linear-gradient(145deg,#142d44,#0a1727)!important}
+.sprint-control{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;margin:15px 0;padding:14px 16px;border:1px solid #3b5872;border-radius:12px;background:#081725}
+.sprint-control strong{display:block;font-size:30px;line-height:1.15;color:#d8ff72;font-variant-numeric:tabular-nums}
+.sprint-control small{display:block;margin-top:4px;color:#8fa8bf;font-size:10px}
+.sprint-buttons{display:flex;gap:7px;flex-wrap:wrap}
+.time-route{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin:13px 0}
+.time-route span{padding:8px 6px;border:1px solid #2a475f;border-radius:8px;background:#091827;color:#8ea7bb;text-align:center;font-size:8px;letter-spacing:.04em}
+.time-route b{display:block;color:#e6f2ff;font-size:11px;margin-top:3px}
+.rubric-explainer{display:grid;gap:4px;padding:11px 13px;border-left:3px solid #a4a2ff;border-radius:0 9px 9px 0;background:#171d36;color:#bbc9db;font-size:10px;line-height:1.55}
+.rubric-explainer b{color:#c5c4ff;font-size:11px}
+.scenario-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:13px 0}
+.scenario-stat{padding:12px;border:1px solid #2c465d;border-radius:10px;background:linear-gradient(140deg,#10243a,#091725)}
+.scenario-stat small{display:block;color:#86a0b8;font-size:8px;letter-spacing:.13em;font-weight:900}
+.scenario-stat b{display:block;margin:5px 0;color:#e8f4ff;font-size:14px}
+.scenario-stat span{display:block;color:#9cb1c4;font-size:10px}
+.open-lab{margin:14px 0;padding:15px;border:1px solid #3a5470;border-radius:12px;background:linear-gradient(145deg,#0d2033,#091624)}
+.open-prompt{display:grid;gap:4px;margin-bottom:10px}
+.open-prompt>span{color:#64e7f0;font-size:9px;font-weight:900;letter-spacing:.14em}
+.open-prompt>b{color:#f0f6ff;font-size:14px}
+.open-prompt p{margin:0;color:#9fb3c7;font-size:11px;line-height:1.6}
+.open-answer{display:block;width:100%;min-height:112px;padding:12px;border:1px solid #3b5874;border-radius:9px;background:#06121f;color:#f2f7ff;font:13px/1.6 Inter,system-ui,sans-serif;resize:vertical}
+.open-answer:focus{outline:2px solid #64e7f088;border-color:#64e7f0}
+.open-answer::placeholder{color:#5f7890}
+.open-actions{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-top:9px}
+.word-meter{color:#7f98af;font-size:9px;font-variant-numeric:tabular-nums}
+.model-answer{margin-top:10px;border:1px dashed #42617c;border-radius:9px;background:#0a1928;padding:9px 11px;color:#aebfd0}
+.model-answer summary{cursor:pointer;color:#b8cdf0;font-size:10px;font-weight:850}
+.model-answer p{margin:9px 0 2px;color:#c3d0dd!important;font-size:11px;line-height:1.65}
+.class-main-content .feedback{padding:13px!important}
+.feedback-score{display:flex;align-items:center;gap:9px;margin:8px 0}
+.feedback-score strong{color:#d8ff72;font-size:15px}
+.feedback-score-track{height:6px;flex:1;border-radius:99px;background:#1c3448;overflow:hidden}
+.feedback-score-track i{display:block;height:100%;background:linear-gradient(90deg,#64e7f0,#d8ff72)}
+.feedback-points{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;margin-top:9px}
+.feedback-point{padding:6px 8px;border-radius:7px;background:#091b2a;color:#9eb5c8;font-size:10px}
+.feedback-point.ok{border:1px solid #285944;color:#a6e8c2}
+.feedback-point.miss{border:1px solid #6b4543;color:#f1b8b5}
+.feedback-next{margin-top:9px;padding:9px 10px;border-left:3px solid #d9ae58;background:#2a251c;border-radius:0 7px 7px 0;color:#e9d9b6;font-size:10px}
+@media(max-width:850px){.time-route{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:560px){.time-route{grid-template-columns:repeat(2,minmax(0,1fr))}.scenario-grid{grid-template-columns:1fr}.feedback-points{grid-template-columns:1fr}.sprint-control strong{font-size:25px}}
+
+
+/* GAME LAYER · 3D SUPPLY-CHAIN WORLD */
+.n9-world-panel{display:grid;grid-template-columns:minmax(240px,.72fr) minmax(420px,1.28fr);gap:14px;align-items:center;position:relative;margin:18px 0 16px;padding:15px;border:1px solid #31506b;border-radius:17px;background:radial-gradient(ellipse at 75% 45%,#1b536255,transparent 48%),linear-gradient(135deg,#0b1c2d,#10263a 55%,#0b1726);box-shadow:inset 0 1px #ffffff12,0 14px 38px #0003;overflow:hidden}
+.n9-world-copy{position:relative;z-index:2;padding:8px 10px}
+.n9-world-copy h3{max-width:350px;margin:9px 0 8px;color:#f3f8ff;font-size:clamp(18px,2.1vw,27px);line-height:1.12;letter-spacing:-.035em}
+.n9-world-copy p{max-width:350px;margin:0;color:#9eb5ca;font-size:11px;line-height:1.65}
+.n9-world-stats{display:grid;gap:7px;margin-top:16px}
+.n9-world-stats span{display:flex;align-items:center;gap:10px;color:#8fa9bf;font-size:10px}
+.n9-world-stats b{min-width:53px;color:#d8ff72;font-size:15px;font-variant-numeric:tabular-nums}
+.n9-world-tip{display:flex;align-items:center;gap:8px;margin-top:15px;padding:8px 10px;border:1px solid #2e6171;border-radius:8px;background:#08202d;color:#9eeaf0;font-size:9px;font-weight:850;letter-spacing:.06em}
+.n9-world-tip i{width:7px;height:7px;border-radius:50%;background:#64e7f0;box-shadow:0 0 12px #64e7f0}
+.n9-world-viewport{height:320px;min-width:0;position:relative;overflow:hidden;border:1px solid #2a4b64;border-radius:13px;background:radial-gradient(ellipse at 50% 50%,#1647655c,transparent 65%),linear-gradient(145deg,#071522,#0a1d2d);perspective:950px;isolation:isolate}
+.n9-world-viewport:before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(120deg,transparent 20%,#64e7f008 50%,transparent 80%),repeating-linear-gradient(0deg,transparent 0 34px,#6cb7cb0b 35px),repeating-linear-gradient(90deg,transparent 0 34px,#6cb7cb0b 35px);mask-image:linear-gradient(transparent,#000 20%,#000 85%,transparent)}
+.n9-world-glow{position:absolute;width:360px;height:260px;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;background:#2bc8d414;filter:blur(35px)}
+.n9-world-space{position:absolute;inset:0;transform-style:preserve-3d;--tilt-x:0deg;--tilt-y:0deg;transition:transform .18s ease-out;transform:rotateX(var(--tilt-x)) rotateY(var(--tilt-y))}
+.n9-world-floor{position:absolute;left:50%;top:55%;width:76%;height:65%;transform:translate(-50%,-50%) rotateX(61deg) rotateZ(-23deg) translateZ(-32px);transform-style:preserve-3d;border:1px solid #3b829355;border-radius:14px;background:linear-gradient(rgba(80,210,223,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(80,210,223,.14) 1px,transparent 1px),linear-gradient(145deg,#0c3248dd,#091a2c);background-size:28px 28px,28px 28px,auto;box-shadow:0 28px 55px #0009,0 0 35px #22c7d31a}
+.n9-world-path{position:absolute;inset:0;width:100%;height:100%;overflow:visible;z-index:1;filter:drop-shadow(0 0 7px #64e7f0aa)}
+.n9-world-path path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.n9-world-path .path-shadow{stroke:#d8ff72;stroke-width:5;stroke-dasharray:3 15;opacity:.35}
+.n9-world-path .path-line{stroke:#64e7f0;stroke-width:2.2;stroke-dasharray:9 8;animation:n9RouteFlow 14s linear infinite}
+.n9-world-path circle{fill:#d8ff72;stroke:#eaffc6;stroke-width:1.4}
+@keyframes n9RouteFlow{to{stroke-dashoffset:-170}}
+.n9-world-node{position:absolute;z-index:3;width:112px;height:116px;padding:0;border:0;background:transparent;color:inherit;transform-style:preserve-3d;cursor:pointer;transition:filter .2s ease,transform .2s ease;filter:drop-shadow(0 12px 10px #0008)}
+.n9-world-node:hover,.n9-world-node:focus-visible{filter:drop-shadow(0 0 14px #64e7f0aa);outline:none;transform:translateY(-7px) scale(1.05)}
+.node-factory{left:5%;top:34%}.node-planning{left:32%;top:13%}.node-supplier{left:58%;top:35%}.node-po{left:67%;top:4%}.node-warehouse{left:78%;top:52%}
+.n9-node-platform{position:absolute;left:16px;top:38px;width:80px;height:54px;transform:rotateX(61deg) rotateZ(-25deg);border:1px solid #54c7d077;border-radius:8px;background:linear-gradient(135deg,#164f68,#0c263b);box-shadow:0 0 18px #36cad733,12px 12px 0 #07111d}
+.n9-node-block{position:absolute;left:30px;top:17px;width:58px;height:51px;transform:skewY(-10deg) rotateZ(-2deg);transform-style:preserve-3d;background:linear-gradient(135deg,#2a7890,#123e59);border:1px solid #6de4e5aa;box-shadow:9px 9px 0 #092336,9px 9px 0 1px #3d8c9b}
+.n9-node-block:before{content:"";position:absolute;left:7px;right:7px;top:-13px;height:13px;background:linear-gradient(90deg,#83e7df,#2c879f);transform:skewX(-42deg);border:1px solid #a2f5e7aa}
+.n9-node-block:after{content:"";position:absolute;right:-11px;top:5px;width:10px;height:46px;background:#0b2c43;transform:skewY(-42deg);border-right:1px solid #4fa7b4}
+.n9-node-block i{position:absolute;left:9px;right:9px;bottom:9px;height:14px;border:1px solid #75d8d4;background:repeating-linear-gradient(90deg,#0d283b 0 7px,#6cd8d0 8px 10px);opacity:.8}
+.n9-node-block b{position:absolute;left:12px;top:9px;width:18px;height:6px;background:#d8ff72;box-shadow:0 0 12px #d8ff72}
+.n9-node-block em{position:absolute;right:10px;top:8px;width:7px;height:7px;border-radius:50%;background:#72f3b1;box-shadow:0 0 12px #72f3b1}
+.node-planning .n9-node-block{background:linear-gradient(135deg,#3e7fa2,#1b3d70);border-color:#93c6ff}
+.node-planning .n9-node-block:before{background:linear-gradient(90deg,#b5d7ff,#477bb4)}
+.node-supplier .n9-node-block{background:linear-gradient(135deg,#8c7137,#3e3425);border-color:#f3d38a}
+.node-supplier .n9-node-block:before{background:linear-gradient(90deg,#ffe2a0,#b58a3e)}
+.node-po .n9-node-block{background:linear-gradient(135deg,#7166a5,#312e69);border-color:#b9acff}
+.node-po .n9-node-block:before{background:linear-gradient(90deg,#c5bbff,#665fb0)}
+.node-warehouse .n9-node-block{background:linear-gradient(135deg,#3c8465,#1b4439);border-color:#8de5b4}
+.node-warehouse .n9-node-block:before{background:linear-gradient(90deg,#a1ecc1,#438b6b)}
+.n9-node-label{position:absolute;left:4px;top:88px;min-width:98px;padding:5px 7px;border:1px solid #345b73;border-radius:7px;background:#071522eb;text-align:left;box-shadow:0 6px 14px #0006}
+.n9-node-label b{display:block;color:#e9f5ff;font-size:8px;letter-spacing:.08em}
+.n9-node-label small{display:block;color:#8ba8be;font-size:7px;letter-spacing:.1em}
+.n9-world-cargo{position:absolute;left:20%;top:52%;width:28px;height:22px;z-index:5;transform:rotate(-25deg);animation:n9CargoMove 9s ease-in-out infinite;filter:drop-shadow(0 0 8px #d8ff72)}
+.n9-world-cargo span{position:absolute;width:12px;height:12px;border:1px solid #efffb8;background:linear-gradient(135deg,#eaffaa,#7baf44);transform:skewY(-18deg)}
+.n9-world-cargo span:nth-child(2){left:11px;top:4px}.n9-world-cargo span:nth-child(3){left:5px;top:10px}
+@keyframes n9CargoMove{0%{left:18%;top:51%}30%{left:38%;top:40%}56%{left:61%;top:54%}80%{left:75%;top:38%}100%{left:18%;top:51%}}
+.n9-world-orbit{position:absolute;left:49%;top:51%;width:132px;height:48px;border:1px solid #64e7f045;border-radius:50%;transform:translate(-50%,-50%) rotateX(68deg) rotateZ(-21deg);box-shadow:0 0 16px #64e7f01b}
+.n9-world-legend{position:absolute;left:12px;bottom:9px;display:flex;gap:12px;flex-wrap:wrap;color:#7996ad;font-size:7px;font-weight:900;letter-spacing:.08em}
+.n9-world-legend i{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px}
+.legend-cyan{background:#64e7f0;box-shadow:0 0 7px #64e7f0}.legend-lime{background:#d8ff72;box-shadow:0 0 7px #d8ff72}
+.n9-total-progress{width:min(260px,100%)}
+.n9-total-progress-head{display:flex;justify-content:space-between;gap:8px;margin-bottom:6px;color:#8da7bf;font-size:8px;font-weight:900;letter-spacing:.1em}
+.n9-total-progress-head b{color:#d8ff72;font-size:12px}
+.n9-mini-progress{width:100%;height:8px;border-radius:99px;background:#1a3046;overflow:hidden;border:1px solid #31506a}
+.n9-mini-progress i{transition:width .4s ease}
+.n9-mission-progress{margin:11px 0 16px;padding:10px 12px;border:1px solid #2d4861;border-radius:10px;background:linear-gradient(110deg,#0a1b2a,#12273a)}
+.n9-mission-progress-head,.n9-mission-progress-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.n9-mission-progress-head span{color:#8da7bf;font-size:8px;font-weight:900;letter-spacing:.13em}
+.n9-mission-progress-head b{color:#d8ff72;font-size:12px;font-variant-numeric:tabular-nums}
+.n9-mission-progress-track{height:7px;overflow:hidden;margin:7px 0 6px;border:1px solid #304b63;border-radius:99px;background:#06121e}
+.n9-mission-progress-track i{display:block;width:0;height:100%;border-radius:99px;background:linear-gradient(90deg,#64e7f0,#a4a2ff,#d8ff72);box-shadow:0 0 12px #64e7f044;transition:width .35s cubic-bezier(.2,.8,.2,1)}
+.n9-mission-progress-foot small{color:#7e97ad;font-size:8px}
+.n9-mission-progress-foot small:last-child{color:#abc0d2}
+.n9-mission-progress.is-complete{border-color:#398564;background:linear-gradient(110deg,#0c3027,#102c35)}
+.n9-mission-progress.is-complete .n9-mission-progress-head b{color:#8fe0ac}
+.mission-topline{align-items:center}
+.n9-world-node:focus-visible{outline:2px solid #d8ff72;outline-offset:4px}
+@media(max-width:1050px){.n9-world-panel{grid-template-columns:1fr}.n9-world-copy{padding:5px 5px 0}.n9-world-copy h3,.n9-world-copy p{max-width:700px}.n9-world-stats{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.n9-world-viewport{height:280px}.n9-world-node{transform:scale(.82);transform-origin:top left}.node-factory{left:1%;top:38%}.node-planning{left:23%;top:12%}.node-supplier{left:46%;top:40%}.node-po{left:58%;top:3%}.node-warehouse{left:72%;top:55%}.n9-node-label{min-width:85px}.n9-world-stats{grid-template-columns:1fr}.n9-world-legend{font-size:6px}.n9-total-progress{width:100%}}
+@media(prefers-reduced-motion:reduce){.n9-world-path .path-line,.n9-world-cargo{animation:none!important}}
+
+/* NEXUS IN-APP EXPERIENCE · navegación nativa sin recargas */
+.n9-window-launcher{display:grid!important;gap:6px!important}
+.n9-window-launcher .n9-launcher{display:grid;grid-template-columns:25px 1fr;align-items:center;gap:10px;width:100%;padding:9px 10px;border:1px solid #263f57;border-radius:9px;background:linear-gradient(105deg,#0a1928,#102238);color:#adc1d4;text-decoration:none;font-size:11px;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s}
+.n9-window-launcher .n9-launcher:hover,.n9-window-launcher .n9-launcher.is-active{transform:translateX(3px);border-color:var(--cyan);background:linear-gradient(105deg,#13344a,#192d47);box-shadow:0 5px 18px #0004;color:#f3f8ff}
+.n9-window-launcher .n9-launcher span{display:grid;place-items:center;width:25px;height:25px;border:1px solid #35546c;border-radius:7px;background:#10263a;color:var(--cyan);font-size:13px}
+.n9-window-launcher .n9-launcher b{font-size:10px;font-weight:800}
+.n9-queue a{position:relative;grid-template-columns:26px 1fr;padding-right:7px;transition:transform .2s,border-color .2s,background .2s}
+.n9-queue a:hover,.n9-queue a.is-active{transform:translateX(3px);border-color:var(--lime);background:#142b3c;box-shadow:0 5px 18px #0004}
+.n9-queue a:after{content:"›";color:var(--lime);font-size:17px;opacity:.8}
+.n9-queue a i{font-size:10px}
+.n9-launcher-title{margin-top:18px}
+.n9-window-hint{padding:8px 10px;margin:7px 0 12px;border:1px dashed #385772;border-radius:8px;color:#91a9bf;font-size:9px;line-height:1.45}
+.n9-window-hint b{color:var(--lime)}
+/* View changes feel like entering a new game scene, not loading a new page */
+.class-main-content .section{display:none!important;opacity:0;transform:translateY(12px) scale(.995)}
+.class-main-content .section.active{display:block!important;animation:n9SceneEnter .34s cubic-bezier(.2,.75,.25,1) both}
+@keyframes n9SceneEnter{to{opacity:1;transform:translateY(0) scale(1)}}
+.n9-scene-transition{pointer-events:none}
+.n9-scene-transition .class-main-content{filter:brightness(.82);transition:filter .18s}
+.n9-scene-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 13px;padding:10px 13px;border:1px solid #2c4c66;border-radius:11px;background:linear-gradient(100deg,#0b1d2d,#14283d);color:#9db5ca;font-size:9px;letter-spacing:.12em}
+.n9-scene-header b{color:var(--lime);font-size:10px}
+.n9-back-control{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid #38546d;border-radius:8px;background:#0b1a29;color:#c9d8e6;font-size:10px;font-weight:850;cursor:pointer}
+.n9-back-control:hover{border-color:var(--cyan);color:#fff}
+body.n9-mission-focus #misiones>.sprint-overview{display:none!important}
+body.n9-mission-focus #misiones>.mission:not(.selected-mission){display:none!important}
+body.n9-mission-focus #misiones>.mission.selected-mission{display:block!important;animation:n9SceneEnter .35s ease both}
+body.n9-mission-focus #misiones>.mission.selected-mission .mission-topline{position:relative}
+.n9-mission-focus-banner{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 13px;padding:11px 14px;border:1px solid #54734b;border-radius:11px;background:linear-gradient(100deg,#1c342b,#102235);color:#d9e9d9}
+.n9-mission-focus-banner strong{color:var(--lime);font-size:10px;letter-spacing:.1em}
+.n9-mission-focus-banner small{display:block;color:#9fb7c9;font-size:9px}
+.n9-mission-focus-banner button{padding:8px 11px;border:1px solid #54734b;border-radius:8px;background:#172b26;color:#d9ffb5;font-size:10px;font-weight:850;cursor:pointer}
+.n9-progress-track span,.n9-mini-progress i,.n9-mission-progress>div{transition:width .35s ease}
+@media(max-width:850px){.n9-window-launcher .n9-launcher{grid-template-columns:24px 1fr;padding:7px 5px}.n9-window-launcher .n9-launcher b{font-size:9px}.n9-scene-header{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.class-main-content .section.active{animation:none!important}.class-main-content .section{transform:none!important;opacity:1!important}}
+
+/* NEXUS CLASS 09 · GAME COMMAND DASHBOARD */
+body.n9-dashboard-view .class-main-content{display:none!important}
+body.n9-dashboard-view .command-dashboard{display:block!important}
+body.n9-section-view .command-dashboard{display:none!important}
+body.n9-section-view .class-main-content{display:block!important}
+body.n9-dashboard-view .n9-scene-header{display:none!important}
+.n9-launcher[href="#dashboard"]{border-color:#45664b!important;background:linear-gradient(110deg,#1c3428,#102238)!important}
+.n9-launcher[href="#dashboard"] span{color:var(--lime)!important}
+.command-dashboard .n9-world-panel{min-height:350px}
+.command-dashboard .n9-world-viewport{min-height:290px}
+.n9-dashboard-shortcuts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:13px 0 18px}
+.n9-dashboard-shortcut{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid #2b465e;border-radius:12px;background:linear-gradient(145deg,#10243a,#091725);color:#dceafa;text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
+.n9-dashboard-shortcut:hover{transform:translateY(-3px);border-color:var(--cyan);box-shadow:0 12px 28px #0004}
+.n9-dashboard-shortcut i{display:grid;place-items:center;width:34px;height:34px;flex:0 0 auto;border:1px solid #42627a;border-radius:10px;background:#122d42;color:var(--lime);font-style:normal;font-weight:900}
+.n9-dashboard-shortcut b{display:block;font-size:10px;letter-spacing:.04em}
+.n9-dashboard-shortcut small{display:block;margin-top:3px;color:#91a8bf;font-size:9px}
+@media(max-width:1050px){.n9-dashboard-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.n9-dashboard-shortcuts{grid-template-columns:1fr 1fr}.n9-dashboard-shortcut{padding:9px}.n9-dashboard-shortcut i{width:29px;height:29px}}
+</style>
+<style id="nexus-class09-premium-layer">
+
+/* ─────────────────────────────────────────────────────────────
+   NEXUS CLASS 09 · PREMIUM COMMAND INTERFACE / VISUAL PASS 02
+   Capa visual adicional: no altera rutas, progreso ni respuestas.
+───────────────────────────────────────────────────────────── */
+:root{
+ --bg:#030914;--panel:#0a1728;--panel2:#10253b;--line:#31536e;
+ --ink:#f5f8ff;--muted:#9db2c7;--lime:#dcff79;--cyan:#62e9f3;
+ --violet:#a69bff;--amber:#ffcb78;--mint:#83efbd;
+ --n9-glass:linear-gradient(145deg,rgba(15,35,55,.92),rgba(5,14,26,.96));
+}
+html{scroll-padding-top:110px}
+body{
+ background:
+  radial-gradient(ellipse at 76% 4%,rgba(25,115,139,.23),transparent 32%),
+  radial-gradient(ellipse at 8% 28%,rgba(77,61,142,.18),transparent 29%),
+  radial-gradient(ellipse at 88% 78%,rgba(88,130,48,.09),transparent 28%),
+  linear-gradient(rgba(104,190,211,.035) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(104,190,211,.035) 1px,transparent 1px),
+  #030914!important;
+ background-size:auto,auto,auto,48px 48px,48px 48px,auto!important;
+}
+body:before{
+ content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.22;
+ background:repeating-linear-gradient(115deg,transparent 0 120px,rgba(92,219,230,.035) 121px,transparent 123px);
+}
+.shell.class09-shell{max-width:1880px;padding:18px clamp(12px,2.25vw,38px) 28px}
+.class09-shell>.top{
+ min-height:78px;padding:14px 21px;border-color:#35546d;
+ background:linear-gradient(100deg,rgba(7,18,31,.96),rgba(11,29,46,.91) 58%,rgba(16,33,42,.93));
+ box-shadow:0 18px 60px rgba(0,0,0,.38),inset 0 1px rgba(255,255,255,.08);
+}
+.class09-shell>.top:after{
+ content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+ background:linear-gradient(90deg,transparent,var(--cyan),var(--violet),var(--lime),transparent);opacity:.55;
+}
+.class09-shell .logo{
+ position:relative;isolation:isolate;border:1px solid rgba(235,255,168,.75);
+ background:linear-gradient(145deg,#eaff9d,#b6ed5a 58%,#75af45);
+ box-shadow:0 0 0 5px rgba(216,255,114,.055),0 0 35px rgba(216,255,114,.2),inset 0 1px rgba(255,255,255,.7);
+}
+.class09-shell .logo:after{content:"";position:absolute;inset:-6px;border:1px solid rgba(216,255,114,.2);border-radius:17px;z-index:-1}
+.class09-shell .brand h1{font-size:clamp(16px,1.7vw,23px);letter-spacing:.105em;text-shadow:0 2px 18px rgba(98,233,243,.12)}
+.class09-shell .sub{letter-spacing:.035em}
+.class09-shell .badge{
+ padding:9px 14px;border-color:rgba(220,255,121,.45);
+ background:linear-gradient(110deg,rgba(220,255,121,.13),rgba(98,233,243,.07));
+ box-shadow:inset 0 1px rgba(255,255,255,.08),0 0 24px rgba(220,255,121,.07);
+}
+.class09-layout{grid-template-columns:290px minmax(0,1fr);gap:22px}
+.class09-side{
+ border-color:#294c67;border-radius:20px;
+ background:linear-gradient(165deg,rgba(13,34,54,.97),rgba(5,15,27,.98) 78%);
+ box-shadow:0 25px 70px rgba(0,0,0,.42),inset 0 1px rgba(255,255,255,.075),inset -1px 0 rgba(98,233,243,.08);
+}
+.class09-side:before{
+ content:"";position:absolute;top:0;left:0;right:0;height:2px;
+ background:linear-gradient(90deg,var(--cyan),var(--violet),var(--lime));opacity:.8;
+}
+.n9-sidebar-brand{padding:7px 6px 17px}
+.n9-sidebar-mark{
+ width:39px;height:39px;border-color:#5a8497;border-radius:12px;
+ background:linear-gradient(145deg,#24556a,#10283b);
+ box-shadow:0 0 25px rgba(98,233,243,.13),inset 0 1px rgba(255,255,255,.17);
+}
+.n9-operator{
+ position:relative;overflow:hidden;padding:14px;margin:15px 0;
+ border-color:#3b637c;border-radius:14px;
+ background:radial-gradient(circle at 100% 0%,rgba(98,233,243,.16),transparent 46%),linear-gradient(125deg,#17364e,#0a1929);
+ box-shadow:inset 0 1px rgba(255,255,255,.08),0 10px 28px rgba(0,0,0,.2);
+}
+.n9-operator:after{content:"OP";position:absolute;right:10px;bottom:-18px;color:rgba(133,220,226,.08);font-size:66px;font-weight:950;letter-spacing:-.1em}
+.n9-operator strong{position:relative;z-index:1;font-size:14px}
+.n9-progress-track{height:10px;border-color:#3c5b73;background:#071321;box-shadow:inset 0 2px 5px rgba(0,0,0,.5)}
+.n9-progress-track span{box-shadow:0 0 16px rgba(98,233,243,.42)}
+.nexus-primary-nav{gap:7px}
+.n9-window-launcher .n9-launcher{
+ min-height:44px;padding:9px 11px;border-color:rgba(52,83,108,.68);
+ background:linear-gradient(105deg,rgba(8,23,37,.88),rgba(14,33,52,.78));
+ box-shadow:inset 0 1px rgba(255,255,255,.025);
+}
+.n9-window-launcher .n9-launcher span{border-radius:8px;box-shadow:inset 0 1px rgba(255,255,255,.07)}
+.n9-window-launcher .n9-launcher i{margin-left:auto;color:#67869c;font-size:10px;font-style:normal}
+.n9-window-launcher .n9-launcher:hover,.n9-window-launcher .n9-launcher.is-active{
+ transform:translateX(4px);border-color:rgba(98,233,243,.72);
+ background:linear-gradient(105deg,rgba(21,62,79,.98),rgba(24,44,69,.98));
+ box-shadow:inset 3px 0 var(--cyan),0 9px 24px rgba(0,0,0,.28),0 0 22px rgba(98,233,243,.075);
+}
+.n9-queue-title{margin-top:20px;color:#93abc0}
+.n9-queue a{
+ min-height:51px;border-color:rgba(45,73,96,.8);
+ background:linear-gradient(110deg,rgba(8,23,37,.95),rgba(13,31,49,.9));
+ box-shadow:inset 0 1px rgba(255,255,255,.025);
+}
+.n9-queue a i{border-radius:8px;background:linear-gradient(145deg,#15364a,#0b1b2b);box-shadow:inset 0 1px rgba(255,255,255,.08)}
+.n9-queue a b{font-size:10px;letter-spacing:.025em}
+.n9-queue a:hover,.n9-queue a.is-active{
+ transform:translateX(4px);border-color:rgba(220,255,121,.7);
+ background:linear-gradient(105deg,#173b39,#102b40);
+ box-shadow:inset 3px 0 var(--lime),0 9px 24px rgba(0,0,0,.25);
+}
+.n9-side-note{
+ border-color:rgba(255,203,120,.38);
+ background:radial-gradient(circle at 100% 0%,rgba(255,203,120,.13),transparent 55%),linear-gradient(110deg,#30291f,#171c27);
+ box-shadow:inset 0 1px rgba(255,255,255,.05);
+}
+.n9-page-link{border-color:#3d6079;background:linear-gradient(110deg,#0b1d2d,#10273a);transition:.2s}
+.n9-page-link:hover{transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.class09-main .nexus-topbar{
+ min-height:72px;border-color:#31506a;border-radius:16px;
+ background:linear-gradient(100deg,rgba(5,15,27,.96),rgba(12,29,46,.93));
+ box-shadow:0 16px 42px rgba(0,0,0,.25),inset 0 1px rgba(255,255,255,.07);
+}
+.class09-main .nexus-topbar:after{content:"";position:absolute;left:18px;right:18px;bottom:0;height:1px;background:linear-gradient(90deg,transparent,rgba(98,233,243,.5),transparent)}
+.n9-top-location strong{font-size:14px;letter-spacing:.02em}
+.n9-search{border-color:#385a72;background:rgba(4,15,25,.72);box-shadow:inset 0 2px 6px rgba(0,0,0,.22)}
+.n9-search:focus-within{border-color:var(--cyan);box-shadow:0 0 0 3px rgba(98,233,243,.08)}
+.n9-avatar{width:38px;height:38px;border-radius:12px;box-shadow:0 0 0 4px rgba(98,233,243,.05),0 0 22px rgba(98,233,243,.12)}
+.command-dashboard{
+ isolation:isolate;padding:clamp(20px,2.6vw,34px)!important;
+ border-color:#345872!important;border-radius:23px!important;
+ background:
+  radial-gradient(ellipse at 92% 1%,rgba(63,139,154,.22),transparent 36%),
+  radial-gradient(ellipse at 6% 96%,rgba(89,77,150,.12),transparent 38%),
+  linear-gradient(145deg,rgba(12,29,47,.98),rgba(5,14,26,.99))!important;
+ box-shadow:0 28px 85px rgba(0,0,0,.43),inset 0 1px rgba(255,255,255,.085)!important;
+}
+.command-dashboard:before{
+ right:-135px;top:-175px;width:470px;height:470px;
+ border-color:rgba(98,233,243,.22);
+ box-shadow:0 0 0 42px rgba(98,233,243,.035),0 0 0 86px rgba(166,155,255,.025),0 0 0 132px rgba(220,255,121,.018);
+}
+.command-dashboard:after{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.16;
+ background:linear-gradient(115deg,transparent 15%,rgba(98,233,243,.09) 48%,transparent 72%);
+}
+.command-head{align-items:center;min-height:92px;padding:4px 2px 18px;border-bottom:1px solid rgba(132,181,204,.14)}
+.command-head h2{max-width:760px;font-size:clamp(27px,3.4vw,42px);letter-spacing:-.055em;text-shadow:0 5px 28px rgba(98,233,243,.1)}
+.command-head p{font-size:12px;letter-spacing:.035em}
+.n9-command-status{padding:10px 13px;border-radius:10px;box-shadow:0 0 28px rgba(131,239,189,.06),inset 0 1px rgba(255,255,255,.08)}
+/* Map / world visualization becomes the main visual anchor. */
+.n9-world-panel{
+ position:relative;isolation:isolate;min-height:390px!important;
+ grid-template-columns:minmax(245px,.68fr) minmax(460px,1.32fr)!important;
+ gap:20px!important;padding:18px!important;margin:20px 0 18px!important;
+ border-color:#3e6a83!important;border-radius:20px!important;
+ background:
+  radial-gradient(ellipse at 77% 47%,rgba(34,188,205,.2),transparent 46%),
+  radial-gradient(ellipse at 10% 100%,rgba(174,148,255,.1),transparent 40%),
+  linear-gradient(130deg,#0b2134,#102c43 53%,#081827)!important;
+ box-shadow:inset 0 1px rgba(255,255,255,.1),0 22px 54px rgba(0,0,0,.32),0 0 45px rgba(45,177,193,.05)!important;
+}
+.n9-world-panel:before{
+ content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+ background:linear-gradient(115deg,transparent 0 35%,rgba(98,233,243,.055) 55%,transparent 75%);
+}
+.n9-world-copy{padding:13px 12px}
+.n9-world-copy:before{
+ content:"NEXUS / OPERATION MAP";display:inline-flex;align-items:center;margin-bottom:13px;
+ padding:6px 9px;border:1px solid rgba(98,233,243,.34);border-radius:6px;
+ background:rgba(8,28,42,.72);color:#9cebf0;font-size:8px;font-weight:900;letter-spacing:.16em;
+}
+.n9-world-copy h3{max-width:390px;font-size:clamp(23px,2.55vw,35px);line-height:1.04;text-wrap:balance}
+.n9-world-copy p{font-size:12px;line-height:1.75}
+.n9-world-stats{grid-template-columns:1fr;gap:9px;margin-top:20px}
+.n9-world-stats span{padding:8px 10px;border:1px solid rgba(80,131,158,.22);border-radius:8px;background:rgba(5,18,30,.48)}
+.n9-world-stats b{min-width:58px;font-size:17px;text-shadow:0 0 15px rgba(220,255,121,.25)}
+.n9-world-tip{margin-top:18px;padding:10px 11px;border-color:rgba(98,233,243,.28);background:rgba(3,23,34,.74);line-height:1.45}
+.n9-world-viewport{
+ height:365px!important;min-height:340px!important;border-color:#3d7188!important;border-radius:16px!important;
+ background:
+  radial-gradient(ellipse at 50% 52%,rgba(25,111,137,.36),transparent 66%),
+  linear-gradient(145deg,#061523,#0b2335 58%,#071522)!important;
+ box-shadow:inset 0 0 65px rgba(0,0,0,.5),inset 0 1px rgba(255,255,255,.08),0 15px 38px rgba(0,0,0,.28);
+}
+.n9-world-viewport:before{
+ opacity:.95;
+ background:
+  linear-gradient(120deg,transparent 20%,rgba(98,233,243,.09) 50%,transparent 80%),
+  repeating-linear-gradient(0deg,transparent 0 34px,rgba(108,183,203,.1) 35px),
+  repeating-linear-gradient(90deg,transparent 0 34px,rgba(108,183,203,.1) 35px),
+  radial-gradient(ellipse at center,transparent 35%,rgba(2,9,17,.38) 100%)!important;
+}
+.n9-world-viewport:after{
+ content:"LIVE NETWORK  /  05 ACTIVE NODES";position:absolute;top:11px;left:12px;z-index:9;
+ padding:6px 8px;border:1px solid rgba(98,233,243,.28);border-radius:6px;
+ background:rgba(3,15,25,.74);color:#8fe7ed;font-size:7px;font-weight:900;letter-spacing:.15em;
+ box-shadow:0 4px 16px rgba(0,0,0,.25);
+}
+.n9-world-floor{
+ width:83%;height:72%;border-color:rgba(98,233,243,.32);
+ background:
+  linear-gradient(rgba(80,210,223,.18) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(80,210,223,.18) 1px,transparent 1px),
+  linear-gradient(145deg,rgba(12,50,72,.92),rgba(5,19,34,.97));
+ box-shadow:0 34px 65px rgba(0,0,0,.72),0 0 42px rgba(34,199,211,.12);
+}
+.n9-world-path{filter:drop-shadow(0 0 9px rgba(98,233,243,.8))}
+.n9-world-path .path-line{stroke-width:2.8;stroke-dasharray:11 7}
+.n9-world-node{width:120px;height:124px;filter:drop-shadow(0 15px 13px rgba(0,0,0,.62))}
+.n9-node-platform{border-color:rgba(84,199,208,.62);background:linear-gradient(135deg,#1a6177,#0b293e);box-shadow:0 0 23px rgba(54,202,215,.25),12px 12px 0 rgba(2,9,17,.72)}
+.n9-node-block{box-shadow:10px 10px 0 #071929,10px 10px 0 1px rgba(91,192,208,.5),0 0 20px rgba(98,233,243,.17)}
+.n9-node-label{
+ left:0;top:91px;min-width:106px;padding:7px 9px;border-color:rgba(83,142,169,.7);
+ background:linear-gradient(105deg,rgba(4,17,29,.97),rgba(9,31,47,.97));
+ box-shadow:0 8px 18px rgba(0,0,0,.4),inset 0 1px rgba(255,255,255,.06);
+}
+.n9-node-label b{font-size:9px;color:#f4fbff}
+.n9-node-label small{margin-top:2px;font-size:7px;color:#9ed1dc}
+.n9-world-node:hover .n9-node-block,.n9-world-node:focus-visible .n9-node-block{box-shadow:10px 10px 0 #071929,10px 10px 0 1px rgba(220,255,121,.65),0 0 30px rgba(220,255,121,.28)}
+.n9-world-cargo{filter:drop-shadow(0 0 12px var(--lime));transform:scale(1.12) rotate(-25deg)}
+.n9-world-legend{left:14px;bottom:11px;padding:7px 9px;border:1px solid rgba(76,119,142,.35);border-radius:7px;background:rgba(3,15,25,.72)}
+.command-kpis{gap:12px;margin:19px 0 18px}
+.command-kpi{
+ min-height:145px;padding:17px 16px 14px;border-color:rgba(59,91,116,.8);
+ border-radius:15px;background:linear-gradient(145deg,rgba(18,42,63,.94),rgba(6,19,32,.98));
+ box-shadow:inset 0 1px rgba(255,255,255,.06),0 12px 26px rgba(0,0,0,.19);
+ transition:transform .22s,border-color .22s,box-shadow .22s;
+}
+.command-kpi:before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,var(--cyan),transparent 86%);opacity:.85}
+.command-kpi:nth-child(2):before{background:linear-gradient(90deg,var(--violet),transparent 86%)}
+.command-kpi:nth-child(3):before{background:linear-gradient(90deg,var(--lime),transparent 86%)}
+.command-kpi:nth-child(4):before{background:linear-gradient(90deg,var(--amber),transparent 86%)}
+.command-kpi:hover{transform:translateY(-4px);border-color:#54839e;box-shadow:inset 0 1px rgba(255,255,255,.08),0 18px 34px rgba(0,0,0,.28),0 0 23px rgba(98,233,243,.055)}
+.kpi-label{font-size:9px;letter-spacing:.16em}
+.command-kpi strong{margin:10px 0 5px;font-size:clamp(25px,2.6vw,35px);text-shadow:0 5px 22px rgba(98,233,243,.12)}
+.command-kpi>span:last-of-type{font-size:10px;line-height:1.5}
+.kpi-track{height:4px;margin-top:13px;background:#0a1928}
+.nexus-progression{
+ margin:20px 0 4px!important;padding:22px!important;border-color:#3c6078!important;border-radius:18px!important;
+ background:
+  radial-gradient(ellipse at 98% 0%,rgba(162,151,255,.16),transparent 35%),
+  radial-gradient(ellipse at 0% 100%,rgba(98,233,243,.09),transparent 45%),
+  linear-gradient(125deg,#0c2438,#10192d 62%,#17271f)!important;
+ box-shadow:inset 0 1px rgba(255,255,255,.08),0 15px 36px rgba(0,0,0,.23);
+}
+.n9-progression-head h3{font-size:clamp(20px,2.2vw,26px);letter-spacing:-.035em}
+.n9-rank-chip{padding:9px 13px;border-color:rgba(220,255,121,.48);box-shadow:0 0 22px rgba(220,255,121,.08)}
+.n9-stage-track{gap:9px;margin-top:19px}
+.n9-stage{
+ min-height:100px;padding:13px 12px;border-color:#34556d;border-radius:12px;
+ background:linear-gradient(145deg,rgba(6,21,35,.96),rgba(14,35,51,.96));
+ box-shadow:inset 0 1px rgba(255,255,255,.045);
+ transition:transform .2s,border-color .2s,background .2s,box-shadow .2s;
+}
+.n9-stage:hover{transform:translateY(-4px);border-color:var(--cyan);background:linear-gradient(145deg,#14364a,#172c42);box-shadow:0 12px 27px rgba(0,0,0,.28),0 0 22px rgba(98,233,243,.07)}
+.n9-stage em{width:28px;height:28px;border-radius:9px;background:linear-gradient(145deg,#17394c,#0a1e30);box-shadow:inset 0 1px rgba(255,255,255,.09)}
+.n9-stage b{font-size:10px;letter-spacing:.08em}
+.n9-stage span{font-size:9px}
+.n9-stage.done{box-shadow:inset 0 0 25px rgba(89,217,150,.07),0 0 18px rgba(89,217,150,.05)}
+.n9-progress-footer{margin-top:17px;padding-top:15px}
+.n9-progress-footer .btn.primary{box-shadow:0 8px 24px rgba(220,255,121,.14),inset 0 1px rgba(255,255,255,.5)}
+.n9-module-grid{gap:12px;margin-top:16px}
+.n9-module{
+ position:relative;overflow:hidden;min-height:140px;padding:16px;border-color:#33546d;border-radius:14px;
+ background:linear-gradient(145deg,rgba(16,39,59,.97),rgba(6,18,31,.98));
+ box-shadow:inset 0 1px rgba(255,255,255,.055),0 10px 25px rgba(0,0,0,.16);
+ transition:transform .22s,border-color .22s,box-shadow .22s;
+}
+.n9-module:after{content:"";position:absolute;right:-30px;bottom:-45px;width:110px;height:110px;border:1px solid rgba(98,233,243,.15);border-radius:50%;box-shadow:0 0 0 14px rgba(98,233,243,.025),0 0 0 28px rgba(98,233,243,.018)}
+.n9-module:hover{transform:translateY(-4px);border-color:#4d7e99;box-shadow:inset 0 1px rgba(255,255,255,.08),0 18px 35px rgba(0,0,0,.25)}
+.n9-module small{font-size:8px;letter-spacing:.15em}
+.n9-module b{font-size:13px}
+.n9-module p{max-width:300px;font-size:11px;line-height:1.55}
+.n9-module:nth-child(2):after{border-color:rgba(166,155,255,.2)}
+.n9-module:nth-child(3):after{border-color:rgba(220,255,121,.18)}
+/* Learning spaces should retain the same designed universe as the dashboard. */
+.class-main-content{margin-top:20px}
+.class-main-content .card{
+ position:relative;overflow:hidden;border-color:#34536d!important;border-radius:18px!important;
+ background:
+  radial-gradient(ellipse at 100% 0%,rgba(66,127,150,.13),transparent 36%),
+  linear-gradient(150deg,rgba(15,36,56,.97),rgba(5,16,29,.99))!important;
+ box-shadow:inset 0 1px rgba(255,255,255,.065),0 16px 38px rgba(0,0,0,.26)!important;
+}
+.class-main-content .card h2{font-size:clamp(22px,2.3vw,29px);letter-spacing:-.035em}
+.class-main-content .card h3{font-size:17px;letter-spacing:-.015em}
+.class-main-content .mission{padding-left:4px}
+.class-main-content .mission:before{width:4px;box-shadow:0 0 18px rgba(98,233,243,.3)}
+.class-main-content .question{
+ border-color:#3b5c76;border-radius:13px;
+ background:linear-gradient(145deg,rgba(7,22,36,.95),rgba(17,42,62,.92));
+ box-shadow:inset 0 1px rgba(255,255,255,.045);
+ transition:border-color .18s,transform .18s;
+}
+.class-main-content .question:hover{border-color:#527b96;transform:translateY(-1px)}
+.class-main-content .option{border:1px solid rgba(57,91,116,.38);background:rgba(15,37,55,.82);transition:.18s}
+.class-main-content .option:hover{border-color:rgba(98,233,243,.6);box-shadow:0 5px 16px rgba(0,0,0,.16)}
+.class-main-content .bridge{border-color:rgba(98,233,243,.34);border-left-width:4px;box-shadow:inset 0 1px rgba(255,255,255,.035)}
+.class-main-content .callout{border-radius:0 12px 12px 0;box-shadow:inset 0 1px rgba(255,255,255,.04)}
+.class-main-content .stat,.class-main-content .scenario-stat{border-color:#355875;border-radius:12px;background:linear-gradient(145deg,#142e46,#081827);box-shadow:inset 0 1px rgba(255,255,255,.05)}
+.class-main-content .open-lab{border-color:#3e617c;border-radius:15px;background:linear-gradient(145deg,#112b42,#071625);box-shadow:inset 0 1px rgba(255,255,255,.06),0 12px 27px rgba(0,0,0,.18)}
+.class-main-content .open-answer{border-color:#40627e;border-radius:11px;background:linear-gradient(145deg,#061321,#0b2032)}
+.class-main-content .open-answer:focus,.class-main-content input:not([type=radio]):focus,.class-main-content select:focus,.class-main-content textarea:focus{
+ outline:2px solid rgba(98,233,243,.28);border-color:var(--cyan);box-shadow:0 0 0 4px rgba(98,233,243,.07)
+}
+.class-main-content .btn{
+ min-height:39px;padding:10px 16px;border-radius:10px;
+ background:linear-gradient(135deg,#244660,#142b41);
+ box-shadow:inset 0 1px rgba(255,255,255,.08),0 7px 18px rgba(0,0,0,.16);
+ transition:transform .18s,border-color .18s,box-shadow .18s;
+}
+.class-main-content .btn:hover{transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 11px 25px rgba(0,0,0,.24),0 0 18px rgba(98,233,243,.07)}
+.class-main-content .btn.primary{background:linear-gradient(110deg,#e1ff91,#b5e75e);box-shadow:0 8px 24px rgba(220,255,121,.14),inset 0 1px rgba(255,255,255,.62)}
+.class-main-content .btn.primary:hover{border-color:#efffc3;box-shadow:0 11px 30px rgba(220,255,121,.2)}
+.class-main-content table{border-spacing:0 2px}
+.class-main-content th{background:linear-gradient(110deg,#23445f,#172e46)}
+.class-main-content td{background:rgba(7,23,38,.94)}
+.n9-scene-header{padding:12px 15px;border-color:#385c75;border-radius:12px;background:linear-gradient(100deg,#0b2032,#162d43);box-shadow:0 9px 25px rgba(0,0,0,.2)}
+.n9-mission-focus-banner{border-radius:13px;box-shadow:0 12px 30px rgba(0,0,0,.2),inset 0 1px rgba(255,255,255,.08)}
+.n9-mission-progress{border-radius:12px;background:linear-gradient(110deg,#0a1d2c,#132d42)}
+.n9-mission-progress-track{height:8px}
+.class09-shell .footer{letter-spacing:.11em;text-transform:uppercase}
+@media(max-width:1150px){
+ .class09-layout{grid-template-columns:255px minmax(0,1fr)}
+ .n9-world-panel{grid-template-columns:1fr!important}
+ .n9-world-copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(160px,.6fr);align-items:center;column-gap:20px}
+ .n9-world-copy:before,.n9-world-copy h3,.n9-world-copy p,.n9-world-copy .n9-world-tip{grid-column:1}
+ .n9-world-copy .n9-world-stats{grid-column:2;grid-row:2/5}
+ .n9-world-copy .n9-world-tip{max-width:430px}
+}
+@media(max-width:850px){
+ .shell.class09-shell{padding:12px}
+ .class09-layout{gap:14px}
+ .class09-side{border-radius:16px}
+ .n9-world-copy{display:block}
+ .n9-world-copy .n9-world-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .n9-world-viewport{height:330px!important;min-height:300px!important}
+ .command-kpi{min-height:130px}
+}
+@media(max-width:560px){
+ .shell.class09-shell{padding:8px}
+ .class09-shell>.top{min-height:68px;padding:10px 12px;border-radius:13px}
+ .class09-shell .badge{padding:7px 9px}
+ .class09-side{border-radius:14px}
+ .n9-operator{padding:11px}
+ .n9-window-launcher .n9-launcher{min-height:42px}
+ .class09-main .nexus-topbar{border-radius:12px}
+ .command-dashboard{padding:14px!important;border-radius:17px!important}
+ .command-head{min-height:0;padding-bottom:14px}
+ .command-head h2{font-size:27px}
+ .n9-world-panel{padding:10px!important;border-radius:15px!important}
+ .n9-world-copy{padding:8px 6px}
+ .n9-world-copy h3{font-size:25px}
+ .n9-world-copy .n9-world-stats{grid-template-columns:1fr}
+ .n9-world-viewport{height:275px!important;min-height:275px!important}
+ .n9-world-node{transform:scale(.76);transform-origin:top left}
+ .n9-world-node:hover,.n9-world-node:focus-visible{transform:translateY(-4px) scale(.8)}
+ .n9-node-label{min-width:88px}
+ .command-kpis{gap:8px}
+ .command-kpi{min-height:123px;padding:12px 10px;border-radius:11px}
+ .command-kpi strong{font-size:24px}
+ .nexus-progression{padding:15px!important;border-radius:14px!important}
+ .n9-stage-track{gap:7px}
+ .n9-stage{min-height:88px;padding:10px 8px}
+ .n9-module{min-height:120px;padding:13px}
+ .class-main-content .card{border-radius:14px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ .command-kpi,.n9-stage,.n9-module,.n9-world-node,.n9-dashboard-shortcut{transition:none!important}
+ .n9-world-node:hover,.n9-stage:hover,.n9-module:hover{transform:none!important}
+}
+@media print{
+ body{background:white!important}
+ .class09-shell>.top{display:none!important}
+ .command-dashboard,.class-main-content .card{box-shadow:none!important;background:white!important;border-color:#bbb!important}
+}
+</style>
+<style id="nexus-100-submissions">
+.n9-submission-hub{position:relative;margin:18px 0 20px;padding:17px;border:1px solid #3d627c;border-radius:16px;background:radial-gradient(ellipse at 100% 0%,rgba(98,233,243,.11),transparent 36%),linear-gradient(145deg,rgba(11,31,48,.98),rgba(5,16,28,.99));box-shadow:inset 0 1px rgba(255,255,255,.065),0 15px 34px rgba(0,0,0,.22)}
+.n9-submission-hub-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}.n9-submission-hub-kicker{color:#75dfe9;font-size:8px;font-weight:950;letter-spacing:.17em}
+.n9-submission-hub-head h3{margin:5px 0 3px;color:#f2f8ff;font-size:18px;letter-spacing:-.025em}.n9-submission-hub-head p{margin:0;color:#91a9be;font-size:10px;line-height:1.55}
+.n9-submission-count{min-width:88px;padding:9px 11px;border:1px solid rgba(220,255,121,.38);border-radius:10px;background:linear-gradient(130deg,rgba(220,255,121,.12),rgba(98,233,243,.06));text-align:center}
+.n9-submission-count strong{display:block;color:#dcff79;font-size:22px;line-height:1.05;font-variant-numeric:tabular-nums}.n9-submission-count small{display:block;margin-top:4px;color:#9fb4c8;font-size:8px;font-weight:900;letter-spacing:.12em}
+.n9-submission-overall{height:7px;overflow:hidden;margin:13px 0 15px;border:1px solid #35536a;border-radius:99px;background:#061321}.n9-submission-overall i{display:block;width:0;height:100%;border-radius:99px;background:linear-gradient(90deg,#62e9f3,#a69bff,#dcff79);box-shadow:0 0 14px rgba(98,233,243,.24);transition:width .3s}
+.n9-submission-phases{display:grid;gap:8px}.n9-submission-phase{overflow:hidden;border:1px solid #2c4c65;border-radius:12px;background:rgba(5,19,32,.72)}
+.n9-submission-phase>summary{display:flex;align-items:center;gap:10px;padding:11px 12px;cursor:pointer;list-style:none}.n9-submission-phase>summary::-webkit-details-marker,.n9-subtask>summary::-webkit-details-marker{display:none}
+.n9-phase-number{width:27px;height:27px;flex:0 0 auto;display:grid;place-items:center;border:1px solid #426a82;border-radius:8px;background:#102a3d;color:#83e8ef;font-size:9px;font-weight:950}
+.n9-phase-copy{min-width:0;flex:1}.n9-phase-copy b{display:block;color:#e7f1fb;font-size:10px;letter-spacing:.07em}.n9-phase-copy small{display:block;margin-top:2px;color:#829db2;font-size:8px}
+.n9-phase-count{color:#a8bed0;font-size:9px;font-weight:850;font-variant-numeric:tabular-nums}.n9-phase-arrow{color:#7c9ab0;font-size:14px;transition:transform .2s}.n9-submission-phase[open]>summary .n9-phase-arrow{transform:rotate(90deg)}
+.n9-phase-tasks{display:grid;gap:6px;padding:0 9px 10px}.n9-subtask{overflow:hidden;border:1px solid #29465e;border-radius:10px;background:linear-gradient(115deg,rgba(11,29,45,.97),rgba(8,21,34,.97))}
+.n9-subtask>summary{display:flex;align-items:center;gap:9px;padding:10px 11px;cursor:pointer;list-style:none}
+.n9-subtask-index{width:25px;height:25px;flex:0 0 auto;display:grid;place-items:center;border:1px solid #385a72;border-radius:7px;background:#0c2235;color:#9be8ed;font-size:9px;font-weight:950}
+.n9-subtask-copy{min-width:0;flex:1}.n9-subtask-copy b{display:block;color:#dce9f5;font-size:10px;line-height:1.35}.n9-subtask-copy small{display:block;margin-top:2px;color:#7591a9;font-size:8px;line-height:1.4}
+.n9-subtask-state{padding:4px 7px;border:1px solid #38566c;border-radius:99px;color:#91a8bc;font-size:7px;font-weight:950;letter-spacing:.09em;white-space:nowrap}
+.n9-subtask[open]{border-color:#47768d;box-shadow:0 7px 20px rgba(0,0,0,.16)}.n9-subtask.is-done{border-color:#39785f;background:linear-gradient(110deg,rgba(13,47,39,.92),rgba(8,28,34,.95))}
+.n9-subtask.is-done .n9-subtask-index{border-color:#4e9875;background:#123d30;color:#baf5d4}.n9-subtask.is-done .n9-subtask-state{border-color:#438a66;background:#123729;color:#a9edc6}
+.n9-subtask-body{padding:0 12px 12px 45px}.n9-subtask-prompt{margin:0 0 9px;color:#aebfd0;font-size:10px;line-height:1.6}
+.n9-subtask-body select,.n9-subtask-body input,.n9-subtask-body textarea{display:block;width:100%;min-height:38px;padding:9px 10px;border:1px solid #3a5b74;border-radius:8px;background:#061522;color:#eef7ff;font:11px/1.5 Inter,system-ui,sans-serif}
+.n9-subtask-body textarea{min-height:66px;resize:vertical}.n9-subtask-body select:focus,.n9-subtask-body input:focus,.n9-subtask-body textarea:focus{outline:2px solid rgba(98,233,243,.25);border-color:#62e9f3}
+.n9-subtask-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:8px}.n9-subtask-actions small{color:#728ca3;font-size:8px}
+.n9-subtask-actions button{padding:8px 11px;border:1px solid #6d854c;border-radius:8px;background:linear-gradient(110deg,#dcff79,#b7e660);color:#102016;font-size:9px;font-weight:950;cursor:pointer}.n9-subtask-actions button:disabled{opacity:.55;cursor:default}
+.n9-sub-feedback{display:none;margin-top:9px;padding:9px 10px;border:1px solid #6e5242;border-radius:8px;background:#2b231d;color:#edcfaa;font-size:9px;line-height:1.55}.n9-sub-feedback.ok{display:block;border-color:#347557;background:#102b25;color:#b8eecf}.n9-sub-feedback.bad{display:block}.n9-sub-feedback b{display:block;margin-bottom:3px;font-size:9px}
+.n9-submission-hub-footer{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px;padding-top:11px;border-top:1px solid rgba(133,175,196,.15);color:#819bb0;font-size:9px}.n9-submission-hub-footer strong{color:#dcff79}.n9-submission-hub-footer .n9-submission-final{color:#9cebf0;font-weight:850}
+@media(max-width:560px){.n9-submission-hub{padding:11px;border-radius:13px}.n9-submission-hub-head h3{font-size:16px}.n9-submission-count{min-width:72px;padding:7px}.n9-submission-count strong{font-size:19px}.n9-phase-tasks{padding:0 6px 7px}.n9-subtask-body{padding-left:12px}.n9-submission-hub-footer{font-size:8px}}
+</style>
+<style id="nexus-responsive-v3">
+/* RESPONSIVE v3 */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:12px}body{overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+.class09-shell,.class09-layout,.class09-main,.class-main-content,.command-dashboard{min-width:0}
+.class-main-content table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+button,a,input,select,textarea{touch-action:manipulation}
+@media(min-width:851px){.class09-layout{grid-template-columns:clamp(245px,19vw,300px) minmax(0,1fr)!important;gap:clamp(16px,1.5vw,24px)!important}.class09-side{position:sticky!important;top:14px!important;max-height:calc(100dvh - 28px);overscroll-behavior:contain}}
+@media(min-width:561px) and (max-width:850px){
+.shell.class09-shell{padding:12px}.class09-layout{grid-template-columns:1fr!important;gap:12px!important}
+.class09-side{position:relative!important;inset:auto!important;width:100%!important;max-height:none!important;overflow:visible!important;padding:11px!important}
+.n9-sidebar-brand,.n9-operator,.n9-side-note,.n9-queue-title{display:none!important}
+.nexus-primary-nav{display:flex!important;flex-wrap:nowrap;overflow-x:auto;gap:7px;margin:10px 0 0;padding:0 0 9px;border:0;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.nexus-primary-nav .n9-launcher{flex:0 0 auto;width:auto;min-width:max-content;min-height:44px;padding:7px 10px;scroll-snap-align:start}
+.n9-queue{display:flex;gap:7px;overflow-x:auto;padding:2px 0 5px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+.n9-queue a{flex:0 0 175px;min-height:54px;scroll-snap-align:start}
+.class09-main .nexus-topbar{position:relative;top:auto;height:auto;min-height:62px;flex-wrap:wrap;padding:10px 12px;gap:9px}
+.n9-top-location{min-width:0;flex:1 1 50%}.n9-search{order:3;flex:1 1 100%;max-width:none}.n9-live{margin-left:0}
+.n9-world-panel{grid-template-columns:1fr!important}.n9-world-copy{display:block}.n9-world-copy .n9-world-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+.command-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:560px){
+body{font-size:14px;background-attachment:scroll}.shell.class09-shell{width:100%;padding:8px 8px calc(16px + env(safe-area-inset-bottom,0px))}
+.class09-shell>.top{align-items:center;gap:8px;margin-bottom:10px;padding:10px;border-radius:13px}
+.class09-shell .brand{gap:9px;flex:1 1 100%}.class09-shell .logo{width:35px;height:35px;border-radius:10px;font-size:18px}
+.class09-shell .brand h1{font-size:12px;letter-spacing:.055em;line-height:1.25}.class09-shell .eyebrow{font-size:7px;letter-spacing:.12em}.class09-shell .sub{font-size:9px;line-height:1.35}
+.class09-shell .badge{align-self:flex-start;margin-left:44px;padding:5px 8px;font-size:8px;letter-spacing:.04em}
+.class09-layout{display:grid!important;grid-template-columns:minmax(0,1fr)!important;gap:9px!important}
+.class09-side{position:relative!important;inset:auto!important;width:100%!important;max-height:none!important;overflow:visible!important;padding:9px!important;border-radius:13px!important}
+.n9-sidebar-brand,.n9-operator,.n9-side-note,.n9-queue-title{display:none!important}
+.n9-progress-label{margin:1px 2px 5px;font-size:9px}.n9-progress-track{height:7px}
+.nexus-primary-nav{display:flex!important;flex-wrap:nowrap;gap:6px;overflow-x:auto;overflow-y:hidden;margin:9px 0 0;padding:0 0 7px;border:0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.nexus-primary-nav::-webkit-scrollbar,.n9-queue::-webkit-scrollbar{display:none}
+.nexus-primary-nav .n9-launcher{display:flex!important;flex:0 0 auto;align-items:center;gap:6px;width:auto;min-width:max-content;min-height:44px;padding:7px 9px;border:1px solid #29445f;border-radius:9px;scroll-snap-align:start;font-size:10px}
+.n9-window-launcher .n9-launcher span{width:23px;height:23px;font-size:11px}.n9-window-launcher .n9-launcher b{font-size:9px}.n9-window-launcher .n9-launcher i{display:none}
+.n9-window-launcher .n9-launcher:hover,.n9-window-launcher .n9-launcher.is-active{transform:none}
+.n9-queue{display:flex;gap:6px;overflow-x:auto;margin-top:7px;padding:1px 0 5px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.n9-queue a{flex:0 0 145px;min-height:48px;grid-template-columns:23px 1fr;gap:7px;padding:7px;scroll-snap-align:start;font-size:9px}
+.n9-queue a i{width:22px;height:22px;font-size:9px}.n9-queue a b{font-size:9px}
+.class09-main{min-width:0!important;width:100%}
+.class09-main .nexus-topbar{position:relative!important;top:auto!important;height:auto!important;min-height:0;display:grid!important;grid-template-columns:minmax(0,1fr) auto;gap:8px;margin:0 0 10px;padding:10px;border-radius:12px}
+.n9-top-location{min-width:0}.n9-top-location span{font-size:7px;letter-spacing:.11em}.n9-top-location strong{font-size:11px;line-height:1.25}
+.n9-live{justify-self:end;margin:0;font-size:7px;letter-spacing:.06em}.n9-avatar{width:29px;height:29px;grid-column:2;grid-row:1}
+.n9-search{grid-column:1/-1;grid-row:2;width:100%;max-width:none;min-height:40px;padding:0 9px}.n9-search input{font-size:16px!important;min-height:38px}
+.command-dashboard{padding:12px!important;margin-bottom:10px;border-radius:15px!important}.command-head{display:block;min-height:0;padding-bottom:12px}
+.command-head h2{margin:6px 0;font-size:clamp(21px,6vw,27px);line-height:1.1}.command-head p{font-size:10px;line-height:1.45}
+.n9-command-status{display:inline-flex;margin-top:9px;padding:7px 9px;font-size:7px}
+.n9-world-panel{display:flex!important;flex-direction:column;align-items:stretch;gap:9px!important;margin:11px 0!important;padding:9px!important;border-radius:13px!important}
+.n9-world-copy{display:block!important;padding:5px 4px!important}.n9-world-copy:before{margin-bottom:7px}
+.n9-world-copy h3{max-width:none;margin:5px 0;font-size:21px;line-height:1.12}.n9-world-copy p{max-width:none;font-size:10px;line-height:1.5}
+.n9-world-copy .n9-world-stats{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px;margin-top:9px}
+.n9-world-stats span{display:block;min-width:0;padding:6px;border:1px solid #294b62;border-radius:7px;background:#071a29;font-size:8px;line-height:1.3}
+.n9-world-stats b{display:block;min-width:0;margin-bottom:2px;font-size:14px}.n9-world-tip{margin-top:8px;padding:7px;font-size:9px;line-height:1.4}
+.n9-world-viewport{width:100%;height:235px!important;min-height:235px!important;border-radius:11px!important;overflow:hidden}
+.n9-world-space{transform:scale(.78);transform-origin:50% 50%}.n9-world-node{transform:scale(.68);transform-origin:top left}
+.n9-world-node:hover,.n9-world-node:focus-visible{transform:scale(.7)}.n9-node-label{top:85px;min-width:83px;padding:6px}
+.n9-node-label b{font-size:8px}.n9-node-label small{font-size:6px}
+.n9-world-legend{left:7px;right:7px;bottom:6px;display:flex;justify-content:space-between;gap:5px;padding:5px 6px;font-size:6px}
+.command-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:10px 0}
+.command-kpi{min-height:106px;padding:10px 9px;border-radius:10px}.kpi-label{font-size:7px;letter-spacing:.08em;line-height:1.25}
+.command-kpi strong{margin:7px 0 3px;font-size:clamp(20px,6vw,25px)}.command-kpi>span:last-of-type{min-height:24px;font-size:8px;line-height:1.35}.kpi-track{margin-top:8px}
+.nexus-progression{margin:11px 0 3px!important;padding:11px!important;border-radius:12px!important}
+.n9-progression-head{align-items:flex-start}.n9-progression-head h3{font-size:17px}.n9-progression-sub{font-size:9px;line-height:1.45}
+.n9-rank-chip{padding:6px 7px;font-size:7px;white-space:nowrap}.n9-stage-track{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin-top:10px}
+.n9-stage{min-height:70px;padding:8px;border-radius:9px}.n9-stage:last-child{grid-column:1/-1}
+.n9-stage em{width:23px;height:23px;margin-bottom:4px;font-size:9px}.n9-stage b{font-size:8px;line-height:1.3}.n9-stage span{font-size:7px;line-height:1.3}
+.n9-progress-footer{align-items:stretch;gap:9px;margin-top:10px;padding-top:9px}.n9-progress-footer>div{min-width:0;flex:1}
+.n9-progress-footer strong{font-size:9px}.n9-progress-footer small{font-size:8px}.n9-mini-progress{width:100%}
+.n9-progress-footer .btn{width:100%;min-height:44px;padding:9px;font-size:9px}
+.n9-module-grid{grid-template-columns:1fr!important;gap:7px;margin-top:9px}.n9-module{min-height:0;padding:11px;border-radius:10px}
+.n9-module b{font-size:11px}.n9-module p{font-size:9px}
+.n9-dashboard-shortcuts{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}.n9-dashboard-shortcut{min-width:0;gap:6px;padding:8px;border-radius:9px}
+.n9-dashboard-shortcut i{width:26px;height:26px}.n9-dashboard-shortcut b{font-size:8px;line-height:1.25}.n9-dashboard-shortcut small{font-size:7px}
+.class-main-content{margin-top:8px!important}.class-main-content .card{margin-bottom:9px;padding:12px!important;border-radius:12px!important}
+.class-main-content .card h2{font-size:20px;line-height:1.2}.class-main-content .card h3{font-size:15px}
+.class-main-content .card p,.class-main-content .card li{font-size:12px;line-height:1.55}
+.class-main-content .mission{scroll-margin-top:12px;padding-left:2px}.class-main-content .question{margin:9px 0;padding:10px;border-radius:10px}
+.class-main-content .option{min-height:44px;align-items:center;padding:9px;font-size:12px}.class-main-content .option input{width:18px;height:18px;flex:0 0 auto}
+.class-main-content .actions{display:grid;grid-template-columns:1fr;gap:7px}.class-main-content .actions .btn,.class-main-content .btn{width:100%;min-height:44px;padding:11px 12px;font-size:11px}
+.class-main-content input:not([type=radio]),.class-main-content select,.class-main-content textarea{width:100%;min-height:44px;font-size:16px!important}.class-main-content textarea{min-height:105px}
+.n9-submission-hub{margin:10px 0 12px;padding:10px!important;border-radius:12px!important}
+.n9-submission-hub-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+.n9-submission-hub-head h3{font-size:15px;line-height:1.2}.n9-submission-hub-head p{font-size:9px;line-height:1.45}
+.n9-submission-hub-kicker{font-size:7px;letter-spacing:.11em}.n9-submission-count{min-width:60px;padding:7px}
+.n9-submission-count strong{font-size:18px}.n9-submission-count small{font-size:6px}.n9-submission-overall{margin:9px 0;height:6px}
+.n9-submission-phases{gap:6px}.n9-submission-phase{border-radius:9px}
+.n9-submission-phase>summary{min-height:48px;gap:7px;padding:8px}.n9-phase-number{width:24px;height:24px;border-radius:7px}
+.n9-phase-copy b{font-size:8px;letter-spacing:.035em}.n9-phase-copy small{font-size:7px}.n9-phase-count{font-size:8px;white-space:nowrap}
+.n9-phase-tasks{gap:5px;padding:0 5px 6px}.n9-subtask{border-radius:8px}
+.n9-subtask>summary{min-height:48px;gap:7px;padding:7px}.n9-subtask-index{width:23px;height:23px}
+.n9-subtask-copy b{font-size:9px;line-height:1.3}.n9-subtask-copy small{font-size:8px;line-height:1.35}
+.n9-subtask-state{padding:4px 5px;font-size:6px;letter-spacing:.03em}.n9-subtask-body{padding:0 8px 9px}
+.n9-subtask-prompt{font-size:10px;line-height:1.5}
+.n9-subtask-body select,.n9-subtask-body input,.n9-subtask-body textarea{min-height:44px;padding:10px;font-size:16px!important;line-height:1.4}
+.n9-subtask-body textarea{min-height:92px}.n9-subtask-actions{display:grid;grid-template-columns:1fr;gap:7px}
+.n9-subtask-actions small{font-size:8px}.n9-subtask-actions button{width:100%;min-height:44px;padding:10px;font-size:10px}
+.n9-sub-feedback{font-size:10px;line-height:1.5}.n9-submission-hub-footer{display:grid;gap:5px;font-size:8px}
+.n9-scene-header{align-items:flex-start;flex-direction:column;gap:7px;margin-bottom:8px;padding:9px;font-size:8px}
+.n9-back-control{min-height:40px}.n9-mission-focus-banner{align-items:flex-start;flex-direction:column;gap:6px;padding:9px}
+.class09-shell .footer{font-size:8px;line-height:1.5;text-align:center}
+}
+@media(hover:none){.command-kpi:hover,.n9-stage:hover,.n9-module:hover,.n9-dashboard-shortcut:hover,.n9-world-node:hover,.class-main-content .question:hover{transform:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+<style id="nexus-class10-practice">
+:root{--n10-teal:#67eadb;--n10-amber:#ffd27b;--n10-blue:#82bcff;--n10-danger:#ff8f9a}
+html{scroll-padding-top:18px}
+.class-main-content .section{display:block!important;opacity:1!important;transform:none!important;animation:none!important;margin:0 0 22px}
+.class-main-content .section>.card:first-child{margin-top:0}
+.n10-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:18px;align-items:center;margin-top:15px;padding:20px;border:1px solid #34536f;border-radius:18px;background:radial-gradient(ellipse at 90% 10%,rgba(103,234,219,.16),transparent 38%),linear-gradient(130deg,#10283b,#0a1727 62%,#12233a);box-shadow:0 18px 42px #0004}
+.n10-hero h2{margin:8px 0 9px;font-size:clamp(23px,3vw,36px);line-height:1.08;letter-spacing:-.035em;color:#f4f8ff}
+.n10-hero p{max-width:700px;color:#b8c9da}
+.n10-hero-stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.n10-hero-stats span{padding:7px 10px;border:1px solid #395b71;border-radius:9px;background:#081826;color:#c5d8e8;font-size:10px;font-weight:850}
+.n10-process-visual{min-height:210px;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;align-items:stretch;padding:12px;border:1px solid #31506a;border-radius:14px;background:linear-gradient(145deg,#0b1b2b,#10263a)}
+.n10-process-step{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-width:0;text-align:center}
+.n10-process-step:not(:last-child):after{content:"";position:absolute;top:40px;left:67%;width:70%;height:2px;background:linear-gradient(90deg,#5ee0d1,#6a92d3)}
+.n10-process-icon{z-index:1;width:58px;height:58px;display:grid;place-items:center;border:1px solid #6aa79f;border-radius:17px;background:linear-gradient(145deg,#194b52,#112c3b);color:#d8ff72;font-size:25px;box-shadow:0 8px 18px #0005}
+.n10-process-step:nth-child(2) .n10-process-icon{border-color:#4c7f9b;background:linear-gradient(145deg,#17415c,#11283c);color:#90dcff}
+.n10-process-step:nth-child(3) .n10-process-icon{border-color:#8e7041;background:linear-gradient(145deg,#4a371b,#2a261e);color:#ffd27b}
+.n10-process-step:nth-child(4) .n10-process-icon{border-color:#546fa0;background:linear-gradient(145deg,#223b67,#15233c);color:#b3c7ff}
+.n10-process-step b{font-size:10px;color:#e9f4ff;letter-spacing:.06em}
+.n10-process-step small{font-size:9px;color:#93abc0;line-height:1.35}
+.n10-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:15px 0}
+.n10-kpi{padding:14px;border:1px solid #304e67;border-radius:12px;background:linear-gradient(145deg,#10243a,#091725)}
+.n10-kpi small{display:block;color:#92abc1;font-size:9px;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.n10-kpi strong{display:block;margin-top:4px;color:#f3f8ff;font-size:25px;line-height:1.1;font-variant-numeric:tabular-nums}
+.n10-kpi span{display:block;margin-top:4px;color:#8fa6ba;font-size:10px}
+.n10-profile{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.n10-profile label,.n10-form label{display:block;margin-bottom:5px;color:#a9bfd1;font-size:10px;font-weight:850}
+.n10-profile input,.n10-form input,.n10-form select,.n10-form textarea,.n10-flow-row select{width:100%;min-width:0;padding:10px 11px;border:1px solid #36546c;border-radius:9px;background:#071522;color:#f3f8ff}
+.n10-profile input:focus,.n10-form input:focus,.n10-form select:focus,.n10-form textarea:focus,.n10-flow-row select:focus{outline:2px solid #64e7f0;outline-offset:1px}
+.n10-section-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-end;flex-wrap:wrap;margin-bottom:13px}
+.n10-section-head h2{margin:4px 0;color:#f1f7ff;font-size:clamp(20px,2.4vw,28px)}
+.n10-section-head p{max-width:780px;margin:0;color:#9fb4c7;font-size:12px}
+.n10-topic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.n10-topic{position:relative;overflow:hidden;padding:17px;border:1px solid #34516b;border-radius:14px;background:linear-gradient(145deg,#10243a,#091725)}
+.n10-topic:before{content:"";position:absolute;top:0;left:0;width:4px;height:100%;background:var(--topic-accent,#67eadb)}
+.n10-topic h3{margin:4px 0 6px;color:#f0f7ff;font-size:17px}
+.n10-topic p,.n10-topic li{color:#b5c8d9;font-size:12px}
+.n10-topic ul{padding-left:18px;margin:9px 0}
+.n10-topic .n10-topic-number{color:var(--topic-accent,#67eadb);font-size:9px;font-weight:950;letter-spacing:.14em}
+.n10-rule{margin:10px 0;padding:12px 14px;border:1px solid #3e6078;border-left:3px solid var(--n10-teal);border-radius:10px;background:#0a1b2a;color:#d6e5f2}
+.n10-rule strong{color:#c8fff5}
+.n10-mission{scroll-margin-top:20px;position:relative;margin:15px 0;padding:18px;border:1px solid #34516b;border-radius:16px;background:linear-gradient(145deg,rgba(13,29,45,.98),rgba(6,16,27,.98));box-shadow:0 12px 30px #0003}
+.n10-mission:before{content:"";position:absolute;top:18px;bottom:18px;left:0;width:3px;border-radius:8px;background:linear-gradient(180deg,var(--mission-accent,#67eadb),#8e9cff,#d8ff72)}
+.n10-mission-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap;margin-bottom:12px}
+.n10-mission-kicker{color:var(--mission-accent,#67eadb);font-size:9px;font-weight:950;letter-spacing:.16em}
+.n10-mission-top h3{margin:4px 0 5px;color:#f4f8ff;font-size:clamp(19px,2.4vw,25px);line-height:1.15}
+.n10-mission-top p{max-width:760px;margin:0;color:#a9bfd1;font-size:12px}
+.n10-mission-stat{min-width:90px;padding:9px 12px;border:1px solid #46617a;border-radius:10px;background:#0a1a29;text-align:center}
+.n10-mission-stat b{display:block;color:#d8ff72;font-size:21px;line-height:1.1}
+.n10-mission-stat small{font-size:8px;color:#9fb3c8;font-weight:900;letter-spacing:.1em}
+.n10-meter{height:8px;overflow:hidden;margin:12px 0 6px;border:1px solid #36526a;border-radius:99px;background:#06121e}
+.n10-meter i{display:block;width:0;height:100%;border-radius:99px;background:linear-gradient(90deg,#64e7f0,#9b9aff,#d8ff72);transition:width .25s}
+.n10-meter-meta{display:flex;justify-content:space-between;gap:8px;color:#8ea6bb;font-size:9px}
+.n10-case{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:13px 0}
+.n10-case div{padding:10px;border:1px solid #304e67;border-radius:9px;background:#0a1a29}
+.n10-case small{display:block;color:#8ea8be;font-size:8px;font-weight:900;letter-spacing:.12em}
+.n10-case b{display:block;margin-top:3px;color:#f1f7ff;font-size:15px}
+.n10-hub{margin-top:13px;padding:13px;border:1px solid #3c5c76;border-radius:13px;background:radial-gradient(ellipse at 100% 0%,rgba(100,231,240,.08),transparent 35%),#081725}
+.n10-hub-head{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.n10-hub-head b{color:#ecf6ff;font-size:13px}
+.n10-hub-head small{color:#95adbf;font-size:10px}
+.n10-phases{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.n10-phase{overflow:hidden;border:1px solid #2c475e;border-radius:10px;background:#0a1b2a}
+.n10-phase>summary{display:flex;align-items:center;gap:9px;padding:10px 11px;cursor:pointer;list-style:none}
+.n10-phase>summary::-webkit-details-marker,.n10-task>summary::-webkit-details-marker{display:none}
+.n10-phase-num{width:26px;height:26px;display:grid;place-items:center;border:1px solid #52768c;border-radius:8px;color:#d8ff72;font-size:10px;font-weight:950}
+.n10-phase-title{flex:1;color:#d9e7f3;font-size:10px;font-weight:950;letter-spacing:.07em}
+.n10-phase-count{color:#9db4c8;font-size:9px;font-weight:900}
+.n10-phase-body{padding:0 8px 8px}
+.n10-task{margin:6px 0;border:1px solid #2d4b63;border-radius:9px;background:#0c2031}
+.n10-task.is-done{border-color:#3e8a70;background:linear-gradient(105deg,#10342e,#0c2031)}
+.n10-task>summary{display:flex;gap:8px;align-items:center;padding:9px;cursor:pointer;list-style:none}
+.n10-task-number{flex:0 0 27px;width:27px;height:27px;display:grid;place-items:center;border-radius:7px;background:#18374b;color:#d7efff;font-size:10px;font-weight:950}
+.n10-task-copy{flex:1;min-width:0}
+.n10-task-copy b{display:block;color:#e4f0fa;font-size:11px}
+.n10-task-copy small{display:block;margin-top:2px;color:#91a9be;font-size:9px;line-height:1.35}
+.n10-task-status{flex:0 0 auto;color:#a9bace;font-size:8px;font-weight:950;letter-spacing:.06em}
+.n10-task.is-done .n10-task-status{color:#91e9b7}
+.n10-task-body{padding:10px;border-top:1px solid #29465d}
+.n10-task-question{margin:0 0 9px;color:#f0f7ff;font-size:12px;font-weight:750}
+.n10-task-hint{margin:8px 0;padding:8px 10px;border-left:2px solid #e3b968;border-radius:6px;background:#2a2418;color:#e8d6ad;font-size:10px}
+.n10-task-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:9px}
+.n10-task-actions .btn{padding:8px 12px;font-size:10px}
+.n10-task-feedback{display:none;margin-top:9px;padding:10px;border:1px solid #36566d;border-radius:8px;background:#091725;color:#bfd3e3;font-size:10px}
+.n10-task-feedback.good{display:block;border-color:#3d8b6d;background:#0c2a24;color:#bbf3d8}
+.n10-task-feedback.bad{display:block;border-color:#91545c;background:#2b171d;color:#ffd2d7}
+.n10-explain{display:block;margin-top:6px;color:#9fb6c8;font-size:10px}
+.n10-worked{margin:12px 0;padding:13px;border:1px solid #45627b;border-radius:10px;background:linear-gradient(120deg,#112c3d,#101d30)}
+.n10-worked h4{margin:0 0 6px;color:#d8ff72;font-size:12px}
+.n10-worked p{margin:5px 0;color:#bed0de;font-size:11px}
+.n10-steps{counter-reset:work;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0}
+.n10-step{position:relative;padding:10px 10px 10px 35px;border:1px solid #2c5066;border-radius:8px;background:#091a28}
+.n10-step:before{counter-increment:work;content:counter(work);position:absolute;left:9px;top:9px;width:18px;height:18px;display:grid;place-items:center;border-radius:50%;background:#24505a;color:#e1fff8;font-size:9px;font-weight:900}
+.n10-step b{display:block;color:#e7f2fc;font-size:10px}
+.n10-step span{display:block;color:#9fb4c7;font-size:9px}
+.n10-flow-board{margin-top:14px;padding:16px;border:1px solid #42617a;border-radius:14px;background:linear-gradient(145deg,#10243a,#091725)}
+.n10-flow-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.n10-flow-row{display:grid;grid-template-columns:32px minmax(0,1fr);gap:8px;align-items:center;padding:8px;border:1px solid #2d4a62;border-radius:9px;background:#0a1a29}
+.n10-flow-row>span{width:28px;height:28px;display:grid;place-items:center;border-radius:8px;background:#1d3c50;color:#d8ff72;font-weight:950;font-size:10px}
+.n10-flow-row select{font-size:10px;padding:9px}
+.n10-flow-feedback{display:none;margin-top:11px;padding:11px;border:1px solid #3c5c76;border-radius:9px;background:#081725;color:#c9d9e7;font-size:11px}
+.n10-flow-feedback.good{display:block;border-color:#3e8a70;background:#0b2c24;color:#bff3d8}
+.n10-flow-feedback.bad{display:block;border-color:#92505b;background:#2b171d;color:#ffd2d7}
+.n10-evidence-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:10px 0}
+.n10-evidence-list label{display:flex;gap:8px;align-items:flex-start;padding:10px;border:1px solid #2d4b62;border-radius:8px;background:#0a1a29;color:#c1d1df;font-size:10px}
+.n10-evidence-list input{width:auto;margin-top:2px;accent-color:#d8ff72}
+.n10-reference{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.n10-reference article{padding:12px;border:1px solid #304e67;border-radius:10px;background:#0a1a29}
+.n10-reference b{display:block;color:#e7f3fc;font-size:11px}
+.n10-reference p{margin:5px 0;color:#9eb4c7;font-size:10px}
+.n10-reference a{font-size:10px}
+.n10-mini-note{padding:10px;border:1px dashed #4b6b82;border-radius:9px;color:#a9bfd2;font-size:10px}
+.n10-footer{text-align:center;padding:15px;color:#728ba0;font-size:9px;letter-spacing:.12em}
+.n10-hidden{display:none!important}
+@media(max-width:1000px){.n10-hero{grid-template-columns:1fr}.n10-process-visual{min-height:180px}}
+@media(max-width:850px){.n10-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.n10-topic-grid{grid-template-columns:1fr}.n10-flow-grid{grid-template-columns:1fr}}
+@media(max-width:560px){
+ .class09-shell{padding:8px!important}.class09-shell>.top{padding:10px;border-radius:12px;gap:8px}.class09-shell .logo{width:38px;height:38px}.class09-shell .brand h1{font-size:13px}.class09-shell .sub{font-size:9px}.class09-shell .badge{font-size:8px;padding:6px 8px}
+ .class09-layout{display:block!important}.class09-side{position:relative!important;top:auto!important;max-height:none!important;padding:10px;margin-bottom:9px}.nexus-primary-nav{display:flex!important;overflow-x:auto;gap:6px;padding-bottom:9px}.nexus-primary-nav a{flex:0 0 auto!important;white-space:nowrap}.n9-queue{display:flex!important;overflow-x:auto;gap:6px}.n9-queue a{flex:0 0 145px}.n9-side-note{display:none}
+ .nexus-topbar{gap:8px;padding:9px}.n9-search{max-width:none}.n10-hero{padding:13px;gap:12px}.n10-hero h2{font-size:24px}.n10-process-visual{grid-template-columns:repeat(2,1fr);min-height:0}.n10-process-step:not(:last-child):after{display:none}.n10-process-icon{width:48px;height:48px;font-size:21px}
+ .n10-profile{grid-template-columns:1fr}.n10-case{grid-template-columns:repeat(2,1fr)}.n10-phases{grid-template-columns:1fr}.n10-steps{grid-template-columns:1fr}.n10-evidence-list,.n10-reference{grid-template-columns:1fr}.n10-task-status{font-size:7px}.n10-mission{padding:13px}.n10-flow-board{padding:11px}
+}
+@media(prefers-reduced-motion:reduce){.n10-meter i{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="shell class09-shell">
+<header class="top">
+ <div class="brand">
+  <span class="logo">N</span>
+  <div><div class="eyebrow">NEXUS PROCUREMENT LEARNING SYSTEM</div><h1>SESIÓN 10 · RECEPCIÓN Y CIERRE</h1><div class="sub">Unidad 3 · Temas 3.13–3.16 · Laboratorio de práctica</div></div>
+ </div>
+ <div class="badge">CAMPAÑA 10 · 80 SUBMISIONES</div>
+</header>
+
+<div class="layout class09-layout">
+<aside class="side class09-side">
+ <div class="n9-sidebar-brand"><span class="n9-sidebar-mark">N</span><span><b>NEXUS</b><small>PROCUREMENT LEARNING</small></span></div>
+ <div class="n9-operator"><div class="eyebrow">OPERADOR EN ENTRENAMIENTO</div><strong id="sideStudentName">Sin identificar</strong><small id="sideStudentGroup">Sesión 10 · Grupo pendiente</small></div>
+ <div class="n9-progress-label"><span>Progreso de práctica</span><b id="sideProgressText">00 / 80</b></div><div class="n9-progress-track"><span id="sideProgressBar"></span></div>
+ <div class="n9-queue-title n9-launcher-title">NEXUS MODULES <span>04</span></div>
+ <nav class="tabs nexus-primary-nav" aria-label="Navegación de la sesión">
+  <a class="n9-launcher" href="#dashboard"><span>⌂</span><b>Dashboard</b><i>⌘</i></a>
+  <a class="n9-launcher" href="#briefing"><span>▣</span><b>Briefing</b><i>↗</i></a>
+  <a class="n9-launcher" href="#guia"><span>▤</span><b>Guía de estudio</b><i>↗</i></a>
+  <a class="n9-launcher" href="#misiones"><span>⚑</span><b>Centro de misiones</b><i>↗</i></a>
+  <a class="n9-launcher" href="#integrador"><span>⌘</span><b>Diagrama integral</b><i>↗</i></a>
+  <a class="n9-launcher" href="#recursos"><span>▧</span><b>Referencias</b><i>↗</i></a>
+ </nav>
+ <div class="n9-queue-title">MISSION QUEUE <span>04 · LIVE</span></div>
+ <div class="n9-queue">
+  <a href="#mission-receiving"><i>01</i><span><b>Recepción</b>3.13 · 20 retos</span></a>
+  <a href="#mission-quality"><i>02</i><span><b>Calidad</b>3.14 · 20 retos</span></a>
+  <a href="#mission-payment"><i>03</i><span><b>Pago y factura</b>3.15 · 20 retos</span></a>
+  <a href="#mission-archive"><i>04</i><span><b>Archivo histórico</b>3.16 · 20 retos</span></a>
+ </div>
+ <div class="n9-side-note"><b>SIMULATION MODE</b>Tu avance se guarda en este navegador y dispositivo. Completa las cuatro misiones y construye el flujo integral para descargar tu evidencia.</div>
+ <a class="n9-page-link" style="margin-top:12px;width:100%;justify-content:center" href="../sesion-09-integracion-proceso-compras/">← Regresar a la Sesión 09</a>
+ <a class="n9-page-link" style="margin-top:7px;width:100%;justify-content:center" href="../protocolo-nexus-unidad3/">Abrir Control Tower ↗</a>
+</aside>
+
+<div class="class09-main">
+<header class="nexus-topbar">
+ <div class="n9-top-location"><span>NEXUS WORLDWIDE / CLASS 10</span><strong id="topbarPageTitle">Centro de control de recepción y cierre</strong></div>
+ <label class="n9-search"><span>⌕</span><input id="missionSearch" type="search" placeholder="Buscar tema o misión…"></label>
+ <div class="n9-live"><i></i> SISTEMA EN LÍNEA</div>
+ <div class="n9-avatar" id="topAvatar">OP</div>
+</header>
+
+<section class="panel command-dashboard" id="dashboard">
+ <div class="command-head">
+  <div><div class="eyebrow">NEXUS PROCUREMENT / RECEIVING & CLOSEOUT CONTROL</div><h2>Del andén de recepción al expediente histórico</h2><p>La operación no termina al descargar el material: debe inspeccionarse, conciliarse, pagarse con evidencia y conservarse.</p></div>
+  <div class="n9-command-status"><i></i> LABORATORIO ACTIVO · 4 MISIONES</div>
+ </div>
+ <div class="n10-hero">
+  <div>
+   <div class="eyebrow">MISSION BRIEF · NEXUS MANUFACTURING</div>
+   <h2>El pedido llegó. ¿Está listo para cerrar?</h2>
+   <p>Continúa la compra de 400 rodamientos trabajada en la Sesión 09. Ahora debes verificar entregas parciales, decidir qué material puede liberarse, revisar la factura y construir el expediente histórico.</p>
+   <div class="n10-hero-stats"><span>400 recibidos físicamente</span><span>390 aceptados</span><span>10 no conformes</span><span>OC NEXUS-01</span></div>
+  </div>
+  <div class="n10-process-visual" aria-label="Ruta de recepción, calidad, conciliación y archivo">
+   <div class="n10-process-step"><div class="n10-process-icon">▣</div><b>01 · RECIBIR</b><small>Contar y registrar<br>lo que llegó</small></div>
+   <div class="n10-process-step"><div class="n10-process-icon">⌕</div><b>02 · INSPECCIONAR</b><small>Separar conforme<br>y no conforme</small></div>
+   <div class="n10-process-step"><div class="n10-process-icon">≋</div><b>03 · CONCILIAR</b><small>OC · recepción<br>· factura</small></div>
+   <div class="n10-process-step"><div class="n10-process-icon">▤</div><b>04 · ARCHIVAR</b><small>Conservar evidencia<br>y trazabilidad</small></div>
+  </div>
+ </div>
+ <div class="n10-kpis">
+  <div class="n10-kpi"><small>Submisiones validadas</small><strong id="dashSubmissions">00 / 80</strong><span>20 retos por cada tema</span></div>
+  <div class="n10-kpi"><small>Misiones terminadas</small><strong id="dashMissions">0 / 4</strong><span>Un tema por misión</span></div>
+  <div class="n10-kpi"><small>Experiencia acumulada</small><strong id="dashXP">000 XP</strong><span>5 XP por reto validado</span></div>
+  <div class="n10-kpi"><small>Flujo integrador</small><strong id="dashFlow">Pendiente</strong><span>15 etapas por ordenar</span></div>
+ </div>
+</section>
+
+<main class="class-main-content">
+<section class="section" id="briefing">
+ <div class="card">
+  <div class="n10-section-head"><div><div class="kicker">01 · BRIEFING OPERATIVO</div><h2>Tu objetivo en esta sesión</h2></div><span class="pill">90 MIN · PRÁCTICA GUIADA</span></div>
+  <p>Actuarás como parte del equipo de Compras, Almacén, Calidad y Cuentas por Pagar de NEXUS Manufacturing. Deberás concluir una operación sin confundir recepción física con aceptación, ni factura con autorización automática de pago.</p>
+  <div class="n10-rule"><strong>Regla de operación:</strong> documenta lo que realmente ocurrió. No registres como recibido lo que no llegó; no liberes materiales que no fueron aceptados; no autorices diferencias sin investigar y resolver conforme a la política aplicable.</div>
+  <div class="n10-profile">
+   <div><label for="studentName">Nombre del estudiante</label><input id="studentName" autocomplete="name" placeholder="Nombre y apellidos"></div>
+   <div><label for="studentGroup">Grupo / cuatrimestre</label><input id="studentGroup" placeholder="Ej. 8A · Administración"></div>
+  </div>
+  <div class="stats" style="margin-top:12px">
+   <div class="stat"><small>Misiones completas</small><b id="profileMissions">0 / 4</b></div>
+   <div class="stat"><small>Intentos registrados</small><b id="profileAttempts">0</b></div>
+   <div class="stat"><small>Tiempo de práctica</small><b id="sprintClock">00:00</b></div>
+  </div>
+  <div class="actions"><button class="btn primary" id="sprintStart">Iniciar cronómetro</button><button class="btn" id="sprintPause">Pausar</button><button class="btn" id="sprintReset">Reiniciar</button></div>
+ </div>
+ <div class="grid">
+  <div class="card"><div class="kicker">LEARNING OUTCOMES</div><h3>Al finalizar podrás…</h3><ul><li>Registrar entregas completas y parciales.</li><li>Distinguir recepción, inspección y aceptación.</li><li>Calcular porcentajes de aceptación y rechazo.</li><li>Conciliar OC, recepción y factura antes del pago.</li><li>Verificar aspectos comerciales y fiscales de una factura.</li><li>Organizar un expediente histórico trazable.</li></ul></div>
+  <div class="card"><div class="kicker">EVIDENCE PACKAGE</div><h3>Lo que generarás</h3><ul><li>80 respuestas validadas en cuatro misiones.</li><li>Secuencia de 15 etapas del proceso integral.</li><li>Registro de decisiones y criterios de control.</li><li>Archivo JSON con nombre, grupo, tiempo y respuestas.</li></ul><p class="muted">El archivo JSON se descarga al terminar y se entrega en NEMAX junto con una captura del flujo integrador.</p></div>
+ </div>
+</section>
+
+<section class="section" id="guia">
+ <div class="card">
+  <div class="n10-section-head"><div><div class="kicker">02 · GUÍA DE ESTUDIO</div><h2>Repasa antes de entrar a cada misión</h2></div><span class="pill">BASADO EN EL LIBRILLO · SESIÓN 10</span></div>
+  <p>Esta guía resume las ideas que usarás en los retos. Lee la explicación, identifica qué riesgo controla cada procedimiento y después practica.</p>
+ </div>
+ <div class="n10-topic-grid">
+  <article class="n10-topic" style="--topic-accent:#67eadb">
+   <div class="n10-topic-number">TEMA 3.13</div><h3>Recepción de materiales</h3>
+   <p>Es verificar y registrar qué bienes llegaron, cuándo, en qué cantidad y en qué condiciones visibles, comparándolos contra una orden de compra u otro documento autorizado.</p>
+   <ul><li>Programar la entrega y confirmar OC.</li><li>Identificar proveedor y revisar remisión.</li><li>Descargar, contar y revisar condición inicial.</li><li>Registrar fecha, cantidad, lote y diferencias.</li><li>Liberar lo conforme o segregar lo pendiente.</li></ul>
+   <div class="n10-worked"><h4>Ejemplo explicado · entregas parciales</h4><p>La OC NEXUS-01 solicita 400 piezas. Llegan 240 el día 5 y 160 el día 8.</p><div class="n10-steps"><div class="n10-step"><b>Identifica eventos</b><span>Dos entregas vinculadas a la misma OC.</span></div><div class="n10-step"><b>Registra cada conteo</b><span>240 y 160; no copies la cantidad pedida.</span></div><div class="n10-step"><b>Suma lo recibido</b><span>240 + 160 = 400 piezas.</span></div><div class="n10-step"><b>Compara con la OC</b><span>400 solicitadas − 400 recibidas = 0 faltantes.</span></div></div><p><b>¿Por qué?</b> El acumulado muestra si existen entregas parciales o faltantes. No demuestra que el material tenga calidad aceptable: eso se verifica en el tema 3.14.</p></div>
+  </article>
+  <article class="n10-topic" style="--topic-accent:#82bcff">
+   <div class="n10-topic-number">TEMA 3.14</div><h3>Control de calidad de las compras</h3>
+   <p>Confirma que lo entregado satisface requisitos definidos antes de la compra. La inspección corresponde al área técnica o de Calidad facultada.</p>
+   <ul><li>Visual: golpes, corrosión, empaque y etiquetas.</li><li>Dimensional: medidas y tolerancias.</li><li>Funcional: operación y desempeño.</li><li>Documental: certificados, lotes y pruebas.</li><li>Por muestreo: plan previamente definido.</li></ul>
+   <div class="n10-worked"><h4>Ejemplo explicado · aceptación y rechazo</h4><p>Se recibieron 400 piezas; Calidad liberó 390 y rechazó 10.</p><div class="n10-steps"><div class="n10-step"><b>Paso 1 · Define la base</b><span>Usa 400: cantidad total recibida.</span></div><div class="n10-step"><b>Paso 2 · Aceptación</b><span>390 ÷ 400 = 0.975.</span></div><div class="n10-step"><b>Paso 3 · Convierte a %</b><span>0.975 × 100 = 97.5%.</span></div><div class="n10-step"><b>Paso 4 · Rechazo</b><span>10 ÷ 400 × 100 = 2.5%.</span></div></div><p><b>Comprobación:</b> 97.5% + 2.5% = 100%. Se usa como base lo recibido para medir qué proporción cumplió o no cumplió.</p></div>
+  </article>
+  <article class="n10-topic" style="--topic-accent:#ffd27b">
+   <div class="n10-topic-number">TEMA 3.15</div><h3>Pago de facturas</h3>
+   <p>Antes de pagar, la empresa valida que lo cobrado tenga respaldo en lo autorizado y recibido. La conciliación de tres documentos conecta OC, registro de recepción e invoice/factura.</p>
+   <ul><li>Validar orden: proveedor, partidas, cantidad y precio.</li><li>Validar recepción e inspección.</li><li>Revisar la factura: cantidad, precio, descuentos, impuestos y total.</li><li>Investigar diferencias antes de autorizar.</li><li>Programar, ejecutar y conservar evidencia del pago.</li></ul>
+   <div class="n10-worked"><h4>Ejemplo NEXUS · no autorices en automático</h4><p>OC: 400 rodamientos. Recepción física: 400. Calidad: 390 aceptados y 10 no conformes. Factura: 400 piezas.</p><p>La diferencia son 10 piezas facturadas sin aceptación conforme documentada. Deben intervenir Compras, Calidad y Cuentas por Pagar para resolver la disposición comercial. <b>No se debe asumir que siempre se paga solo 390:</b> depende del contrato, la factura, la política y la solución acordada.</p><p>La revisión comercial no sustituye la verificación fiscal del CFDI, ni la validación fiscal demuestra que el producto llegó y fue aceptado.</p></div>
+  </article>
+  <article class="n10-topic" style="--topic-accent:#b0a8ff">
+   <div class="n10-topic-number">TEMA 3.16</div><h3>Archivo histórico de compras</h3>
+   <p>Conjunto organizado de documentos y registros que permite consultar y reconstruir las operaciones anteriores. No es solo guardar archivos: deben poder localizarse y verificarse.</p>
+   <ul><li>Antes de comprar: requisición, presupuesto y autorización.</li><li>Selección: RFQ, cotizaciones, comparativo y evaluación.</li><li>Formalización: OC, contrato y cambios.</li><li>Recepción y calidad: remisiones, entradas e inspecciones.</li><li>Pago y cierre: CFDI, conciliación, comprobante, incidencias y evaluación.</li></ul>
+   <div class="n10-worked"><h4>Ejemplo explicado · ruta del expediente</h4><p><b>2026 / PROVEEDOR-C / OC-0098</b></p><div class="n10-steps"><div class="n10-step"><b>01_Requisicion</b><span>Necesidad, presupuesto y aprobación.</span></div><div class="n10-step"><b>02_Cotizaciones</b><span>RFQ y comparativo de propuestas.</span></div><div class="n10-step"><b>03_Orden_de_compra</b><span>OC y modificaciones autorizadas.</span></div><div class="n10-step"><b>04_Recepcion · 05_Calidad</b><span>Remisión, conteo e inspección.</span></div><div class="n10-step"><b>06_Factura_y_pago</b><span>CFDI, conciliación y comprobante.</span></div><div class="n10-step"><b>07_Cierre</b><span>Incidencias, evaluación y lecciones.</span></div></div><p><b>¿Por qué?</b> La estructura permite rastrear qué se pidió, qué llegó, qué se aceptó, qué se pagó y cómo se resolvieron las diferencias.</p></div>
+  </article>
+ </div>
+</section>
+
+<section class="section" id="misiones">
+ <div class="card">
+  <div class="n10-section-head"><div><div class="kicker">03 · CENTER OF OPERATIONS</div><h2>Cuatro misiones · 80 submisiones</h2></div><span class="pill">20 RETOS POR TEMA</span></div>
+  <p>Resuelve cada reto. Puedes consultar la guía cuando lo necesites. La retroalimentación explica el criterio esperado; los retos abiertos revisan conceptos clave, por lo que redacta con claridad y desarrolla la idea completa.</p>
+  <div class="n10-rule"><strong>Importante:</strong> los retos de texto reciben una validación orientativa por palabras clave. No sustituyen la revisión del docente ni califican por sí solos la calidad técnica de una respuesta.</div>
+ </div>
+ <div id="mission-receiving" class="n10-mission" style="--mission-accent:#67eadb">
+  <div class="n10-mission-top"><div><div class="n10-mission-kicker">MISSION 01 · DOCK RECEIVING · TEMA 3.13</div><h3>Recibe y registra lo que realmente llegó</h3><p>La operación tiene dos entregas parciales. Verifica documentos, cantidades, fechas y condiciones visibles antes de liberar los materiales.</p></div><div class="n10-mission-stat"><b id="count-receiving">0/20</b><small>VALIDADAS</small></div></div>
+  <div class="n10-case"><div><small>ORDEN DE COMPRA</small><b>400 piezas</b></div><div><small>ENTREGA DÍA 5</small><b>240 piezas</b></div><div><small>ENTREGA DÍA 8</small><b>160 piezas</b></div></div>
+  <div class="n10-meter"><i id="bar-receiving"></i></div><div class="n10-meter-meta"><span id="status-receiving">Por iniciar</span><span id="detail-receiving">0 de 20 retos</span></div>
+  <div class="n10-hub" data-hub="receiving"></div>
+ </div>
+
+ <div id="mission-quality" class="n10-mission" style="--mission-accent:#82bcff">
+  <div class="n10-mission-top"><div><div class="n10-mission-kicker">MISSION 02 · QUALITY CONTROL · TEMA 3.14</div><h3>Decide qué material cumple los requisitos</h3><p>Inspecciona, calcula aceptación y rechazo y gestiona las piezas no conformes sin mezclarlas con el inventario liberado.</p></div><div class="n10-mission-stat"><b id="count-quality">0/20</b><small>VALIDADAS</small></div></div>
+  <div class="n10-case"><div><small>RECIBIDAS</small><b>400 piezas</b></div><div><small>ACEPTADAS</small><b>390 piezas</b></div><div><small>NO CONFORMES</small><b>10 piezas</b></div></div>
+  <div class="n10-meter"><i id="bar-quality"></i></div><div class="n10-meter-meta"><span id="status-quality">Por iniciar</span><span id="detail-quality">0 de 20 retos</span></div>
+  <div class="n10-hub" data-hub="quality"></div>
+ </div>
+
+ <div id="mission-payment" class="n10-mission" style="--mission-accent:#ffd27b">
+  <div class="n10-mission-top"><div><div class="n10-mission-kicker">MISSION 03 · ACCOUNTS PAYABLE · TEMA 3.15</div><h3>Concilia antes de autorizar el pago</h3><p>La factura solicita 400 piezas, pero solo 390 están aceptadas. Determina qué documentos comparar, qué revisar en el CFDI y cómo documentar las diferencias.</p></div><div class="n10-mission-stat"><b id="count-payment">0/20</b><small>VALIDADAS</small></div></div>
+  <div class="n10-case"><div><small>OC</small><b>400 piezas</b></div><div><small>ACEPTADAS</small><b>390 piezas</b></div><div><small>FACTURA</small><b>400 piezas</b></div></div>
+  <div class="n10-meter"><i id="bar-payment"></i></div><div class="n10-meter-meta"><span id="status-payment">Por iniciar</span><span id="detail-payment">0 de 20 retos</span></div>
+  <div class="n10-hub" data-hub="payment"></div>
+ </div>
+
+ <div id="mission-archive" class="n10-mission" style="--mission-accent:#b0a8ff">
+  <div class="n10-mission-top"><div><div class="n10-mission-kicker">MISSION 04 · RECORDS MANAGEMENT · TEMA 3.16</div><h3>Construye un expediente que pueda reconstruirse</h3><p>Organiza documentos, metadatos, responsables y reglas de conservación para que la empresa encuentre y compruebe la operación en el futuro.</p></div><div class="n10-mission-stat"><b id="count-archive">0/20</b><small>VALIDADAS</small></div></div>
+  <div class="n10-case"><div><small>CARPETA PRINCIPAL</small><b>COMPRAS / 2026</b></div><div><small>PROVEEDOR</small><b>PROVEEDOR-C</b></div><div><small>REFERENCIA</small><b>OC-0098</b></div></div>
+  <div class="n10-meter"><i id="bar-archive"></i></div><div class="n10-meter-meta"><span id="status-archive">Por iniciar</span><span id="detail-archive">0 de 20 retos</span></div>
+  <div class="n10-hub" data-hub="archive"></div>
+ </div>
+</section>
+
+<section class="section" id="integrador">
+ <div class="card">
+  <div class="n10-section-head"><div><div class="kicker">04 · FINAL INTEGRATION</div><h2>Construye el diagrama integral de recepción y cierre</h2></div><span class="pill">EVIDENCIA SUGERIDA</span></div>
+  <p>Ordena las 15 etapas para representar el proceso desde la llegada del proveedor hasta el archivo y cierre. Este ejercicio retoma la evidencia sugerida en el librillo.</p>
+  <div class="n10-rule"><strong>Objetivo:</strong> demostrar que sabes qué ocurre primero, qué documento respalda cada etapa y qué hacer cuando aparecen diferencias de cantidad o calidad.</div>
+  <div class="n10-mini-note" id="flowGate">Completa las 80 submisiones para habilitar la revisión del diagrama integrador. Puedes construirlo desde ahora, pero la validación final se habilita al completar las cuatro misiones.</div>
+ </div>
+ <div class="n10-flow-board">
+  <div class="n10-hub-head"><b>SECUENCIA DEL PROCESO · 15 ETAPAS</b><small id="flowCounter">0 / 15 posiciones correctas</small></div>
+  <div class="n10-flow-grid" id="flowGrid"></div>
+  <div class="actions"><button class="btn primary" id="checkFlow">Validar diagrama integral</button><button class="btn" id="resetFlow">Reiniciar secuencia</button></div>
+  <div class="n10-flow-feedback" id="flowFeedback" aria-live="polite"></div>
+ </div>
+ <div class="card">
+  <div class="kicker">CHECKLIST DE EVIDENCIA</div><h3>Antes de entregar, verifica que tu diagrama incluya:</h3>
+  <div class="n10-evidence-list">
+   <label><input type="checkbox" data-evidence="recepcion">Recepción, conteo y registro de cantidades reales.</label>
+   <label><input type="checkbox" data-evidence="calidad">Inspección y decisión de conformidad.</label>
+   <label><input type="checkbox" data-evidence="segregacion">Segregación y reporte de material no conforme.</label>
+   <label><input type="checkbox" data-evidence="conciliacion">Conciliación de OC, recepción y factura.</label>
+   <label><input type="checkbox" data-evidence="pago">Autorización, pago y conservación del comprobante.</label>
+   <label><input type="checkbox" data-evidence="archivo">Archivo histórico, responsables y trazabilidad.</label>
+  </div>
+  <div class="n10-mini-note">La entrega en NEMAX puede incluir el archivo JSON descargado, una captura de pantalla del diagrama terminado y la reflexión solicitada por el docente.</div>
+ </div>
+</section>
+
+<section class="section" id="recursos">
+ <div class="card">
+  <div class="n10-section-head"><div><div class="kicker">05 · KNOWLEDGE BASE</div><h2>Fuentes y referencias del librillo</h2></div></div>
+  <p>Estas referencias sustentan las prácticas descritas en el cuaderno. Algunas son marcos de referencia internacionales o ejemplos de auditoría, no disposiciones obligatorias para empresas mexicanas. Para CFDI y obligaciones fiscales deben consultarse los recursos vigentes del SAT y el área contable.</p>
+  <div class="n10-reference">
+   <article><b>[1] ASQ Supply Chain Management Primer</b><p>Russell, J. P. (Ed.). (2013). ASQ Quality Press. Capítulo 6: recepción, inspección, documentación y muestreo basado en riesgo.</p><a href="https://asq.org/-/media/Images/gift/E1451-The-ASQ-Supply-Chain-Management-Primer.pdf" target="_blank" rel="noopener">Consultar referencia ASQ ↗</a></article>
+   <article><b>[2] ISO 15489-1:2016</b><p>Information and documentation — Records management — Part 1: Concepts and principles. Referencia sobre registros, metadatos, responsabilidades y controles documentales. Confirmar el estado de la edición antes de citarla como vigente.</p><a href="https://www.iso.org/es/contents/data/standard/06/25/62542.html" target="_blank" rel="noopener">Consultar ficha ISO ↗</a></article>
+   <article><b>[3] FTC Office of Inspector General (2023)</b><p>Audit of the FTC’s Contractor Invoice Processes. Ejemplo público de conciliación entre contrato/orden, evidencia de recepción y factura. No es una norma obligatoria en México.</p><a href="https://oig.ftc.gov/sites/default/files/reports/2024-04/2023-12-22ftc-contractor-invoice-processes-audit-reportfinalpublic.pdf" target="_blank" rel="noopener">Consultar informe FTC ↗</a></article>
+   <article><b>[4] Servicio de Administración Tributaria</b><p>Tu factura, verificación y consulta/recuperación de comprobantes fiscales digitales.</p><a href="https://www.sat.gob.mx/minisitio/Factura/solicita_factura.htm" target="_blank" rel="noopener">SAT · Tu factura ↗</a><br><a href="https://verificacfdi.facturaelectronica.sat.gob.mx/" target="_blank" rel="noopener">Verificador CFDI ↗</a><br><a href="https://wwwmat.sat.gob.mx/consultas/42968/consulta-y-recuperacion-de-comprobantes-%28nuevo%29" target="_blank" rel="noopener">Consulta y recuperación ↗</a></article>
+   <article><b>[5] U.S. Government Accountability Office (2025)</b><p>Standards for Internal Control in the Federal Government (Green Book), GAO-25-107721. Referencia complementaria de control interno en el gobierno federal estadounidense; no constituye disposición aplicable a empresas mexicanas.</p><a href="https://www.gao.gov/products/gao-25-107721" target="_blank" rel="noopener">Consultar Green Book ↗</a></article>
+  </div>
+ </div>
+ <div class="card">
+  <div class="kicker">REVISIÓN DE EVIDENCIA</div><h3>Descarga tu expediente de práctica</h3>
+  <p>El archivo incluye el nombre, grupo, progreso, intentos, respuestas, explicaciones de validación, secuencia del diagrama y checklist.</p>
+  <div class="actions"><button class="btn primary" id="exportEvidence">Descargar evidencia JSON</button><button class="btn" id="printEvidence">Imprimir / Guardar PDF</button><button class="btn danger" id="resetProgress">Reiniciar progreso de este dispositivo</button></div>
+  <p class="muted" style="font-size:10px">El progreso se almacena localmente en este navegador y dispositivo. La descarga JSON debe entregarse en NEMAX; no se envía automáticamente al docente ni a la plataforma.</p>
+ </div>
+</section>
+</main>
+<div class="n10-footer">NEXUS PROCUREMENT LEARNING SYSTEM · SESIÓN 10 · SIMULACIÓN ACADÉMICA · CASO Y PROVEEDOR FICTICIOS</div>
+</div>
+</div>
+</div>
+
+<script>
+(function(){
+'use strict';
+const STORAGE_KEY='nexus-class10-receiving-v1';
+const $=id=>document.getElementById(id);
+const normalize=s=>String(s||'').toLocaleLowerCase('es-MX').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9%$.,\s/-]/g,' ').replace(/\s+/g,' ').trim();
+const emptyState=()=>({student:'',group:'',xp:0,submissions:{},attempts:{},flow:[],flowPassed:false,evidence:{},elapsedSeconds:0,updated:new Date().toISOString()});
+let state=emptyState();
+try{state=Object.assign(emptyState(),JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}'));}catch(e){}
+state.submissions=state.submissions||{};state.attempts=state.attempts||{};state.evidence=state.evidence||{};
+let timer=null;
+
+const P=(title,prompt,options,correct,explain,hint='')=>({type:'choice',title,prompt,options,correct,explain,hint});
+const N=(title,prompt,answer,explain,unit='',tolerance=.01,hint='')=>({type:'number',title,prompt,answer,explain,unit,tolerance,hint});
+const T=(title,prompt,groups,model,explain,minWords=9)=>({type:'text',title,prompt,groups,model,explain,minWords});
+const BANK={
+receiving:[
+P('Reconoce la recepción','¿Qué confirma el procedimiento de recepción?',['Qué bienes llegaron, cuándo, en qué cantidad y condición visible','Que la factura ya fue pagada','Que el proveedor quedó aprobado para siempre'],0,'La recepción verifica y registra la entrega física contra una orden autorizada.'),
+P('Distingue recepción y aceptación','¿Qué significa recepción física?',['Que el material ya cumple calidad','Que los bienes llegaron y se registró su entrega','Que se autorizó el pago'],1,'La recepción física no equivale a aceptación. La conformidad se determina mediante inspección.'),
+P('Programa la entrega','Antes de que llegue el camión, ¿qué conviene confirmar?',['Proveedor, OC, fecha, horario, lugar, cantidad y capacidad de descarga','Únicamente el nombre del operador','Solamente el monto de la factura'],0,'La programación evita entregas sorpresa y recepción sin pedido autorizado.'),
+P('Compara documentos','¿Qué documentos se comparan al identificar el pedido?',['Nómina y horario','Remisión o aviso de embarque contra la orden de compra','Estado de cuenta y vacaciones'],1,'La remisión debe identificar proveedor, pedido, partidas y cantidades de la OC.'),
+P('Cuenta en la unidad correcta','¿Por qué no basta con contar cajas?',['Porque una caja no siempre equivale a la cantidad de piezas solicitadas','Porque las cajas nunca se cuentan','Porque el transportista decide la cantidad'],0,'El conteo debe usar la unidad de medida indicada en la orden de compra.'),
+P('Revisa condición inicial','¿Cuál es una revisión visual inicial pertinente?',['Color del camión solamente','Empaque, sellos, humedad, golpes, corrosión, etiquetas y modelo','Solo la firma del operador'],1,'Los daños visibles deben documentarse al momento de recibir.'),
+P('Registra la entrega','¿Qué datos debe registrar la recepción?',['Fecha/hora, OC, proveedor, cantidades, lote, responsable y diferencias','Únicamente el total de la factura','Solo el nombre de quien descargó'],0,'El registro deja evidencia y permite rastrear entregas parciales o reclamaciones.'),
+P('Decide liberar o segregar','¿Qué debe ocurrir con material pendiente o no conforme?',['Mezclarlo con inventario liberado','Identificarlo y mantenerlo separado','Entregarlo inmediatamente a producción'],1,'La segregación evita el uso accidental de material sin aceptación.'),
+P('Identifica al responsable del conteo','¿Qué función suele contar y registrar lo recibido?',['Almacén o responsable de recepción','Cuentas por pagar','El área fiscal'],0,'La distribución depende del procedimiento, pero el conteo debe quedar asignado y documentado.'),
+P('Ubica la remisión','¿Para qué sirve la remisión o aviso de embarque?',['Para demostrar el pago','Para describir e identificar los bienes que el proveedor entrega','Para autorizar una nueva compra'],1,'Se compara con la OC para confirmar que el transporte corresponde al pedido.'),
+P('Evita entregas sorpresa','¿Qué dato también debe confirmarse al programar?',['Capacidad y condiciones seguras de descarga','La antigüedad del comprador','El color de las tarimas'],0,'La empresa debe preparar el andén y recursos para recibir en condiciones seguras.'),
+N('Registra la primera entrega','La OC NEXUS-01 es por 400 rodamientos. ¿Cuántas piezas llegaron el día 5?',240,'La primera entrega documentada fue de 240 piezas.','piezas'),
+N('Registra la segunda entrega','¿Cuántas piezas llegaron el día 8?',160,'La segunda entrega documentada fue de 160 piezas.','piezas'),
+N('Calcula recibido acumulado','Suma las dos entregas: 240 + 160.',400,'El acumulado se obtiene sumando las cantidades realmente recibidas y documentadas.','piezas'),
+N('Compara con la OC','Si se solicitaron 400 y se recibieron 400, ¿cuántas piezas quedan pendientes por cantidad?',0,'400 solicitadas − 400 recibidas = 0 piezas pendientes por cantidad.','piezas'),
+N('Resuelve un ejemplo de entrega parcial','Una OC es por 600 piezas. Llegan 250 en la primera entrega y 300 en la segunda. ¿Cuántas se recibieron?',550,'250 + 300 = 550 piezas recibidas.','piezas'),
+N('Calcula el saldo pendiente','Con la OC de 600 piezas y 550 recibidas, ¿cuántas faltan?',50,'600 − 550 = 50 piezas pendientes.','piezas'),
+P('Firma con cuidado','¿Qué debes hacer antes de firmar que recibiste todo en buen estado?',['Firmar primero y contar después','Contar y revisar; registrar reservas, diferencias o daños cuando corresponda','Aceptar lo que indique la factura'],1,'No firmes afirmando recepción completa y en buen estado si todavía no verificaste los materiales.'),
+T('Describe la recepción parcial','Explica qué harías al recibir 240 y luego 160 piezas vinculadas a una sola OC.',[['orden de compra','oc'],['240','primera entrega'],['160','segunda entrega'],['400','acumulado','recibido'],['registro','fecha','documentar']],'Identificaría ambas entregas con la misma OC, registraría la fecha y cantidad real de cada evento, sumaría 240 + 160 = 400 piezas y compararía el acumulado con la cantidad solicitada.', 'La suma de eventos permite conocer el acumulado real. No se debe copiar la cantidad de la OC como si ya hubiera llegado.'),
+T('Explica recepción física contra aceptación','¿Por qué recibir 400 piezas no significa que las 400 ya están liberadas?', [['fisica','llegaron','recibidas'],['inspeccion','calidad','verificar'],['aceptadas','conformes','liberadas'],['separar','segregar','pendientes']],'La recepción física registra lo que llegó. Después, Calidad inspecciona y determina qué piezas son conformes y pueden liberarse; las pendientes o no conformes se identifican y segregan.','El conteo y la inspección son controles distintos.',9)
+],
+quality:[
+P('Define el objetivo','¿Para qué se realiza el control de calidad de las compras?',['Para confirmar que el material satisface requisitos definidos antes de comprar','Para revisar por rutina sin criterios','Para sustituir la orden de compra'],0,'La inspección comprueba requisitos definidos antes de la compra.'),
+P('Asigna la decisión técnica','¿Quién determina la conformidad técnica?',['El transportista','Calidad, Ingeniería o el área técnica facultada','Cuentas por pagar'],1,'Compras coordina el proceso, pero la conformidad técnica corresponde al área competente.'),
+P('Reconoce inspección visual','¿Qué defecto detecta principalmente una inspección visual?',['Diámetro exacto con micrómetro','Daño de empaque, corrosión, golpes o etiquetas incorrectas','Consumo eléctrico interno'],1,'La inspección visual observa condiciones y defectos evidentes.'),
+P('Reconoce inspección dimensional','¿Qué compara una inspección dimensional?',['Medidas reales contra plano, especificación y tolerancias','Solo el color de etiqueta','La fecha de vencimiento de factura'],0,'Se utilizan instrumentos adecuados para comparar medidas y tolerancias.'),
+P('Reconoce prueba funcional','¿Qué busca una inspección funcional?',['Confirmar únicamente la cantidad de cajas','Comprobar que el producto opere como se requiere','Verificar el RFC del proveedor'],1,'La prueba funcional verifica operación o desempeño esperado.'),
+P('Reconoce inspección documental','¿Qué se revisa en la inspección documental?',['Certificados, informes de prueba, lote y trazabilidad','Solo la firma del operador','Únicamente el precio unitario'],0,'La documentación puede demostrar resultados o características requeridas.'),
+P('Aplica muestreo correctamente','¿Cuándo debe definirse el plan de muestreo?',['Después de observar los defectos para ajustar el resultado','Antes de inspeccionar, considerando criticidad, riesgo y requisitos','A criterio improvisado del descargador'],1,'El plan debe definirse antes; depende del riesgo, historial, costo de falla y requisitos.'),
+N('Identifica aceptadas','De 400 rodamientos recibidos, Calidad liberó 390. ¿Cuántos fueron aceptados?',390,'La cantidad aceptada es la que Calidad liberó como conforme.','piezas'),
+N('Identifica rechazadas','Si llegaron 400 y 390 fueron aceptadas, ¿cuántas fueron rechazadas?',10,'400 − 390 = 10 piezas rechazadas.','piezas'),
+N('Calcula porcentaje de aceptación','390 aceptadas ÷ 400 recibidas × 100. ¿Cuál es el porcentaje?',97.5,'390 ÷ 400 = 0.975; 0.975 × 100 = 97.5%.','%',.01,'Divide aceptadas entre recibidas y multiplica por 100.'),
+N('Calcula porcentaje de rechazo','10 rechazadas ÷ 400 recibidas × 100. ¿Cuál es el porcentaje?',2.5,'10 ÷ 400 = 0.025; 0.025 × 100 = 2.5%.','%',.01,'Usa como base la cantidad total recibida.'),
+P('Selecciona la base correcta','Para medir qué proporción de lo recibido fue aceptada, ¿cuál es el denominador?',['Cantidad recibida','Cantidad solicitada en todas las compras del año','Importe de la factura'],0,'Se utiliza la cantidad recibida porque el indicador mide el resultado de la inspección de lo que llegó.'),
+P('Comprueba los porcentajes','En el caso NEXUS, ¿qué relación debe cumplirse entre aceptación y rechazo?', ['97.5% + 2.5% = 100%','97.5% − 2.5% = 90%','97.5% × 2.5% = 100%'],0,'Si no suman 100%, revisa si existen piezas pendientes de inspección o bases mezcladas.'),
+N('Ejercicio guiado: aceptación','Un lote tiene 800 piezas recibidas; Calidad acepta 776. ¿Cuál es el porcentaje de aceptación?',97,'776 ÷ 800 = 0.97; 0.97 × 100 = 97%.','%',.01,'Divide cantidad aceptada entre recibida.'),
+N('Ejercicio guiado: rechazo','En el mismo lote, 24 piezas fueron rechazadas. ¿Cuál es el porcentaje de rechazo?',3,'24 ÷ 800 = 0.03; 0.03 × 100 = 3%.','%',.01,'Divide rechazadas entre recibidas.'),
+N('Comprueba un segundo ejemplo','Se reciben 250 componentes y se aceptan 242. ¿Qué porcentaje de aceptación resulta?',96.8,'242 ÷ 250 = 0.968; 0.968 × 100 = 96.8%.','%',.01),
+N('Calcula el rechazo restante','De 250 recibidas, 8 se rechazaron. ¿Cuál es el porcentaje de rechazo?',3.2,'8 ÷ 250 = 0.032; 0.032 × 100 = 3.2%.','%',.01),
+P('Controla material no conforme','¿Cuál es la primera reacción ante una pieza defectuosa?',['Mezclarla con producto bueno','Identificarla y mantenerla segregada para evitar uso accidental','Borrar el registro de inspección'],1,'Primero se controla el riesgo: identificar y segregar antes de decidir la disposición.'),
+P('Elige la evidencia adecuada','¿Qué información fortalece un reporte de no conformidad?',['Código, lote, cantidad, defecto, fecha, responsable y evidencia','Solo una opinión verbal','El color del vehículo de entrega'],0,'Un reporte debe permitir identificar el material, reconstruir el hallazgo y dar seguimiento.'),
+T('Redacta la ruta de no conformidad','Describe cómo gestionarías las 10 piezas dañadas de NEXUS.',[['identificar','etiquetar','codigo','lote'],['segregar','separar','aislar'],['reporte','no conformidad','documentar','fotografias'],['notificar','proveedor','compras'],['reposicion','devolucion','reparacion','nota de credito'],['verificar','cerrar','actualizar']],'Identificaría y segregaría las 10 piezas, registraría código, lote y defecto, reuniría fotografías y evidencia, notificaría al proveedor, acordaría reposición, devolución, reparación autorizada o crédito y verificaría la solución antes de cerrar el reporte.','La secuencia controla primero el riesgo y después decide la disposición.'),
+T('Explica por qué el muestreo no se improvisa','¿Por qué el plan de muestreo debe definirse antes de revisar el lote?', [['plan','antes','previamente'],['riesgo','criticidad','costo de falla'],['muestra','reglas','criterios'],['improvisar','después de ver','ajustar']],'El plan debe definirse antes de inspeccionar, tomando en cuenta criticidad, historial de defectos, costo de una falla, tamaño del lote y requisitos. Así la decisión no se improvisa después de observar resultados.','El plan de muestreo debe ser consistente y basado en riesgo.',10)
+],
+payment:[
+P('Identifica la conciliación','¿Qué documentos compara la conciliación de tres documentos?', ['Orden de compra, registro de recepción y factura','Cotización, gafete y horario','Nómina, inventario anual y contrato de renta'],0,'La conciliación de tres documentos conecta lo autorizado, lo recibido y lo cobrado.'),
+P('Interpreta la OC','¿Qué pregunta responde la orden de compra?', ['¿Qué autorizó comprar la empresa y bajo qué condiciones?','¿Qué se pagó en el banco?','¿Qué defectos detectó Calidad?'],0,'La OC establece proveedor, partidas, cantidades, precios y condiciones autorizadas.'),
+P('Interpreta recepción','¿Qué demuestra el registro de recepción?', ['Qué cantidad llegó y qué cantidad fue aceptada, rechazada o quedó pendiente','Qué precio desea cobrar el proveedor','Qué presupuesto tendrá el próximo año'],0,'El registro refleja hechos físicos y el estado de inspección.'),
+P('Interpreta factura','¿Qué refleja la factura del proveedor?', ['El importe y conceptos que solicita cobrar','La inspección visual interna','La autorización de almacén'],0,'La factura documenta el cobro solicitado por el proveedor.'),
+P('Compara cada partida','¿Cómo debe revisarse la factura contra la OC y recepción?', ['Comparando partidas, cantidades y precios; no solo el total','Solo comparando el total de factura','Revisando únicamente el nombre del proveedor'],0,'Comparar por partida permite localizar diferencias de cantidad o precio.'),
+P('Detecta la diferencia NEXUS','La OC y recepción física son por 400, Calidad aceptó 390 y la factura cobra 400. ¿Qué procede?', ['Autorizar automáticamente las 400','Investigar y documentar la diferencia de 10 piezas antes de aprobar según política','Borrar la inspección'],1,'Hay 10 piezas facturadas sin aceptación conforme documentada. Compras, Calidad y Cuentas por Pagar deben resolver.'),
+P('Evita una suposición','¿Es correcto afirmar que siempre se debe pagar exactamente 390 piezas?', ['Sí, sin importar el contrato','No; depende del contrato, factura, política y solución acordada','Sí, porque Calidad siempre decide el importe fiscal'],1,'El libro advierte que no se debe asumir un ajuste automático: debe analizarse el acuerdo y regularizar la documentación.'),
+P('Valida la orden primero','¿Qué se confirma al validar la OC?', ['Proveedor, partidas, cantidades, precio, descuentos y condiciones autorizadas','Solo el folio fiscal','Únicamente la fecha del pago'],0,'La OC es la base de lo autorizado para comparar.'),
+P('Valida la recepción','¿Qué debe consultarse antes de aprobar una factura?', ['Registro de recepción y resultado de inspección','Solo el catálogo del proveedor','Una promesa por teléfono'],0,'Debe revisarse qué se recibió, aceptó, rechazó o quedó pendiente.'),
+P('Revisa la factura','¿Qué datos se comparan en la factura?', ['Emisor/receptor, concepto, cantidad, precio, descuento, impuestos, moneda y total','Solo el logotipo','Únicamente la cuenta bancaria'],0,'La revisión comercial comprueba que lo cobrado coincide con las condiciones pactadas.'),
+P('Investiga diferencias','Si hay una diferencia de precio o cantidad, ¿qué se hace?', ['Se autoriza y se aclara meses después','Se investiga, solicita aclaración o documento correctivo y se registra','Se modifica la OC sin autorización'],1,'Las diferencias se investigan y se regularizan antes de autorizar conforme a la política.'),
+P('Programa el pago','Una vez conciliada la documentación, ¿qué sigue?', ['Seguir la autorización interna y programar según vencimiento acordado','Pagar sin responsable','Cambiar unilateralmente el plazo de crédito'],0,'La autorización y el vencimiento pactado guían la programación.'),
+P('Conserva evidencia de pago','¿Qué evidencia debe guardarse?', ['Autorización con responsable/fecha y referencia o comprobante del medio de pago','Solo una llamada','Una copia de la cotización sin pago'],0,'El expediente debe probar quién autorizó y cómo se ejecutó el pago.'),
+P('Distingue CFDI y recepción','¿La validación fiscal de un CFDI demuestra por sí sola que el material llegó y fue aceptado?', ['Sí','No, es un control fiscal distinto de la recepción y aceptación comercial','Solo cuando hay cuatro copias impresas'],1,'La validación fiscal no sustituye la evidencia física ni el reporte de calidad.'),
+P('Reconoce archivo electrónico','¿Qué archivo electrónico se recibe para verificar un CFDI?', ['XML y, cuando exista, representación PDF','Solo una fotografía del producto','Un archivo de audio'],0,'El XML contiene los datos estructurados del comprobante; el PDF es una representación cuando existe.'),
+P('Identifica datos fiscales','¿Qué datos se identifican en la verificación del CFDI?', ['UUID, RFC del emisor y RFC del receptor','Número de tarimas y peso','Solo la cuenta de almacén'],0,'El librillo señala el folio fiscal (UUID) y los RFC para consultar el comprobante.'),
+P('Ubica el verificador','¿Qué servicio oficial permite consultar la validez/registro de un CFDI?', ['Verifica tus facturas del SAT','El catálogo de productos del proveedor','Un comparador de precios'],0,'El cuaderno indica consultar el servicio oficial del SAT y conservar evidencia según el procedimiento.'),
+P('Conecta controles','¿Qué pregunta responde la revisión comercial frente a la revisión fiscal?', ['Comercial: ¿nos cobran lo que corresponde? Fiscal: ¿el comprobante y datos fiscales son consistentes?','Ambas responden solo si el camión llegó','Ninguna revisa documentos'],0,'Son controles relacionados pero distintos.'),
+T('Explica la conciliación 3 documentos','Describe cómo se comparan OC, recepción y factura antes del pago.',[['orden de compra','oc','autorizado'],['recepcion','cantidad recibida','aceptada','rechazada'],['factura','cobro','importe'],['comparar','conciliar','partidas','precio','cantidad'],['diferencia','investigar','aclarar','nota de credito']],'Primero valido la orden de compra y sus cantidades y precios; después reviso el registro de recepción y la inspección; finalmente comparo la factura por partida, cantidad, precio, descuento e impuestos. Si hay diferencias, las investigo y documento antes de autorizar el pago.','La conciliación busca explicar y documentar diferencias, no hacer que los documentos coincidan artificialmente.'),
+T('Redacta las acciones antes de pagar en NEXUS','La factura cobra 400 y solo 390 fueron aceptadas. ¿Qué harías antes de autorizar?', [['400','390','10'],['calidad','no conformidad','rechazadas'],['compras','cuentas por pagar','finanzas'],['contrato','politica','acuerdo'],['reposicion','devolucion','nota de credito','regularizar'],['evidencia','conciliar','documentar']],'Documentaría la diferencia de 10 piezas, pediría a Calidad y Compras confirmar el reporte, revisaría el contrato y la política con Cuentas por Pagar, acordaría reposición, devolución o nota de crédito si corresponde y conservaría la conciliación antes de autorizar.','No se debe asumir un pago automático ni un ajuste fijo sin revisar las condiciones aplicables.')
+],
+archive:[
+P('Define archivo histórico','¿Qué es el archivo histórico de compras?', ['Conjunto organizado de documentos y registros para consultar y reconstruir operaciones','Una carpeta con solo facturas pendientes','Un listado informal de proveedores'],0,'El archivo debe conservar información localizable, verificable y útil.'),
+P('Integra antecedentes','¿Qué pertenece a la etapa previa a comprar?', ['Requisición, justificación, presupuesto y autorizaciones','Solo comprobante de pago','Únicamente reporte de inspección'],0,'La documentación previa demuestra por qué se compró y quién lo autorizó.'),
+P('Integra selección','¿Qué documentos pertenecen a la selección de proveedor?', ['RFQ, cotizaciones, comparativo, evaluación y decisión','Solo remisión','Solo nota de crédito'],0,'Estos registros permiten reconstruir cómo se compararon las propuestas y se seleccionó al proveedor.'),
+P('Integra formalización','¿Qué documentos corresponden a la formalización?', ['OC, contrato, anexos y cambios autorizados','Solo fotografías de descarga','Solo reporte de calidad'],0,'La formalización conserva el compromiso y las modificaciones aprobadas.'),
+P('Integra recepción','¿Qué evidencia pertenece a la recepción?', ['Remisión, guía, entradas, conteo y registro de entrega','Solo orden de pago','Solo evaluación anual'],0,'La evidencia física y de registro demuestra qué llegó y cuándo.'),
+P('Integra calidad','¿Qué se conserva del control de calidad?', ['Plan de inspección, resultados, certificados y no conformidades','Solo correos de publicidad','Únicamente cotización'],0,'La documentación de calidad prueba aceptación, rechazo y disposición.'),
+P('Integra pago','¿Qué documentos forman el bloque de pago?', ['CFDI/XML, validación, conciliación, autorización, comprobante y notas de crédito','Solo el nombre del banco','Únicamente la remisión'],0,'El expediente debe demostrar tanto el cobro como su revisión y pago.'),
+P('Integra cierre','¿Qué debe incorporarse al cierre?', ['Evaluación del proveedor, incidencias, lecciones aprendidas e índice del expediente','Solo una fotografía del almacén','Una requisición nueva'],0,'El cierre conserva resultados y aprendizajes de la operación.'),
+P('Ordena el archivo','¿Qué estructura de clasificación propone el librillo?', ['Año → proveedor → número de OC → expediente','Nombre del trabajador → color → turno','Precio → cantidad → marca sin OC'],0,'La estructura jerárquica facilita localizar el expediente por periodo, proveedor y operación.'),
+P('Reconoce la ruta de ejemplo','¿Cuál es el ejemplo de clasificación NEXUS?', ['2026 / PROVEEDOR-C / OC-0098','2024 / Nómina / Recibo-01','2026 / Almacén / Sin referencia'],0,'El ejemplo organiza por año, proveedor y número de orden de compra.'),
+P('Usa identificador único','¿Qué permite relacionar todos los documentos de la operación?', ['ID o número de OC','Color del archivo','Nombre de quien descargó'],0,'El identificador único conecta documentos de diferentes etapas con la misma compra.'),
+P('Ordena cronológicamente','¿Qué metadato ayuda a ordenar las operaciones en el tiempo?', ['Fecha','Color de carpeta','Tamaño de pantalla'],0,'La fecha permite ordenar y consultar cronológicamente.'),
+P('Clasifica por tipo documental','¿Para qué sirve el metadato tipo documental?', ['Para filtrar si el archivo es requisición, recepción, inspección, factura, etc.','Para calcular el IVA automáticamente','Para asignar un proveedor'],0,'La clasificación documental permite recuperar registros por etapa y naturaleza.'),
+P('Controla versiones','¿Qué ayuda a evitar confundir un borrador con un documento vigente?', ['Versión y estado, por ejemplo v01 / aprobado','Nombre informal del archivo','Fecha de descarga únicamente'],0,'La versión y estado identifican cuál documento está vigente y autorizado.'),
+P('Identifica responsabilidad','¿Qué metadato aclara quién generó o aprobó el registro?', ['Responsable','Número de tarimas','Precio histórico'],0,'El responsable permite conocer quién produjo, revisó o aprobó la evidencia.'),
+P('Administra acceso','¿Qué práctica protege la integridad y confidencialidad del expediente?', ['Permisos y accesos controlados','Compartir la carpeta con cualquier persona','Eliminar el registro de cambios'],0,'El archivo necesita controles de acceso y responsabilidades.'),
+P('Respeta conservación','¿Quién determina cuánto tiempo conservar los documentos?', ['Las políticas organizacionales y disposiciones legales/fiscales aplicables','Cada empleado según su preferencia','El proveedor al entregar'],0,'No se debe inventar un periodo: se validan las reglas internas y aplicables.'),
+P('Comprende trazabilidad','¿Qué significa reconstruir la operación mediante el expediente?', ['Poder seguir qué se pidió, cotizó, autorizó, recibió, inspeccionó, pagó y cerró','Solo encontrar una factura','Ver el inventario actual sin antecedentes'],0,'La trazabilidad permite reconstruir la historia, decisiones y evidencias.'),
+T('Diseña la estructura de carpetas','Escribe una ruta de archivo para la operación de 2026 del proveedor C y enumera sus carpetas.',[['2026','año'],['proveedor-c','proveedor c','proveedor'],['oc-0098','oc','orden de compra'],['requisicion'],['cotizaciones'],['recepcion'],['calidad'],['factura','pago'],['cierre']],'COMPRAS / 2026 / PROVEEDOR-C / OC-0098. Dentro del expediente: 01_Requisicion, 02_Cotizaciones, 03_Orden_de_compra, 04_Recepcion, 05_Calidad, 06_Factura_y_pago y 07_Cierre.','La jerarquía debe permitir llegar de la carpeta del año al expediente de una OC.'),
+T('Explica el valor del archivo histórico','¿Cómo ayuda la información histórica a una compra futura?', [['precio','comparar','variacion'],['proveedor','desempeño','entrega','calidad'],['auditoria','trazabilidad','reclamacion'],['decision','negociar','seleccionar']],'El historial permite comparar precios, revisar entregas e incidencias, evaluar calidad y desempeño, responder auditorías y reclamaciones y negociar o seleccionar proveedores con evidencia.','El archivo convierte operaciones pasadas en información para decidir mejor.',10)
+]
+};
+
+const PHASES=['01 · PREPARACIÓN Y DIAGNÓSTICO','02 · VERIFICACIÓN Y REGISTRO','03 · DECISIÓN OPERATIVA','04 · CONTROL Y EVIDENCIA'];
+const MISSION_META={
+receiving:{label:'Recepción de materiales',accent:'3.13'},
+quality:{label:'Control de calidad',accent:'3.14'},
+payment:{label:'Pago de facturas',accent:'3.15'},
+archive:{label:'Archivo histórico',accent:'3.16'}
+};
+const taskId=(key,index)=>key+'-'+String(index+1).padStart(2,'0');
+const escapeHTML=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function doneCount(key){return BANK[key].filter((t,i)=>state.submissions[taskId(key,i)]?.done).length;}
+function totalDone(){return Object.keys(BANK).reduce((a,k)=>a+doneCount(k),0);}
+function completedMissions(){return Object.keys(BANK).filter(k=>doneCount(k)===20).length;}
+function save(){state.updated=new Date().toISOString();try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(e){}}
+function renderTask(task,key,index){
+ const id=taskId(key,index),entry=state.submissions[id]||{};
+ let input='';
+ if(task.type==='choice'){
+  input='<select data-answer="'+id+'"><option value="">Selecciona una respuesta</option>'+task.options.map((o,i)=>'<option value="'+i+'" '+(String(entry.response)===String(i)?'selected':'')+'>'+escapeHTML(o)+'</option>').join('')+'</select>';
+ }else if(task.type==='number'){
+  input='<input type="number" step="any" data-answer="'+id+'" value="'+(entry.response!==undefined?escapeHTML(entry.response):'')+'" placeholder="Escribe el resultado'+(task.unit?' en '+escapeHTML(task.unit):'')+'">';
+ }else{
+  input='<textarea rows="3" data-answer="'+id+'" placeholder="Explica tu procedimiento o decisión con tus propias palabras...">'+(entry.response!==undefined?escapeHTML(entry.response):'')+'</textarea>';
+ }
+ return '<details class="n10-task '+(entry.done?'is-done':'')+'" id="task-'+id+'"><summary><span class="n10-task-number">'+String(index+1).padStart(2,'0')+'</span><span class="n10-task-copy"><b>'+escapeHTML(task.title)+'</b><small>'+escapeHTML(task.prompt)+'</small></span><span class="n10-task-status" id="task-status-'+id+'">'+(entry.done?'VALIDADA':'PENDIENTE')+'</span></summary><div class="n10-task-body"><p class="n10-task-question">'+escapeHTML(task.prompt)+'</p><div class="n10-form">'+input+'</div>'+(task.hint?'<div class="n10-task-hint"><b>Pista:</b> '+escapeHTML(task.hint)+'</div>':'')+'<div class="n10-task-actions"><button class="btn primary" type="button" data-check-task="'+id+'">Validar respuesta</button><small class="muted" id="attempt-'+id+'">Intentos: '+(entry.attempts||0)+'</small></div><div class="n10-task-feedback" id="feedback-'+id+'" aria-live="polite">'+(entry.feedback||'')+'</div></div></details>';
+}
+function buildMissions(){
+ Object.keys(BANK).forEach(key=>{
+  const root=document.querySelector('[data-hub="'+key+'"]');if(!root)return;
+  let out='<div class="n10-hub-head"><div><b>20 submisiones · '+MISSION_META[key].label+'</b><br><small>Completa los cuatro bloques de cinco retos. Cada respuesta validada suma 5 XP.</small></div><b id="hub-count-'+key+'">00 / 20</b></div><div class="n10-phases">';
+  for(let phase=0;phase<4;phase++){
+   const start=phase*5;
+   out+='<details class="n10-phase" '+(phase===0?'open':'')+'><summary><span class="n10-phase-num">0'+(phase+1)+'</span><span class="n10-phase-title">'+PHASES[phase]+'</span><span class="n10-phase-count" id="phase-count-'+key+'-'+phase+'">0 / 5</span></summary><div class="n10-phase-body">';
+   BANK[key].slice(start,start+5).forEach((task,offset)=>{out+=renderTask(task,key,start+offset);});
+   out+='</div></details>';
+  }
+  out+='</div>';root.innerHTML=out;
+ });
+}
+function renderProgress(){
+ const n=totalDone(),m=completedMissions(),pct=n/80*100;
+ $('sideProgressText').textContent=String(n).padStart(2,'0')+' / 80';
+ $('sideProgressBar').style.width=pct+'%';
+ $('dashSubmissions').textContent=String(n).padStart(2,'0')+' / 80';
+ $('dashMissions').textContent=m+' / 4';
+ $('dashXP').textContent=String(state.xp||0).padStart(3,'0')+' XP';
+ $('profileMissions').textContent=m+' / 4';
+ $('profileAttempts').textContent=Object.values(state.attempts).reduce((a,b)=>a+b,0);
+ $('sideStudentName').textContent=state.student||'Sin identificar';
+ $('sideStudentGroup').textContent=state.group||'Sesión 10 · Grupo pendiente';
+ $('topAvatar').textContent=(state.student||'OP').split(/\s+/).map(x=>x[0]||'').slice(0,2).join('').toUpperCase();
+ Object.keys(BANK).forEach(key=>{
+  const nDone=doneCount(key),p=nDone/20*100;
+  $('count-'+key).textContent=nDone+'/20';
+  $('hub-count-'+key).textContent=String(nDone).padStart(2,'0')+' / 20';
+  $('bar-'+key).style.width=p+'%';
+  $('status-'+key).textContent=nDone===20?'Misión validada':'En progreso';
+  $('detail-'+key).textContent=nDone+' de 20 retos validados';
+  BANK[key].forEach((t,i)=>{
+   const id=taskId(key,i),entry=state.submissions[id]||{};
+   const taskEl=$('task-'+id);
+   if(taskEl)taskEl.classList.toggle('is-done',!!entry.done);
+   const stat=$('task-status-'+id);if(stat)stat.textContent=entry.done?'VALIDADA':'PENDIENTE';
+   const attempts=$('attempt-'+id);if(attempts)attempts.textContent='Intentos: '+(entry.attempts||0);
+   const fb=$('feedback-'+id);if(fb&&entry.feedback){fb.className='n10-task-feedback '+(entry.done?'good':'bad');fb.innerHTML=escapeHTML(entry.feedback);}
+  });
+  for(let phase=0;phase<4;phase++){
+   const count=BANK[key].slice(phase*5,phase*5+5).filter((t,i)=>state.submissions[taskId(key,phase*5+i)]?.done).length;
+   const el=$('phase-count-'+key+'-'+phase);if(el)el.textContent=count+' / 5';
+  }
+ });
+ $('dashFlow').textContent=state.flowPassed?'Validado':'Pendiente';
+ $('flowGate').textContent=n===80?'Las cuatro misiones están completas. Ordena las 15 etapas y valida tu diagrama.':'Completa las 80 submisiones para habilitar la revisión del diagrama integrador. Avance actual: '+n+'/80.';
+ $('checkFlow').disabled=n!==80;
+ $('checkFlow').style.opacity=n===80?'1':'.5';
+ $('exportEvidence').disabled=!state.student.trim();
+}
+function validateTask(id){
+ let key=Object.keys(BANK).find(k=>BANK[k].some((t,i)=>taskId(k,i)===id));
+ if(!key)return;
+ const index=BANK[key].findIndex((t,i)=>taskId(key,i)===id);
+ const task=BANK[key][index],el=document.querySelector('[data-answer="'+id+'"]');
+ const value=el?el.value.trim():'';
+ const old=state.submissions[id]||{done:false,attempts:0};
+ old.response=value;old.attempts=(old.attempts||0)+1;
+ state.attempts[id]=old.attempts;
+ let ok=false,feedback='';
+ if(task.type==='choice'){
+  ok=value!==''&&Number(value)===task.correct;
+  feedback=ok?'Respuesta correcta. '+task.explain:'Revisa la selección. '+task.hint;
+ }else if(task.type==='number'){
+  ok=value!==''&&Number.isFinite(Number(value))&&Math.abs(Number(value)-task.answer)<=task.tolerance;
+  feedback=ok?'Resultado correcto. '+task.explain:'El resultado todavía no coincide. '+(task.hint||'Revisa los datos y el procedimiento.')+' Resultado esperado: '+task.answer+(task.unit?' '+task.unit:'')+'. '+task.explain;
+ }else{
+  const text=normalize(value),missing=(task.groups||[]).filter(group=>!group.some(term=>text.includes(normalize(term))));
+  const words=value.trim()?value.trim().split(/\s+/).length:0;
+  ok=words>=task.minWords&&missing.length===0;
+  feedback=ok?'Respuesta validada por los conceptos requeridos. '+task.explain:'A tu respuesta le faltan algunos elementos. '+(words<task.minWords?'Desarrolla un poco más la idea (mínimo '+task.minWords+' palabras). ':'')+(missing.length?'Revisa estos conceptos: '+missing.map(g=>g[0]).join(', ')+'. ':'')+'Modelo orientativo: '+task.model;
+ }
+ if(ok&&!old.done){state.xp=(state.xp||0)+5;}
+ old.done=old.done||ok;old.feedback=feedback;state.submissions[id]=old;
+ save();
+ const taskEl=$('task-'+id),fb=$('feedback-'+id);
+ if(taskEl)taskEl.classList.toggle('is-done',old.done);
+ if(fb){fb.className='n10-task-feedback '+(ok?'good':'bad');fb.textContent=feedback;}
+ renderProgress();
+}
+function buildFlow(){
+ const flow=[
+ 'Llegada del proveedor a las instalaciones.',
+ 'Identificar proveedor, transporte y documentación de entrega.',
+ 'Comparar remisión o aviso de embarque contra la orden de compra.',
+ 'Descargar con seguridad y contar en la unidad de medida correcta.',
+ 'Registrar fecha, OC, proveedor, cantidades, lote y diferencias.',
+ 'Inspeccionar condición y características del material.',
+ 'Determinar si el material cumple los criterios de aceptación.',
+ 'Liberar lo conforme y segregar lo pendiente o no conforme.',
+ 'Documentar la no conformidad y notificar a las áreas y al proveedor.',
+ 'Definir y verificar la disposición: reposición, devolución, reparación autorizada o crédito.',
+ 'Recibir y validar la factura y el CFDI cuando corresponda.',
+ 'Conciliar orden de compra, recepción/inspección y factura por partida.',
+ 'Investigar y regularizar las diferencias antes de autorizar.',
+ 'Autorizar y programar el pago conforme a política y vencimiento.',
+ 'Ejecutar el pago, conservar comprobante e integrar el archivo histórico.'
+ ];
+ const optionOrder=[5,1,8,3,10,14,2,6,12,4,9,0,7,11,13];
+ $('flowGrid').innerHTML=flow.map((label,i)=>{
+  const options=optionOrder.map(idx=>'<option value="'+idx+'">'+escapeHTML(flow[idx])+'</option>').join('');
+  return '<label class="n10-flow-row"><span>'+String(i+1).padStart(2,'0')+'</span><select data-flow="'+i+'"><option value="">Selecciona la etapa que corresponde...</option>'+options+'</select></label>';
+ }).join('');
+ state.flow=state.flow||[];
+ document.querySelectorAll('[data-flow]').forEach((sel,i)=>{if(state.flow[i]!==undefined)sel.value=state.flow[i];});
+ document.querySelectorAll('[data-evidence]').forEach(el=>{el.checked=!!state.evidence[el.dataset.evidence];});
+}
+function checkFlow(){
+ if(totalDone()!==80){$('flowFeedback').className='n10-flow-feedback bad';$('flowFeedback').textContent='Primero completa las 80 submisiones de las cuatro misiones.';return;}
+ const vals=[...document.querySelectorAll('[data-flow]')].map(el=>el.value);
+ state.flow=vals;save();
+ const correct=vals.filter((v,i)=>v!==''&&Number(v)===i).length;
+ $('flowCounter').textContent=correct+' / 15 posiciones correctas';
+ const all=correct===15;
+ state.flowPassed=all;save();
+ $('flowFeedback').className='n10-flow-feedback '+(all?'good':'bad');
+ $('flowFeedback').textContent=all?'Diagrama validado. La secuencia recorre recepción, inspección, no conformidad, conciliación, pago y archivo. Tu evidencia está lista para descargarse.':'Hay '+(15-correct)+' posiciones por corregir. Revisa el orden lógico: primero recepción y conteo, después inspección; luego factura y conciliación; finalmente pago y archivo.';
+ renderProgress();
+}
+function updateEvidence(){
+ state.evidence={};
+ document.querySelectorAll('[data-evidence]').forEach(el=>{state.evidence[el.dataset.evidence]=el.checked;});
+ save();
+}
+function downloadEvidence(){
+ if(!state.student.trim()){alert('Registra tu nombre antes de descargar la evidencia.');$('studentName').focus();return;}
+ const report={
+  sistema:'NEXUS PROCUREMENT LEARNING SYSTEM',
+  sesion:'10 · Recepción y cierre de compras',
+  unidad:'Unidad 3 · Temas 3.13 a 3.16',
+  estudiante:state.student,
+  grupo:state.group,
+  fechaDescarga:new Date().toISOString(),
+  actualizado:state.updated,
+  progreso:{submisionesValidadas:totalDone(),submisionesTotales:80,misionesCompletas:completedMissions(),experienciaXP:state.xp||0,flujoIntegradorValidado:!!state.flowPassed,tiempoSegundos:state.elapsedSeconds||0},
+  casoNEXUS:{ordenCompra:'NEXUS-01',cantidadOrdenada:400,entregaDia5:240,entregaDia8:160,recibidoFisico:400,aceptado:390,noConforme:10,porcentajeAceptacion:97.5,porcentajeRechazo:2.5},
+  respuestas:state.submissions,
+  secuenciaDiagrama:state.flow,
+  checklist:state.evidence
+ };
+ const blob=new Blob([JSON.stringify(report,null,2)],{type:'application/json'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download='NEXUS_S10_Evidencia_'+(state.student||'Estudiante').trim().replace(/[^a-z0-9]+/gi,'_')+'.json';
+ document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+function setTimerLabel(){
+ const sec=state.elapsedSeconds||0,mm=String(Math.floor(sec/60)).padStart(2,'0'),ss=String(sec%60).padStart(2,'0');
+ $('sprintClock').textContent=mm+':'+ss;
+}
+function startTimer(){if(timer)return;timer=setInterval(()=>{state.elapsedSeconds=(state.elapsedSeconds||0)+1;setTimerLabel();if(state.elapsedSeconds%10===0)save();},1000);}
+function pauseTimer(){if(timer){clearInterval(timer);timer=null;save();}}
+function resetTimer(){pauseTimer();state.elapsedSeconds=0;setTimerLabel();save();}
+function resetProgress(){
+ if(!confirm('¿Seguro que deseas borrar el avance guardado en este navegador? Esta acción no se puede deshacer.'))return;
+ pauseTimer();state=emptyState();save();location.reload();
+}
+function initSearch(){
+ $('missionSearch').addEventListener('input',e=>{
+  const q=normalize(e.target.value);
+  document.querySelectorAll('.n10-mission').forEach(m=>{m.classList.toggle('n10-hidden',q!==''&&!normalize(m.textContent).includes(q));});
+ });
+}
+buildMissions();
+buildFlow();
+$('studentName').value=state.student||'';
+$('studentGroup').value=state.group||'';
+$('studentName').addEventListener('input',e=>{state.student=e.target.value;save();renderProgress();});
+$('studentGroup').addEventListener('input',e=>{state.group=e.target.value;save();renderProgress();});
+document.addEventListener('click',e=>{
+ const btn=e.target.closest('[data-check-task]');
+ if(btn){validateTask(btn.dataset.checkTask);}
+});
+document.addEventListener('change',e=>{
+ if(e.target.matches('[data-answer]')){
+  const id=e.target.dataset.answer;const old=state.submissions[id]||{done:false,attempts:0};
+  old.response=e.target.value;state.submissions[id]=old;save();
+ }
+ if(e.target.matches('[data-flow]')){
+  state.flow=[...document.querySelectorAll('[data-flow]')].map(x=>x.value);save();
+ }
+ if(e.target.matches('[data-evidence]'))updateEvidence();
+});
+$('checkFlow').addEventListener('click',checkFlow);
+$('resetFlow').addEventListener('click',()=>{document.querySelectorAll('[data-flow]').forEach(x=>x.value='');state.flow=[];state.flowPassed=false;save();$('flowCounter').textContent='0 / 15 posiciones correctas';$('flowFeedback').className='n10-flow-feedback';$('flowFeedback').textContent='';renderProgress();});
+$('exportEvidence').addEventListener('click',downloadEvidence);
+$('printEvidence').addEventListener('click',()=>window.print());
+$('resetProgress').addEventListener('click',resetProgress);
+$('sprintStart').addEventListener('click',startTimer);
+$('sprintPause').addEventListener('click',pauseTimer);
+$('sprintReset').addEventListener('click',resetTimer);
+initSearch();setTimerLabel();renderProgress();
+})();
+</script>
+</body>
+</html>
